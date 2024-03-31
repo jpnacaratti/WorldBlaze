@@ -1,2 +1,4 @@
 # WorldBlaze
 A minecraft 1.8.9 server plugin that imitates online casino games
+
+![](https://d8b7jwmk4kgn9.cloudfront.net/k4342w%2Fpreview%2F56923059%2Fmain_large.gif?response-content-disposition=inline%3Bfilename%3D%22main_large.gif%22%3B&response-content-type=image%2Fgif&Expires=1711861312&Signature=A7SWqrEtaFoOftvA8qNNFlFJJsbSGUiWPDmwceIjDKEOUQiE-fORSLqcW3FA-Dcfbvpli3KCWlFiTeLqxB34Ebhxts2Owi8mQ5FnWSCVZZr76JRwknoaJ7NGWHxcl9FxRHCuj3GzCiZ4EIWLc-JgYYbPzUARaapSfIDBJRoY0W2AKDk7liucgkw8iL7DRG6l7YW7IFCro91Wqw8ynvVPPLB07f0-I8890xxhTXjTKgJK20CVNw1gZxop~N9VWN1OcjjPT74DxVAFRJ~wEgbVWRR0Etsdp~dueD3oQgaVV7KzoSO~iqc7CSYGt2ugmWYIBGxsPASOdPjih0-KaPb7KQ__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ)
