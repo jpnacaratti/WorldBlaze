@@ -2,6 +2,13 @@
 .idea
 out
 
+# Gradle
+.gradle/
+build/
+
+# Maven leftover
+target/
+
 # Compiled class file
 *.class
 
@@ -16,6 +23,7 @@ out
 
 # Package Files #
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 *.war
 *.nar
 *.ear
