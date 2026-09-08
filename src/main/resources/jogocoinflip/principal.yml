@@ -1,0 +1,45 @@
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM coinflip
+
+Titulo: 'WorldBlaze - Coinflip'
+
+Linhas: 3
+
+Itens:
+
+  criarjogo:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&eCriar jogo'
+    Lore-naoparticipando:
+      - '&7Clique para começar um jogo'
+      - '&7e apostar coinflip com seus amigos'
+    Lore-participando:
+      - ''
+      - '&7Você já está na fila de espera'
+      - '&7para jogar coinflip.'
+      - ''
+      - '&7Clique caso deseje sair da fila'
+      - ''
+    Slot: 12
+
+  jogos:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/146947e2cffd38047de703fd9878acfc9942eb712edc8f257b129cc10fad0667'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&eJogos'
+    Lore:
+      - '&7Partidas ocorrendo: &b{ocorrendo}'
+      - '&7Partidas em espera: &b{espera}'
+      - ''
+      - '&7Partidas para você: &b{especifico}'
+      - ''
+      - '&7Clique para ver mais detalhes e'
+      - '&7entrar em algum jogo existente.'
+    Slot: 14
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

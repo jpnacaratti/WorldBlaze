@@ -1,0 +1,29 @@
+name: WorldBlaze
+version: ${version}
+main: com.worldplugins.worldblaze.WorldBlaze
+commands:
+  verx1coinflip:
+  coinflip:
+    aliases:
+      - cf
+      - cflip
+      - coinf
+  jogodobicho:
+    aliases:
+      - bicho
+      - jogobicho
+      - jbicho
+      - bichos
+  graph:
+  crash:
+  double:
+  mine:
+    aliases: mines
+  apostas:
+    aliases:
+      - apostar
+      - aposta
+      - blaze
+      - worldblaze
+      - jogosdeazar
+      - jogos

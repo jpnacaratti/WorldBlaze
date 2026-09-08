@@ -1,0 +1,273 @@
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar
+
+Titulo: 'WorldBlaze - Jogos de aposta'
+
+Linhas: 4
+
+Itens:
+
+  graph:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/f21fd6ec1bae0b54fda8522eac54993ba400e314808cef0887d24b92c15c919f'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&bGraph'
+    Lore:
+      - '&7Nome: &dGraph'
+      - '&7Apostas disponíveis: &dDinheiro e CASH'
+      - '&7Retorno: &d83%'
+      - '&7Tipo de jogo: &dPúblico'
+      - '&7Lançamento no servidor: &d20/09/2022'
+      - ''
+      - '&7Clique com botão direito para ver'
+      - '&7um tutorial desse jogo ou clique'
+      - '&7o botão esquerdo para jogar'
+    Help: '&7Tutorial -> &dhttps://www.youtube.com/watch?v=pRfmrE0ToTo'
+    Slot: 10
+
+  crash:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/beb588b21a6f98ad1ff4e085c552dcb050efc9cab427f46048f18fc803475f7'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&bCrash'
+    Lore:
+      - '&7Nome: &aCrash'
+      - '&7Apostas disponíveis: &aDinheiro e CASH'
+      - '&7Retorno: &aValor na hora da retirada'
+      - '&7Tipo de jogo: &aPúblico'
+      - '&7Lançamento no servidor: &a20/09/2022'
+      - ''
+      - '&7Clique com botão direito para ver'
+      - '&7um tutorial desse jogo ou clique'
+      - '&7o botão esquerdo para jogar'
+    Help: '&7Tutorial -> &ahttps://www.youtube.com/watch?v=WcTRQXtXJPs'
+    Slot: 12
+
+  double:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/33bbac230ba0bd526f83c5100fcfd5cd08dab35a9844416e6d4127fa54618926'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&bDouble'
+    Lore:
+      - '&7Nome: &bDouble'
+      - '&7Apostas disponíveis: &bDinheiro e CASH'
+      - '&7Retorno: &b2x ou 14x'
+      - '&7Tipo de jogo: &bPúblico'
+      - '&7Lançamento no servidor: &b20/09/2022'
+      - ''
+      - '&7Clique com botão direito para ver'
+      - '&7um tutorial desse jogo ou clique'
+      - '&7o botão esquerdo para jogar'
+    Help: '&7Tutorial -> &bhttps://www.youtube.com/watch?v=9qIfFvOD2Mc'
+    Slot: 13
+
+  mine:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&bMine'
+    Lore:
+      - '&7Nome: &cMine'
+      - '&7Apostas disponíveis: &cDinheiro e CASH'
+      - '&7Retorno: &cMultiplicador dos slots'
+      - '&7Tipo de jogo: &cIndividual'
+      - '&7Lançamento no servidor: &c20/09/2022'
+      - ''
+      - '&7Clique com botão direito para ver'
+      - '&7um tutorial desse jogo ou clique'
+      - '&7o botão esquerdo para jogar'
+    Help: '&7Tutorial -> &chttps://www.youtube.com/watch?v=gQlMMD8auMs'
+    Slot: 14
+
+  jogo-do-bicho:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/f8222e684248aa8c5c23052592fbe4a57ba8b063aa4044f16bf0edc25b74130f'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&bJogo do bicho'
+    Lore:
+      - '&7Nome: &eJogo do bicho'
+      - '&7Apostas disponíveis: &eDinheiro e CASH'
+      - '&7Retorno: &eVariado conforme escolha apostar'
+      - '&7Tipo de jogo: &ePúblico'
+      - '&7Lançamento no servidor: &e20/09/2022'
+      - ''
+      - '&7Clique com botão direito para ver'
+      - '&7um tutorial desse jogo ou clique'
+      - '&7o botão esquerdo para jogar'
+    Help: '&7Tutorial -> &ehttps://www.youtube.com/watch?v=N7EKS2aW_oc'
+    Slot: 16
+
+  coinflip:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&bCoinflip'
+    Lore:
+      - '&7Nome: &cMine'
+      - '&7Apostas disponíveis: &cDinheiro e CASH'
+      - '&7Retorno: &c2x'
+      - '&7Tipo de jogo: &cDuplas'
+      - '&7Lançamento no servidor: &c20/09/2022'
+      - ''
+      - '&7Clique com botão direito para ver'
+      - '&7um tutorial desse jogo ou clique'
+      - '&7o botão esquerdo para jogar'
+    Help: '&7Tutorial -> &chttps://www.youtube.com/watch?v=qMEsx__88Gk&list=RDMM&index=3'
+    Slot: 22
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: '' # Deixe '' para usar nome padrão
+    Slot: 0
+
+  glass2:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 1
+
+  glass3:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 3
+
+  glass4:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 4
+
+  glass5:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 5
+
+  glass6:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 7
+
+  glass7:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 8
+
+  glass8:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 9
+
+  glass9:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 17
+
+  glass10:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 18
+
+  glass11:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 26
+
+  glass12:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 27
+
+  glass13:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 28
+
+  glass14:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 31
+
+  glass15:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 34
+
+  glass16:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 35

@@ -1,0 +1,43 @@
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM jogo do bicho
+
+Titulo: 'WorldBlaze - Jogo do bicho'
+
+Linhas: 3
+
+Itens:
+
+  bichos:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/d6df378bee6980a784593a1ae989280a6e9621a919172da49d31815f3c49286e'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&cJogar'
+    Lore:
+      - '&7Clique para escolher um bicho'
+      - '&7e apostar'
+      - ''
+      - '&7Os resultados de cada jogo'
+      - '&7saem todo dia às 14:00'
+    Slot: 12
+
+  apostadores:
+    Usar-head-ultimo-player: true # caso true, o ícone vai ser a cabeça do último jogador que apostou
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&eApostadores'
+    Lore:
+      - '&7Jogadores apostando: &b{jogadores}'
+      - '&7Ultimo jogador que apostou: &b{last_player}'
+      - ''
+      - '&7Total money apostado: &a{total_money}'
+      - '&7Total cash apostado: &6{total_cash}'
+      - ''
+      - '&7Clique para ver mais detalhes e'
+      - '&7todos os jogadores que apostaram.'
+    Slot: 14
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

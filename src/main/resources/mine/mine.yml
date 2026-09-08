@@ -1,0 +1,60 @@
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO mine E DEPOIS EM criar E POR FIM CONFIRMAR
+
+Titulo: 'WorldBlaze - Mine' # Configure o número de linhas na config.yml
+
+oculto: # Slot ainda não minerado
+  Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+  Textura: ''
+  Id: 'WOOL'
+  Data: 5
+  Glow: false
+  Nome: '&5&kessej'
+  Lore:
+    - '&7Clique para minerar nesse SLOT'
+
+revelado: # Slot minerado com sucesso
+  Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+  Textura: ''
+  Id: 'DIAMOND'
+  Data: 0
+  Glow: false
+  Nome: '&bSeguro'
+  Lore:
+    - '&7Slot minerado (uffa)'
+
+bomba: # Explodiu, perdeu o mine
+  Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+  Textura: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
+  Id: ''
+  Data: 0
+  Glow: false
+  Nome: '&cBOOOOOOM...'
+  Lore:
+    - '&7Nãoooooo, tava torcendo tanto'
+    - '&7por você...'
+    - ''
+    - '&7Mais sorte na próxima.'
+
+Itens:
+
+  sair:
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: 'BARRIER'
+    Data: 0
+    Glow: false
+    Nome: '&cSair'
+    Lore:
+      - '&7Slots revelados: &f{slots}'
+      - ''
+      - '&7Multiplicador atual: &b{multiplicador}'
+      - ''
+      - '&7Espectadores:'
+      - '&7- &f{espectadores}'
+      - ''
+      - '&7 * Caso já esteja satisfeito'
+      - '&7clique para &lSAIR'
+    Formatacao-multiplicador: 4 # Vai exibir ate as 4 casas decimais do multiplicador
+    Slot: 49
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

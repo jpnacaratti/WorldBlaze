@@ -1,0 +1,31 @@
+package com.worldplugins.worldblaze.listeners;
+
+import com.worldplugins.worldblaze.guis.*;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+
+import static com.worldplugins.worldblaze.WorldBlaze.*;
+
+public class InventoryClickMineMain implements Listener {
+
+    @EventHandler
+    public void onClick(InventoryClickEvent e) {
+
+        if (!e.getInventory().getName().equalsIgnoreCase(getMineManager().getMenuTitle())) return;
+        e.setCancelled(true);
+
+        if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
+
+        FileConfiguration getConfig = getPrincipalMineGuiYml().getConfig();
+
+        Player p = (Player) e.getWhoClicked();
+
+        if (e.getSlot() == getConfig.getInt("Itens.create.Slot")) MineCreateGui.create(p);
+
+        if (e.getSlot() == getConfig.getInt("Itens.jogadores.Slot")) MinePlayersGui.create(p);
+
+    }
+}

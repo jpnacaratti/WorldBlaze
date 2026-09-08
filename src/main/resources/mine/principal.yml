@@ -1,0 +1,131 @@
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO mine
+
+Titulo: 'WorldBlaze - Jogo Mine'
+
+Linhas: 3
+
+Itens:
+
+  create:
+    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&aCriar jogo'
+    Lore:
+      - ''
+      - '&bClique para iniciar um novo jogo'
+      - ''
+    Slot: 12
+
+  jogadores:
+    Usar-head-ultimo-player: true # caso true, o ícone vai ser a cabeça do último jogador que iniciou
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&eApostadores'
+    Lore:
+      - '&7Jogos acontecendo: &b{jogos}'
+      - '&7Ultimo jogador que iniciou: &b{last_player}'
+      - ''
+      - '&7Total money apostado: &a{total_money}'
+      - '&7Total cash apostado: &6{total_cash}'
+      - ''
+      - '&7Clique para ver mais detalhes e'
+      - '&7todos os jogadores jogando.'
+    Slot: 14
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: '' # Deixe '' para usar nome padrão
+    Slot: 0
+
+  glass2:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 1
+
+  glass3:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 7
+
+  glass4:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 8
+
+  glass5:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 9
+
+  glass6:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 17
+
+  glass7:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 18
+
+  glass8:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 19
+
+  glass9:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 25
+
+  glass10:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 14
+    Glow: false
+    Nome: ''
+    Slot: 26

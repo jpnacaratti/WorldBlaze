@@ -1,0 +1,164 @@
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO jogo do bicho E EM apostar E DEPOIS no bicho
+
+Titulo: 'Jogo do Bicho - Apostar'
+
+Linhas: 3
+
+Itens:
+
+  money:
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: 'EMERALD'
+    Data: 0
+    Glow: false
+    Nome: '&aMoney'
+    Lore:
+      - '&7Quantia que vai ser apostada: &a{money}'
+      - ''
+      - '&7* Clique para alterar'
+    Slot: 11
+
+  cash:
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: 'GOLD_INGOT'
+    Data: 0
+    Glow: false
+    Nome: '&6Cash'
+    Lore:
+      - '&7Quantia que vai ser apostada: &6{cash}'
+      - ''
+      - '&7* Clique para alterar'
+    Slot: 12
+
+  apostar:
+    Usar-head-bicho: true # caso true, ignora 'Id' e 'Data' abaixo
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&6Apostar'
+    Lore:
+      - '&7Animal: &b{animal}'
+      - ''
+      - '&7Quantia que vai ser apostada: &a{money}'
+      - '&7Quantia que vai ser apostada: &6{cash}'
+      - ''
+      - '&7Clique para apostar nesse animal'
+    Slot: 14
+
+  apostadores:
+    Usar-head-ultimo-player: true # caso true, usa a cabeça do último jogador como item
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: ''
+    Data: 0
+    Glow: false
+    Nome: '&eApostadores'
+    Lore:
+      - '&7Jogadores que apostaram nesse bicho: &b{jogadores}'
+      - '&7Ultimo jogador que apostou: &b{last_player}'
+      - ''
+      - '&7Total money apostado: &a{total_money}'
+      - '&7Total cash apostado: &6{total_cash}'
+      - ''
+      - '&7Clique para ver mais detalhes e'
+      - '&7todos os jogadores que apostaram'
+      - '&7neste animal.'
+    Slot: 15
+
+  voltar:
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: 'REDSTONE'
+    Data: 0
+    Glow: false
+    Nome: '&cVoltar'
+    Lore:
+      - '&7Clique para voltar ao menu anterior'
+    Slot: 26
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: '' # Deixe '' para usar nome padrão
+    Slot: 0
+
+  glass2:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: ''
+    Slot: 1
+
+  glass3:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: ''
+    Slot: 7
+
+  glass4:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: ''
+    Slot: 8
+
+  glass5:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: ''
+    Slot: 9
+
+  glass6:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: ''
+    Slot: 17
+
+  glass7:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: ''
+    Slot: 18
+
+  glass8:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: ''
+    Slot: 19
+
+  glass9:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 4
+    Glow: false
+    Nome: ''
+    Slot: 25

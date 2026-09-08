@@ -1,0 +1,267 @@
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO mine E DEPOIS EM criar E POR FIM CONFIRMAR
+
+Titulo: 'WorldBlaze - CoinFlip'
+
+Linhas: 3
+
+Slot-moeda: 13
+
+iniciando:
+  Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+  Textura: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+  Id: ''
+  Data: 0
+  Glow: false
+  Nome: '&eIniciando...'
+  Lore:
+    - ''
+    - '&7Vai começar em: {tempo}s'
+    - ''
+    - '&7Quantia apostada (money): &a{money}'
+    - '&7Quantia apostada (cash): &6{cash}'
+    - ''
+    - '&f{jogadorDono} &7- &e{escolhaDono}'
+    - '&f{jogadorOponente} &7- &e{escolhaOponente}'
+
+finalizado:
+  Nome: '&cFINALIZADO'
+  Lore:
+    - ''
+    - '&7Finalizado'
+    - '&7Lado escolhido: &b{escolhaFinal}'
+    - ''
+    - '&7Jogador vencedor: &e{winner}'
+    - ''
+    - '&7Quantia ganha (money): &a{money}'
+    - '&7Quantia ganha (cash): &6{cash}'
+
+cara:
+  Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+  Textura: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+  Id: ''
+  Data: 0
+  Glow: false
+  Nome: '&eCARA'
+  Lore:
+    - ''
+    - '&bEscolha: &bCARA'
+    - ''
+    - '&7Quantia apostada (money): &a{money}'
+    - '&7Quantia apostada (cash): &6{cash}'
+    - ''
+    - '{cor}-> &f{jogadorDono} &7- &e{escolhaDono}'
+    - '{cor}-> &f{jogadorOponente} &7- &e{escolhaOponente}'
+
+coroa:
+  Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
+  Textura: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+  Id: ''
+  Data: 0
+  Glow: false
+  Nome: '&eCOROA'
+  Lore:
+    - ''
+    - '&bEscolha: &bCOROA'
+    - ''
+    - '&7Quantia apostada (money): &a{money}'
+    - '&7Quantia apostada (cash): &6{cash}'
+    - ''
+    - '{cor}-> &f{jogadorDono} &7- &e{escolhaDono}'
+    - '{cor}-> &f{jogadorOponente} &7- &e{escolhaOponente}'
+
+Cor-escolha: "&b"
+Cor-naoescolha: "&f"
+
+Itens:
+
+  dono:
+    Usar-head-player: true # Usa a cabeça do jogador como item
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: 'BARRIER'
+    Data: 0
+    Glow: false
+    Nome: '&e{nick}'
+    Lore:
+      - ''
+      - '&7Apostou no: &b{escolhaDono}'
+      - ''
+    Slot: 9
+
+  oponente:
+    Usar-head-player: true # Usa a cabeça do jogador como item
+    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
+    Textura: ''
+    Id: 'BARRIER'
+    Data: 0
+    Glow: false
+    Nome: '&e{nick}'
+    Lore:
+      - ''
+      - '&7Apostou no: &b{escolhaOponente}'
+      - ''
+    Slot: 17
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: '' # Deixe '' para usar nome padrão
+    Slot: 0
+
+  glass2:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 1
+
+  glass3:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 2
+
+  glass4:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 3
+
+  glass5:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 4
+
+  glass6:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 5
+
+  glass7:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 6
+
+  glass8:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 7
+
+  glass9:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 8
+
+  glass10:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 18
+
+  glass11:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 19
+
+  glass12:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 20
+
+  glass13:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 21
+
+  glass14:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 22
+
+  glass15:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 23
+
+  glass16:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 24
+
+  glass17:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 25
+
+  glass18:
+    Usar-head: false
+    Textura: ''
+    Id: 'STAINED_GLASS_PANE'
+    Data: 11
+    Glow: false
+    Nome: ''
+    Slot: 26
