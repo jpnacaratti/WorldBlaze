@@ -65,42 +65,42 @@ public class InventoryClickDouble implements Listener {
             }
 
             if(getInstance().isLocked()){
-                p.sendMessage(getMessages().JOGOS_LOCKED);
+                p.sendMessage(getMessages().GAMES_UNAVAILABLE);
                 return;
             }
 
             if(!getDoubleManager().isStarting()){
-                p.sendMessage(getMessages().RODADA_TERMINANDO);
+                p.sendMessage(getMessages().ROUND_ENDING);
                 return;
             }
 
             if(getDoubleManager().isStopped()){
-                p.sendMessage(getMessages().RODADA_TERMINANDO);
+                p.sendMessage(getMessages().ROUND_ENDING);
                 return;
             }
 
             if(getDoubleManager().isPlayerParticipating(p.getName(), chose)){
-                p.sendMessage(getMessages().JA_APOSTOU_COR);
+                p.sendMessage(getMessages().ALREADY_BET_ON_COLOR);
                 return;
             }
 
             if(user.getDoubleMoneyValue() < getInstance().getConfig().getDouble("Config.Double.Min-money-aposta")){
-                p.sendMessage(getMessages().MINIMO_MONEY);
+                p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
             if(user.getDoubleCashValue() < getInstance().getConfig().getDouble("Config.Double.Min-cash-aposta")){
-                p.sendMessage(getMessages().MINIMO_CASH);
+                p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
             if(user.getDoubleMoneyValue() > getInstance().getConfig().getDouble("Config.Double.Max-money-aposta")){
-                p.sendMessage(getMessages().MAXIMO_MONEY);
+                p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
             if(user.getDoubleCashValue() > getInstance().getConfig().getDouble("Config.Double.Max-cash-aposta")){
-                p.sendMessage(getMessages().MAXIMO_CASH);
+                p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
 

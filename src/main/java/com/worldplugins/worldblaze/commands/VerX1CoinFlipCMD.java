@@ -19,7 +19,7 @@ public class VerX1CoinFlipCMD implements CommandExecutor {
         Player p = (Player) sender;
 
         if(!p.hasPermission("worldblaze.coinflip")){
-            p.sendMessage(getMessages().SEM_PERMISSAO);
+            p.sendMessage(getMessages().NO_PERMISSION);
             return true;
         }
 

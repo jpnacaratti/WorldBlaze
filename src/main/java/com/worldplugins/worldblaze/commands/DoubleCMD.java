@@ -20,7 +20,7 @@ public class DoubleCMD implements CommandExecutor {
         Player p = (Player) sender;
 
         if(!p.hasPermission("worldblaze.double")){
-            p.sendMessage(getMessages().SEM_PERMISSAO);
+            p.sendMessage(getMessages().NO_PERMISSION);
             return true;
         }
 

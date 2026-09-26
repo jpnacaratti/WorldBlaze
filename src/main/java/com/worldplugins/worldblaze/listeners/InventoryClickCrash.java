@@ -59,19 +59,19 @@ public class InventoryClickCrash implements Listener {
             if(getCrashManager().getCrashBets().containsKey(p.getName())){
 
                 if(getCrashManager().isStarting()){
-                    p.sendMessage(getMessages().CRASH_JA_PARTICIPANDO);
+                    p.sendMessage(getMessages().ALREADY_IN_CRASH);
                     return;
                 }
 
                 if(getCrashManager().isCrashed()){
-                    p.sendMessage(getMessages().CRASH_JA_ACABADO);
+                    p.sendMessage(getMessages().CRASH_RECENTLY_ENDED);
                     return;
                 }
 
                 CrashBet crashBet = getCrashManager().getCrashBets().get(p.getName());
 
                 if(crashBet.isLeft()){
-                    p.sendMessage(getMessages().JA_SAIU);
+                    p.sendMessage(getMessages().ALREADY_EXITED);
                     return;
                 }
 
@@ -109,37 +109,37 @@ public class InventoryClickCrash implements Listener {
             }
 
             if(getInstance().isLocked()){
-                p.sendMessage(getMessages().JOGOS_LOCKED);
+                p.sendMessage(getMessages().GAMES_UNAVAILABLE);
                 return;
             }
 
             if(!getCrashManager().isStarting()){
-                p.sendMessage(getMessages().CRASH_INICIADO);
+                p.sendMessage(getMessages().CRASH_STARTED);
                 return;
             }
 
             if(getCrashManager().isCrashed()){
-                p.sendMessage(getMessages().CRASH_ACABADO);
+                p.sendMessage(getMessages().CRASH_ENDED);
                 return;
             }
 
             if(user.getCrashMoneyValue() < getInstance().getConfig().getDouble("Config.Crash.Min-money-aposta")){
-                p.sendMessage(getMessages().MINIMO_MONEY);
+                p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
             if(user.getCrashCashValue() < getInstance().getConfig().getDouble("Config.Crash.Min-cash-aposta")){
-                p.sendMessage(getMessages().MINIMO_CASH);
+                p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
             if(user.getCrashMoneyValue() > getInstance().getConfig().getDouble("Config.Crash.Max-money-aposta")){
-                p.sendMessage(getMessages().MAXIMO_MONEY);
+                p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
             if(user.getCrashCashValue() > getInstance().getConfig().getDouble("Config.Crash.Max-cash-aposta")){
-                p.sendMessage(getMessages().MAXIMO_CASH);
+                p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
 

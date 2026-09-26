@@ -79,32 +79,32 @@ public class InventoryClickJogoDoBichoBet implements Listener {
             }
 
             if(getInstance().isLocked()){
-                p.sendMessage(getMessages().JOGOS_LOCKED);
+                p.sendMessage(getMessages().GAMES_UNAVAILABLE);
                 return;
             }
 
             if(getJogoDoBichoManager().isPlayerBet(p.getName(), bicho)){
-                p.sendMessage(getMessages().JA_APOSTOU_ANIMAL);
+                p.sendMessage(getMessages().ALREADY_BET_ON_ANIMAL);
                 return;
             }
 
             if(user.getJogoDoBichoMoneyValue() < getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Min-money-aposta")){
-                p.sendMessage(getMessages().MINIMO_MONEY);
+                p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
             if(user.getJogoDoBichoCashValue() < getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Min-cash-aposta")){
-                p.sendMessage(getMessages().MINIMO_CASH);
+                p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
             if(user.getJogoDoBichoMoneyValue() > getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Max-money-aposta")){
-                p.sendMessage(getMessages().MAXIMO_MONEY);
+                p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
             if(user.getJogoDoBichoCashValue() > getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Max-cash-aposta")){
-                p.sendMessage(getMessages().MAXIMO_CASH);
+                p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
 

@@ -51,33 +51,33 @@ public class MainCMD implements CommandExecutor {
 
             if(args[0].equalsIgnoreCase("lock")){
                 if(!sender.hasPermission("worldblaze.admin")){
-                    sender.sendMessage(getMessages().SEM_PERMISSAO);
+                    sender.sendMessage(getMessages().NO_PERMISSION);
                     return true;
                 }
 
                 if(getInstance().isLocked()){
-                    sender.sendMessage(getMessages().JOGOS_JA_LOCK);
+                    sender.sendMessage(getMessages().GAMES_ALREADY_LOCKED);
                     return true;
                 }
 
                 getInstance().setLocked(true);
 
-                sender.sendMessage(getMessages().JOGOS_LOCK);
+                sender.sendMessage(getMessages().GAMES_LOCKED);
                 return true;
             }
 
             if(args[0].equalsIgnoreCase("unlock")){
                 if(!sender.hasPermission("worldblaze.admin")){
-                    sender.sendMessage(getMessages().SEM_PERMISSAO);
+                    sender.sendMessage(getMessages().NO_PERMISSION);
                     return true;
                 }
 
                 if(!getInstance().isLocked()){
-                    sender.sendMessage(getMessages().JOGOS_JA_UNLOCK);
+                    sender.sendMessage(getMessages().GAMES_ALREADY_UNLOCKED);
                     return true;
                 }
 
-                sender.sendMessage(getMessages().JOGOS_UNLOCK);
+                sender.sendMessage(getMessages().GAMES_UNLOCKED);
 
                 Bukkit.getScheduler().runTaskLater(getInstance(), ()->{
                     getInstance().setLocked(false);
@@ -89,14 +89,14 @@ public class MainCMD implements CommandExecutor {
             if(args[0].equalsIgnoreCase("reload")){
 
                 if(!sender.hasPermission("worldblaze.admin")){
-                    sender.sendMessage(getMessages().SEM_PERMISSAO);
+                    sender.sendMessage(getMessages().NO_PERMISSION);
                     return true;
                 }
 
                 getInstance().getReloadingMessages().add(sender.getName());
 
                 if(getInstance().isReloading()){
-                    sender.sendMessage(getMessages().JA_RELOADING);
+                    sender.sendMessage(getMessages().ALREADY_RELOADING);
                     return true;
                 }
 

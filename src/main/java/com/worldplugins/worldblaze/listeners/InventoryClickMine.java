@@ -38,7 +38,7 @@ public class InventoryClickMine implements Listener {
         if(e.getSlot() == getMineManager().getLeftSlot()){
 
             if(mineBet.getClickedSlots().size() < getMineManager().getMinSlots()){
-                p.sendMessage(getMessages().MINIMO_SLOTS);
+                p.sendMessage(getMessages().MINIMUM_SLOTS);
                 return;
             }
 

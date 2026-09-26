@@ -68,7 +68,7 @@ public class InventoryClose implements Listener {
 
             if(mineBetOwner != null){
                 Bukkit.getScheduler().runTaskLater(getInstance(), ()-> e.getPlayer().openInventory(e.getInventory()), 2);
-                e.getPlayer().sendMessage(getMessages().FECHOU_MENU_JOGO);
+                e.getPlayer().sendMessage(getMessages().CANNOT_CLOSE_GAME_MENU);
             }
         }
 
@@ -84,7 +84,7 @@ public class InventoryClose implements Listener {
             if (bet != null) {
                 if(bet.getOpponent() != null && bet.getOwner() != null){
                     Bukkit.getScheduler().runTaskLater(getInstance(), ()->e.getPlayer().openInventory(e.getInventory()), 2);
-                    e.getPlayer().sendMessage(getMessages().FECHOU_MENU_JOGO);
+                    e.getPlayer().sendMessage(getMessages().CANNOT_CLOSE_GAME_MENU);
                 }
             }
 

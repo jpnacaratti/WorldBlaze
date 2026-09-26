@@ -50,17 +50,17 @@ public class InventoryClickCoinFlipGames implements Listener {
         CoinFlipBet coinFlipBet = getCoinFlipManager().getCoinFlipBet(coinflipPlayer);
 
         if(coinFlipBet.getOwner().equalsIgnoreCase(p.getName())){
-            p.sendMessage(getMessages().ENTROU_SI_MESMO);
+            p.sendMessage(getMessages().JOINED_OWN_GAME);
             return;
         }
 
         if(coinFlipBet.getOpponent() != null){
-            p.sendMessage(getMessages().JOGO_JA_INICIADO);
+            p.sendMessage(getMessages().GAME_ALREADY_STARTED);
             return;
         }
 
         if(coinFlipBet.getSpecific() != null && !coinFlipBet.getSpecific().equalsIgnoreCase(p.getName())){
-            p.sendMessage(getMessages().JOGO_INVALIDO);
+            p.sendMessage(getMessages().INVALID_GAME);
             return;
         }
 
@@ -68,7 +68,7 @@ public class InventoryClickCoinFlipGames implements Listener {
 
         Player owner = Bukkit.getPlayer(coinFlipBet.getOwner());
         if(owner == null){
-            p.sendMessage(getMessages().JOGADOR_OFFLINE_COINFLIP);
+            p.sendMessage(getMessages().COIN_FLIP_OWNER_OFFLINE);
             return;
         }
 
@@ -83,15 +83,15 @@ public class InventoryClickCoinFlipGames implements Listener {
         p.openInventory(coinFlipBet.getGameInventory());
         //owner.openInventory(coinFlipBet.getGameInventory());
 
-        p.sendMessage(getMessages().ACEITOU_APOSTA_DESAFIADO.replace("{player}", owner.getName()));
+        p.sendMessage(getMessages().CHALLENGED_PLAYER_ACCEPTED_BET.replace("{player}", owner.getName()));
 
-        TextComponent textComponent = new TextComponent(c(getMessages().ACEITOU_APOSTA_DESAFIOU.replace("{player}", p.getName())));
+        TextComponent textComponent = new TextComponent(c(getMessages().CHALLENGER_BET_ACCEPTED.replace("{player}", p.getName())));
         textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/verx1coinflip"));
         textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§aClique para ver!").create()));
 
         owner.spigot().sendMessage(textComponent);
 
-        //owner.sendMessage(getMessages().ACEITOU_APOSTA_DESAFIOU.replace("{player}", owner.getName()));
+        //owner.sendMessage(getMessages().CHALLENGER_BET_ACCEPTED.replace("{player}", owner.getName()));
 
         getCoinFlipManager().updateGamblersInventories();
         getCoinFlipManager().updatePrincipalInventories();

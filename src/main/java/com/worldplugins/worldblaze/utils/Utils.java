@@ -61,14 +61,14 @@ public class Utils {
     public static boolean checkValues(Player p, double cash, double money){
 
         if(econ.getBalance(p) < money){
-            p.sendMessage(getMessages().SEM_MONEY);
+            p.sendMessage(getMessages().INSUFFICIENT_MONEY);
             return false;
         }
 
         if(Bukkit.getPluginManager().getPlugin("GrandeCash") != null) {
             GrandeCashAPI api = GrandeCash.api();
             if (!api.has(p.getUniqueId(), cash)) {
-                p.sendMessage(getMessages().SEM_CASH);
+                p.sendMessage(getMessages().INSUFFICIENT_CASH);
                 return false;
             }
         }

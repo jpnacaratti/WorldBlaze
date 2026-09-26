@@ -30,7 +30,7 @@ public class InventoryClickCoinFlipMain implements Listener {
             CoinFlipBet coinFlipBet = getCoinFlipManager().getCoinFlipBet(p.getName());
             if(coinFlipBet != null){
                 if(coinFlipBet.getOpponent() != null){
-                    p.sendMessage(getMessages().JA_EM_X1);
+                    p.sendMessage(getMessages().ALREADY_IN_GAME);
                     return;
                 }
 
@@ -43,7 +43,7 @@ public class InventoryClickCoinFlipMain implements Listener {
 
                 depositValues(p, coinFlipBet.getCashValue(), coinFlipBet.getMoneyValue());
 
-                p.sendMessage(getMessages().CANCELOU_APOSTA);
+                p.sendMessage(getMessages().BET_CANCELLED);
                 return;
             }
 

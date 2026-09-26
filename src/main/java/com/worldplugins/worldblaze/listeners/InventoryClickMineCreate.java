@@ -56,7 +56,7 @@ public class InventoryClickMineCreate implements Listener {
                 int nValue = user.getMineBombs() - 1;
 
                 if(getInstance().getConfig().getInt("Config.Mine.Minimo-bombas") > nValue){
-                    p.sendMessage(getMessages().DIMINUIU_BOMBAS);
+                    p.sendMessage(getMessages().CANNOT_DECREASE_MINES);
                     return;
                 }
 
@@ -65,7 +65,7 @@ public class InventoryClickMineCreate implements Listener {
                 int nValue = user.getMineBombs() + 1;
 
                 if(getInstance().getConfig().getInt("Config.Mine.Maximo-bombas") < nValue){
-                    p.sendMessage(getMessages().AUMENTOU_BOMBAS);
+                    p.sendMessage(getMessages().CANNOT_INCREASE_MINES);
                     return;
                 }
 
@@ -83,7 +83,7 @@ public class InventoryClickMineCreate implements Listener {
             }
 
             if(getInstance().isLocked()){
-                p.sendMessage(getMessages().JOGOS_LOCKED);
+                p.sendMessage(getMessages().GAMES_UNAVAILABLE);
                 return;
             }
 
@@ -94,22 +94,22 @@ public class InventoryClickMineCreate implements Listener {
             }
 
             if(user.getMineMoneyValue() < getInstance().getConfig().getDouble("Config.Mine.Min-money-aposta")){
-                p.sendMessage(getMessages().MINIMO_MONEY);
+                p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
             if(user.getMineCashValue() < getInstance().getConfig().getDouble("Config.Mine.Min-cash-aposta")){
-                p.sendMessage(getMessages().MINIMO_CASH);
+                p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
             if(user.getMineMoneyValue() > getInstance().getConfig().getDouble("Config.Mine.Max-money-aposta")){
-                p.sendMessage(getMessages().MAXIMO_MONEY);
+                p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
             if(user.getMineCashValue() > getInstance().getConfig().getDouble("Config.Mine.Max-cash-aposta")){
-                p.sendMessage(getMessages().MAXIMO_CASH);
+                p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
 

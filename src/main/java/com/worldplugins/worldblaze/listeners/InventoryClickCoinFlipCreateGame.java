@@ -76,7 +76,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
             }
 
             if(getInstance().isLocked()){
-                p.sendMessage(getMessages().JOGOS_LOCKED);
+                p.sendMessage(getMessages().GAMES_UNAVAILABLE);
                 return;
             }
 
@@ -87,22 +87,22 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
             }
 
             if(user.getCoinFlipMoneyValue() < getInstance().getConfig().getDouble("Config.Coinflip.Min-money-aposta")){
-                p.sendMessage(getMessages().MINIMO_MONEY);
+                p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
             if(user.getCoinFlipCashValue() < getInstance().getConfig().getDouble("Config.Coinflip.Min-cash-aposta")){
-                p.sendMessage(getMessages().MINIMO_CASH);
+                p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
             if(user.getCoinFlipMoneyValue() > getInstance().getConfig().getDouble("Config.Coinflip.Max-money-aposta")){
-                p.sendMessage(getMessages().MAXIMO_MONEY);
+                p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
             if(user.getCoinFlipCashValue() > getInstance().getConfig().getDouble("Config.Coinflip.Max-cash-aposta")){
-                p.sendMessage(getMessages().MAXIMO_CASH);
+                p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
 

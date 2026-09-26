@@ -52,7 +52,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 graphMoneyList.remove(p.getName());
                 getGraphManager().getGraphInventories().remove(p.getName());
                 return;
@@ -72,7 +72,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 graphMoneyList.remove(p.getName());
                 getGraphManager().getGraphInventories().remove(p.getName());
                 return;
@@ -102,7 +102,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 graphCashList.remove(p.getName());
                 getGraphManager().getGraphInventories().remove(p.getName());
                 return;
@@ -122,7 +122,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex) {
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 graphCashList.remove(p.getName());
                 getGraphManager().getGraphInventories().remove(p.getName());
                 return;
@@ -152,7 +152,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 crashMoneyList.remove(p.getName());
                 return;
             }
@@ -170,7 +170,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 crashMoneyList.remove(p.getName());
                 return;
             }
@@ -191,7 +191,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 crashCashList.remove(p.getName());
                 return;
             }
@@ -209,7 +209,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex) {
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 crashCashList.remove(p.getName());
                 return;
             }
@@ -230,7 +230,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 doubleMoneyList.remove(p.getName());
                 return;
             }
@@ -248,7 +248,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 doubleMoneyList.remove(p.getName());
                 return;
             }
@@ -269,7 +269,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 doubleCashList.remove(p.getName());
                 return;
             }
@@ -287,7 +287,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 doubleCashList.remove(p.getName());
                 return;
             }
@@ -308,7 +308,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 mineMoneyList.remove(p.getName());
                 return;
             }
@@ -326,7 +326,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 mineMoneyList.remove(p.getName());
                 return;
             }
@@ -347,7 +347,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 mineCashList.remove(p.getName());
                 return;
             }
@@ -365,7 +365,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 mineCashList.remove(p.getName());
                 return;
             }
@@ -386,7 +386,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 jogoDoBichoMoneyList.remove(p.getName());
                 return;
             }
@@ -404,7 +404,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 jogoDoBichoMoneyList.remove(p.getName());
                 return;
             }
@@ -425,7 +425,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 jogoDoBichoCashList.remove(p.getName());
                 return;
             }
@@ -443,7 +443,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 jogoDoBichoCashList.remove(p.getName());
                 return;
             }
@@ -464,7 +464,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 coinFlipMoneyList.remove(p.getName());
                 return;
             }
@@ -482,7 +482,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 coinFlipMoneyList.remove(p.getName());
                 return;
             }
@@ -503,7 +503,7 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 coinFlipCashList.remove(p.getName());
                 return;
             }
@@ -521,7 +521,7 @@ public class AsyncPlayerChat implements Listener {
             try {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
-                p.sendMessage(getMessages().NUMERO_INVALIDO_CHAT);
+                p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 coinFlipCashList.remove(p.getName());
                 return;
             }
@@ -542,13 +542,13 @@ public class AsyncPlayerChat implements Listener {
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancelar")){
-                p.sendMessage(getMessages().CANCELOU_CHAT);
+                p.sendMessage(getMessages().CHAT_CANCELLED);
                 coinFlipOpponentList.remove(p.getName());
                 return;
             }
 
             if(msg.equalsIgnoreCase(p.getName())){
-                p.sendMessage(getMessages().DESAFIOU_SI_MESMO);
+                p.sendMessage(getMessages().CHALLENGED_SELF);
                 coinFlipOpponentList.remove(p.getName());
                 return;
             }
@@ -561,7 +561,7 @@ public class AsyncPlayerChat implements Listener {
             }
 
             if(target == null){
-                p.sendMessage(getMessages().JOGADOR_INEXISTENTE_CHAT);
+                p.sendMessage(getMessages().NONEXISTENT_CHAT_PLAYER);
                 coinFlipOpponentList.remove(p.getName());
                 return;
             }

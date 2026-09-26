@@ -17,7 +17,7 @@ import java.util.Map;
 import static com.worldplugins.worldblaze.WorldBlaze.*;
 import static com.worldplugins.worldblaze.utils.Utils.*;
 
-public class InventoryClickGraph implements Listener {
+public class  InventoryClickGraph implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent e){
@@ -39,7 +39,7 @@ public class InventoryClickGraph implements Listener {
                 int nValue = user.getGraphTime() - 1;
 
                 if(getInstance().getConfig().getInt("Config.Graph.Min-time-update") > nValue){
-                    p.sendMessage(getMessages().DIMINUIU_UPDATE);
+                    p.sendMessage(getMessages().CANNOT_DECREASE_UPDATE);
                     return;
                 }
 
@@ -48,7 +48,7 @@ public class InventoryClickGraph implements Listener {
                 int nValue = user.getGraphTime() + 1;
 
                 if(getInstance().getConfig().getInt("Config.Graph.Max-time-update") < nValue){
-                    p.sendMessage(getMessages().AUMENTOU_UPDATE);
+                    p.sendMessage(getMessages().CANNOT_INCREASE_UPDATE);
                     return;
                 }
 
@@ -94,7 +94,7 @@ public class InventoryClickGraph implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.apostar-aumentar.Slot") || e.getSlot() == getConfig.getInt("Itens.apostar-diminuir.Slot")){
 
             if(MainTask.graphDelays.containsKey(p.getName())){
-                p.sendMessage(c(getMessages().ESPERA_PARA_APOSTAR.replace("{tempo}", "" + (getGraphManager().getDelay() - MainTask.graphDelays.get(p.getName())))));
+                p.sendMessage(c(getMessages().WAIT_BEFORE_BETTING.replace("{tempo}", "" + (getGraphManager().getDelay() - MainTask.graphDelays.get(p.getName())))));
                 return;
             }
 
@@ -104,32 +104,32 @@ public class InventoryClickGraph implements Listener {
             }
 
             if(getInstance().isLocked()){
-                p.sendMessage(getMessages().JOGOS_LOCKED);
+                p.sendMessage(getMessages().GAMES_UNAVAILABLE);
                 return;
             }
 
             if(getGraphManager().getGraphPoints().size() == 0){
-                p.sendMessage(getMessages().GRAPH_INICIANDO);
+                p.sendMessage(getMessages().GRAPH_STARTING);
                 return;
             }
 
             if(user.getGraphMoneyValue() < getInstance().getConfig().getDouble("Config.Graph.Min-money-aposta")){
-                p.sendMessage(getMessages().MINIMO_MONEY);
+                p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
             if(user.getGraphCashValue() < getInstance().getConfig().getDouble("Config.Graph.Min-cash-aposta")){
-                p.sendMessage(getMessages().MINIMO_CASH);
+                p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
             if(user.getGraphMoneyValue() > getInstance().getConfig().getDouble("Config.Graph.Max-money-aposta")){
-                p.sendMessage(getMessages().MAXIMO_MONEY);
+                p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
             if(user.getGraphCashValue() > getInstance().getConfig().getDouble("Config.Graph.Max-cash-aposta")){
-                p.sendMessage(getMessages().MAXIMO_CASH);
+                p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
 
@@ -161,7 +161,7 @@ public class InventoryClickGraph implements Listener {
 
             removeValues(p, user.getGraphCashValue(), user.getGraphMoneyValue());
 
-            p.sendMessage(c(getMessages().APOSTOU_GRAPH.replace("{point}",(getGraphManager().getPointsNum() - 1) + "")));
+            p.sendMessage(c(getMessages().GRAPH_BET_PLACED.replace("{point}",(getGraphManager().getPointsNum() - 1) + "")));
 
             MainTask.graphDelays.put(p.getName(), 0);
         }

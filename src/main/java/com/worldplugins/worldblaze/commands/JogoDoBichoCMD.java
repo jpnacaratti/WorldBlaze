@@ -25,7 +25,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
             Player p = (Player) sender;
 
             if(!p.hasPermission("worldblaze.jogodobicho")){
-                p.sendMessage(getMessages().SEM_PERMISSAO);
+                p.sendMessage(getMessages().NO_PERMISSION);
                 return true;
             }
 
@@ -47,7 +47,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
             if(args[0].equalsIgnoreCase("sortear")){
 
                 if(!sender.hasPermission("worldblaze.admin")){
-                    sender.sendMessage(getMessages().SEM_PERMISSAO);
+                    sender.sendMessage(getMessages().NO_PERMISSION);
                     return true;
                 }
 
@@ -93,7 +93,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
             if(args[0].equalsIgnoreCase("sortear")){
 
                 if(!sender.hasPermission("worldblaze.admin")){
-                    sender.sendMessage(getMessages().SEM_PERMISSAO);
+                    sender.sendMessage(getMessages().NO_PERMISSION);
                     return true;
                 }
 
@@ -101,7 +101,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
                 try {
                     chose = Bicho.valueOf(args[1]);
                 }catch (IllegalArgumentException e){
-                    sender.sendMessage(getMessages().BICHO_INVALIDO);
+                    sender.sendMessage(getMessages().INVALID_ANIMAL);
                     return true;
                 }
 
@@ -135,7 +135,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
 
                 getJogoDoBichoManager().getJogoDoBichoBets().clear();
 
-                sender.sendMessage(getMessages().SORTEOU_BICHO);
+                sender.sendMessage(getMessages().ANIMAL_DRAWN);
                 return true;
             }
 
