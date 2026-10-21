@@ -67,7 +67,7 @@ public class  InventoryClickGraph implements Listener {
             p.closeInventory();
             InventoryClose.bypassClose.remove(p.getName());
 
-            getInstance().getConfig().getStringList("Mensagens.Graph-digitando-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Graph-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.graphMoneyList.add(p.getName());
         }
@@ -77,7 +77,7 @@ public class  InventoryClickGraph implements Listener {
             p.closeInventory();
             InventoryClose.bypassClose.remove(p.getName());
 
-            getInstance().getConfig().getStringList("Mensagens.Graph-digitando-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Graph-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.graphCashList.add(p.getName());
         }

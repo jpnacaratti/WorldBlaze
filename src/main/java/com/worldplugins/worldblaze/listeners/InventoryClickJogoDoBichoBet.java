@@ -45,7 +45,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Jogo-do-bicho-digitando-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Jogo-do-bicho-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.jogoDoBichoMoneyList.put(p.getName(), bicho);
         }
@@ -53,7 +53,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Jogo-do-bicho-digitando-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Jogo-do-bicho-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.jogoDoBichoCashList.put(p.getName(), bicho);
         }
@@ -118,7 +118,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Apostou-animal").forEach(w -> p.sendMessage(c(w.replace("{animal}", bicho.getNameStr()))));
+            getInstance().getConfig().getStringList("Messages.Bet-placed-animal").forEach(w -> p.sendMessage(c(w.replace("{animal}", bicho.getNameStr()))));
         }
 
     }

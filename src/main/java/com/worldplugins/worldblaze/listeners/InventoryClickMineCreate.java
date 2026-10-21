@@ -37,7 +37,7 @@ public class InventoryClickMineCreate implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Mine-digitando-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Mine-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.mineMoneyList.add(p.getName());
         }
@@ -45,7 +45,7 @@ public class InventoryClickMineCreate implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Mine-digitando-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Mine-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.mineCashList.add(p.getName());
         }

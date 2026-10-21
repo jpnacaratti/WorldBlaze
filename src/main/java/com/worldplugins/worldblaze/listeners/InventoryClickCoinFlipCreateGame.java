@@ -32,7 +32,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.CoinFlip-digitando-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.CoinFlip-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.coinFlipMoneyList.add(p.getName());
         }
@@ -40,7 +40,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.CoinFlip-digitando-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.CoinFlip-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.coinFlipCashList.add(p.getName());
         }
@@ -56,7 +56,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
 
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.CoinFlip-digitando-oponente").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.CoinFlip-typing-opponent").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.coinFlipOpponentList.add(p.getName());
         }
@@ -117,18 +117,18 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
 
             if(bet.getSpecific() != null) {
 
-                getInstance().getConfig().getStringList("Mensagens.Desafiou-jogador-coinflip").forEach(w -> p.sendMessage(c(w)));
+                getInstance().getConfig().getStringList("Messages.Challenged-player-coinflip").forEach(w -> p.sendMessage(c(w)));
 
                 Player player = Bukkit.getPlayer(bet.getSpecific());
 
                 if(player != null){
-                    getInstance().getConfig().getStringList("Mensagens.Jogador-desafiado-coinflip").forEach(w -> player.sendMessage(c(w.
+                    getInstance().getConfig().getStringList("Messages.Player-challenged-coinflip").forEach(w -> player.sendMessage(c(w.
                             replace("{player}",p.getName()).
                             replace("{money}",letterFormatter(user.getCoinFlipMoneyValue())).
                             replace("{cash}", letterFormatter(user.getCoinFlipCashValue())))));
                 }
 
-            }else getInstance().getConfig().getStringList("Mensagens.Desafiou-coinflip").forEach(w -> p.sendMessage(c(w)));
+            }else getInstance().getConfig().getStringList("Messages.Challenged-coinflip").forEach(w -> p.sendMessage(c(w)));
 
             p.closeInventory();
 

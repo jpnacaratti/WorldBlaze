@@ -35,7 +35,7 @@ public class InventoryClickDouble implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Double-digitando-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Double-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.doubleMoneyList.add(p.getName());
         }
@@ -43,7 +43,7 @@ public class InventoryClickDouble implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Double-digitando-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Double-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.doubleCashList.add(p.getName());
         }
@@ -127,7 +127,7 @@ public class InventoryClickDouble implements Listener {
 
             removeValues(p, user.getDoubleCashValue(), user.getDoubleMoneyValue());
 
-            getInstance().getConfig().getStringList("Mensagens.Apostou-double").forEach(w -> p.sendMessage(c(w.replace("{cor}", chose.getNameStr()))));
+            getInstance().getConfig().getStringList("Messages.Bet-placed-double").forEach(w -> p.sendMessage(c(w.replace("{cor}", chose.getNameStr()))));
         }
 
     }

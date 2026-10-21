@@ -35,7 +35,7 @@ public class InventoryClickCrash implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Crash-digitando-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Crash-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.crashMoneyList.add(p.getName());
         }
@@ -43,7 +43,7 @@ public class InventoryClickCrash implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Mensagens.Crash-digitando-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Crash-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.crashCashList.add(p.getName());
         }
@@ -90,14 +90,14 @@ public class InventoryClickCrash implements Listener {
                 }
 
                 if(getCrashManager().getCrashValue() >= getInstance().getConfig().getDouble("Config.Crash.Alerta")){
-                    getInstance().getConfig().getStringList("Mensagens.Broadcast-saiu-crash").forEach(w -> Bukkit.broadcastMessage(c(w.
+                    getInstance().getConfig().getStringList("Messages.Broadcast-cashed-out-crash").forEach(w -> Bukkit.broadcastMessage(c(w.
                             replace("{player}", crashBet.getOwner()).
                             replace("{crash}", String.format("%.2f", crashBet.getLeftValue())).
                             replace("{money}", letterFormatter(money)).
                             replace("{cash}", letterFormatter(cash)))));
                 }
 
-                getInstance().getConfig().getStringList("Mensagens.Ganhou-crash").forEach(w -> p.sendMessage(c(w.
+                getInstance().getConfig().getStringList("Messages.Won-crash").forEach(w -> p.sendMessage(c(w.
                         replace("{money}", letterFormatter(money)).
                         replace("{cash}", letterFormatter(cash)))));
                 return;
@@ -166,7 +166,7 @@ public class InventoryClickCrash implements Listener {
 
             removeValues(p, user.getCrashCashValue(), user.getCrashMoneyValue());
 
-            getInstance().getConfig().getStringList("Mensagens.Participou-crash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("Messages.Joined-crash").forEach(w -> p.sendMessage(c(w)));
         }
 
     }

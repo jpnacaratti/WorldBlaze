@@ -53,7 +53,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
 
                 Bicho randomBicho = getJogoDoBichoManager().getRandomBicho();
 
-                getInstance().getConfig().getStringList("Mensagens.Bicho-sorteado").forEach(w -> Bukkit.broadcastMessage(c(w.
+                getInstance().getConfig().getStringList("Messages.Animal-drawn-broadcast").forEach(w -> Bukkit.broadcastMessage(c(w.
                         replace("{bicho}", randomBicho.getNameStr()))));
 
                 for (JogoDoBichoBet bet : getJogoDoBichoManager().getJogoDoBichoBets()) {
@@ -68,17 +68,17 @@ public class JogoDoBichoCMD implements CommandExecutor {
 
                         if ((moneyWon > 0 && moneyWon >= getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Alerta-money")) ||
                                 (cashWon > 0 && cashWon >= getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Alerta-cash"))){
-                            getInstance().getConfig().getStringList("Mensagens.Broadcast-bicho-lucrou").forEach(w -> Bukkit.broadcastMessage(c(w.
+                            getInstance().getConfig().getStringList("Messages.Broadcast-animal-profit").forEach(w -> Bukkit.broadcastMessage(c(w.
                                     replace("{player}", bet.getOwner()).
                                     replace("{money}", letterFormatter(moneyWon)).
                                     replace("{cash}", letterFormatter(cashWon)))));
                         }
 
-                        if(player != null) getInstance().getConfig().getStringList("Mensagens.Ganhou-jogo-do-bicho").forEach(w -> Bukkit.broadcastMessage(c(w.
+                        if(player != null) getInstance().getConfig().getStringList("Messages.Won-jogo-do-bicho").forEach(w -> Bukkit.broadcastMessage(c(w.
                                 replace("{money}", letterFormatter(moneyWon)).
                                 replace("{cash}", letterFormatter(cashWon)))));
 
-                    }else if(player != null) getInstance().getConfig().getStringList("Mensagens.Perdeu-jogo-do-bicho").forEach(w -> player.sendMessage(c(w)));
+                    }else if(player != null) getInstance().getConfig().getStringList("Messages.Lost-jogo-do-bicho").forEach(w -> player.sendMessage(c(w)));
                 }
 
                 getJogoDoBichoManager().getJogoDoBichoBets().clear();
@@ -105,7 +105,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
                     return true;
                 }
 
-                getInstance().getConfig().getStringList("Mensagens.Bicho-sorteado").forEach(w -> Bukkit.broadcastMessage(c(w.
+                getInstance().getConfig().getStringList("Messages.Animal-drawn-broadcast").forEach(w -> Bukkit.broadcastMessage(c(w.
                         replace("{bicho}", chose.getNameStr()))));
 
                 for (JogoDoBichoBet bet : getJogoDoBichoManager().getJogoDoBichoBets()) {
@@ -120,17 +120,17 @@ public class JogoDoBichoCMD implements CommandExecutor {
 
                         if ((moneyWon > 0 && moneyWon >= getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Alerta-money")) ||
                                 (cashWon > 0 && cashWon >= getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Alerta-cash"))){
-                            getInstance().getConfig().getStringList("Mensagens.Broadcast-bicho-lucrou").forEach(w -> Bukkit.broadcastMessage(c(w.
+                            getInstance().getConfig().getStringList("Messages.Broadcast-animal-profit").forEach(w -> Bukkit.broadcastMessage(c(w.
                                     replace("{player}", bet.getOwner()).
                                     replace("{money}", letterFormatter(moneyWon)).
                                     replace("{cash}", letterFormatter(cashWon)))));
                         }
 
-                        if(player != null) getInstance().getConfig().getStringList("Mensagens.Ganhou-jogo-do-bicho").forEach(w -> Bukkit.broadcastMessage(c(w.
+                        if(player != null) getInstance().getConfig().getStringList("Messages.Won-jogo-do-bicho").forEach(w -> Bukkit.broadcastMessage(c(w.
                                 replace("{money}", letterFormatter(moneyWon)).
                                 replace("{cash}", letterFormatter(cashWon)))));
 
-                    }else if(player != null) getInstance().getConfig().getStringList("Mensagens.Perdeu-jogo-do-bicho").forEach(w -> player.sendMessage(c(w)));
+                    }else if(player != null) getInstance().getConfig().getStringList("Messages.Lost-jogo-do-bicho").forEach(w -> player.sendMessage(c(w)));
                 }
 
                 getJogoDoBichoManager().getJogoDoBichoBets().clear();
