@@ -30,9 +30,9 @@ public class JogoDoBichoMainGui {
 
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
                     replace("{players}", getJogoDoBichoManager().getJogoDoBichoBets().size() + "").
-                    replace("{last_player}", getJogoDoBichoManager().getLastPlayer()).
-                    replace("{total_money}", letterFormatter(getJogoDoBichoManager().getTotalBetMoney())).
-                    replace("{total_cash}", letterFormatter(getJogoDoBichoManager().getTotalBetCash())))));
+                    replace("{last-player}", getJogoDoBichoManager().getLastPlayer()).
+                    replace("{total-money}", letterFormatter(getJogoDoBichoManager().getTotalBetMoney())).
+                    replace("{total-cash}", letterFormatter(getJogoDoBichoManager().getTotalBetCash())))));
 
             int slot = getConfig.getInt("items." + s + ".slot");
 

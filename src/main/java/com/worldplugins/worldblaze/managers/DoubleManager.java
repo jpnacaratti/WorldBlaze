@@ -257,11 +257,11 @@ public class DoubleManager {
         clone.setName(betRedName);
 
         betRedLore.forEach(w -> clone.addLoreLine(c(w.
-                replace("{red_average}", String.format("%.2f", redAverage)).
+                replace("{red-average}", String.format("%.2f", redAverage)).
                 replace("{money}", letterFormatter(user.getDoubleMoneyValue())).
                 replace("{cash}", letterFormatter(user.getDoubleCashValue())).
                 replace("{status}", getRedStatusBet(user.getOwner())).
-                replace("{round_status}",getRedRoundStatus()))));
+                replace("{round-status}",getRedRoundStatus()))));
 
         return clone.toItemStack();
     }
@@ -272,11 +272,11 @@ public class DoubleManager {
         clone.setName(betWhiteName);
 
         betWhiteLore.forEach(w -> clone.addLoreLine(c(w.
-                replace("{white_average}", String.format("%.2f", whiteAverage)).
+                replace("{white-average}", String.format("%.2f", whiteAverage)).
                 replace("{money}", letterFormatter(user.getDoubleMoneyValue())).
                 replace("{cash}", letterFormatter(user.getDoubleCashValue())).
                 replace("{status}", getWhiteStatusBet(user.getOwner())).
-                replace("{round_status}",getWhiteRoundStatus()))));
+                replace("{round-status}",getWhiteRoundStatus()))));
 
         return clone.toItemStack();
     }
@@ -287,11 +287,11 @@ public class DoubleManager {
         clone.setName(betBlackName);
 
         betBlackLore.forEach(w -> clone.addLoreLine(c(w.
-                replace("{black_average}", String.format("%.2f", blackAverage)).
+                replace("{black-average}", String.format("%.2f", blackAverage)).
                 replace("{money}", letterFormatter(user.getDoubleMoneyValue())).
                 replace("{cash}", letterFormatter(user.getDoubleCashValue())).
                 replace("{status}", getBlackStatusBet(user.getOwner())).
-                replace("{round_status}",getBlackRoundStatus()))));
+                replace("{round-status}",getBlackRoundStatus()))));
 
         return clone.toItemStack();
     }
@@ -389,12 +389,12 @@ public class DoubleManager {
 
         gamblersLore.forEach(w -> clone.addLoreLine(c(w.
                 replace("{players}", doubleBets.size()+"").
-                replace("{last_player}", getLastPlayer()).
-                replace("{red_average}", String.format("%.2f", redAverage)).
-                replace("{white_average}", String.format("%.2f", whiteAverage)).
-                replace("{black_average}", String.format("%.2f", blackAverage)).
-                replace("{total_money}", letterFormatter(totalBetMoney)).
-                replace("{total_cash}", letterFormatter(totalBetCash)))));
+                replace("{last-player}", getLastPlayer()).
+                replace("{red-average}", String.format("%.2f", redAverage)).
+                replace("{white-average}", String.format("%.2f", whiteAverage)).
+                replace("{black-average}", String.format("%.2f", blackAverage)).
+                replace("{total-money}", letterFormatter(totalBetMoney)).
+                replace("{total-cash}", letterFormatter(totalBetCash)))));
 
         return clone.toItemStack();
     }

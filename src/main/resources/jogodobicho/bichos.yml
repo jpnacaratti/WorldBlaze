@@ -15,11 +15,11 @@ items:
     name: '&bAvestruz'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Avestruz'
     slot: 10
@@ -33,11 +33,11 @@ items:
     name: '&bÁguia'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar na Águia'
     slot: 11
@@ -51,11 +51,11 @@ items:
     name: '&bBurro'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Burro'
     slot: 12
@@ -69,11 +69,11 @@ items:
     name: '&bBorboleta'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar na Borboleta'
     slot: 13
@@ -87,11 +87,11 @@ items:
     name: '&bCachorro'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Cachorro'
     slot: 14
@@ -105,11 +105,11 @@ items:
     name: '&bCabra'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar na Cabra'
     slot: 15
@@ -123,11 +123,11 @@ items:
     name: '&bCarneiro'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Carneiro'
     slot: 16
@@ -141,11 +141,11 @@ items:
     name: '&bCamelo'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Camelo'
     slot: 19
@@ -159,11 +159,11 @@ items:
     name: '&bCobra'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar na Cobra'
     slot: 20
@@ -177,11 +177,11 @@ items:
     name: '&bCoelho'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Coelho'
     slot: 21
@@ -195,11 +195,11 @@ items:
     name: '&bCavalo'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Cavalo'
     slot: 22
@@ -213,11 +213,11 @@ items:
     name: '&bElefante'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Elefante'
     slot: 23
@@ -231,11 +231,11 @@ items:
     name: '&bGalo'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Galo'
     slot: 24
@@ -249,11 +249,11 @@ items:
     name: '&bGato'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Gato'
     slot: 25
@@ -267,11 +267,11 @@ items:
     name: '&bJacaré'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Jacaré'
     slot: 28
@@ -285,11 +285,11 @@ items:
     name: '&bLeão'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Leão'
     slot: 29
@@ -303,11 +303,11 @@ items:
     name: '&bMacaco'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Macaco'
     slot: 30
@@ -321,11 +321,11 @@ items:
     name: '&bPorco'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Porco'
     slot: 31
@@ -339,11 +339,11 @@ items:
     name: '&bPavão'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Pavão'
     slot: 32
@@ -357,11 +357,11 @@ items:
     name: '&bPiru'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Peru'
     slot: 33
@@ -375,11 +375,11 @@ items:
     name: '&bTouro'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Touro'
     slot: 34
@@ -393,11 +393,11 @@ items:
     name: '&bTigre'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Tigre'
     slot: 38
@@ -411,11 +411,11 @@ items:
     name: '&bUrso'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Urso'
     slot: 39
@@ -429,11 +429,11 @@ items:
     name: '&bVeado'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar no Veado'
     slot: 41
@@ -447,11 +447,11 @@ items:
     name: '&bVaca'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last_player}'
+      - '&7Ultimo jogador: &b{last-player}'
       - '&7Apostas: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total_money}'
-      - '&7Total apostado (cash): &6{total_cash}'
+      - '&7Total apostado (money): &a{total-money}'
+      - '&7Total apostado (cash): &6{total-cash}'
       - ''
       - '&7Clique para apostar na Vaca'
     slot: 42

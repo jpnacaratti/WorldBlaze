@@ -441,7 +441,7 @@ public class GraphManager {
 
         clone.setName(betUpName);
 
-        betUpLore.forEach(w -> clone.addLoreLine(c(w.replace("{positive_average}", String.format("%.2f", positiveBetAverage)).
+        betUpLore.forEach(w -> clone.addLoreLine(c(w.replace("{positive-average}", String.format("%.2f", positiveBetAverage)).
                 replace("{time}", user.getGraphTime()+"").
                 replace("{money}", letterFormatter(user.getGraphMoneyValue())).
                 replace("{cash}", letterFormatter(user.getGraphCashValue())))));
@@ -454,7 +454,7 @@ public class GraphManager {
 
         clone.setName(betDecreaseName);
 
-        betDecreaseLore.forEach(w -> clone.addLoreLine(c(w.replace("{negative_average}", String.format("%.2f", negativeBetAverage)).
+        betDecreaseLore.forEach(w -> clone.addLoreLine(c(w.replace("{negative-average}", String.format("%.2f", negativeBetAverage)).
                 replace("{time}", user.getGraphTime()+"").
                 replace("{money}", letterFormatter(user.getGraphMoneyValue())).
                 replace("{cash}", letterFormatter(user.getGraphCashValue())))));
@@ -485,11 +485,11 @@ public class GraphManager {
         clone.setName(gamblersName);
 
         gamblersLore.forEach(w -> clone.addLoreLine(c(w.replace("{players}", graphBets.size()+"").
-                replace("{negative_average}", String.format("%.2f", negativeBetAverage)).
-                replace("{positive_average}", String.format("%.2f", positiveBetAverage)).
-                replace("{last_player}", getLastPlayer()).
-                replace("{total_money}", letterFormatter(totalBetMoney)).
-                replace("{total_cash}", letterFormatter(totalBetCash)))));
+                replace("{negative-average}", String.format("%.2f", negativeBetAverage)).
+                replace("{positive-average}", String.format("%.2f", positiveBetAverage)).
+                replace("{last-player}", getLastPlayer()).
+                replace("{total-money}", letterFormatter(totalBetMoney)).
+                replace("{total-cash}", letterFormatter(totalBetCash)))));
 
         return clone.toItemStack();
     }

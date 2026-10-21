@@ -42,9 +42,9 @@ public class JogoDoBichoBetGui {
                     replace("{cash}", letterFormatter(user.getJogoDoBichoCashValue())).
                     replace("{money}", letterFormatter(user.getJogoDoBichoMoneyValue())).
                     replace("{players}", getJogoDoBichoManager().getNumOfBets(bicho) + "").
-                    replace("{last_player}", getJogoDoBichoManager().getAnimalLastPlayer(bicho)).
-                    replace("{total_money}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetMoney(bicho))).
-                    replace("{total_cash}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetCash(bicho))).
+                    replace("{last-player}", getJogoDoBichoManager().getAnimalLastPlayer(bicho)).
+                    replace("{total-money}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetMoney(bicho))).
+                    replace("{total-cash}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetCash(bicho))).
                     replace("{animal}", bicho.getNameStr()))));
 
             int slot = getConfig.getInt("items." + s + ".slot");

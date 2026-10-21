@@ -375,9 +375,9 @@ public class CrashManager {
 
         gamblersLore.forEach(w -> clone.addLoreLine(c(w.
                 replace("{players}", crashBets.size()+"").
-                replace("{last_player}", getLastPlayer()).
-                replace("{total_money}", letterFormatter(totalBetMoney)).
-                replace("{total_cash}", letterFormatter(totalBetCash)))));
+                replace("{last-player}", getLastPlayer()).
+                replace("{total-money}", letterFormatter(totalBetMoney)).
+                replace("{total-cash}", letterFormatter(totalBetCash)))));
 
         return clone.toItemStack();
     }

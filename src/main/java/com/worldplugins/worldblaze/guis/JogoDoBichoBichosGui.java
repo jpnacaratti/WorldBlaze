@@ -49,9 +49,9 @@ public class JogoDoBichoBichosGui {
             String finalTotalMoney = totalMoney;
             String finalTotalCash = totalCash;
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.replace("{bets}", finalBets).
-                    replace("{last_player}", finalLastPlayer).
-                    replace("{total_money}", finalTotalMoney).
-                    replace("{total_cash}", finalTotalCash))));
+                    replace("{last-player}", finalLastPlayer).
+                    replace("{total-money}", finalTotalMoney).
+                    replace("{total-cash}", finalTotalCash))));
 
             int slot = getConfig.getInt("items." + s + ".slot");
 

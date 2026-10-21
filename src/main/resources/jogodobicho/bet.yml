@@ -59,10 +59,10 @@ items:
     name: '&eApostadores'
     lore:
       - '&7Jogadores que apostaram nesse bicho: &b{players}'
-      - '&7Ultimo jogador que apostou: &b{last_player}'
+      - '&7Ultimo jogador que apostou: &b{last-player}'
       - ''
-      - '&7Total money apostado: &a{total_money}'
-      - '&7Total cash apostado: &6{total_cash}'
+      - '&7Total money apostado: &a{total-money}'
+      - '&7Total cash apostado: &6{total-cash}'
       - ''
       - '&7Clique para ver mais detalhes e'
       - '&7todos os jogadores que apostaram'

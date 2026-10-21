@@ -33,7 +33,7 @@ white:
 
 starting-animation: # Configuração da animação de inicio de partida
 
-  update_reset:
+  update-reset:
     time: 10.0
     items:
       glass1:
@@ -41,7 +41,7 @@ starting-animation: # Configuração da animação de inicio de partida
         data: 0
         slot: [0, 1, 2, 3, 4, 5, 6, 7, 8, 18, 19, 20, 21, 22, 23, 24, 25, 26]
 
-  update_1:
+  update-1:
     time: 8.0 # segundos. Faltando 8 segundos exatos os itens abaixos serão colocados forçadamente no menu
     items:
       glass1:
@@ -49,7 +49,7 @@ starting-animation: # Configuração da animação de inicio de partida
         data: 15
         slot: [0, 18, 8, 26]
 
-  update_2:
+  update-2:
     time: 6.0
     items:
       glass1:
@@ -57,7 +57,7 @@ starting-animation: # Configuração da animação de inicio de partida
         data: 15
         slot: [1, 19, 7, 25]
 
-  update_3:
+  update-3:
     time: 4.0
     items:
       glass1:
@@ -65,7 +65,7 @@ starting-animation: # Configuração da animação de inicio de partida
         data: 15
         slot: [2, 20, 6, 24]
 
-  update_4:
+  update-4:
     time: 2.0
     items:
       glass1:
@@ -74,7 +74,7 @@ starting-animation: # Configuração da animação de inicio de partida
         slot: [3, 21, 5, 23]
 
 final-glass:
-  item_1:
+  item-1:
     id: 'STAINED_GLASS_PANE'
     data: 4
     slot: [4, 22]
@@ -118,9 +118,9 @@ items:
       - '&7Clique para apostar que a próxima'
       - '&7cor que vai cair será o VERMELHO'
       - ''
-      - '&7Status: {round_status}'
+      - '&7Status: {round-status}'
       - ''
-      - '&7Opinião pública: &f{red_average}%'
+      - '&7Opinião pública: &f{red-average}%'
       - ''
       - '&7Recompensa: &c2x'
       - ''
@@ -130,8 +130,8 @@ items:
       - '{status}'
     status-bet: '&bVocê já apostou nessa cor, boa sorte!' # Configuração da variável {status} quando jogador já tiver apostado
     status-not-bet: '&7* Clique para apostar!' # Configuração da variável {status} quando jogador ainda não apostou
-    round-status-started: '&aRodada iniciada!' # Configuração da variável {round_status} quando a rodada já iniciou
-    round-status-not-started: '&eIniciando em - {time}s' # Configuração da variável {round_status} quando a rodada estiver iniciando
+    round-status-started: '&aRodada iniciada!' # Configuração da variável {round-status} quando a rodada já iniciou
+    round-status-not-started: '&eIniciando em - {time}s' # Configuração da variável {round-status} quando a rodada estiver iniciando
     slot: 30
 
   bet-white:
@@ -145,9 +145,9 @@ items:
       - '&7Clique para apostar que a próxima'
       - '&7cor que vai cair será o BRANCO'
       - ''
-      - '&7Status: {round_status}'
+      - '&7Status: {round-status}'
       - ''
-      - '&7Opinião pública: &f{white_average}%'
+      - '&7Opinião pública: &f{white-average}%'
       - ''
       - '&7Recompensa: &b14x'
       - ''
@@ -172,9 +172,9 @@ items:
       - '&7Clique para apostar que a próxima'
       - '&7cor que vai cair será o PRETO'
       - ''
-      - '&7Status: {round_status}'
+      - '&7Status: {round-status}'
       - ''
-      - '&7Opinião pública: &f{black_average}%'
+      - '&7Opinião pública: &f{black-average}%'
       - ''
       - '&7Recompensa: &c2x'
       - ''
@@ -214,14 +214,14 @@ items:
     name: '&eApostadores'
     lore:
       - '&7Jogadores apostando: &b{players}'
-      - '&7Ultimo jogador que apostou: &b{last_player}'
+      - '&7Ultimo jogador que apostou: &b{last-player}'
       - ''
-      - '&7Total money apostado: &a{total_money}'
-      - '&7Total cash apostado: &6{total_cash}'
+      - '&7Total money apostado: &a{total-money}'
+      - '&7Total cash apostado: &6{total-cash}'
       - ''
-      - '&7Quantia apostado (&c-&7): &e{red_average}%'
-      - '&7Quantia apostado (&f-&7): &e{white_average}%'
-      - '&7Quantia apostado (&8-&7): &e{black_average}%'
+      - '&7Quantia apostado (&c-&7): &e{red-average}%'
+      - '&7Quantia apostado (&f-&7): &e{white-average}%'
+      - '&7Quantia apostado (&8-&7): &e{black-average}%'
       - ''
       - '&7Clique para ver mais detalhes e'
       - '&7todos os jogadores que apostaram.'
