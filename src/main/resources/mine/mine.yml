@@ -47,10 +47,10 @@ items:
     lore:
       - '&7Slots revelados: &f{slots}'
       - ''
-      - '&7Multiplicador atual: &b{multiplicador}'
+      - '&7Multiplicador atual: &b{multiplier}'
       - ''
       - '&7Espectadores:'
-      - '&7- &f{espectadores}'
+      - '&7- &f{spectators}'
       - ''
       - '&7 * Caso já esteja satisfeito'
       - '&7clique para &lSAIR'

@@ -305,11 +305,11 @@ public class DoubleManager {
         Collections.reverse(copy);
 
         for (String s : historicLore) {
-            if(s.contains("{historico}")){
+            if(s.contains("{history}")){
                 for (DoubleColor doubleColor : copy){
-                    if (doubleColor == DoubleColor.RED) clone.addLoreLine(c(s.replace("{historico}", redDisplay)));
-                    else if (doubleColor == DoubleColor.WHITE) clone.addLoreLine(c(s.replace("{historico}", whiteDisplay)));
-                    else clone.addLoreLine(c(s.replace("{historico}", blackDisplay)));
+                    if (doubleColor == DoubleColor.RED) clone.addLoreLine(c(s.replace("{history}", redDisplay)));
+                    else if (doubleColor == DoubleColor.WHITE) clone.addLoreLine(c(s.replace("{history}", whiteDisplay)));
+                    else clone.addLoreLine(c(s.replace("{history}", blackDisplay)));
                 }
             }else clone.addLoreLine(c(s));
         }
@@ -388,7 +388,7 @@ public class DoubleManager {
         clone.setName(gamblersName);
 
         gamblersLore.forEach(w -> clone.addLoreLine(c(w.
-                replace("{jogadores}", doubleBets.size()+"").
+                replace("{players}", doubleBets.size()+"").
                 replace("{last_player}", getLastPlayer()).
                 replace("{red_average}", String.format("%.2f", redAverage)).
                 replace("{white_average}", String.format("%.2f", whiteAverage)).
@@ -562,15 +562,15 @@ public class DoubleManager {
     }
 
     public String getRedRoundStatus(){
-        return starting ? redRoundStatusStarting.replace("{tempo}", String.format("%.2f", startingRemainingTime)) : redRoundStatusStarted;
+        return starting ? redRoundStatusStarting.replace("{time}", String.format("%.2f", startingRemainingTime)) : redRoundStatusStarted;
     }
 
     public String getWhiteRoundStatus(){
-        return starting ? whiteRoundStatusStarting.replace("{tempo}", String.format("%.2f", startingRemainingTime)) : whiteRoundStatusStarted;
+        return starting ? whiteRoundStatusStarting.replace("{time}", String.format("%.2f", startingRemainingTime)) : whiteRoundStatusStarted;
     }
 
     public String getBlackRoundStatus(){
-        return starting ? blackRoundStatusStarting.replace("{tempo}", String.format("%.2f", startingRemainingTime)) : blackRoundStatusStarted;
+        return starting ? blackRoundStatusStarting.replace("{time}", String.format("%.2f", startingRemainingTime)) : blackRoundStatusStarted;
     }
 
     public Map<Integer, DoubleColor> getColorCache() {

@@ -41,7 +41,7 @@ public class JogoDoBichoBetGui {
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
                     replace("{cash}", letterFormatter(user.getJogoDoBichoCashValue())).
                     replace("{money}", letterFormatter(user.getJogoDoBichoMoneyValue())).
-                    replace("{jogadores}", getJogoDoBichoManager().getNumOfBets(bicho) + "").
+                    replace("{players}", getJogoDoBichoManager().getNumOfBets(bicho) + "").
                     replace("{last_player}", getJogoDoBichoManager().getAnimalLastPlayer(bicho)).
                     replace("{total_money}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetMoney(bicho))).
                     replace("{total_cash}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetCash(bicho))).

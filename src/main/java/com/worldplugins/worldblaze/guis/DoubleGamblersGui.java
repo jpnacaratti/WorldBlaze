@@ -113,7 +113,7 @@ public class DoubleGamblersGui {
                 String status = c(getConfig.getString("items.player.status-waiting"));
                 if(getDoubleManager().isStopped()){
                     if(getDoubleManager().getColorCache().get(13) == doubleBet.getColor()){
-                        status = c(getConfig.getString("items.player.status-won").replace("{multiplicador}", doubleBet.getColor() == DoubleColor.WHITE ? 14 + "" : 2 + ""));
+                        status = c(getConfig.getString("items.player.status-won").replace("{multiplier}", doubleBet.getColor() == DoubleColor.WHITE ? 14 + "" : 2 + ""));
                         wonMoney = doubleBet.getColor() == DoubleColor.WHITE ? doubleBet.getMoneyValue() * 14 : doubleBet.getMoneyValue() * 2;
                         wonCash = doubleBet.getColor() == DoubleColor.WHITE ? doubleBet.getCashValue() * 14 : doubleBet.getCashValue() * 2;
                     } else status = c(getConfig.getString("items.player.status-lost"));
@@ -131,10 +131,10 @@ public class DoubleGamblersGui {
                         replace("{nick}", doubleBet.getOwner()).
                         replace("{money}", letterFormatter(doubleBet.getMoneyValue())).
                         replace("{cash}", letterFormatter(doubleBet.getCashValue())).
-                        replace("{cor}", color).
+                        replace("{color}", color).
                         replace("{status}", finalStatus).
-                        replace("{ganhos-money}", letterFormatter(finalWonMoney)).
-                        replace("{ganhos-cash}", letterFormatter(finalWonCash)).
+                        replace("{total-won-money}", letterFormatter(finalWonMoney)).
+                        replace("{total-won-cash}", letterFormatter(finalWonCash)).
                         replace("{id}", doubleBet.getBetId()))
                 ));
 

@@ -114,11 +114,11 @@ public class MineGamblersGui {
                         replace("{nick}", mineBet.getOwner()).
                         replace("{money}", letterFormatter(mineBet.getMoneyValue())).
                         replace("{cash}", letterFormatter(mineBet.getCashValue())).
-                        replace("{bombas}", mineBet.getNumBombs() + "").
+                        replace("{mines}", mineBet.getNumBombs() + "").
                         replace("{slots}", mineBet.getClickedSlots().size() + "").
-                        replace("{multiplicador}", getMineManager().formatValue(mineBet.getMultiplier())).
-                        replace("{ganhos-money}", letterFormatter(wonMoney)).
-                        replace("{ganhos-cash}", letterFormatter(wonCash)).
+                        replace("{multiplier}", getMineManager().formatValue(mineBet.getMultiplier())).
+                        replace("{total-won-money}", letterFormatter(wonMoney)).
+                        replace("{total-won-cash}", letterFormatter(wonCash)).
                         replace("{id}", mineBet.getBetId()))
                 ));
 

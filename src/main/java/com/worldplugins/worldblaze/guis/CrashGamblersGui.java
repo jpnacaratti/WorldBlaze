@@ -109,7 +109,7 @@ public class CrashGamblersGui {
 
                 String status = c(getConfig.getString("items.player.status-not-exited"));
                 if(crashBet.isLeft()) status = c(getConfig.getString("items.player.status-exited").
-                        replace("{valor-saida}", String.format("%.2f", crashBet.getLeftValue())));
+                        replace("{exit-value}", String.format("%.2f", crashBet.getLeftValue())));
 
 
 
@@ -119,8 +119,8 @@ public class CrashGamblersGui {
                         replace("{money}", letterFormatter(crashBet.getMoneyValue())).
                         replace("{cash}", letterFormatter(crashBet.getCashValue())).
                         replace("{status}", finalStatus).
-                        replace("{ganhos-money}",letterFormatter(getCrashManager().getMoneyWon(crashBet.getOwner()))).
-                        replace("{ganhos-cash}", letterFormatter(getCrashManager().getCashWon(crashBet.getOwner()))).
+                        replace("{total-won-money}",letterFormatter(getCrashManager().getMoneyWon(crashBet.getOwner()))).
+                        replace("{total-won-cash}", letterFormatter(getCrashManager().getCashWon(crashBet.getOwner()))).
                         replace("{id}", crashBet.getBetId()+""))
                 ));
 

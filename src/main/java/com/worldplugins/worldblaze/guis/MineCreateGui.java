@@ -33,7 +33,7 @@ public class MineCreateGui {
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
                     replace("{money}", letterFormatter(blazeUser.getMineMoneyValue())).
                     replace("{cash}", letterFormatter(blazeUser.getMineCashValue())).
-                    replace("{bombas}",blazeUser.getMineBombs()+"").
+                    replace("{mines}",blazeUser.getMineBombs()+"").
                     replace("{chance}", String.format("%.2f", 100.0 - ((double) blazeUser.getMineBombs() / (double) getInstance().getConfig().getIntegerList("config.mine.game-slots").size()) * 100.0)))));
 
             int slot = getConfig.getInt("items." + s + ".slot");

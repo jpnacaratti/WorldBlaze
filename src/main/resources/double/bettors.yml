@@ -1,6 +1,6 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM coinflip E DEPOIS EM jogos
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM double E DEPOIS EM apostadores
 
-title: 'CoinFlip - Jogos'
+title: 'Double - Apostadores'
 
 items:
 
@@ -12,7 +12,7 @@ items:
     glow: false
     name: '&cVazio'
     lore:
-      - '&7Ninguem jogando no momento...'
+      - '&7Ninguem apostando no momento...'
     slot: 22
 
   player:
@@ -24,22 +24,25 @@ items:
     glow: false
     name: '&b{nick}'
     lore:
-      - '&7Jogador: &e{nick} &7- &e{escolhaDono}'
-      - '&7Oponente: &e{oponente} &7- &e{escolhaOponente}'
+      - '&7Jogador: &e{nick}'
       - ''
-      - '&7Específico: {especifico}'
+      - '&7Apostou no: {color}'
       - ''
       - '&7Quantia (money): &a{money}'
       - '&7Quantia (cash): &6{cash}'
       - ''
       - '&7Status: {status}'
       - ''
+      - '&7Ganhos (money): &b{total-won-money}'
+      - '&7Ganhos (cash): &b{total-won-cash}'
+      - ''
       - '&7ID da aposta: &f#{id}'
-    status-open: '&aClique para entrar e apostar'
-    status-closed: '&cJogo acontecendo'
-    status-specific: '&bEsse jogo é apenas para {player}'
-    status-specific-you: '&aEsse jogo é apenas para você'
-    status-not-specific: '&bEsse jogo é para todos'
+    bet-red: '&cVERMELHO' # Configuração da variável {color} nos seguintes casos
+    bet-white: '&fBRANCO'
+    bet-black: '&8PRETO'
+    status-won: '&bGanhou ({multiplier}x)' # Configuração da variável {status} nos seguintes casos
+    status-lost: '&cPerdeu...'
+    status-waiting: '&eEsperando resultado...'
 
   back:
     use-head: false # caso true, ignora 'id' e 'data' abaixo

@@ -28,7 +28,7 @@ items:
     glow: false
     name: '&eApostadores'
     lore:
-      - '&7Jogos acontecendo: &b{jogos}'
+      - '&7Jogos acontecendo: &b{games}'
       - '&7Ultimo jogador que iniciou: &b{last_player}'
       - ''
       - '&7Total money apostado: &a{total_money}'

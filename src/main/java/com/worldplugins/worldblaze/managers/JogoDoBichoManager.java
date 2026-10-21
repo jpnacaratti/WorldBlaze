@@ -147,7 +147,7 @@ public class JogoDoBichoManager {
     public Set<Bicho> getBlackListDop(){
         Set<Bicho> blackList = new HashSet<>();
 
-        if(!getInstance().getConfig().getBoolean("Itens.Jogo-do-bicho.Ativar")) return blackList;
+        if(!getInstance().getConfig().getBoolean("config.jogo-do-bicho.rigging.enabled")) return blackList;
 
         for (JogoDoBichoBet bet : jogoDoBichoBets) {
 

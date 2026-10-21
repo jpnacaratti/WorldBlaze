@@ -1,6 +1,6 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM jogo do bicho E DEPOIS EM apostadores
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM crash E DEPOIS EM apostadores
 
-title: 'Jogo do Bicho - Apostadores'
+title: 'Crash - Apostadores'
 
 items:
 
@@ -29,9 +29,14 @@ items:
       - '&7Quantia (money): &a{money}'
       - '&7Quantia (cash): &6{cash}'
       - ''
-      - '&7Aposta: &a{bicho}'
+      - '&7Status: {status}'
+      - ''
+      - '&7Ganhos (money): &b{total-won-money}'
+      - '&7Ganhos (cash): &b{total-won-cash}'
       - ''
       - '&7ID da aposta: &f#{id}'
+    status-exited: '&aSaiu em &l{exit-value}&ax' # Configuração da variável {status} nos seguintes casos
+    status-not-exited: '&cNão saiu!'
 
   back:
     use-head: false # caso true, ignora 'id' e 'data' abaixo

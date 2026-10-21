@@ -79,14 +79,14 @@ items:
       - ''
       - '&7Opinião pública: &f{negative_average}%'
       - ''
-      - '&7Aposta para daqui: &f{tempo} att.'
+      - '&7Aposta para daqui: &f{time} att.'
       - ''
       - '&7Quantia que vai ser apostada: &a{money}'
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '&7Para você ganhar no graph o valor do'
       - '&7gráfico tem que estar menor do que está agora'
-      - '&7daqui &f{tempo} &7updates'
+      - '&7daqui &f{time} &7updates'
       - ''
       - '&7Clique para apostar'
     slot: 48
@@ -99,7 +99,7 @@ items:
     glow: false
     name: '&bTempo'
     lore:
-      - '&7Tempo atual (updates): &f{tempo}'
+      - '&7Tempo atual (updates): &f{time}'
       - ''
       - '&7Clique com &fbotão esquerdo &7para'
       - '&7aumentar o tempo'
@@ -120,14 +120,14 @@ items:
       - ''
       - '&7Opinião pública: &f{positive_average}%'
       - ''
-      - '&7Aposta para daqui: &f{tempo} att.'
+      - '&7Aposta para daqui: &f{time} att.'
       - ''
       - '&7Quantia que vai ser apostada: &a{money}'
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '&7Para você ganhar no graph o valor do'
       - '&7gráfico tem que estar maior do que está agora'
-      - '&7daqui &f{tempo} &7updates'
+      - '&7daqui &f{time} &7updates'
       - ''
       - '&7Clique para apostar'
     slot: 50
@@ -142,7 +142,7 @@ items:
     lore:
       - '&7Histórico recente do gráfico'
       - '&7para você se basear em que apostar:'
-      - '{historico}' # Vai ser repetida para todos as booleans
+      - '{history}' # Vai ser repetida para todos as booleans
     display-positive: '&7[&a+&7]'
     display-negative: '&7[&c-&7]'
     slot: 52
@@ -156,7 +156,7 @@ items:
     glow: false
     name: '&eApostadores'
     lore:
-      - '&7Jogadores apostando: &b{jogadores}'
+      - '&7Jogadores apostando: &b{players}'
       - '&7Ultimo jogador que apostou: &b{last_player}'
       - ''
       - '&7Total money apostado: &a{total_money}'

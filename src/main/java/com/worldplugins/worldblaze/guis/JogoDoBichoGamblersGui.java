@@ -119,7 +119,7 @@ public class JogoDoBichoGamblersGui {
                         replace("{nick}", bet.getOwner()).
                         replace("{money}", letterFormatter(bet.getMoneyValue())).
                         replace("{cash}", letterFormatter(bet.getCashValue())).
-                        replace("{bicho}", bet.getAnimal().getNameStr()).
+                        replace("{animal}", bet.getAnimal().getNameStr()).
                         replace("{id}", bet.getBetId()))
                 ));
 

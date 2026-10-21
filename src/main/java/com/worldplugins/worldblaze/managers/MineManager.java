@@ -174,13 +174,13 @@ public class MineManager {
         clone.setName(leftName);
 
         for (String s : leftLore) {
-            if(s.contains("{espectadores}")){
+            if(s.contains("{spectators}")){
                 for (String spectator : mineBet.getSpectators()) {
-                    clone.addLoreLine(c(s.replace("{espectadores}", spectator)));
+                    clone.addLoreLine(c(s.replace("{spectators}", spectator)));
                 }
             }else{
                 clone.addLoreLine(c(s.replace("{slots}", mineBet.getClickedSlots().size()+"").
-                        replace("{multiplicador}", formatValue(mineBet.getMultiplier()))));
+                        replace("{multiplier}", formatValue(mineBet.getMultiplier()))));
             }
         }
 
@@ -195,7 +195,7 @@ public class MineManager {
         clone.setName(principalPlayersName);
 
         principalPlayersLore.forEach(w -> clone.addLoreLine(c(w.
-                replace("{jogos}", mineBets.size()+"").
+                replace("{games}", mineBets.size()+"").
                 replace("{last_player}", getLastPlayer()).
                 replace("{total_money}", letterFormatter(totalBetMoney)).
                 replace("{total_cash}", letterFormatter(totalBetCash)))));

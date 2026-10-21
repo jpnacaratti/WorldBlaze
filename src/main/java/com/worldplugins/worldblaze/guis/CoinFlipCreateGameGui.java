@@ -34,13 +34,13 @@ public class CoinFlipCreateGameGui {
             else if (getConfig.getBoolean("items." + s + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
             else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1, (byte) getConfig.getInt("items." + s + ".data"));
             item.setName(c(getConfig.getString("items." + s + ".name").
-                    replace("{escolha}", choice))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
+                    replace("{choice}", choice))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
-                    replace("{escolha}", choice).
+                    replace("{choice}", choice).
                     replace("{money}", letterFormatter(user.getCoinFlipMoneyValue())).
                     replace("{cash}", letterFormatter(user.getCoinFlipCashValue())).
-                    replace("{adversario}", user.getCoinFlipSpecific() == null ? "-/-" : user.getCoinFlipSpecific()))));
+                    replace("{current-opponent}", user.getCoinFlipSpecific() == null ? "-/-" : user.getCoinFlipSpecific()))));
 
             int slot = getConfig.getInt("items." + s + ".slot");
 

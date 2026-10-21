@@ -33,10 +33,10 @@ items:
     glow: false
     name: '&eJogos'
     lore:
-      - '&7Partidas ocorrendo: &b{ocorrendo}'
-      - '&7Partidas em espera: &b{espera}'
+      - '&7Partidas ocorrendo: &b{ongoing}'
+      - '&7Partidas em espera: &b{waiting}'
       - ''
-      - '&7Partidas para você: &b{especifico}'
+      - '&7Partidas para você: &b{specific}'
       - ''
       - '&7Clique para ver mais detalhes e'
       - '&7entrar em algum jogo existente.'

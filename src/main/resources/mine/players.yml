@@ -1,6 +1,6 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM crash E DEPOIS EM apostadores
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM mine E DEPOIS EM jogadores
 
-title: 'Crash - Apostadores'
+title: 'Mine - Jogadores'
 
 items:
 
@@ -12,7 +12,7 @@ items:
     glow: false
     name: '&cVazio'
     lore:
-      - '&7Ninguem apostando no momento...'
+      - '&7Ninguem jogando no momento...'
     slot: 22
 
   player:
@@ -26,17 +26,18 @@ items:
     lore:
       - '&7Jogador: &e{nick}'
       - ''
+      - '&7Quantidade de bombas: &4{mines}'
+      - ''
       - '&7Quantia (money): &a{money}'
       - '&7Quantia (cash): &6{cash}'
       - ''
-      - '&7Status: {status}'
+      - '&7Slots minerados: &f{slots}'
+      - '&7Multiplicador atual: &c{multiplier}'
       - ''
-      - '&7Ganhos (money): &b{ganhos-money}'
-      - '&7Ganhos (cash): &b{ganhos-cash}'
+      - '&7Ganhos (money): &b{total-won-money}'
+      - '&7Ganhos (cash): &b{total-won-cash}'
       - ''
       - '&7ID da aposta: &f#{id}'
-    status-exited: '&aSaiu em &l{valor-saida}&ax' # Configuração da variável {status} nos seguintes casos
-    status-not-exited: '&cNão saiu!'
 
   back:
     use-head: false # caso true, ignora 'id' e 'data' abaixo

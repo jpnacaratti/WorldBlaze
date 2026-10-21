@@ -48,13 +48,13 @@ public class InventoryClickMine implements Listener {
             if((wonMoney > 0 && wonMoney >= getMineManager().getAlertMoney()) || (wonCash > 0 && wonCash >= getMineManager().getAlertCash())){
                 getInstance().getConfig().getStringList("messages.broadcast-won-mine").forEach(w -> Bukkit.broadcastMessage(c(w.
                         replace("{player}", p.getName()).
-                        replace("{multiplicador}",String.format("%.2f",mineBet.getMultiplier())).
+                        replace("{multiplier}",String.format("%.2f",mineBet.getMultiplier())).
                         replace("{money}",letterFormatter(wonMoney)).
                         replace("{cash}",letterFormatter(wonCash)))));
             }
 
             getInstance().getConfig().getStringList("messages.won-mine").forEach(w -> p.sendMessage(c(w.
-                    replace("{multiplicador}",String.format("%.2f",mineBet.getMultiplier())).
+                    replace("{multiplier}",String.format("%.2f",mineBet.getMultiplier())).
                     replace("{money}",letterFormatter(wonMoney)).
                     replace("{cash}",letterFormatter(wonCash)))));
 

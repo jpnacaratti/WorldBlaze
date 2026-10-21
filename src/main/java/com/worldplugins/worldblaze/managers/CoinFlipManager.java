@@ -137,9 +137,9 @@ public class CoinFlipManager {
         clone.setName(principalGamesName);
 
         principalGamesLore.forEach(w -> clone.addLoreLine(c(w.
-                replace("{ocorrendo}", getNumClosedGames() + "").
-                replace("{espera}", getNumOpenGames() + "").
-                replace("{especifico}", getNumSpecificGames(player) + ""))));
+                replace("{ongoing}", getNumClosedGames() + "").
+                replace("{waiting}", getNumOpenGames() + "").
+                replace("{specific}", getNumSpecificGames(player) + ""))));
 
         return clone.toItemStack();
     }
@@ -150,13 +150,13 @@ public class CoinFlipManager {
         clone.setName(startingName);
 
         startingLore.forEach(w -> clone.addLoreLine(c(w.
-                replace("{tempo}", String.format("%.2f", (startingTime - bet.getSubtract()))).
+                replace("{time}", String.format("%.2f", (startingTime - bet.getSubtract()))).
                 replace("{money}", letterFormatter(bet.getMoneyValue())).
                 replace("{cash}", letterFormatter(bet.getCashValue())).
-                replace("{jogadorDono}", bet.getOwner()).
-                replace("{jogadorOponente}", bet.getOpponent()).
-                replace("{escolhaDono}",bet.isCara() ? "Cara" : "Coroa").
-                replace("{escolhaOponente}",bet.isCara() ? "Coroa" : "Cara"))));
+                replace("{owner-player}", bet.getOwner()).
+                replace("{opponent-player}", bet.getOpponent()).
+                replace("{owner-choice}",bet.isCara() ? "Cara" : "Coroa").
+                replace("{opponent-choice}",bet.isCara() ? "Coroa" : "Cara"))));
 
         return clone.toItemStack();
     }
@@ -167,15 +167,15 @@ public class CoinFlipManager {
         clone.setName(caraName);
 
         for (String s : caraLore) {
-            if(s.contains("{cor}")){
+            if(s.contains("{color}")){
 
                 boolean change = false;
-                if(s.contains("{jogadorDono}")){
+                if(s.contains("{owner-player}")){
 
                     if(bet.isCara() && bet.isChoiceCara()) change = true;
                     else if (!bet.isCara() && !bet.isChoiceCara()) change = true;
 
-                }else if(s.contains("{jogadorOponente}")){
+                }else if(s.contains("{opponent-player}")){
 
                     if(bet.isCara() && !bet.isChoiceCara()) change = true;
                     else if (!bet.isCara() && bet.isChoiceCara()) change = true;
@@ -183,22 +183,22 @@ public class CoinFlipManager {
                 }
 
                 clone.addLoreLine(c(s.
-                        replace("{cor}", change ? colorChoice : colorNoChoice).
+                        replace("{color}", change ? colorChoice : colorNoChoice).
                         replace("{money}", letterFormatter(bet.getMoneyValue())).
                         replace("{cash}", letterFormatter(bet.getCashValue())).
-                        replace("{jogadorDono}", bet.getOwner()).
-                        replace("{jogadorOponente}", bet.getOpponent()).
-                        replace("{escolhaDono}",bet.isCara() ? "Cara" : "Coroa").
-                        replace("{escolhaOponente}",bet.isCara() ? "Coroa" : "Cara")));
+                        replace("{owner-player}", bet.getOwner()).
+                        replace("{opponent-player}", bet.getOpponent()).
+                        replace("{owner-choice}",bet.isCara() ? "Cara" : "Coroa").
+                        replace("{opponent-choice}",bet.isCara() ? "Coroa" : "Cara")));
 
             }else{
                 clone.addLoreLine(c(s.
                         replace("{money}", letterFormatter(bet.getMoneyValue())).
                         replace("{cash}", letterFormatter(bet.getCashValue())).
-                        replace("{jogadorDono}", bet.getOwner()).
-                        replace("{jogadorOponente}", bet.getOpponent()).
-                        replace("{escolhaDono}",bet.isCara() ? "Cara" : "Coroa").
-                        replace("{escolhaOponente}",bet.isCara() ? "Coroa" : "Cara")));
+                        replace("{owner-player}", bet.getOwner()).
+                        replace("{opponent-player}", bet.getOpponent()).
+                        replace("{owner-choice}",bet.isCara() ? "Cara" : "Coroa").
+                        replace("{opponent-choice}",bet.isCara() ? "Coroa" : "Cara")));
             }
         }
 
@@ -211,15 +211,15 @@ public class CoinFlipManager {
         clone.setName(coroaName);
 
         for (String s : coroaLore) {
-            if(s.contains("{cor}")){
+            if(s.contains("{color}")){
 
                 boolean change = false;
-                if(s.contains("{jogadorDono}")){
+                if(s.contains("{owner-player}")){
 
                     if(bet.isCara() && bet.isChoiceCara()) change = true;
                     else if (!bet.isCara() && !bet.isChoiceCara()) change = true;
 
-                }else if(s.contains("{jogadorOponente}")){
+                }else if(s.contains("{opponent-player}")){
 
                     if(bet.isCara() && !bet.isChoiceCara()) change = true;
                     else if (!bet.isCara() && bet.isChoiceCara()) change = true;
@@ -227,22 +227,22 @@ public class CoinFlipManager {
                 }
 
                 clone.addLoreLine(c(s.
-                        replace("{cor}", change ? colorChoice : colorNoChoice).
+                        replace("{color}", change ? colorChoice : colorNoChoice).
                         replace("{money}", letterFormatter(bet.getMoneyValue())).
                         replace("{cash}", letterFormatter(bet.getCashValue())).
-                        replace("{jogadorDono}", bet.getOwner()).
-                        replace("{jogadorOponente}", bet.getOpponent()).
-                        replace("{escolhaDono}",bet.isCara() ? "Cara" : "Coroa").
-                        replace("{escolhaOponente}",bet.isCara() ? "Coroa" : "Cara")));
+                        replace("{owner-player}", bet.getOwner()).
+                        replace("{opponent-player}", bet.getOpponent()).
+                        replace("{owner-choice}",bet.isCara() ? "Cara" : "Coroa").
+                        replace("{opponent-choice}",bet.isCara() ? "Coroa" : "Cara")));
 
             }else{
                 clone.addLoreLine(c(s.
                         replace("{money}", letterFormatter(bet.getMoneyValue())).
                         replace("{cash}", letterFormatter(bet.getCashValue())).
-                        replace("{jogadorDono}", bet.getOwner()).
-                        replace("{jogadorOponente}", bet.getOpponent()).
-                        replace("{escolhaDono}",bet.isCara() ? "Cara" : "Coroa").
-                        replace("{escolhaOponente}",bet.isCara() ? "Coroa" : "Cara")));
+                        replace("{owner-player}", bet.getOwner()).
+                        replace("{opponent-player}", bet.getOpponent()).
+                        replace("{owner-choice}",bet.isCara() ? "Cara" : "Coroa").
+                        replace("{opponent-choice}",bet.isCara() ? "Coroa" : "Cara")));
             }
         }
 
@@ -264,7 +264,7 @@ public class CoinFlipManager {
         else if(!bet.isCara() && bet.isChoiceCara()) winner = bet.getOpponent();
 
         String finalWinner = winner;
-        finishLore.forEach(w -> item.addLoreLine(c(w.replace("{escolhaFinal}", bet.isChoiceCara() ? "Cara" : "Coroa").
+        finishLore.forEach(w -> item.addLoreLine(c(w.replace("{final-choice}", bet.isChoiceCara() ? "Cara" : "Coroa").
                 replace("{winner}", finalWinner).
                 replace("{money}", letterFormatter(bet.getMoneyValue() * 2)).
                 replace("{cash}", letterFormatter(bet.getCashValue() * 2))

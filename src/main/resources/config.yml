@@ -45,7 +45,7 @@ config:
     max-money-bet: 100000000000.0 # Quantia máxima de money que pode ser apostado
     min-money-bet: 15000.0 # Quantia mínima de money que pode ser apostado
     alert: 2.0 # Vai enviar um alerta quando alguém retirar do crash
-    values: # {valor-crash-inicial};{valor-crash-final};{chance}
+    values: # {initial-crash-value};{final-crash-value};{chance}
       - '1.00;1.00;10.0'
       - '1.07;1.65;8.0'
       - '1.15;2.13;6.0'
@@ -240,7 +240,7 @@ messages:
 
   broadcast-won-coinflip:
     - ''
-    - '&9[CoinFlip] &7O jogador &9{player} &7ganhou o CoinFlip contra &9{oponente} &7e recebeu &9{money} &7money e &9{cash} &7cash!'
+    - '&9[CoinFlip] &7O jogador &9{player} &7ganhou o CoinFlip contra &9{opponent} &7e recebeu &9{money} &7money e &9{cash} &7cash!'
     - ''
 
   won-coinflip:
@@ -282,12 +282,12 @@ messages:
 
   broadcast-won-mine:
     - ''
-    - '&c[Mine] &7O jogador &c{player} &7saiu do mine com um multiplicador de &c&l{multiplicador}x &7e ganhou &c{money} &7money e &c{cash} &7cash!'
+    - '&c[Mine] &7O jogador &c{player} &7saiu do mine com um multiplicador de &c&l{multiplier}x &7e ganhou &c{money} &7money e &c{cash} &7cash!'
     - ''
 
   won-mine:
     - ''
-    - '&c[Mine] §7Você saiu do mine com um multiplicador de &c&l{multiplicador}x &7e ganhou &c{money} &7money e &c{cash} &7cash!'
+    - '&c[Mine] §7Você saiu do mine com um multiplicador de &c&l{multiplier}x &7e ganhou &c{money} &7money e &c{cash} &7cash!'
     - ''
 
   spectators-game-ended:
@@ -318,7 +318,7 @@ messages:
 
   bet-placed-double:
     - ''
-    - '&6[WorldBlaze] §7Você está participando agora do double e apostou na cor: {cor}'
+    - '&6[WorldBlaze] §7Você está participando agora do double e apostou na cor: {color}'
     - ''
 
   broadcast-won-double:
@@ -408,7 +408,7 @@ messages:
     - ''
 
   # Quando jogador for apostar mas tem que esperar o intervalo de aposta do Graph
-  wait-before-betting: '&cVocê tem que esperar {tempo} segundos antes de apostar de novo!'
+  wait-before-betting: '&cVocê tem que esperar {time} segundos antes de apostar de novo!'
 
   # Servidor iniciou e infeliz foi tentar apostar antes mesmo de qualquer update sair
   graph-starting: '&cAguarde um pouco antes de apostar!'
@@ -439,7 +439,7 @@ messages:
   # Quando sortearem um bicho
   animal-drawn-broadcast:
     - ''
-    - '&e[Jogo do Bicho] &7O bicho sorteado da vez foi: &e{bicho}'
+    - '&e[Jogo do Bicho] &7O bicho sorteado da vez foi: &e{animal}'
     - ''
 
   # Quando algum jogador ganhar e passar da quantidade de dinheiro que precisa para mandar um alerta

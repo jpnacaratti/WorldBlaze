@@ -15,20 +15,20 @@ starting:
   name: '&eIniciando...'
   lore:
     - ''
-    - '&7Vai começar em: {tempo}s'
+    - '&7Vai começar em: {time}s'
     - ''
     - '&7Quantia apostada (money): &a{money}'
     - '&7Quantia apostada (cash): &6{cash}'
     - ''
-    - '&f{jogadorDono} &7- &e{escolhaDono}'
-    - '&f{jogadorOponente} &7- &e{escolhaOponente}'
+    - '&f{owner-player} &7- &e{owner-choice}'
+    - '&f{opponent-player} &7- &e{opponent-choice}'
 
 finished:
   name: '&cFINALIZADO'
   lore:
     - ''
     - '&7Finalizado'
-    - '&7Lado escolhido: &b{escolhaFinal}'
+    - '&7Lado escolhido: &b{final-choice}'
     - ''
     - '&7Jogador vencedor: &e{winner}'
     - ''
@@ -49,8 +49,8 @@ heads:
     - '&7Quantia apostada (money): &a{money}'
     - '&7Quantia apostada (cash): &6{cash}'
     - ''
-    - '{cor}-> &f{jogadorDono} &7- &e{escolhaDono}'
-    - '{cor}-> &f{jogadorOponente} &7- &e{escolhaOponente}'
+    - '{color}-> &f{owner-player} &7- &e{owner-choice}'
+    - '{color}-> &f{opponent-player} &7- &e{opponent-choice}'
 
 tails:
   use-head: true # caso true, ignora 'id' e 'data' abaixo
@@ -66,8 +66,8 @@ tails:
     - '&7Quantia apostada (money): &a{money}'
     - '&7Quantia apostada (cash): &6{cash}'
     - ''
-    - '{cor}-> &f{jogadorDono} &7- &e{escolhaDono}'
-    - '{cor}-> &f{jogadorOponente} &7- &e{escolhaOponente}'
+    - '{color}-> &f{owner-player} &7- &e{owner-choice}'
+    - '{color}-> &f{opponent-player} &7- &e{opponent-choice}'
 
 chosen-color: "&b"
 not-chosen-color: "&f"
@@ -84,7 +84,7 @@ items:
     name: '&e{nick}'
     lore:
       - ''
-      - '&7Apostou no: &b{escolhaDono}'
+      - '&7Apostou no: &b{owner-choice}'
       - ''
     slot: 9
 
@@ -98,7 +98,7 @@ items:
     name: '&e{nick}'
     lore:
       - ''
-      - '&7Apostou no: &b{escolhaOponente}'
+      - '&7Apostou no: &b{opponent-choice}'
       - ''
     slot: 17
 

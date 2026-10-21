@@ -54,7 +54,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
                 Bicho randomBicho = getJogoDoBichoManager().getRandomBicho();
 
                 getInstance().getConfig().getStringList("messages.animal-drawn-broadcast").forEach(w -> Bukkit.broadcastMessage(c(w.
-                        replace("{bicho}", randomBicho.getNameStr()))));
+                        replace("{animal}", randomBicho.getNameStr()))));
 
                 for (JogoDoBichoBet bet : getJogoDoBichoManager().getJogoDoBichoBets()) {
                     Player player = Bukkit.getPlayer(bet.getOwner());
@@ -106,7 +106,7 @@ public class JogoDoBichoCMD implements CommandExecutor {
                 }
 
                 getInstance().getConfig().getStringList("messages.animal-drawn-broadcast").forEach(w -> Bukkit.broadcastMessage(c(w.
-                        replace("{bicho}", chose.getNameStr()))));
+                        replace("{animal}", chose.getNameStr()))));
 
                 for (JogoDoBichoBet bet : getJogoDoBichoManager().getJogoDoBichoBets()) {
                     Player player = Bukkit.getPlayer(bet.getOwner());

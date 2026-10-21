@@ -94,7 +94,7 @@ public class  InventoryClickGraph implements Listener {
         if(e.getSlot() == getConfig.getInt("items.bet-increase.slot") || e.getSlot() == getConfig.getInt("items.bet-decrease.slot")){
 
             if(MainTask.graphDelays.containsKey(p.getName())){
-                p.sendMessage(c(getMessages().WAIT_BEFORE_BETTING.replace("{tempo}", "" + (getGraphManager().getDelay() - MainTask.graphDelays.get(p.getName())))));
+                p.sendMessage(c(getMessages().WAIT_BEFORE_BETTING.replace("{time}", "" + (getGraphManager().getDelay() - MainTask.graphDelays.get(p.getName())))));
                 return;
             }
 

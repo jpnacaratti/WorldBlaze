@@ -442,7 +442,7 @@ public class GraphManager {
         clone.setName(betUpName);
 
         betUpLore.forEach(w -> clone.addLoreLine(c(w.replace("{positive_average}", String.format("%.2f", positiveBetAverage)).
-                replace("{tempo}", user.getGraphTime()+"").
+                replace("{time}", user.getGraphTime()+"").
                 replace("{money}", letterFormatter(user.getGraphMoneyValue())).
                 replace("{cash}", letterFormatter(user.getGraphCashValue())))));
 
@@ -455,7 +455,7 @@ public class GraphManager {
         clone.setName(betDecreaseName);
 
         betDecreaseLore.forEach(w -> clone.addLoreLine(c(w.replace("{negative_average}", String.format("%.2f", negativeBetAverage)).
-                replace("{tempo}", user.getGraphTime()+"").
+                replace("{time}", user.getGraphTime()+"").
                 replace("{money}", letterFormatter(user.getGraphMoneyValue())).
                 replace("{cash}", letterFormatter(user.getGraphCashValue())))));
 
@@ -468,9 +468,9 @@ public class GraphManager {
         clone.setName(historicName);
 
         for (String s : historicLore) {
-            if(s.contains("{historico}")){
-                for (Boolean b : getGraphManager().getHistoric()) if(b) clone.addLoreLine(c(s.replace("{historico}", historicPositiveDisplay)));
-                else clone.addLoreLine(c(s.replace("{historico}", historicNegativeDisplay)));
+            if(s.contains("{history}")){
+                for (Boolean b : getGraphManager().getHistoric()) if(b) clone.addLoreLine(c(s.replace("{history}", historicPositiveDisplay)));
+                else clone.addLoreLine(c(s.replace("{history}", historicNegativeDisplay)));
             }else clone.addLoreLine(c(s));
         }
 
@@ -484,7 +484,7 @@ public class GraphManager {
 
         clone.setName(gamblersName);
 
-        gamblersLore.forEach(w -> clone.addLoreLine(c(w.replace("{jogadores}", graphBets.size()+"").
+        gamblersLore.forEach(w -> clone.addLoreLine(c(w.replace("{players}", graphBets.size()+"").
                 replace("{negative_average}", String.format("%.2f", negativeBetAverage)).
                 replace("{positive_average}", String.format("%.2f", positiveBetAverage)).
                 replace("{last_player}", getLastPlayer()).
@@ -499,7 +499,7 @@ public class GraphManager {
 
         clone.setName(timeName);
 
-        timeLore.forEach(w -> clone.addLoreLine(c(w.replace("{tempo}", user.getGraphTime()+""))));
+        timeLore.forEach(w -> clone.addLoreLine(c(w.replace("{time}", user.getGraphTime()+""))));
 
         return clone.toItemStack();
     }

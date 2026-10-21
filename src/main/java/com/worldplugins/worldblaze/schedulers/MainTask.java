@@ -163,7 +163,7 @@ public class MainTask implements Runnable {
                             if(wonCash >= getCoinFlipManager().getCashAlert() || wonMoney >= getCoinFlipManager().getMoneyAlert()){
                                 getInstance().getConfig().getStringList("messages.broadcast-won-coinflip").forEach(w -> Bukkit.broadcastMessage(c(w.
                                         replace("{player}", coinFlipbet.getOwner()).
-                                        replace("{oponente}", coinFlipbet.getOpponent()).
+                                        replace("{opponent}", coinFlipbet.getOpponent()).
                                         replace("{money}", letterFormatter(wonMoney)).
                                         replace("{cash}", letterFormatter(wonCash)))));
                             }
@@ -184,7 +184,7 @@ public class MainTask implements Runnable {
                             if(wonCash >= getCoinFlipManager().getCashAlert() || wonMoney >= getCoinFlipManager().getMoneyAlert()){
                                 getInstance().getConfig().getStringList("messages.broadcast-won-coinflip").forEach(w -> Bukkit.broadcastMessage(c(w.
                                         replace("{player}", coinFlipbet.getOpponent()).
-                                        replace("{oponente}", coinFlipbet.getOwner()).
+                                        replace("{opponent}", coinFlipbet.getOwner()).
                                         replace("{money}", letterFormatter(wonMoney)).
                                         replace("{cash}", letterFormatter(wonCash)))));
                             }

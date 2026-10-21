@@ -114,10 +114,10 @@ public class GraphGamblersGui {
                         replace("{nick}", graphBet.getOwner()).
                         replace("{money}", letterFormatter(graphBet.getMoneyValue())).
                         replace("{cash}", letterFormatter(graphBet.getCashValue())).
-                        replace("{aposta}", finalStatus).
+                        replace("{bet}", finalStatus).
                         replace("{update-num}", graphBet.getGraphPointId()+"").
                         replace("{updates}", graphBet.getNumberAtts()+"").
-                        replace("{resultado}", graphBet.getWhenReceive()+"").
+                        replace("{result}", graphBet.getWhenReceive()+"").
                         replace("{id}", graphBet.getBetId()))
                 ));
 

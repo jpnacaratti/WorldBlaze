@@ -1,6 +1,6 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM graph E DEPOIS EM apostadores
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM coinflip E DEPOIS EM jogos
 
-title: 'Graph - Apostadores'
+title: 'CoinFlip - Jogos'
 
 items:
 
@@ -12,7 +12,7 @@ items:
     glow: false
     name: '&cVazio'
     lore:
-      - '&7Ninguem apostando no momento...'
+      - '&7Ninguem jogando no momento...'
     slot: 22
 
   player:
@@ -24,20 +24,22 @@ items:
     glow: false
     name: '&b{nick}'
     lore:
-      - '&7Jogador: &e{nick}'
+      - '&7Jogador: &e{nick} &7- &e{owner-choice}'
+      - '&7Oponente: &e{opponent} &7- &e{opponent-choice}'
+      - ''
+      - '&7Específico: {specific}'
       - ''
       - '&7Quantia (money): &a{money}'
       - '&7Quantia (cash): &6{cash}'
       - ''
-      - '&7Aposta: {aposta}'
-      - ''
-      - '&7Apostou no update: &f#{update-num}'
-      - '&7Para daqui (updates): &f{updates} updates'
-      - '&7Resultado no update número: &f#{resultado}'
+      - '&7Status: {status}'
       - ''
       - '&7ID da aposta: &f#{id}'
-    bet-rose: '&aVai subir!' # Configuração da variável {aposta} nos seguintes casos
-    bet-fell: '&cVai descer!'
+    status-open: '&aClique para entrar e apostar'
+    status-closed: '&cJogo acontecendo'
+    status-specific: '&bEsse jogo é apenas para {player}'
+    status-specific-you: '&aEsse jogo é apenas para você'
+    status-not-specific: '&bEsse jogo é para todos'
 
   back:
     use-head: false # caso true, ignora 'id' e 'data' abaixo

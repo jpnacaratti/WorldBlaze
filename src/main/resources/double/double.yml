@@ -131,7 +131,7 @@ items:
     status-bet: '&bVocê já apostou nessa cor, boa sorte!' # Configuração da variável {status} quando jogador já tiver apostado
     status-not-bet: '&7* Clique para apostar!' # Configuração da variável {status} quando jogador ainda não apostou
     round-status-started: '&aRodada iniciada!' # Configuração da variável {round_status} quando a rodada já iniciou
-    round-status-not-started: '&eIniciando em - {tempo}s' # Configuração da variável {round_status} quando a rodada estiver iniciando
+    round-status-not-started: '&eIniciando em - {time}s' # Configuração da variável {round_status} quando a rodada estiver iniciando
     slot: 30
 
   bet-white:
@@ -158,7 +158,7 @@ items:
     status-bet: '&bVocê já apostou nessa cor, boa sorte!'
     status-not-bet: '&7* Clique para apostar!'
     round-status-started: '&aRodada iniciada!'
-    round-status-not-started: '&eIniciando em - {tempo}s'
+    round-status-not-started: '&eIniciando em - {time}s'
     slot: 31
 
   bet-black:
@@ -185,7 +185,7 @@ items:
     status-bet: '&bVocê já apostou nessa cor, boa sorte!'
     status-not-bet: '&7* Clique para apostar!'
     round-status-started: '&aRodada iniciada!'
-    round-status-not-started: '&eIniciando em - {tempo}s'
+    round-status-not-started: '&eIniciando em - {time}s'
     slot: 32
 
   history:
@@ -198,7 +198,7 @@ items:
     lore:
       - '&7Histórico recente do double'
       - '&7para você se basear em que apostar:'
-      - '&7- {historico}' # Vai ser repetida para todos as booleans
+      - '&7- {history}' # Vai ser repetida para todos as booleans
     display-red: '&cVermelho'
     display-white: '&fBranco'
     display-black: '&8Preto'
@@ -213,7 +213,7 @@ items:
     glow: false
     name: '&eApostadores'
     lore:
-      - '&7Jogadores apostando: &b{jogadores}'
+      - '&7Jogadores apostando: &b{players}'
       - '&7Ultimo jogador que apostou: &b{last_player}'
       - ''
       - '&7Total money apostado: &a{total_money}'

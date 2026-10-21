@@ -29,7 +29,7 @@ public class JogoDoBichoMainGui {
             item.setName(c(getConfig.getString("items." + s + ".name"))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
-                    replace("{jogadores}", getJogoDoBichoManager().getJogoDoBichoBets().size() + "").
+                    replace("{players}", getJogoDoBichoManager().getJogoDoBichoBets().size() + "").
                     replace("{last_player}", getJogoDoBichoManager().getLastPlayer()).
                     replace("{total_money}", letterFormatter(getJogoDoBichoManager().getTotalBetMoney())).
                     replace("{total_cash}", letterFormatter(getJogoDoBichoManager().getTotalBetCash())))));

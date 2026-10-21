@@ -127,7 +127,7 @@ public class InventoryClickDouble implements Listener {
 
             removeValues(p, user.getDoubleCashValue(), user.getDoubleMoneyValue());
 
-            getInstance().getConfig().getStringList("messages.bet-placed-double").forEach(w -> p.sendMessage(c(w.replace("{cor}", chose.getNameStr()))));
+            getInstance().getConfig().getStringList("messages.bet-placed-double").forEach(w -> p.sendMessage(c(w.replace("{color}", chose.getNameStr()))));
         }
 
     }

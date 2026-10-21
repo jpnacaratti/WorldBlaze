@@ -284,10 +284,10 @@ public class CrashManager {
         clone.setName(crashStartingName);
 
         for (String s : crashStartingLore) {
-            if(s.contains("{status-iniciando}")){
+            if(s.contains("{status-starting}")){
                 if(crashBets.containsKey(user.getOwner())) clone.addLoreLine(c(statusParticipatingStarting));
                 else clone.addLoreLine(c(statusParticipateStarting));
-            }else clone.addLoreLine(c(s.replace("{tempo}", String.format("%.2f",getCrashManager().getSecondsBeforeStart() - getCrashManager().getTimeToSubtract())).
+            }else clone.addLoreLine(c(s.replace("{time}", String.format("%.2f",getCrashManager().getSecondsBeforeStart() - getCrashManager().getTimeToSubtract())).
                     replace("{money}", letterFormatter(user.getCrashMoneyValue())).
                     replace("{cash}", letterFormatter(user.getCrashCashValue()))));
         }
@@ -298,7 +298,7 @@ public class CrashManager {
     public ItemStack getCrashStartedItem(BlazeUser user) {
         ItemBuilder clone = crashStartedItem.clone();
 
-        clone.setName(crashStartedName.replace("{valor}", String.format("%.2f", crashValue)));
+        clone.setName(crashStartedName.replace("{value}", String.format("%.2f", crashValue)));
 
         double betMoney = 0;
         double betCash = 0;
@@ -308,14 +308,14 @@ public class CrashManager {
         }
 
         for (String s : crashStartedLore) {
-            if(s.contains("{status-iniciado}")){
+            if(s.contains("{status-started}")){
                 if(!crashBets.containsKey(user.getOwner())) clone.addLoreLine(statusNoParticipatedStarted);
                 else if (isPlayerLeftCrash(user.getOwner())) clone.addLoreLine(c(statusParticipateStarted.
-                        replace("{valor-saida}", String.format("%.2f", getPlayerLeftValue(user.getOwner())))));
+                        replace("{exit-value}", String.format("%.2f", getPlayerLeftValue(user.getOwner())))));
                 else clone.addLoreLine(statusParticipatingStarted);
-            }else clone.addLoreLine(c(s.replace("{valor}", String.format("%.2f", crashValue)).
-                    replace("{money-apostado}", letterFormatter(betMoney)).
-                    replace("{cash-apostado}", letterFormatter(betCash))));
+            }else clone.addLoreLine(c(s.replace("{value}", String.format("%.2f", crashValue)).
+                    replace("{bet-money}", letterFormatter(betMoney)).
+                    replace("{bet-cash}", letterFormatter(betCash))));
         }
 
         return clone.toItemStack();
@@ -324,7 +324,7 @@ public class CrashManager {
     public ItemStack getCrashCrashedItem(BlazeUser user) {
         ItemBuilder clone = crashCrashedItem.clone();
 
-        clone.setName(crashCrashedName.replace("{valor}", String.format("%.2f", crashValue)));
+        clone.setName(crashCrashedName.replace("{value}", String.format("%.2f", crashValue)));
 
         double betMoney = 0;
         double betCash = 0;
@@ -334,16 +334,16 @@ public class CrashManager {
         }
 
         for (String s : crashCrashedLore) {
-            if(s.contains("{status-crashou}")){
+            if(s.contains("{status-crashed}")){
                 if(!crashBets.containsKey(user.getOwner())) clone.addLoreLine(statusNoParticipatedCrashed);
                 else if (isPlayerLeftCrash(user.getOwner())) clone.addLoreLine(c(statusWonCrashed.
-                        replace("{valor-saida}", String.format("%.2f", getPlayerLeftValue(user.getOwner())))));
+                        replace("{exit-value}", String.format("%.2f", getPlayerLeftValue(user.getOwner())))));
                 else clone.addLoreLine(statusLoseCrashed);
-            }else clone.addLoreLine(c(s.replace("{valor}", String.format("%.2f", crashValue)).
-                    replace("{ganho-money}", letterFormatter(getMoneyWon(user.getOwner()))).
-                    replace("{ganho-cash}", letterFormatter(getCashWon(user.getOwner()))).
-                    replace("{money-apostado}", letterFormatter(betMoney)).
-                    replace("{cash-apostado}", letterFormatter(betCash))));
+            }else clone.addLoreLine(c(s.replace("{value}", String.format("%.2f", crashValue)).
+                    replace("{won-money}", letterFormatter(getMoneyWon(user.getOwner()))).
+                    replace("{won-cash}", letterFormatter(getCashWon(user.getOwner()))).
+                    replace("{bet-money}", letterFormatter(betMoney)).
+                    replace("{bet-cash}", letterFormatter(betCash))));
         }
 
         return clone.toItemStack();
@@ -358,8 +358,8 @@ public class CrashManager {
         Collections.reverse(copy);
 
         for (String s : historicLore) {
-            if(s.contains("{historico}")){
-                for (Double d : copy) clone.addLoreLine(c(s.replace("{historico}", String.format("%.2f",d))));
+            if(s.contains("{history}")){
+                for (Double d : copy) clone.addLoreLine(c(s.replace("{history}", String.format("%.2f",d))));
             }else clone.addLoreLine(c(s));
         }
 
@@ -374,7 +374,7 @@ public class CrashManager {
         clone.setName(gamblersName);
 
         gamblersLore.forEach(w -> clone.addLoreLine(c(w.
-                replace("{jogadores}", crashBets.size()+"").
+                replace("{players}", crashBets.size()+"").
                 replace("{last_player}", getLastPlayer()).
                 replace("{total_money}", letterFormatter(totalBetMoney)).
                 replace("{total_cash}", letterFormatter(totalBetCash)))));

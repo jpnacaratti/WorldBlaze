@@ -48,9 +48,9 @@ items:
     glow: false
     name: '&eIniciando...'
     lore:
-      - '&7O Crash vai iniciar em: &e{tempo}s'
+      - '&7O Crash vai iniciar em: &e{time}s'
       - ''
-      - '&7Status: {status-iniciando}'
+      - '&7Status: {status-starting}'
       - ''
       - '&7Quantia que vai ser apostada: &a{money}'
       - '&7Quantia que vai ser apostada: &6{cash}'
@@ -68,20 +68,20 @@ items:
     id: ''
     data: 0
     glow: false
-    name: '&aIniciado: &e{valor}&7x'
+    name: '&aIniciado: &e{value}&7x'
     lore:
-      - '&7Multiplicador atual: &e{valor}&7x'
+      - '&7Multiplicador atual: &e{value}&7x'
       - ''
-      - '&7Status: {status-iniciado}'
+      - '&7Status: {status-started}'
       - ''
-      - '&7Você apostou (money): &f{money-apostado}'
-      - '&7Você apostou (cash): &f{cash-apostado}'
+      - '&7Você apostou (money): &f{bet-money}'
+      - '&7Você apostou (cash): &f{bet-cash}'
       - ''
       - '&7Caso esteja participando'
       - '&7clique para sair'
     status-did-not-participate: '&cVocẽ não está participando' # Configurações da variável {status}
     status-participating: '&aClique para sair'
-    status-exited: '&cSaiu com {valor-saida}x'
+    status-exited: '&cSaiu com {exit-value}x'
     slot: 4
 
   # Item do meio do menu que vai passar as informações do crash quando ele crashar
@@ -91,23 +91,23 @@ items:
     id: ''
     data: 0
     glow: false
-    name: '&cCrashou: &e{valor}&7x'
+    name: '&cCrashou: &e{value}&7x'
     lore:
-      - '&7Crashou em: &e{valor}&7x'
+      - '&7Crashou em: &e{value}&7x'
       - ''
-      - '&7Status: {status-crashou}'
+      - '&7Status: {status-crashed}'
       - ''
-      - '&7Ganhos (money): &a{ganho-money}'
-      - '&7Ganhos (cash): &6{ganho-cash}'
+      - '&7Ganhos (money): &a{won-money}'
+      - '&7Ganhos (cash): &6{won-cash}'
       - ''
-      - '&7Você apostou (money): &f{money-apostado}'
-      - '&7Você apostou (cash): &f{cash-apostado}'
+      - '&7Você apostou (money): &f{bet-money}'
+      - '&7Você apostou (cash): &f{bet-cash}'
       - ''
       - '&7Aguarde que em breve vai'
       - '&7começar mais um crash'
     status-did-not-participate: '&cVocẽ não participou' # Configurações da variável {status}
     status-lost: '&cDemorou muito para sair...'
-    status-won: '&aSaiu com &l{valor-saida}&ax'
+    status-won: '&aSaiu com &l{exit-value}&ax'
     slot: 4
 
   history:
@@ -120,7 +120,7 @@ items:
     lore:
       - '&7Histórico recente do crash'
       - '&7para você se basear:'
-      - '&7- &e{historico}&7x' # Vai ser repetida para todos os últimos 15 valores
+      - '&7- &e{history}&7x' # Vai ser repetida para todos os últimos 15 valores
     slot: 7
 
   bettors:
@@ -132,7 +132,7 @@ items:
     glow: false
     name: '&eApostadores'
     lore:
-      - '&7Jogadores apostando: &b{jogadores}'
+      - '&7Jogadores apostando: &b{players}'
       - '&7Ultimo jogador que apostou: &b{last_player}'
       - ''
       - '&7Total money apostado: &a{total_money}'

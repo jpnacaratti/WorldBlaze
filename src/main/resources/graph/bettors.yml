@@ -1,6 +1,6 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM mine E DEPOIS EM jogadores
+# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM graph E DEPOIS EM apostadores
 
-title: 'Mine - Jogadores'
+title: 'Graph - Apostadores'
 
 items:
 
@@ -12,7 +12,7 @@ items:
     glow: false
     name: '&cVazio'
     lore:
-      - '&7Ninguem jogando no momento...'
+      - '&7Ninguem apostando no momento...'
     slot: 22
 
   player:
@@ -26,18 +26,18 @@ items:
     lore:
       - '&7Jogador: &e{nick}'
       - ''
-      - '&7Quantidade de bombas: &4{bombas}'
-      - ''
       - '&7Quantia (money): &a{money}'
       - '&7Quantia (cash): &6{cash}'
       - ''
-      - '&7Slots minerados: &f{slots}'
-      - '&7Multiplicador atual: &c{multiplicador}'
+      - '&7Aposta: {bet}'
       - ''
-      - '&7Ganhos (money): &b{ganhos-money}'
-      - '&7Ganhos (cash): &b{ganhos-cash}'
+      - '&7Apostou no update: &f#{update-num}'
+      - '&7Para daqui (updates): &f{updates} updates'
+      - '&7Resultado no update número: &f#{result}'
       - ''
       - '&7ID da aposta: &f#{id}'
+    bet-rose: '&aVai subir!' # Configuração da variável {bet} nos seguintes casos
+    bet-fell: '&cVai descer!'
 
   back:
     use-head: false # caso true, ignora 'id' e 'data' abaixo

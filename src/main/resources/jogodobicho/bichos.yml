@@ -16,7 +16,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -34,7 +34,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -52,7 +52,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -70,7 +70,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -88,7 +88,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -106,7 +106,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -124,7 +124,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -142,7 +142,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -160,7 +160,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -178,7 +178,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -196,7 +196,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -214,7 +214,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -232,7 +232,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -250,7 +250,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -268,7 +268,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -286,7 +286,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -304,7 +304,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -322,7 +322,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -340,7 +340,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -358,7 +358,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -376,7 +376,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -394,7 +394,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -412,7 +412,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -430,7 +430,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
@@ -448,7 +448,7 @@ items:
     lore:
       - ''
       - '&7Ultimo jogador: &b{last_player}'
-      - '&7Apostas: &b{apostas}'
+      - '&7Apostas: &b{bets}'
       - ''
       - '&7Total apostado (money): &a{total_money}'
       - '&7Total apostado (cash): &6{total_cash}'
