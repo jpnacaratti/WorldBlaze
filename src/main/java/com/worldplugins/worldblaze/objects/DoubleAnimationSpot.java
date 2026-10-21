@@ -23,13 +23,13 @@ public class DoubleAnimationSpot {
 
         FileConfiguration getConfig = getDoubleGuiYml().getConfig();
 
-        this.time = getConfig.getDouble("Starting-animation."+secId+".Tempo");
+        this.time = getConfig.getDouble("starting-animation."+secId+".time");
 
-        for (String s : getConfig.getConfigurationSection("Starting-animation." + secId + ".Itens").getKeys(false)) {
-            ItemBuilder item = new ItemBuilder(Material.getMaterial(getConfig.getString("Starting-animation." + secId + ".Itens." + s + ".Id")), 1, (byte)
-            getConfig.getInt("Starting-animation." + secId + ".Itens." + s + ".Data"));
+        for (String s : getConfig.getConfigurationSection("starting-animation." + secId + ".items").getKeys(false)) {
+            ItemBuilder item = new ItemBuilder(Material.getMaterial(getConfig.getString("starting-animation." + secId + ".items." + s + ".id")), 1, (byte)
+            getConfig.getInt("starting-animation." + secId + ".items." + s + ".data"));
 
-            itens.put(item.toItemStack(), getConfig.getIntegerList("Starting-animation." + secId + ".Itens." + s + ".Slot"));
+            itens.put(item.toItemStack(), getConfig.getIntegerList("starting-animation." + secId + ".items." + s + ".slot"));
         }
     }
 

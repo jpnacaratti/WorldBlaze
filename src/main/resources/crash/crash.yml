@@ -1,53 +1,53 @@
 # MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM crash
 
-Titulo: 'WorldBlaze - Crash'
+title: 'WorldBlaze - Crash'
 
-Linhas: 1
+rows: 1
 
-Cor-iniciando: 4 # Data do painel de vidro que vai ficar no menu quando ele estiver começando
-Cor-iniciado: 5 # Data do painel de vidro que vai ficar no menu quando ele ja estiver começado
-Cor-crash: 14 # Data do painel de vidro que vai ficar no menu quando o crash acabar/crashar
+starting-color: 4 # Data do painel de vidro que vai ficar no menu quando ele estiver começando
+started-color: 5 # Data do painel de vidro que vai ficar no menu quando ele ja estiver começado
+crash-color: 14 # Data do painel de vidro que vai ficar no menu quando o crash acabar/crashar
 
 # Slots que vão ficar os paineis de vidro
-Slots-vidros: [2, 3, 5, 6]
+glass-slots: [2, 3, 5, 6]
 
-Itens:
+items:
 
   money:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'EMERALD'
-    Data: 0
-    Glow: false
-    Nome: '&aMoney'
-    Lore:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'EMERALD'
+    data: 0
+    glow: false
+    name: '&aMoney'
+    lore:
       - '&7Quantia que vai ser apostada: &a{money}'
       - ''
       - '&7* Clique para alterar'
-    Slot: 0
+    slot: 0
 
   cash:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'GOLD_INGOT'
-    Data: 0
-    Glow: false
-    Nome: '&6Cash'
-    Lore:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'GOLD_INGOT'
+    data: 0
+    glow: false
+    name: '&6Cash'
+    lore:
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '&7* Clique para alterar'
-    Slot: 1
+    slot: 1
 
   # Item do meio do menu que vai passar as informações do crash antes dele iniciar
-  crash-iniciando:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/cd15b5d79bedadc145fa17cc36a2e0c9b088b4ee74f86ea588bd1ad8cdbd22'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&eIniciando...'
-    Lore:
+  crash-starting:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/cd15b5d79bedadc145fa17cc36a2e0c9b088b4ee74f86ea588bd1ad8cdbd22'
+    id: ''
+    data: 0
+    glow: false
+    name: '&eIniciando...'
+    lore:
       - '&7O Crash vai iniciar em: &e{tempo}s'
       - ''
       - '&7Status: {status-iniciando}'
@@ -57,19 +57,19 @@ Itens:
       - ''
       - '&7Caso não esteja participando,'
       - '&7clique para entrar e apostar.'
-    Status-participando: '&aVocê já está participando.' # Configurações da variável {status}
-    Status-participar: '&cVocê não está participando.'
-    Slot: 4
+    status-participating: '&aVocê já está participando.' # Configurações da variável {status}
+    status-participate: '&cVocê não está participando.'
+    slot: 4
 
   # Item do meio do menu que vai passar as informações do crash enquanto ele estiver rodando
-  crash-iniciado:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/bf6b85f626444dbd5bddf7a521fe52748fe43564e03fbd35b6b5e797de942d'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&aIniciado: &e{valor}&7x'
-    Lore:
+  crash-started:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/bf6b85f626444dbd5bddf7a521fe52748fe43564e03fbd35b6b5e797de942d'
+    id: ''
+    data: 0
+    glow: false
+    name: '&aIniciado: &e{valor}&7x'
+    lore:
       - '&7Multiplicador atual: &e{valor}&7x'
       - ''
       - '&7Status: {status-iniciado}'
@@ -79,20 +79,20 @@ Itens:
       - ''
       - '&7Caso esteja participando'
       - '&7clique para sair'
-    Status-nao-participou: '&cVocẽ não está participando' # Configurações da variável {status}
-    Status-participando: '&aClique para sair'
-    Status-saiu: '&cSaiu com {valor-saida}x'
-    Slot: 4
+    status-did-not-participate: '&cVocẽ não está participando' # Configurações da variável {status}
+    status-participating: '&aClique para sair'
+    status-exited: '&cSaiu com {valor-saida}x'
+    slot: 4
 
   # Item do meio do menu que vai passar as informações do crash quando ele crashar
-  crash-crashou:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/bf6b85f626444dbd5bddf7a521fe52748fe43564e03fbd35b6b5e797de942d'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&cCrashou: &e{valor}&7x'
-    Lore:
+  crash-crashed:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/bf6b85f626444dbd5bddf7a521fe52748fe43564e03fbd35b6b5e797de942d'
+    id: ''
+    data: 0
+    glow: false
+    name: '&cCrashou: &e{valor}&7x'
+    lore:
       - '&7Crashou em: &e{valor}&7x'
       - ''
       - '&7Status: {status-crashou}'
@@ -105,33 +105,33 @@ Itens:
       - ''
       - '&7Aguarde que em breve vai'
       - '&7começar mais um crash'
-    Status-nao-participou: '&cVocẽ não participou' # Configurações da variável {status}
-    Status-perdeu: '&cDemorou muito para sair...'
-    Status-ganhou: '&aSaiu com &l{valor-saida}&ax'
-    Slot: 4
+    status-did-not-participate: '&cVocẽ não participou' # Configurações da variável {status}
+    status-lost: '&cDemorou muito para sair...'
+    status-won: '&aSaiu com &l{valor-saida}&ax'
+    slot: 4
 
-  historico:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/ed6b8584e938c805da55b24ba2f027f3bcbd1b5434ef649b8583934fa1b64b44'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&6Histórico'
-    Lore:
+  history:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/ed6b8584e938c805da55b24ba2f027f3bcbd1b5434ef649b8583934fa1b64b44'
+    id: ''
+    data: 0
+    glow: false
+    name: '&6Histórico'
+    lore:
       - '&7Histórico recente do crash'
       - '&7para você se basear:'
       - '&7- &e{historico}&7x' # Vai ser repetida para todos os últimos 15 valores
-    Slot: 7
+    slot: 7
 
-  apostadores:
-    Usar-head-ultimo-player: true # caso true, o ícone vai ser a cabeça do último jogador que apostou
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&eApostadores'
-    Lore:
+  bettors:
+    use-head-last-player: true # caso true, o ícone vai ser a cabeça do último jogador que apostou
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&eApostadores'
+    lore:
       - '&7Jogadores apostando: &b{jogadores}'
       - '&7Ultimo jogador que apostou: &b{last_player}'
       - ''
@@ -140,4 +140,4 @@ Itens:
       - ''
       - '&7Clique para ver mais detalhes e'
       - '&7todos os jogadores que apostaram.'
-    Slot: 8
+    slot: 8

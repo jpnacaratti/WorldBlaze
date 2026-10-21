@@ -23,9 +23,9 @@ public class InventoryClickMineMain implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getSlot() == getConfig.getInt("Itens.create.Slot")) MineCreateGui.create(p);
+        if (e.getSlot() == getConfig.getInt("items.create.slot")) MineCreateGui.create(p);
 
-        if (e.getSlot() == getConfig.getInt("Itens.jogadores.Slot")) MinePlayersGui.create(p);
+        if (e.getSlot() == getConfig.getInt("items.players.slot")) MinePlayersGui.create(p);
 
     }
 }

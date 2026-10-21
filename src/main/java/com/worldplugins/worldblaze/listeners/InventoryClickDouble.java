@@ -32,7 +32,7 @@ public class InventoryClickDouble implements Listener {
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 
-        if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.money.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.double-typing-money").forEach(w -> p.sendMessage(c(w)));
@@ -40,7 +40,7 @@ public class InventoryClickDouble implements Listener {
             AsyncPlayerChat.doubleMoneyList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.cash.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.double-typing-cash").forEach(w -> p.sendMessage(c(w)));
@@ -48,15 +48,15 @@ public class InventoryClickDouble implements Listener {
             AsyncPlayerChat.doubleCashList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.apostadores.Slot")) DoubleGamblersGui.create(p);
+        if(e.getSlot() == getConfig.getInt("items.bettors.slot")) DoubleGamblersGui.create(p);
 
-        if(e.getSlot() == getConfig.getInt("Itens.apostar-vermelho.Slot") ||
-                e.getSlot() == getConfig.getInt("Itens.apostar-branco.Slot") ||
-                e.getSlot() == getConfig.getInt("Itens.apostar-preto.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.bet-red.slot") ||
+                e.getSlot() == getConfig.getInt("items.bet-white.slot") ||
+                e.getSlot() == getConfig.getInt("items.bet-black.slot")){
 
             DoubleColor chose;
-            if(e.getSlot() == getConfig.getInt("Itens.apostar-vermelho.Slot")) chose = DoubleColor.RED;
-            else if(e.getSlot() == getConfig.getInt("Itens.apostar-branco.Slot")) chose = DoubleColor.WHITE;
+            if(e.getSlot() == getConfig.getInt("items.bet-red.slot")) chose = DoubleColor.RED;
+            else if(e.getSlot() == getConfig.getInt("items.bet-white.slot")) chose = DoubleColor.WHITE;
             else chose = DoubleColor.BLACK;
 
             if(getInstance().isReloading()){

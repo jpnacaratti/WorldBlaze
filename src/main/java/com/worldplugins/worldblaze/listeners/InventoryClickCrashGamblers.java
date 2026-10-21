@@ -19,7 +19,7 @@ public class InventoryClickCrashGamblers implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if(!e.getInventory().getName().equalsIgnoreCase(c(getCrashGamblersGuiYml().getConfig().getString("Titulo")))) return;
+        if(!e.getInventory().getName().equalsIgnoreCase(c(getCrashGamblersGuiYml().getConfig().getString("title")))) return;
         e.setCancelled(true);
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
@@ -35,7 +35,7 @@ public class InventoryClickCrashGamblers implements Listener {
 
         FileConfiguration getConfig = getCrashGamblersGuiYml().getConfig();
 
-        if(e.getSlot() == getConfig.getInt("Itens.voltar.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.back.slot")){
 
             getCrashManager().getGamblersGuiOpen().remove(p.getName());
 

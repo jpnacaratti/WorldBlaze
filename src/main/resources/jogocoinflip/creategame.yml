@@ -1,60 +1,60 @@
 # MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO coinflip E EM criar partida
 
-Titulo: 'CoinFlip - Criando partida'
+title: 'CoinFlip - Criando partida'
 
-Linhas: 3
+rows: 3
 
-Itens:
+items:
 
   money:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'EMERALD'
-    Data: 0
-    Glow: false
-    Nome: '&aMoney'
-    Lore:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'EMERALD'
+    data: 0
+    glow: false
+    name: '&aMoney'
+    lore:
       - '&7Quantia que vai ser apostada: &a{money}'
       - ''
       - '&7* Clique para alterar'
-    Slot: 11
+    slot: 11
 
   cash:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'GOLD_INGOT'
-    Data: 0
-    Glow: false
-    Nome: '&6Cash'
-    Lore:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'GOLD_INGOT'
+    data: 0
+    glow: false
+    name: '&6Cash'
+    lore:
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '&7* Clique para alterar'
-    Slot: 12
+    slot: 12
 
-  escolha:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&7Apostar no: &b{escolha}'
-    Lore:
+  choice:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+    id: ''
+    data: 0
+    glow: false
+    name: '&7Apostar no: &b{escolha}'
+    lore:
       - '&7Você escolheu: &b{escolha}'
       - ''
       - '&7Clique para alternar entre'
       - '&7Cara ou Coroa'
-    Slot: 13
+    slot: 13
 
-  definiradversario:
-    Usar-head-player: true # Usa a cabeça do adversário como item
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&eDefinir um adversário'
-    Lore:
+  set-opponent:
+    use-head-player: true # Usa a cabeça do adversário como item
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&eDefinir um adversário'
+    lore:
       - ''
       - '&7Adversário atual: &f{adversario}'
       - ''
@@ -63,16 +63,16 @@ Itens:
       - ''
       - '&7Clique com botão &fDireito'
       - '&7para remover o jogador.'
-    Slot: 14
+    slot: 14
 
-  iniciar:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/6e8646bb76f0c6d03a637a9b4975b3a85276eb20d6f16bdb91866c8c3c8285c5'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&aIniciar'
-    Lore:
+  start:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/6e8646bb76f0c6d03a637a9b4975b3a85276eb20d6f16bdb91866c8c3c8285c5'
+    id: ''
+    data: 0
+    glow: false
+    name: '&aIniciar'
+    lore:
       - '&7Adversário atual: &f{adversario}'
       - ''
       - '&7Quantia que vai ser apostada: &a{money}'
@@ -80,96 +80,96 @@ Itens:
       - ''
       - '&7Chega de enrolação e clique para'
       - '&7iniciar seu jogo e começar o coinflip.'
-    Slot: 15
+    slot: 15
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
 
   glass1:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: '' # Deixe '' para usar nome padrão
-    Slot: 0
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: '' # Deixe '' para usar nome padrão
+    slot: 0
 
   glass2:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 1
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 1
 
   glass3:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 7
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 7
 
   glass4:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 8
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 8
 
   glass5:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 9
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 9
 
   glass6:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 17
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 17
 
   glass7:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 18
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 18
 
   glass8:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 19
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 19
 
   glass9:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 25
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 25
 
   glass10:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 26
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 26

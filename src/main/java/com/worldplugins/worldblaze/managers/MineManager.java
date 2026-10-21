@@ -95,56 +95,56 @@ public class MineManager {
 
         FileConfiguration getMineConfig = getMineGuiYml().getConfig();
 
-        this.mineMenuTitle = c(getMineConfig.getString("Titulo"));
+        this.mineMenuTitle = c(getMineConfig.getString("title"));
 
-        if (getMineConfig.getBoolean("oculto.Usar-head")) hiddenItem = new ItemBuilder(SkullCreator.itemFromUrl(getMineConfig.getString("oculto.Textura")));
-        else hiddenItem = new ItemBuilder(Material.getMaterial(getMineConfig.getString("oculto.Id")), 1, (byte) getMineConfig.getInt("oculto.Data"));
-        hiddenItem.setGlow(getMineConfig.getBoolean("oculto.Glow")).setName(c(getMineConfig.getString("oculto.Nome")));
+        if (getMineConfig.getBoolean("hidden.use-head")) hiddenItem = new ItemBuilder(SkullCreator.itemFromUrl(getMineConfig.getString("hidden.texture")));
+        else hiddenItem = new ItemBuilder(Material.getMaterial(getMineConfig.getString("hidden.id")), 1, (byte) getMineConfig.getInt("hidden.data"));
+        hiddenItem.setGlow(getMineConfig.getBoolean("hidden.glow")).setName(c(getMineConfig.getString("hidden.name")));
 
-        getMineConfig.getStringList("oculto.Lore").forEach(w -> hiddenItem.addLoreLine(c(w)));
-
-
-        if (getMineConfig.getBoolean("revelado.Usar-head")) minedItem = new ItemBuilder(SkullCreator.itemFromUrl(getMineConfig.getString("revelado.Textura")));
-        else minedItem = new ItemBuilder(Material.getMaterial(getMineConfig.getString("revelado.Id")), 1, (byte) getMineConfig.getInt("revelado.Data"));
-        minedItem.setGlow(getMineConfig.getBoolean("revelado.Glow")).setName(c(getMineConfig.getString("revelado.Nome")));
-
-        getMineConfig.getStringList("revelado.Lore").forEach(w -> minedItem.addLoreLine(c(w)));
+        getMineConfig.getStringList("hidden.lore").forEach(w -> hiddenItem.addLoreLine(c(w)));
 
 
-        if (getMineConfig.getBoolean("bomba.Usar-head")) bombItem = new ItemBuilder(SkullCreator.itemFromUrl(getMineConfig.getString("bomba.Textura")));
-        else bombItem = new ItemBuilder(Material.getMaterial(getMineConfig.getString("bomba.Id")), 1, (byte) getMineConfig.getInt("bomba.Data"));
-        bombItem.setGlow(getMineConfig.getBoolean("bomba.Glow")).setName(c(getMineConfig.getString("bomba.Nome")));
+        if (getMineConfig.getBoolean("revealed.use-head")) minedItem = new ItemBuilder(SkullCreator.itemFromUrl(getMineConfig.getString("revealed.texture")));
+        else minedItem = new ItemBuilder(Material.getMaterial(getMineConfig.getString("revealed.id")), 1, (byte) getMineConfig.getInt("revealed.data"));
+        minedItem.setGlow(getMineConfig.getBoolean("revealed.glow")).setName(c(getMineConfig.getString("revealed.name")));
 
-        getMineConfig.getStringList("bomba.Lore").forEach(w -> bombItem.addLoreLine(c(w)));
+        getMineConfig.getStringList("revealed.lore").forEach(w -> minedItem.addLoreLine(c(w)));
 
 
-        if (getMineConfig.getBoolean("Itens.sair.Usar-head")) leftItem = new ItemBuilder(SkullCreator.itemFromUrl(getMineConfig.getString("Itens.sair.Textura")));
-        else leftItem = new ItemBuilder(Material.getMaterial(getMineConfig.getString("Itens.sair.Id")), 1, (byte) getMineConfig.getInt("Itens.sair.Data"));
-        leftItem.setGlow(getMineConfig.getBoolean("Itens.sair.Glow"));
+        if (getMineConfig.getBoolean("bomb.use-head")) bombItem = new ItemBuilder(SkullCreator.itemFromUrl(getMineConfig.getString("bomb.texture")));
+        else bombItem = new ItemBuilder(Material.getMaterial(getMineConfig.getString("bomb.id")), 1, (byte) getMineConfig.getInt("bomb.data"));
+        bombItem.setGlow(getMineConfig.getBoolean("bomb.glow")).setName(c(getMineConfig.getString("bomb.name")));
 
-        this.leftLore = getMineConfig.getStringList("Itens.sair.Lore");
-        this.leftName = c(getMineConfig.getString("Itens.sair.Nome"));
-        this.leftFormat = getMineConfig.getString("Itens.sair.Formatacao-multiplicador");
+        getMineConfig.getStringList("bomb.lore").forEach(w -> bombItem.addLoreLine(c(w)));
 
-        this.leftSlot = getMineConfig.getInt("Itens.sair.Slot");
+
+        if (getMineConfig.getBoolean("items.exit.use-head")) leftItem = new ItemBuilder(SkullCreator.itemFromUrl(getMineConfig.getString("items.exit.texture")));
+        else leftItem = new ItemBuilder(Material.getMaterial(getMineConfig.getString("items.exit.id")), 1, (byte) getMineConfig.getInt("items.exit.data"));
+        leftItem.setGlow(getMineConfig.getBoolean("items.exit.glow"));
+
+        this.leftLore = getMineConfig.getStringList("items.exit.lore");
+        this.leftName = c(getMineConfig.getString("items.exit.name"));
+        this.leftFormat = getMineConfig.getString("items.exit.multiplier-format");
+
+        this.leftSlot = getMineConfig.getInt("items.exit.slot");
 
 
 
         FileConfiguration getPrincipalConfig = getPrincipalMineGuiYml().getConfig();
 
-        this.menuTitle = c(getPrincipalConfig.getString("Titulo"));
+        this.menuTitle = c(getPrincipalConfig.getString("title"));
 
-        if (getPrincipalConfig.getBoolean("Itens.jogadores.Usar-head-ultimo-player")) principalPlayersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
-        else if (getPrincipalConfig.getBoolean("Itens.jogadores.Usar-head")) principalPlayersItem = new ItemBuilder(SkullCreator.itemFromUrl(getPrincipalConfig.getString("Itens.jogadores.Textura")));
-        else principalPlayersItem = new ItemBuilder(Material.getMaterial(getPrincipalConfig.getString("Itens.jogadores.Id")), 1, (byte) getPrincipalConfig.getInt("Itens.jogadores.Data"));
-        principalPlayersItem.setGlow(getPrincipalConfig.getBoolean("Itens.jogadores.Glow"));
+        if (getPrincipalConfig.getBoolean("items.players.use-head-last-player")) principalPlayersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
+        else if (getPrincipalConfig.getBoolean("items.players.use-head")) principalPlayersItem = new ItemBuilder(SkullCreator.itemFromUrl(getPrincipalConfig.getString("items.players.texture")));
+        else principalPlayersItem = new ItemBuilder(Material.getMaterial(getPrincipalConfig.getString("items.players.id")), 1, (byte) getPrincipalConfig.getInt("items.players.data"));
+        principalPlayersItem.setGlow(getPrincipalConfig.getBoolean("items.players.glow"));
 
-        this.principalPlayersLore = getPrincipalConfig.getStringList("Itens.jogadores.Lore");
-        this.principalPlayersName = c(getPrincipalConfig.getString("Itens.jogadores.Nome"));
+        this.principalPlayersLore = getPrincipalConfig.getStringList("items.players.lore");
+        this.principalPlayersName = c(getPrincipalConfig.getString("items.players.name"));
 
-        this.principalPlayersSlot = getPrincipalConfig.getInt("Itens.jogadores.Slot");
+        this.principalPlayersSlot = getPrincipalConfig.getInt("items.players.slot");
 
-        this.principalUsePlayersHead = getPrincipalConfig.getBoolean("Itens.jogadores.Usar-head-ultimo-player");
+        this.principalUsePlayersHead = getPrincipalConfig.getBoolean("items.players.use-head-last-player");
 
     }
 
@@ -270,18 +270,18 @@ public class MineManager {
 
         Inventory inv = Bukkit.createInventory(null, 9 * mineLines, mineMenuTitle);
 
-        for(String s : getConfig.getConfigurationSection("Itens").getKeys(false)){
+        for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 
-            if(s.equalsIgnoreCase("sair")) continue;
+            if(s.equalsIgnoreCase("exit")) continue;
 
             ItemBuilder item;
-            if (getConfig.getBoolean("Itens." + s + ".Usar-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens." + s + ".Textura")));
-            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens." + s + ".Id")), 1, (byte) getConfig.getInt("Itens." + s + ".Data"));
-            item.setName(c(getConfig.getString("Itens." + s + ".Nome"))).setGlow(getConfig.getBoolean("Itens." + s + ".Glow"));
+            if (getConfig.getBoolean("items." + s + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
+            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1, (byte) getConfig.getInt("items." + s + ".data"));
+            item.setName(c(getConfig.getString("items." + s + ".name"))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
-            getConfig.getStringList("Itens." + s + ".Lore").forEach(w -> item.addLoreLine(c(w)));
+            getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w)));
 
-            int slot = getConfig.getInt("Itens." + s + ".Slot");
+            int slot = getConfig.getInt("items." + s + ".slot");
 
             inv.setItem(slot, item.toItemStack());
         }

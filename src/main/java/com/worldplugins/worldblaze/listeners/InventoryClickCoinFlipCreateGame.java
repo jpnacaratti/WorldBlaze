@@ -18,7 +18,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(c(getCoinFlipCreateGameGuiYml().getConfig().getString("Titulo")))) return;
+        if (!e.getInventory().getName().equalsIgnoreCase(c(getCoinFlipCreateGameGuiYml().getConfig().getString("title")))) return;
         e.setCancelled(true);
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
@@ -29,7 +29,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 
-        if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.money.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.coinflip-typing-money").forEach(w -> p.sendMessage(c(w)));
@@ -37,7 +37,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
             AsyncPlayerChat.coinFlipMoneyList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.cash.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.coinflip-typing-cash").forEach(w -> p.sendMessage(c(w)));
@@ -45,7 +45,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
             AsyncPlayerChat.coinFlipCashList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.definiradversario.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.set-opponent.slot")){
             if(e.isRightClick()){
                 if(user.getCoinFlipSpecific() == null) return;
 
@@ -61,14 +61,14 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
             AsyncPlayerChat.coinFlipOpponentList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.escolha.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.choice.slot")){
 
             user.setCoinFlipCara(!user.isCoinFlipCara());
 
             CoinFlipCreateGameGui.create(p);
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.iniciar.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.start.slot")){
 
             if(getInstance().isReloading()){
                 p.sendMessage(getMessages().RELOADING);

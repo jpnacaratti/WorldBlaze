@@ -32,7 +32,7 @@ public class InventoryClickCrash implements Listener {
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 
-        if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.money.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.crash-typing-money").forEach(w -> p.sendMessage(c(w)));
@@ -40,7 +40,7 @@ public class InventoryClickCrash implements Listener {
             AsyncPlayerChat.crashMoneyList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.cash.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.crash-typing-cash").forEach(w -> p.sendMessage(c(w)));
@@ -48,13 +48,13 @@ public class InventoryClickCrash implements Listener {
             AsyncPlayerChat.crashCashList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.apostadores.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.bettors.slot")){
             CrashGamblersGui.create(p);
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.crash-iniciando.Slot") ||
-                e.getSlot() == getConfig.getInt("Itens.crash-iniciado.Slot") ||
-                e.getSlot() == getConfig.getInt("Itens.crash-crashou.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.crash-starting.slot") ||
+                e.getSlot() == getConfig.getInt("items.crash-started.slot") ||
+                e.getSlot() == getConfig.getInt("items.crash-crashed.slot")){
 
             if(getCrashManager().getCrashBets().containsKey(p.getName())){
 

@@ -24,7 +24,7 @@ public class CrashGui {
 
         FileConfiguration getConfig = getCrashGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("Linhas"), getCrashManager().getMenuTitle());
+        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), getCrashManager().getMenuTitle());
 
         BlazeUser blazeUser = getManager().getBlazeUser(p.getName());
 
@@ -51,21 +51,21 @@ public class CrashGui {
         inv.setItem(getCrashManager().getHistoricSlot(), getCrashManager().getHistoricItem());
         inv.setItem(getCrashManager().getGamblersSlot(), getCrashManager().getGamblersItem());
 
-        for(String s : getConfig.getConfigurationSection("Itens").getKeys(false)){
+        for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 
             if(s.equalsIgnoreCase("money") || s.equalsIgnoreCase("cash") ||
-                    s.equalsIgnoreCase("crash-iniciando") || s.equalsIgnoreCase("crash-iniciado") ||
-                    s.equalsIgnoreCase("crash-crashou") || s.equalsIgnoreCase("historico") ||
-                    s.equalsIgnoreCase("apostadores")) continue;
+                    s.equalsIgnoreCase("crash-starting") || s.equalsIgnoreCase("crash-started") ||
+                    s.equalsIgnoreCase("crash-crashed") || s.equalsIgnoreCase("history") ||
+                    s.equalsIgnoreCase("bettors")) continue;
 
             ItemBuilder item;
-            if (getConfig.getBoolean("Itens." + s + ".Usar-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens." + s + ".Textura")));
-            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens." + s + ".Id")), 1, (byte) getConfig.getInt("Itens." + s + ".Data"));
-            item.setName(c(getConfig.getString("Itens." + s + ".Nome"))).setGlow(getConfig.getBoolean("Itens." + s + ".Glow"));
+            if (getConfig.getBoolean("items." + s + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
+            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1, (byte) getConfig.getInt("items." + s + ".data"));
+            item.setName(c(getConfig.getString("items." + s + ".name"))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
-            getConfig.getStringList("Itens." + s + ".Lore").forEach(w -> item.addLoreLine(c(w)));
+            getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w)));
 
-            int slot = getConfig.getInt("Itens." + s + ".Slot");
+            int slot = getConfig.getInt("items." + s + ".slot");
 
             inv.setItem(slot, item.toItemStack());
         }

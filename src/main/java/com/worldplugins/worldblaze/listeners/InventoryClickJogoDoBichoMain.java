@@ -16,7 +16,7 @@ public class InventoryClickJogoDoBichoMain implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(c(getJogoDoBichoGuiYml().getConfig().getString("Titulo")))) return;
+        if (!e.getInventory().getName().equalsIgnoreCase(c(getJogoDoBichoGuiYml().getConfig().getString("title")))) return;
         e.setCancelled(true);
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
@@ -25,9 +25,9 @@ public class InventoryClickJogoDoBichoMain implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getSlot() == getConfig.getInt("Itens.bichos.Slot")) JogoDoBichoBichosGui.create(p);
+        if (e.getSlot() == getConfig.getInt("items.bichos.slot")) JogoDoBichoBichosGui.create(p);
 
-        if (e.getSlot() == getConfig.getInt("Itens.apostadores.Slot")) JogoDoBichoGamblersGui.create(p, null);
+        if (e.getSlot() == getConfig.getInt("items.bettors.slot")) JogoDoBichoGamblersGui.create(p, null);
 
     }
 }

@@ -23,7 +23,7 @@ public class InventoryClickMineCreate implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(c(getCreateMineGuiYml().getConfig().getString("Titulo")))) return;
+        if (!e.getInventory().getName().equalsIgnoreCase(c(getCreateMineGuiYml().getConfig().getString("title")))) return;
         e.setCancelled(true);
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
@@ -34,7 +34,7 @@ public class InventoryClickMineCreate implements Listener {
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 
-        if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.money.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.mine-typing-money").forEach(w -> p.sendMessage(c(w)));
@@ -42,7 +42,7 @@ public class InventoryClickMineCreate implements Listener {
             AsyncPlayerChat.mineMoneyList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.cash.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.mine-typing-cash").forEach(w -> p.sendMessage(c(w)));
@@ -50,7 +50,7 @@ public class InventoryClickMineCreate implements Listener {
             AsyncPlayerChat.mineCashList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.aumentar-bombas.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.increase-mines.slot")){
 
             if(e.isRightClick()){
                 int nValue = user.getMineBombs() - 1;
@@ -75,7 +75,7 @@ public class InventoryClickMineCreate implements Listener {
             MineCreateGui.create(p);
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.iniciar.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.start.slot")){
 
             if(getInstance().isReloading()){
                 p.sendMessage(getMessages().RELOADING);

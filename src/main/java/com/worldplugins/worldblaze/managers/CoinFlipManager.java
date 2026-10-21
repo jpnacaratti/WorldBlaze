@@ -53,49 +53,49 @@ public class CoinFlipManager {
 
         FileConfiguration getConfig = getCoinFlipGuiYml().getConfig();
 
-        this.coinFlipMenuTitle = c(getConfig.getString("Titulo"));
+        this.coinFlipMenuTitle = c(getConfig.getString("title"));
 
-        this.colorChoice = c(getConfig.getString("Cor-escolha"));
-        this.colorNoChoice = c(getConfig.getString("Cor-naoescolha"));
+        this.colorChoice = c(getConfig.getString("chosen-color"));
+        this.colorNoChoice = c(getConfig.getString("not-chosen-color"));
 
-        this.finishName = c(getConfig.getString("finalizado.Nome"));
-        this.finishLore = getConfig.getStringList("finalizado.Lore");
+        this.finishName = c(getConfig.getString("finished.name"));
+        this.finishLore = getConfig.getStringList("finished.lore");
 
-        if (getConfig.getBoolean("coroa.Usar-head")) coroaItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("coroa.Textura")));
-        else coroaItem = new ItemBuilder(Material.getMaterial(getConfig.getString("coroa.Id")), 1, (byte) getConfig.getInt("coroa.Data"));
-        coroaItem.setGlow(getConfig.getBoolean("coroa.Glow"));
+        if (getConfig.getBoolean("tails.use-head")) coroaItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("tails.texture")));
+        else coroaItem = new ItemBuilder(Material.getMaterial(getConfig.getString("tails.id")), 1, (byte) getConfig.getInt("tails.data"));
+        coroaItem.setGlow(getConfig.getBoolean("tails.glow"));
 
-        this.coroaLore = getConfig.getStringList("coroa.Lore");
-        this.coroaName = c(getConfig.getString("coroa.Nome"));
+        this.coroaLore = getConfig.getStringList("tails.lore");
+        this.coroaName = c(getConfig.getString("tails.name"));
 
-        if (getConfig.getBoolean("cara.Usar-head")) caraItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("cara.Textura")));
-        else caraItem = new ItemBuilder(Material.getMaterial(getConfig.getString("cara.Id")), 1, (byte) getConfig.getInt("cara.Data"));
-        caraItem.setGlow(getConfig.getBoolean("cara.Glow"));
+        if (getConfig.getBoolean("heads.use-head")) caraItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("heads.texture")));
+        else caraItem = new ItemBuilder(Material.getMaterial(getConfig.getString("heads.id")), 1, (byte) getConfig.getInt("heads.data"));
+        caraItem.setGlow(getConfig.getBoolean("heads.glow"));
 
-        this.caraLore = getConfig.getStringList("cara.Lore");
-        this.caraName = c(getConfig.getString("cara.Nome"));
+        this.caraLore = getConfig.getStringList("heads.lore");
+        this.caraName = c(getConfig.getString("heads.name"));
 
-        if (getConfig.getBoolean("iniciando.Usar-head")) startingItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("iniciando.Textura")));
-        else startingItem = new ItemBuilder(Material.getMaterial(getConfig.getString("iniciando.Id")), 1, (byte) getConfig.getInt("iniciando.Data"));
-        startingItem.setGlow(getConfig.getBoolean("iniciando.Glow"));
+        if (getConfig.getBoolean("starting.use-head")) startingItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("starting.texture")));
+        else startingItem = new ItemBuilder(Material.getMaterial(getConfig.getString("starting.id")), 1, (byte) getConfig.getInt("starting.data"));
+        startingItem.setGlow(getConfig.getBoolean("starting.glow"));
 
-        this.startingLore = getConfig.getStringList("iniciando.Lore");
-        this.startingName = c(getConfig.getString("iniciando.Nome"));
+        this.startingLore = getConfig.getStringList("starting.lore");
+        this.startingName = c(getConfig.getString("starting.name"));
 
-        this.choiceSlot = getConfig.getInt("Slot-moeda");
+        this.choiceSlot = getConfig.getInt("coin-slot");
 
         FileConfiguration getPrincipalConfig = getCoinFlipPrincipalGuiYml().getConfig();
 
-        this.principalMenuTitle = c(getPrincipalConfig.getString("Titulo"));
+        this.principalMenuTitle = c(getPrincipalConfig.getString("title"));
 
-        if (getPrincipalConfig.getBoolean("Itens.jogos.Usar-head")) principalGamesItem = new ItemBuilder(SkullCreator.itemFromUrl(getPrincipalConfig.getString("Itens.jogos.Textura")));
-        else principalGamesItem = new ItemBuilder(Material.getMaterial(getPrincipalConfig.getString("Itens.jogos.Id")), 1, (byte) getPrincipalConfig.getInt("Itens.jogos.Data"));
-        principalGamesItem.setGlow(getPrincipalConfig.getBoolean("Itens.jogos.Glow"));
+        if (getPrincipalConfig.getBoolean("items.games.use-head")) principalGamesItem = new ItemBuilder(SkullCreator.itemFromUrl(getPrincipalConfig.getString("items.games.texture")));
+        else principalGamesItem = new ItemBuilder(Material.getMaterial(getPrincipalConfig.getString("items.games.id")), 1, (byte) getPrincipalConfig.getInt("items.games.data"));
+        principalGamesItem.setGlow(getPrincipalConfig.getBoolean("items.games.glow"));
 
-        this.principalGamesLore = getPrincipalConfig.getStringList("Itens.jogos.Lore");
-        this.principalGamesName = c(getPrincipalConfig.getString("Itens.jogos.Nome"));
+        this.principalGamesLore = getPrincipalConfig.getStringList("items.games.lore");
+        this.principalGamesName = c(getPrincipalConfig.getString("items.games.name"));
 
-        this.principalGamesSlot = getPrincipalConfig.getInt("Itens.jogos.Slot");
+        this.principalGamesSlot = getPrincipalConfig.getInt("items.games.slot");
 
     }
 

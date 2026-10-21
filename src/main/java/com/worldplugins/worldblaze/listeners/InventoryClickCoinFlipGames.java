@@ -19,7 +19,7 @@ public class InventoryClickCoinFlipGames implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if(!e.getInventory().getName().equalsIgnoreCase(c(getCoinFlipGamesGuiYml().getConfig().getString("Titulo")))) return;
+        if(!e.getInventory().getName().equalsIgnoreCase(c(getCoinFlipGamesGuiYml().getConfig().getString("title")))) return;
         e.setCancelled(true);
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
@@ -36,7 +36,7 @@ public class InventoryClickCoinFlipGames implements Listener {
 
         FileConfiguration getConfig = getCoinFlipGamesGuiYml().getConfig();
 
-        if(e.getSlot() == getConfig.getInt("Itens.voltar.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.back.slot")){
 
             getCoinFlipManager().getCoinFlipGamblersGuiOpen().remove(p.getName());
 

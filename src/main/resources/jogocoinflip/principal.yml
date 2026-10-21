@@ -1,38 +1,38 @@
 # MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM coinflip
 
-Titulo: 'WorldBlaze - Coinflip'
+title: 'WorldBlaze - Coinflip'
 
-Linhas: 3
+rows: 3
 
-Itens:
+items:
 
-  criarjogo:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&eCriar jogo'
-    Lore-naoparticipando:
+  create-game:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+    id: ''
+    data: 0
+    glow: false
+    name: '&eCriar jogo'
+    lore-not-participating:
       - '&7Clique para começar um jogo'
       - '&7e apostar coinflip com seus amigos'
-    Lore-participando:
+    lore-participating:
       - ''
       - '&7Você já está na fila de espera'
       - '&7para jogar coinflip.'
       - ''
       - '&7Clique caso deseje sair da fila'
       - ''
-    Slot: 12
+    slot: 12
 
-  jogos:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/146947e2cffd38047de703fd9878acfc9942eb712edc8f257b129cc10fad0667'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&eJogos'
-    Lore:
+  games:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/146947e2cffd38047de703fd9878acfc9942eb712edc8f257b129cc10fad0667'
+    id: ''
+    data: 0
+    glow: false
+    name: '&eJogos'
+    lore:
       - '&7Partidas ocorrendo: &b{ocorrendo}'
       - '&7Partidas em espera: &b{espera}'
       - ''
@@ -40,6 +40,6 @@ Itens:
       - ''
       - '&7Clique para ver mais detalhes e'
       - '&7entrar em algum jogo existente.'
-    Slot: 14
+    slot: 14
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

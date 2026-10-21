@@ -182,7 +182,7 @@ public class JogoDoBichoManager {
 
         for (JogoDoBichoBet bet : jogoDoBichoBets) {
 
-            getDataYml().getConfig().set("bichos."+bet.getOwner()+"."+bet.getAnimal().name()+".Id", bet.getBetId());
+            getDataYml().getConfig().set("bichos."+bet.getOwner()+"."+bet.getAnimal().name()+".id", bet.getBetId());
             getDataYml().saveFile();
             getDataYml().getConfig().set("bichos."+bet.getOwner()+"."+bet.getAnimal().name()+".Money", bet.getMoneyValue());
             getDataYml().saveFile();
@@ -199,7 +199,7 @@ public class JogoDoBichoManager {
             for (String user : getDataYml().getConfig().getConfigurationSection("bichos." + s).getKeys(false)) {
 
                 JogoDoBichoBet bet = new JogoDoBichoBet(s,
-                        getDataYml().getConfig().getString("bichos."+s+"."+user+".Id"), Bicho.valueOf(user),
+                        getDataYml().getConfig().getString("bichos."+s+"."+user+".id"), Bicho.valueOf(user),
                         getDataYml().getConfig().getDouble("bichos."+s+"."+user+".Cash"),
                         getDataYml().getConfig().getDouble("bichos."+s+"."+user+".Money"));
 
@@ -214,8 +214,8 @@ public class JogoDoBichoManager {
         FileConfiguration getConfig = getBichosGuiYml().getConfig();
 
         ItemBuilder item;
-        if (getConfig.getBoolean("Itens." + bicho.name().toLowerCase() + ".Usar-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens." + bicho.name().toLowerCase() + ".Textura")));
-        else item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens." + bicho.name().toLowerCase() + ".Id")), 1, (byte) getConfig.getInt("Itens." + bicho.name().toLowerCase() + ".Data"));
+        if (getConfig.getBoolean("items." + bicho.name().toLowerCase() + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + bicho.name().toLowerCase() + ".texture")));
+        else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + bicho.name().toLowerCase() + ".id")), 1, (byte) getConfig.getInt("items." + bicho.name().toLowerCase() + ".data"));
 
         return item.toItemStack();
     }

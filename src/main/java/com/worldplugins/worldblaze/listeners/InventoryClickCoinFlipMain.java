@@ -26,7 +26,7 @@ public class InventoryClickCoinFlipMain implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getSlot() == getConfig.getInt("Itens.criarjogo.Slot")){
+        if (e.getSlot() == getConfig.getInt("items.create-game.slot")){
             CoinFlipBet coinFlipBet = getCoinFlipManager().getCoinFlipBet(p.getName());
             if(coinFlipBet != null){
                 if(coinFlipBet.getOpponent() != null){
@@ -50,7 +50,7 @@ public class InventoryClickCoinFlipMain implements Listener {
             CoinFlipCreateGameGui.create(p);
         }
 
-        if (e.getSlot() == getConfig.getInt("Itens.jogos.Slot")) CoinFlipGamblersGui.create(p);
+        if (e.getSlot() == getConfig.getInt("items.games.slot")) CoinFlipGamblersGui.create(p);
 
     }
 }

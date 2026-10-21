@@ -20,7 +20,7 @@ public class InventoryClickJogoDoBichoBichos implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(c(getBichosGuiYml().getConfig().getString("Titulo")))) return;
+        if (!e.getInventory().getName().equalsIgnoreCase(c(getBichosGuiYml().getConfig().getString("title")))) return;
         e.setCancelled(true);
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
@@ -29,7 +29,7 @@ public class InventoryClickJogoDoBichoBichos implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getSlot() == getConfig.getInt("Itens.voltar.Slot")){
+        if (e.getSlot() == getConfig.getInt("items.back.slot")){
             JogoDoBichoMainGui.create(p);
             return;
         }

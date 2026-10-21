@@ -17,18 +17,18 @@ public class MainGui {
 
         FileConfiguration getConfig = getPrincipalGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("Linhas"), c(getConfig.getString("Titulo")));
+        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
-        for(String s : getConfig.getConfigurationSection("Itens").getKeys(false)){
+        for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 
             ItemBuilder item;
-            if (getConfig.getBoolean("Itens." + s + ".Usar-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens." + s + ".Textura")));
-            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens." + s + ".Id")), 1, (byte) getConfig.getInt("Itens." + s + ".Data"));
-            item.setName(c(getConfig.getString("Itens." + s + ".Nome"))).setGlow(getConfig.getBoolean("Itens." + s + ".Glow"));
+            if (getConfig.getBoolean("items." + s + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
+            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1, (byte) getConfig.getInt("items." + s + ".data"));
+            item.setName(c(getConfig.getString("items." + s + ".name"))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
-            getConfig.getStringList("Itens." + s + ".Lore").forEach(w -> item.addLoreLine(c(w)));
+            getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w)));
 
-            int slot = getConfig.getInt("Itens." + s + ".Slot");
+            int slot = getConfig.getInt("items." + s + ".slot");
 
             inv.setItem(slot, item.toItemStack());
         }

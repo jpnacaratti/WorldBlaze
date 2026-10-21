@@ -33,7 +33,7 @@ public class  InventoryClickGraph implements Listener {
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 
-        if(e.getSlot() == getConfig.getInt("Itens.tempo.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.time.slot")){
 
             if(e.isRightClick()){
                 int nValue = user.getGraphTime() - 1;
@@ -62,7 +62,7 @@ public class  InventoryClickGraph implements Listener {
             p.updateInventory();
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.money.slot")){
             InventoryClose.bypassClose.add(p.getName());
             p.closeInventory();
             InventoryClose.bypassClose.remove(p.getName());
@@ -72,7 +72,7 @@ public class  InventoryClickGraph implements Listener {
             AsyncPlayerChat.graphMoneyList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.cash.slot")){
             InventoryClose.bypassClose.add(p.getName());
             p.closeInventory();
             InventoryClose.bypassClose.remove(p.getName());
@@ -82,7 +82,7 @@ public class  InventoryClickGraph implements Listener {
             AsyncPlayerChat.graphCashList.add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.apostadores.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.bettors.slot")){
 
             InventoryClose.bypassClose.add(p.getName());
             GraphGamblersGui.create(p);
@@ -91,7 +91,7 @@ public class  InventoryClickGraph implements Listener {
             getGraphManager().getGamblersGuiOpen().add(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.apostar-aumentar.Slot") || e.getSlot() == getConfig.getInt("Itens.apostar-diminuir.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.bet-increase.slot") || e.getSlot() == getConfig.getInt("items.bet-decrease.slot")){
 
             if(MainTask.graphDelays.containsKey(p.getName())){
                 p.sendMessage(c(getMessages().WAIT_BEFORE_BETTING.replace("{tempo}", "" + (getGraphManager().getDelay() - MainTask.graphDelays.get(p.getName())))));
@@ -137,7 +137,7 @@ public class  InventoryClickGraph implements Listener {
 
             GraphBet graphBet = new GraphBet(p.getName(), user.getGraphCashValue(), user.getGraphMoneyValue(), getGraphManager().getLastPointValue(),
                     getGraphManager().getPointsNum() - 1, user.getGraphTime(),
-                    e.getSlot() == getConfig.getInt("Itens.apostar-aumentar.Slot"), getNewBetId());
+                    e.getSlot() == getConfig.getInt("items.bet-increase.slot"), getNewBetId());
 
             getGraphManager().getGraphBets().add(graphBet);
 

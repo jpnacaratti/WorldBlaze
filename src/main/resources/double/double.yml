@@ -1,120 +1,120 @@
 # MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM double
 
-Titulo: 'WorldBlaze - Double'
+title: 'WorldBlaze - Double'
 
-Slot-escolha: 13
+choice-slot: 13
 
-vermelho:
-  Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-  Textura: 'https://textures.minecraft.net/texture/f9a51f27d2d938897bc42a3fe2c3135da2671686f57824115f8f8da78a'
-  Id: ''
-  Data: 0
-  Glow: false
-  Nome: '&c2x'
-  Lore: {}
+red:
+  use-head: true # caso true, ignora 'id' e 'data' abaixo
+  texture: 'https://textures.minecraft.net/texture/f9a51f27d2d938897bc42a3fe2c3135da2671686f57824115f8f8da78a'
+  id: ''
+  data: 0
+  glow: false
+  name: '&c2x'
+  lore: {}
 
-preto:
-  Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-  Textura: 'https://textures.minecraft.net/texture/2342b9bf9f1f6295842b0efb591697b14451f803a165ae58d0dcebd98eacc'
-  Id: ''
-  Data: 0
-  Glow: false
-  Nome: '&c2x'
-  Lore: {}
+black:
+  use-head: true # caso true, ignora 'id' e 'data' abaixo
+  texture: 'https://textures.minecraft.net/texture/2342b9bf9f1f6295842b0efb591697b14451f803a165ae58d0dcebd98eacc'
+  id: ''
+  data: 0
+  glow: false
+  name: '&c2x'
+  lore: {}
 
-branco:
-  Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-  Textura: 'https://textures.minecraft.net/texture/af3eaf4c15ad67c51dff9097bd7abd4a82bab7bed83ab77a6177f2e57b'
-  Id: ''
-  Data: 0
-  Glow: false
-  Nome: '&b14x'
-  Lore: {}
+white:
+  use-head: true # caso true, ignora 'id' e 'data' abaixo
+  texture: 'https://textures.minecraft.net/texture/af3eaf4c15ad67c51dff9097bd7abd4a82bab7bed83ab77a6177f2e57b'
+  id: ''
+  data: 0
+  glow: false
+  name: '&b14x'
+  lore: {}
 
-Starting-animation: # Configuração da animação de inicio de partida
+starting-animation: # Configuração da animação de inicio de partida
 
   update_reset:
-    Tempo: 10.0
-    Itens:
-      vidro1:
-        Id: 'STAINED_GLASS_PANE'
-        Data: 0
-        Slot: [0, 1, 2, 3, 4, 5, 6, 7, 8, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+    time: 10.0
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 0
+        slot: [0, 1, 2, 3, 4, 5, 6, 7, 8, 18, 19, 20, 21, 22, 23, 24, 25, 26]
 
   update_1:
-    Tempo: 8.0 # segundos. Faltando 8 segundos exatos os itens abaixos serão colocados forçadamente no menu
-    Itens:
-      vidro1:
-        Id: 'STAINED_GLASS_PANE'
-        Data: 15
-        Slot: [0, 18, 8, 26]
+    time: 8.0 # segundos. Faltando 8 segundos exatos os itens abaixos serão colocados forçadamente no menu
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 15
+        slot: [0, 18, 8, 26]
 
   update_2:
-    Tempo: 6.0
-    Itens:
-      vidro1:
-        Id: 'STAINED_GLASS_PANE'
-        Data: 15
-        Slot: [1, 19, 7, 25]
+    time: 6.0
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 15
+        slot: [1, 19, 7, 25]
 
   update_3:
-    Tempo: 4.0
-    Itens:
-      vidro1:
-        Id: 'STAINED_GLASS_PANE'
-        Data: 15
-        Slot: [2, 20, 6, 24]
+    time: 4.0
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 15
+        slot: [2, 20, 6, 24]
 
   update_4:
-    Tempo: 2.0
-    Itens:
-      vidro1:
-        Id: 'STAINED_GLASS_PANE'
-        Data: 15
-        Slot: [3, 21, 5, 23]
+    time: 2.0
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 15
+        slot: [3, 21, 5, 23]
 
-Vidros-final:
+final-glass:
   item_1:
-    Id: 'STAINED_GLASS_PANE'
-    Data: 4
-    Slot: [4, 22]
+    id: 'STAINED_GLASS_PANE'
+    data: 4
+    slot: [4, 22]
 
-Itens:
+items:
 
   money:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'EMERALD'
-    Data: 0
-    Glow: false
-    Nome: '&aMoney'
-    Lore:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'EMERALD'
+    data: 0
+    glow: false
+    name: '&aMoney'
+    lore:
       - '&7Quantia que vai ser apostada: &a{money}'
       - ''
       - '&7* Clique para alterar'
-    Slot: 27
+    slot: 27
 
   cash:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'GOLD_INGOT'
-    Data: 0
-    Glow: false
-    Nome: '&6Cash'
-    Lore:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'GOLD_INGOT'
+    data: 0
+    glow: false
+    name: '&6Cash'
+    lore:
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '&7* Clique para alterar'
-    Slot: 28
+    slot: 28
 
-  apostar-vermelho:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/f9a51f27d2d938897bc42a3fe2c3135da2671686f57824115f8f8da78a'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&7Apostar no &cVERMELHO'
-    Lore:
+  bet-red:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/f9a51f27d2d938897bc42a3fe2c3135da2671686f57824115f8f8da78a'
+    id: ''
+    data: 0
+    glow: false
+    name: '&7Apostar no &cVERMELHO'
+    lore:
       - '&7Clique para apostar que a próxima'
       - '&7cor que vai cair será o VERMELHO'
       - ''
@@ -128,20 +128,20 @@ Itens:
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '{status}'
-    Status-apostou: '&bVocê já apostou nessa cor, boa sorte!' # Configuração da variável {status} quando jogador já tiver apostado
-    Status-naoapostou: '&7* Clique para apostar!' # Configuração da variável {status} quando jogador ainda não apostou
-    RoundStatus-iniciou: '&aRodada iniciada!' # Configuração da variável {round_status} quando a rodada já iniciou
-    RoundStatus-naoiniciou: '&eIniciando em - {tempo}s' # Configuração da variável {round_status} quando a rodada estiver iniciando
-    Slot: 30
+    status-bet: '&bVocê já apostou nessa cor, boa sorte!' # Configuração da variável {status} quando jogador já tiver apostado
+    status-not-bet: '&7* Clique para apostar!' # Configuração da variável {status} quando jogador ainda não apostou
+    round-status-started: '&aRodada iniciada!' # Configuração da variável {round_status} quando a rodada já iniciou
+    round-status-not-started: '&eIniciando em - {tempo}s' # Configuração da variável {round_status} quando a rodada estiver iniciando
+    slot: 30
 
-  apostar-branco:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/af3eaf4c15ad67c51dff9097bd7abd4a82bab7bed83ab77a6177f2e57b'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&7Apostar no &fBRANCO'
-    Lore:
+  bet-white:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/af3eaf4c15ad67c51dff9097bd7abd4a82bab7bed83ab77a6177f2e57b'
+    id: ''
+    data: 0
+    glow: false
+    name: '&7Apostar no &fBRANCO'
+    lore:
       - '&7Clique para apostar que a próxima'
       - '&7cor que vai cair será o BRANCO'
       - ''
@@ -155,20 +155,20 @@ Itens:
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '{status}'
-    Status-apostou: '&bVocê já apostou nessa cor, boa sorte!'
-    Status-naoapostou: '&7* Clique para apostar!'
-    RoundStatus-iniciou: '&aRodada iniciada!'
-    RoundStatus-naoiniciou: '&eIniciando em - {tempo}s'
-    Slot: 31
+    status-bet: '&bVocê já apostou nessa cor, boa sorte!'
+    status-not-bet: '&7* Clique para apostar!'
+    round-status-started: '&aRodada iniciada!'
+    round-status-not-started: '&eIniciando em - {tempo}s'
+    slot: 31
 
-  apostar-preto:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/2342b9bf9f1f6295842b0efb591697b14451f803a165ae58d0dcebd98eacc'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&7Apostar no &8PRETO'
-    Lore:
+  bet-black:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/2342b9bf9f1f6295842b0efb591697b14451f803a165ae58d0dcebd98eacc'
+    id: ''
+    data: 0
+    glow: false
+    name: '&7Apostar no &8PRETO'
+    lore:
       - '&7Clique para apostar que a próxima'
       - '&7cor que vai cair será o PRETO'
       - ''
@@ -182,37 +182,37 @@ Itens:
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '{status}'
-    Status-apostou: '&bVocê já apostou nessa cor, boa sorte!'
-    Status-naoapostou: '&7* Clique para apostar!'
-    RoundStatus-iniciou: '&aRodada iniciada!'
-    RoundStatus-naoiniciou: '&eIniciando em - {tempo}s'
-    Slot: 32
+    status-bet: '&bVocê já apostou nessa cor, boa sorte!'
+    status-not-bet: '&7* Clique para apostar!'
+    round-status-started: '&aRodada iniciada!'
+    round-status-not-started: '&eIniciando em - {tempo}s'
+    slot: 32
 
-  historico:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/ed6b8584e938c805da55b24ba2f027f3bcbd1b5434ef649b8583934fa1b64b44'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&6Histórico'
-    Lore:
+  history:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/ed6b8584e938c805da55b24ba2f027f3bcbd1b5434ef649b8583934fa1b64b44'
+    id: ''
+    data: 0
+    glow: false
+    name: '&6Histórico'
+    lore:
       - '&7Histórico recente do double'
       - '&7para você se basear em que apostar:'
       - '&7- {historico}' # Vai ser repetida para todos as booleans
-    Display-vermelho: '&cVermelho'
-    Display-branco: '&fBranco'
-    Display-preto: '&8Preto'
-    Slot: 34
+    display-red: '&cVermelho'
+    display-white: '&fBranco'
+    display-black: '&8Preto'
+    slot: 34
 
-  apostadores:
-    Usar-head-ultimo-player: true # caso true, o ícone vai ser a cabeça do último jogador que apostou
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&eApostadores'
-    Lore:
+  bettors:
+    use-head-last-player: true # caso true, o ícone vai ser a cabeça do último jogador que apostou
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&eApostadores'
+    lore:
       - '&7Jogadores apostando: &b{jogadores}'
       - '&7Ultimo jogador que apostou: &b{last_player}'
       - ''
@@ -225,24 +225,24 @@ Itens:
       - ''
       - '&7Clique para ver mais detalhes e'
       - '&7todos os jogadores que apostaram.'
-    Slot: 35
+    slot: 35
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
 
   glass1:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 15
-    Glow: false
-    Nome: '' # Deixe '' para usar nome padrão
-    Slot: 29
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 15
+    glow: false
+    name: '' # Deixe '' para usar nome padrão
+    slot: 29
 
   glass2:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 15
-    Glow: false
-    Nome: ''
-    Slot: 33
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 15
+    glow: false
+    name: ''
+    slot: 33

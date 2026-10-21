@@ -1,29 +1,29 @@
 # MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM graph E DEPOIS EM apostadores
 
-Titulo: 'Graph - Apostadores'
+title: 'Graph - Apostadores'
 
-Itens:
+items:
 
-  vazio:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'BARRIER'
-    Data: 0
-    Glow: false
-    Nome: '&cVazio'
-    Lore:
+  empty:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'BARRIER'
+    data: 0
+    glow: false
+    name: '&cVazio'
+    lore:
       - '&7Ninguem apostando no momento...'
-    Slot: 22
+    slot: 22
 
   player:
-    Usar-head-player: true # Usa a cabeça de quem apostou como item
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&b{nick}'
-    Lore:
+    use-head-player: true # Usa a cabeça de quem apostou como item
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&b{nick}'
+    lore:
       - '&7Jogador: &e{nick}'
       - ''
       - '&7Quantia (money): &a{money}'
@@ -36,159 +36,159 @@ Itens:
       - '&7Resultado no update número: &f#{resultado}'
       - ''
       - '&7ID da aposta: &f#{id}'
-    Aposta-subiu: '&aVai subir!' # Configuração da variável {aposta} nos seguintes casos
-    Aposta-desceu: '&cVai descer!'
+    bet-rose: '&aVai subir!' # Configuração da variável {aposta} nos seguintes casos
+    bet-fell: '&cVai descer!'
 
-  voltar:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'REDSTONE'
-    Data: 0
-    Glow: false
-    Nome: '&cVoltar'
-    Lore:
+  back:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'REDSTONE'
+    data: 0
+    glow: false
+    name: '&cVoltar'
+    lore:
       - '&7Clique para voltar ao menu anterior'
-    Slot: 49
+    slot: 49
 
-  proxpag:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'http://textures.minecraft.net/texture/f2f3a2dfce0c3dab7ee10db385e5229f1a39534a8ba2646178e37c4fa93b'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&aPróxima página'
-    Lore:
+  next-page:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'http://textures.minecraft.net/texture/f2f3a2dfce0c3dab7ee10db385e5229f1a39534a8ba2646178e37c4fa93b'
+    id: ''
+    data: 0
+    glow: false
+    name: '&aPróxima página'
+    lore:
       - '&7Clique para avançar para'
       - '&7a próxima página.'
-    Slot: 50 # Slot que o item irá aparecer caso tenha mais de uma página
+    slot: 50 # Slot que o item irá aparecer caso tenha mais de uma página
 
-  pagant:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'http://textures.minecraft.net/texture/bb0f6e8af46ac6faf88914191ab66f261d6726a7999c637cf2e4159fe1fc477'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&cPágina anterior'
-    Lore:
+  previous-page:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'http://textures.minecraft.net/texture/bb0f6e8af46ac6faf88914191ab66f261d6726a7999c637cf2e4159fe1fc477'
+    id: ''
+    data: 0
+    glow: false
+    name: '&cPágina anterior'
+    lore:
       - '&7Clique para voltar para'
       - '&7a página anterior.'
-    Slot: 48 # Slot que o item irá aparecer caso tenha mais de uma página
+    slot: 48 # Slot que o item irá aparecer caso tenha mais de uma página
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
 
   glass1:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: '' # Deixe '' para usar nome padrão
-    Slot: 0
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: '' # Deixe '' para usar nome padrão
+    slot: 0
 
   glass2:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 1
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 1
 
   glass3:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 4
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 4
 
   glass4:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 7
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 7
 
   glass5:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 8
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 8
 
   glass6:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 9
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 9
 
   glass7:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 17
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 17
 
   glass8:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 36
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 36
 
   glass9:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 44
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 44
 
   glass10:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 45
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 45
 
   glass11:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 46
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 46
 
   glass12:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 52
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 52
 
   glass13:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 11
-    Glow: false
-    Nome: ''
-    Slot: 53
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 53

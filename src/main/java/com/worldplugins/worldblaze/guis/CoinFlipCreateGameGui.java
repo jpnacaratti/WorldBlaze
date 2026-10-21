@@ -19,30 +19,30 @@ public class CoinFlipCreateGameGui {
 
         FileConfiguration getConfig = getCoinFlipCreateGameGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("Linhas"), c(getConfig.getString("Titulo")));
+        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 
-        for(String s : getConfig.getConfigurationSection("Itens").getKeys(false)){
+        for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 
-            if(s.equalsIgnoreCase("jogos")) continue;
+            if(s.equalsIgnoreCase("games")) continue;
 
             String choice = user.isCoinFlipCara() ? "Cara" : "Coroa";
 
             ItemBuilder item;
-            if (getConfig.getBoolean("Itens." + s + ".Usar-head-player")) item = user.getCoinFlipSpecific() == null ? new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654")) : new ItemBuilder(SkullCreator.itemFromName(user.getCoinFlipSpecific()));
-            else if (getConfig.getBoolean("Itens." + s + ".Usar-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens." + s + ".Textura")));
-            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens." + s + ".Id")), 1, (byte) getConfig.getInt("Itens." + s + ".Data"));
-            item.setName(c(getConfig.getString("Itens." + s + ".Nome").
-                    replace("{escolha}", choice))).setGlow(getConfig.getBoolean("Itens." + s + ".Glow"));
+            if (getConfig.getBoolean("items." + s + ".use-head-player")) item = user.getCoinFlipSpecific() == null ? new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654")) : new ItemBuilder(SkullCreator.itemFromName(user.getCoinFlipSpecific()));
+            else if (getConfig.getBoolean("items." + s + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
+            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1, (byte) getConfig.getInt("items." + s + ".data"));
+            item.setName(c(getConfig.getString("items." + s + ".name").
+                    replace("{escolha}", choice))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
-            getConfig.getStringList("Itens." + s + ".Lore").forEach(w -> item.addLoreLine(c(w.
+            getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
                     replace("{escolha}", choice).
                     replace("{money}", letterFormatter(user.getCoinFlipMoneyValue())).
                     replace("{cash}", letterFormatter(user.getCoinFlipCashValue())).
                     replace("{adversario}", user.getCoinFlipSpecific() == null ? "-/-" : user.getCoinFlipSpecific()))));
 
-            int slot = getConfig.getInt("Itens." + s + ".Slot");
+            int slot = getConfig.getInt("items." + s + ".slot");
 
             inv.setItem(slot, item.toItemStack());
         }

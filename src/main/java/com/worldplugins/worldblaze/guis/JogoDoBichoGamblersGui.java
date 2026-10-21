@@ -27,7 +27,7 @@ public class JogoDoBichoGamblersGui {
     public static void create(Player p, Bicho bicho){
         FileConfiguration getConfig = getJogoDoBichoGamblersGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("Titulo")));
+        Inventory inv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("title")));
 
         List<JogoDoBichoBet> sorted = new ArrayList<>(getJogoDoBichoManager().getJogoDoBichoBets());
 
@@ -50,17 +50,17 @@ public class JogoDoBichoGamblersGui {
         if(sorted.isEmpty()){
 
             ItemBuilder item;
-            if (getConfig.getBoolean("Itens.vazio.Usar-head")) {
-                item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.vazio.Textura")));
+            if (getConfig.getBoolean("items.empty.use-head")) {
+                item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.empty.texture")));
             } else {
-                item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.vazio.Id")), 1,
-                        (byte) getConfig.getInt("Itens.vazio.Data"));
+                item = new ItemBuilder(Material.getMaterial(getConfig.getString("items.empty.id")), 1,
+                        (byte) getConfig.getInt("items.empty.data"));
             }
-            List<String> lore = getConfig.getStringList("Itens.vazio.Lore");
+            List<String> lore = getConfig.getStringList("items.empty.lore");
             lore.replaceAll(Utils::c);
-            item.setName(c(getConfig.getString("Itens.vazio.Nome"))).setLore(lore).
-                    setGlow(getConfig.getBoolean("Itens.vazio.Glow"));
-            int slot = getConfig.getInt("Itens.vazio.Slot");
+            item.setName(c(getConfig.getString("items.empty.name"))).setLore(lore).
+                    setGlow(getConfig.getBoolean("items.empty.glow"));
+            int slot = getConfig.getInt("items.empty.slot");
 
             inv.setItem(slot, item.toItemStack());
         }else{
@@ -72,31 +72,31 @@ public class JogoDoBichoGamblersGui {
                 if(invs.get(p).get(numPag).getItem(34) != null) invLine = 37;
                 if(invs.get(p).get(numPag).getItem(43) != null) {
 
-                    Inventory newInv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("Titulo")));
+                    Inventory newInv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("title")));
 
                     ItemBuilder next;
-                    if (getConfig.getBoolean("Itens.proxpag.Usar-head"))
-                        next = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.proxpag.Textura")));
-                    else next = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.proxpag.Id")),1,
-                            (byte) getConfig.getInt("Itens.proxpag.Data"));
-                    List<String> nLore = getConfig.getStringList("Itens.proxpag.Lore");
+                    if (getConfig.getBoolean("items.next-page.use-head"))
+                        next = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.next-page.texture")));
+                    else next = new ItemBuilder(Material.getMaterial(getConfig.getString("items.next-page.id")),1,
+                            (byte) getConfig.getInt("items.next-page.data"));
+                    List<String> nLore = getConfig.getStringList("items.next-page.lore");
                     nLore.replaceAll(Utils::c);
-                    next.setName(c(getConfig.getString("Itens.proxpag.Nome"))).
-                            setLore(nLore).setGlow(getConfig.getBoolean("Itens.proxpag.Glow"));
+                    next.setName(c(getConfig.getString("items.next-page.name"))).
+                            setLore(nLore).setGlow(getConfig.getBoolean("items.next-page.glow"));
                     NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_bichoPag", ""+(numPag+1));
-                    int slot = getConfig.getInt("Itens.proxpag.Slot");
+                    int slot = getConfig.getInt("items.next-page.slot");
 
                     ItemBuilder ant;
-                    if (getConfig.getBoolean("Itens.pagant.Usar-head"))
-                        ant = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.pagant.Textura")));
-                    else ant = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.pagant.Id")),1,
-                            (byte) getConfig.getInt("Itens.pagant.Data"));
-                    List<String> antLore = getConfig.getStringList("Itens.pagant.Lore");
+                    if (getConfig.getBoolean("items.previous-page.use-head"))
+                        ant = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.previous-page.texture")));
+                    else ant = new ItemBuilder(Material.getMaterial(getConfig.getString("items.previous-page.id")),1,
+                            (byte) getConfig.getInt("items.previous-page.data"));
+                    List<String> antLore = getConfig.getStringList("items.previous-page.lore");
                     antLore.replaceAll(Utils::c);
-                    ant.setName(c(getConfig.getString("Itens.pagant.Nome"))).
-                            setLore(antLore).setGlow(getConfig.getBoolean("Itens.pagant.Glow"));
+                    ant.setName(c(getConfig.getString("items.previous-page.name"))).
+                            setLore(antLore).setGlow(getConfig.getBoolean("items.previous-page.glow"));
                     NBTTag.setNBTString(ant.toItemStack().getItemMeta(), "WBlaze_bichoPag", ""+numPag);
-                    int antSlot = getConfig.getInt("Itens.pagant.Slot");
+                    int antSlot = getConfig.getInt("items.previous-page.slot");
 
                     newInv.setItem(antSlot, ant.toItemStack());
                     invs.get(p).get(numPag).setItem(slot, next.toItemStack());
@@ -108,14 +108,14 @@ public class JogoDoBichoGamblersGui {
                 }
 
                 ItemBuilder item;
-                if(getConfig.getBoolean("Itens.player.Usar-head-player")){
+                if(getConfig.getBoolean("items.player.use-head-player")){
                     item = new ItemBuilder(SkullCreator.itemFromName(bet.getOwner()));
-                }else if (getConfig.getBoolean("Itens.player.Usar-head"))
-                    item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.player.Textura")));
-                else item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.player.Id")),1,
-                            (byte) getConfig.getInt("Itens.player.Data"));
+                }else if (getConfig.getBoolean("items.player.use-head"))
+                    item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.player.texture")));
+                else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items.player.id")),1,
+                            (byte) getConfig.getInt("items.player.data"));
 
-                getConfig.getStringList("Itens.player.Lore").forEach(w -> item.addLoreLine(c(w.
+                getConfig.getStringList("items.player.lore").forEach(w -> item.addLoreLine(c(w.
                         replace("{nick}", bet.getOwner()).
                         replace("{money}", letterFormatter(bet.getMoneyValue())).
                         replace("{cash}", letterFormatter(bet.getCashValue())).
@@ -124,8 +124,8 @@ public class JogoDoBichoGamblersGui {
                 ));
 
 
-                item.setName(c(getConfig.getString("Itens.player.Nome").replace("{nick}", bet.getOwner()))).
-                        setGlow(getConfig.getBoolean("Itens.player.Glow"));
+                item.setName(c(getConfig.getString("items.player.name").replace("{nick}", bet.getOwner()))).
+                        setGlow(getConfig.getBoolean("items.player.glow"));
 
                 if(invSlot == 7) invSlot = 0;
 
@@ -134,26 +134,26 @@ public class JogoDoBichoGamblersGui {
             }
         }
 
-        for (String s : getConfig.getConfigurationSection("Itens").getKeys(false)) {
+        for (String s : getConfig.getConfigurationSection("items").getKeys(false)) {
 
-            if(s.equalsIgnoreCase("proxpag") || s.equalsIgnoreCase("pagant") ||
-                    s.equalsIgnoreCase("player") || s.equalsIgnoreCase("vazio")) continue;
+            if(s.equalsIgnoreCase("next-page") || s.equalsIgnoreCase("previous-page") ||
+                    s.equalsIgnoreCase("player") || s.equalsIgnoreCase("empty")) continue;
 
             ItemBuilder item;
-            if (getConfig.getBoolean("Itens." + s + ".Usar-head")) {
-                item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens." + s + ".Textura")));
+            if (getConfig.getBoolean("items." + s + ".use-head")) {
+                item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
             } else {
-                item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens." + s + ".Id")), 1,
-                        (byte) getConfig.getInt("Itens." + s + ".Data"));
+                item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1,
+                        (byte) getConfig.getInt("items." + s + ".data"));
             }
-            List<String> lore = getConfig.getStringList("Itens." + s + ".Lore");
+            List<String> lore = getConfig.getStringList("items." + s + ".lore");
             lore.replaceAll(Utils::c);
-            String name = getConfig.getString("Itens." + s + ".Nome");
+            String name = getConfig.getString("items." + s + ".name");
             if(!name.isEmpty()) item.setName(c(name));
-            item.setLore(lore).setGlow(getConfig.getBoolean("Itens." + s + ".Glow"));
-            int slot = getConfig.getInt("Itens." + s + ".Slot");
+            item.setLore(lore).setGlow(getConfig.getBoolean("items." + s + ".glow"));
+            int slot = getConfig.getInt("items." + s + ".slot");
 
-            if(s.equalsIgnoreCase("voltar")) if(bicho != null) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_bichoVoltar", bicho.name());
+            if(s.equalsIgnoreCase("back")) if(bicho != null) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_bichoVoltar", bicho.name());
 
 
             for (int i = 0; i < invs.get(p).size(); i++) {

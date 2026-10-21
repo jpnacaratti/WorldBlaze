@@ -16,7 +16,7 @@ public class InventoryClickMain implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(c(getPrincipalGuiYml().getConfig().getString("Titulo"))))
+        if (!e.getInventory().getName().equalsIgnoreCase(c(getPrincipalGuiYml().getConfig().getString("title"))))
             return;
         e.setCancelled(true);
 
@@ -26,7 +26,7 @@ public class InventoryClickMain implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getSlot() == getConfig.getInt("Itens.graph.Slot")) {
+        if (e.getSlot() == getConfig.getInt("items.graph.slot")) {
 
             if (!p.hasPermission("worldblaze.graph")) {
                 p.sendMessage("§cVocê não tem permissão para fazer isso.");
@@ -40,12 +40,12 @@ public class InventoryClickMain implements Listener {
 
             if (e.isRightClick()) {
                 p.closeInventory();
-                p.sendMessage(c(getConfig.getString("Itens.graph.Help")));
+                p.sendMessage(c(getConfig.getString("items.graph.help")));
             } else GraphGui.create(p);
 
         }
 
-        if (e.getSlot() == getConfig.getInt("Itens.crash.Slot")) {
+        if (e.getSlot() == getConfig.getInt("items.crash.slot")) {
 
             if (!p.hasPermission("worldblaze.crash")) {
                 p.sendMessage("§cVocê não tem permissão para fazer isso.");
@@ -59,12 +59,12 @@ public class InventoryClickMain implements Listener {
 
             if (e.isRightClick()) {
                 p.closeInventory();
-                p.sendMessage(c(getConfig.getString("Itens.crash.Help")));
+                p.sendMessage(c(getConfig.getString("items.crash.help")));
             } else CrashGui.create(p);
 
         }
 
-        if (e.getSlot() == getConfig.getInt("Itens.double.Slot")) {
+        if (e.getSlot() == getConfig.getInt("items.double.slot")) {
 
             if (!p.hasPermission("worldblaze.double")) {
                 p.sendMessage("§cVocê não tem permissão para fazer isso.");
@@ -78,12 +78,12 @@ public class InventoryClickMain implements Listener {
 
             if (e.isRightClick()) {
                 p.closeInventory();
-                p.sendMessage(c(getConfig.getString("Itens.double.Help")));
+                p.sendMessage(c(getConfig.getString("items.double.help")));
             } else DoubleGui.create(p);
 
         }
 
-        if (e.getSlot() == getConfig.getInt("Itens.mine.Slot")) {
+        if (e.getSlot() == getConfig.getInt("items.mine.slot")) {
 
             if (!p.hasPermission("worldblaze.mine")) {
                 p.sendMessage("§cVocê não tem permissão para fazer isso.");
@@ -97,12 +97,12 @@ public class InventoryClickMain implements Listener {
 
             if (e.isRightClick()) {
                 p.closeInventory();
-                p.sendMessage(c(getConfig.getString("Itens.mine.Help")));
+                p.sendMessage(c(getConfig.getString("items.mine.help")));
             } else MineMainGui.create(p);
 
         }
 
-        if (e.getSlot() == getConfig.getInt("Itens.jogo-do-bicho.Slot")) {
+        if (e.getSlot() == getConfig.getInt("items.jogo-do-bicho.slot")) {
 
             if (!p.hasPermission("worldblaze.jogodobicho")) {
                 p.sendMessage("§cVocê não tem permissão para fazer isso.");
@@ -116,12 +116,12 @@ public class InventoryClickMain implements Listener {
 
             if (e.isRightClick()) {
                 p.closeInventory();
-                p.sendMessage(c(getConfig.getString("Itens.jogo-do-bicho.Help")));
+                p.sendMessage(c(getConfig.getString("items.jogo-do-bicho.help")));
             } else JogoDoBichoMainGui.create(p);
 
         }
 
-        if (e.getSlot() == getConfig.getInt("Itens.coinflip.Slot")) {
+        if (e.getSlot() == getConfig.getInt("items.coinflip.slot")) {
 
             if (!p.hasPermission("worldblaze.coinflip")) {
                 p.sendMessage("§cVocê não tem permissão para fazer isso.");
@@ -135,7 +135,7 @@ public class InventoryClickMain implements Listener {
 
             if (e.isRightClick()) {
                 p.closeInventory();
-                p.sendMessage(c(getConfig.getString("Itens.coinflip.Help")));
+                p.sendMessage(c(getConfig.getString("items.coinflip.help")));
             } else CoinFlipMainGui.create(p);
 
         }

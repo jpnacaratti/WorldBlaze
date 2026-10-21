@@ -1,79 +1,79 @@
 # MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM graph
 
-Titulo: 'WorldBlaze - Graph'
+title: 'WorldBlaze - Graph'
 
-positivo:
-  Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-  Textura: ''
-  Id: 'WOOL'
-  Data: 5
-  Glow: false
-  Nome: '&bUpdate número: &f#{update}'
-  Lore:
+positive:
+  use-head: false # caso true, ignora 'id' e 'data' abaixo
+  texture: ''
+  id: 'WOOL'
+  data: 5
+  glow: false
+  name: '&bUpdate número: &f#{update}'
+  lore:
     - '&7Informações:'
     - '&7Status: &aSubiu'
     - '&7Valor nesse momento: &b{point-value}'
 
-negativo:
-  Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-  Textura: ''
-  Id: 'WOOL'
-  Data: 14
-  Glow: false
-  Nome: '&bUpdate número: &f#{update}'
-  Lore:
+negative:
+  use-head: false # caso true, ignora 'id' e 'data' abaixo
+  texture: ''
+  id: 'WOOL'
+  data: 14
+  glow: false
+  name: '&bUpdate número: &f#{update}'
+  lore:
     - '&7Informações:'
     - '&7Status: &cDesceu'
     - '&7Valor nesse momento: &b{point-value}'
 
-Itens:
+items:
 
-  carregando:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'PAPER'
-    Data: 0
-    Glow: false
-    Nome: '&eCarregando...'
-    Lore:
+  loading:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'PAPER'
+    data: 0
+    glow: false
+    name: '&eCarregando...'
+    lore:
       - '&7Carregando gráfico... Isso pode'
       - '&7levar alguns segundos.'
-    Slot: 22
+    slot: 22
 
   money:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'EMERALD'
-    Data: 0
-    Glow: false
-    Nome: '&aMoney'
-    Lore:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'EMERALD'
+    data: 0
+    glow: false
+    name: '&aMoney'
+    lore:
       - '&7Quantia que vai ser apostada: &a{money}'
       - ''
       - '&7* Clique para alterar'
-    Slot: 45
+    slot: 45
 
   cash:
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: 'GOLD_INGOT'
-    Data: 0
-    Glow: false
-    Nome: '&6Cash'
-    Lore:
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: 'GOLD_INGOT'
+    data: 0
+    glow: false
+    name: '&6Cash'
+    lore:
       - '&7Quantia que vai ser apostada: &6{cash}'
       - ''
       - '&7* Clique para alterar'
-    Slot: 46
+    slot: 46
 
-  apostar-diminuir:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/4e4b8b8d2362c864e062301487d94d3272a6b570afbf80c2c5b148c954579d46'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&cVai descer!'
-    Lore:
+  bet-decrease:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/4e4b8b8d2362c864e062301487d94d3272a6b570afbf80c2c5b148c954579d46'
+    id: ''
+    data: 0
+    glow: false
+    name: '&cVai descer!'
+    lore:
       - '&7Clique para apostar que o gráfico'
       - '&7vai descer!'
       - ''
@@ -89,32 +89,32 @@ Itens:
       - '&7daqui &f{tempo} &7updates'
       - ''
       - '&7Clique para apostar'
-    Slot: 48
+    slot: 48
 
-  tempo:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/2e5d10f9f3246599658e0c6d0444e874ffac01410440c5cfec6f19d3aa88f945'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&bTempo'
-    Lore:
+  time:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/2e5d10f9f3246599658e0c6d0444e874ffac01410440c5cfec6f19d3aa88f945'
+    id: ''
+    data: 0
+    glow: false
+    name: '&bTempo'
+    lore:
       - '&7Tempo atual (updates): &f{tempo}'
       - ''
       - '&7Clique com &fbotão esquerdo &7para'
       - '&7aumentar o tempo'
       - '&7Clique com &fbotão direito &7para'
       - '&7diminuir o tempo'
-    Slot: 49
+    slot: 49
 
-  apostar-aumentar:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/5ff31431d64587ff6ef98c0675810681f8c13bf96f51d9cb07ed7852b2ffd1'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&aVai subir!'
-    Lore:
+  bet-increase:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/5ff31431d64587ff6ef98c0675810681f8c13bf96f51d9cb07ed7852b2ffd1'
+    id: ''
+    data: 0
+    glow: false
+    name: '&aVai subir!'
+    lore:
       - '&7Clique para apostar que o gráfico'
       - '&7vai subir!'
       - ''
@@ -130,32 +130,32 @@ Itens:
       - '&7daqui &f{tempo} &7updates'
       - ''
       - '&7Clique para apostar'
-    Slot: 50
+    slot: 50
 
-  historico:
-    Usar-head: true # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: 'https://textures.minecraft.net/texture/ed6b8584e938c805da55b24ba2f027f3bcbd1b5434ef649b8583934fa1b64b44'
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&6Histórico'
-    Lore:
+  history:
+    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    texture: 'https://textures.minecraft.net/texture/ed6b8584e938c805da55b24ba2f027f3bcbd1b5434ef649b8583934fa1b64b44'
+    id: ''
+    data: 0
+    glow: false
+    name: '&6Histórico'
+    lore:
       - '&7Histórico recente do gráfico'
       - '&7para você se basear em que apostar:'
       - '{historico}' # Vai ser repetida para todos as booleans
-    Display-positivo: '&7[&a+&7]'
-    Display-negativo: '&7[&c-&7]'
-    Slot: 52
+    display-positive: '&7[&a+&7]'
+    display-negative: '&7[&c-&7]'
+    slot: 52
 
-  apostadores:
-    Usar-head-ultimo-player: true # caso true, o ícone vai ser a cabeça do último jogador que apostou
-    Usar-head: false # caso true, ignora 'Id' e 'Data' abaixo
-    Textura: ''
-    Id: ''
-    Data: 0
-    Glow: false
-    Nome: '&eApostadores'
-    Lore:
+  bettors:
+    use-head-last-player: true # caso true, o ícone vai ser a cabeça do último jogador que apostou
+    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&eApostadores'
+    lore:
       - '&7Jogadores apostando: &b{jogadores}'
       - '&7Ultimo jogador que apostou: &b{last_player}'
       - ''
@@ -167,24 +167,24 @@ Itens:
       - ''
       - '&7Clique para ver mais detalhes e'
       - '&7todos os jogadores que apostaram.'
-    Slot: 53
+    slot: 53
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
 
   glass1:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 15
-    Glow: false
-    Nome: '' # Deixe '' para usar nome padrão
-    Slot: 47
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 15
+    glow: false
+    name: '' # Deixe '' para usar nome padrão
+    slot: 47
 
   glass2:
-    Usar-head: false
-    Textura: ''
-    Id: 'STAINED_GLASS_PANE'
-    Data: 15
-    Glow: false
-    Nome: ''
-    Slot: 51
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 15
+    glow: false
+    name: ''
+    slot: 51

@@ -25,20 +25,20 @@ public class JogoDoBichoBetGui {
 
         FileConfiguration getConfig = getBichosBetGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("Linhas"), c(getConfig.getString("Titulo")));
+        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 
-        for(String s : getConfig.getConfigurationSection("Itens").getKeys(false)){
+        for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 
             ItemBuilder item;
-            if (getConfig.getBoolean("Itens." + s + ".Usar-head-ultimo-player")) item = new ItemBuilder(getJogoDoBichoManager().getHeadLastPlayer(bicho));
-            else if (getConfig.getBoolean("Itens." + s + ".Usar-head-bicho")) item = new ItemBuilder(getJogoDoBichoManager().getAnimalItem(bicho));
-            else if (getConfig.getBoolean("Itens." + s + ".Usar-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens." + s + ".Textura")));
-            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens." + s + ".Id")), 1, (byte) getConfig.getInt("Itens." + s + ".Data"));
-            item.setName(c(getConfig.getString("Itens." + s + ".Nome"))).setGlow(getConfig.getBoolean("Itens." + s + ".Glow"));
+            if (getConfig.getBoolean("items." + s + ".use-head-last-player")) item = new ItemBuilder(getJogoDoBichoManager().getHeadLastPlayer(bicho));
+            else if (getConfig.getBoolean("items." + s + ".use-head-animal")) item = new ItemBuilder(getJogoDoBichoManager().getAnimalItem(bicho));
+            else if (getConfig.getBoolean("items." + s + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
+            else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1, (byte) getConfig.getInt("items." + s + ".data"));
+            item.setName(c(getConfig.getString("items." + s + ".name"))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
-            getConfig.getStringList("Itens." + s + ".Lore").forEach(w -> item.addLoreLine(c(w.
+            getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
                     replace("{cash}", letterFormatter(user.getJogoDoBichoCashValue())).
                     replace("{money}", letterFormatter(user.getJogoDoBichoMoneyValue())).
                     replace("{jogadores}", getJogoDoBichoManager().getNumOfBets(bicho) + "").
@@ -47,7 +47,7 @@ public class JogoDoBichoBetGui {
                     replace("{total_cash}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetCash(bicho))).
                     replace("{animal}", bicho.getNameStr()))));
 
-            int slot = getConfig.getInt("Itens." + s + ".Slot");
+            int slot = getConfig.getInt("items." + s + ".slot");
 
             NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_animal", bicho.name());
 

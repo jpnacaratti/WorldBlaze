@@ -19,7 +19,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(c(getBichosBetGuiYml().getConfig().getString("Titulo")))) return;
+        if (!e.getInventory().getName().equalsIgnoreCase(c(getBichosBetGuiYml().getConfig().getString("title")))) return;
         e.setCancelled(true);
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
@@ -42,7 +42,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
             return;
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.money.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.jogo-do-bicho-typing-money").forEach(w -> p.sendMessage(c(w)));
@@ -50,7 +50,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
             AsyncPlayerChat.jogoDoBichoMoneyList.put(p.getName(), bicho);
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.cash.slot")){
             p.closeInventory();
 
             getInstance().getConfig().getStringList("messages.jogo-do-bicho-typing-cash").forEach(w -> p.sendMessage(c(w)));
@@ -58,7 +58,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
             AsyncPlayerChat.jogoDoBichoCashList.put(p.getName(), bicho);
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.apostadores.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.bettors.slot")){
 
             InventoryClose.bypassClose.add(p.getName());
 
@@ -69,9 +69,9 @@ public class InventoryClickJogoDoBichoBet implements Listener {
             InventoryClose.bypassClose.remove(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("Itens.voltar.Slot")) JogoDoBichoBichosGui.create(p);
+        if(e.getSlot() == getConfig.getInt("items.back.slot")) JogoDoBichoBichosGui.create(p);
 
-        if(e.getSlot() == getConfig.getInt("Itens.apostar.Slot")){
+        if(e.getSlot() == getConfig.getInt("items.bet.slot")){
 
             if(getInstance().isReloading()){
                 p.sendMessage(getMessages().RELOADING);

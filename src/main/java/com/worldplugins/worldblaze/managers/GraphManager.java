@@ -56,86 +56,86 @@ public class GraphManager {
         this.historic = new ArrayList<>();
         this.graphPoints = new ArrayList<>();
 
-        if (getConfig.getBoolean("positivo.Usar-head")) positiveItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("positivo.Textura")));
-        else positiveItem = new ItemBuilder(Material.getMaterial(getConfig.getString("positivo.Id")), 1, (byte) getConfig.getInt("positivo.Data"));
-        positiveItem.setGlow(getConfig.getBoolean("positivo.Glow"));
+        if (getConfig.getBoolean("positive.use-head")) positiveItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("positive.texture")));
+        else positiveItem = new ItemBuilder(Material.getMaterial(getConfig.getString("positive.id")), 1, (byte) getConfig.getInt("positive.data"));
+        positiveItem.setGlow(getConfig.getBoolean("positive.glow"));
 
-        this.positiveLore = getConfig.getStringList("positivo.Lore");
-        this.positiveName = c(getConfig.getString("positivo.Nome"));
+        this.positiveLore = getConfig.getStringList("positive.lore");
+        this.positiveName = c(getConfig.getString("positive.name"));
 
-        if (getConfig.getBoolean("negativo.Usar-head")) negativeItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("negativo.Textura")));
-        else negativeItem = new ItemBuilder(Material.getMaterial(getConfig.getString("negativo.Id")), 1, (byte) getConfig.getInt("negativo.Data"));
-        negativeItem.setGlow(getConfig.getBoolean("negativo.Glow"));
+        if (getConfig.getBoolean("negative.use-head")) negativeItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("negative.texture")));
+        else negativeItem = new ItemBuilder(Material.getMaterial(getConfig.getString("negative.id")), 1, (byte) getConfig.getInt("negative.data"));
+        negativeItem.setGlow(getConfig.getBoolean("negative.glow"));
 
-        this.negativeLore = getConfig.getStringList("negativo.Lore");
-        this.negativeName = c(getConfig.getString("negativo.Nome"));
+        this.negativeLore = getConfig.getStringList("negative.lore");
+        this.negativeName = c(getConfig.getString("negative.name"));
 
-        if (getConfig.getBoolean("Itens.apostar-diminuir.Usar-head")) betDecreaseItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.apostar-diminuir.Textura")));
-        else betDecreaseItem = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.apostar-diminuir.Id")), 1, (byte) getConfig.getInt("Itens.apostar-diminuir.Data"));
-        betDecreaseItem.setGlow(getConfig.getBoolean("Itens.apostar-diminuir.Glow"));
+        if (getConfig.getBoolean("items.bet-decrease.use-head")) betDecreaseItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.bet-decrease.texture")));
+        else betDecreaseItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.bet-decrease.id")), 1, (byte) getConfig.getInt("items.bet-decrease.data"));
+        betDecreaseItem.setGlow(getConfig.getBoolean("items.bet-decrease.glow"));
 
-        this.betDecreaseLore = getConfig.getStringList("Itens.apostar-diminuir.Lore");
-        this.betDecreaseName = c(getConfig.getString("Itens.apostar-diminuir.Nome"));
+        this.betDecreaseLore = getConfig.getStringList("items.bet-decrease.lore");
+        this.betDecreaseName = c(getConfig.getString("items.bet-decrease.name"));
 
-        if (getConfig.getBoolean("Itens.apostar-aumentar.Usar-head")) betUpItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.apostar-aumentar.Textura")));
-        else betUpItem = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.apostar-aumentar.Id")), 1, (byte) getConfig.getInt("Itens.apostar-aumentar.Data"));
-        betUpItem.setGlow(getConfig.getBoolean("Itens.apostar-aumentar.Glow"));
+        if (getConfig.getBoolean("items.bet-increase.use-head")) betUpItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.bet-increase.texture")));
+        else betUpItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.bet-increase.id")), 1, (byte) getConfig.getInt("items.bet-increase.data"));
+        betUpItem.setGlow(getConfig.getBoolean("items.bet-increase.glow"));
 
-        this.betUpLore = getConfig.getStringList("Itens.apostar-aumentar.Lore");
-        this.betUpName = c(getConfig.getString("Itens.apostar-aumentar.Nome"));
+        this.betUpLore = getConfig.getStringList("items.bet-increase.lore");
+        this.betUpName = c(getConfig.getString("items.bet-increase.name"));
 
-        if (getConfig.getBoolean("Itens.historico.Usar-head")) historicItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.historico.Textura")));
-        else historicItem = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.historico.Id")), 1, (byte) getConfig.getInt("Itens.historico.Data"));
-        historicItem.setGlow(getConfig.getBoolean("Itens.historico.Glow"));
+        if (getConfig.getBoolean("items.history.use-head")) historicItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.history.texture")));
+        else historicItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.history.id")), 1, (byte) getConfig.getInt("items.history.data"));
+        historicItem.setGlow(getConfig.getBoolean("items.history.glow"));
 
-        this.historicLore = getConfig.getStringList("Itens.historico.Lore");
-        this.historicName = c(getConfig.getString("Itens.historico.Nome"));
+        this.historicLore = getConfig.getStringList("items.history.lore");
+        this.historicName = c(getConfig.getString("items.history.name"));
 
-        this.historicPositiveDisplay = c(getConfig.getString("Itens.historico.Display-positivo"));
-        this.historicNegativeDisplay = c(getConfig.getString("Itens.historico.Display-negativo"));
+        this.historicPositiveDisplay = c(getConfig.getString("items.history.display-positive"));
+        this.historicNegativeDisplay = c(getConfig.getString("items.history.display-negative"));
 
-        if (getConfig.getBoolean("Itens.apostadores.Usar-head-ultimo-player")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
-        else if (getConfig.getBoolean("Itens.apostadores.Usar-head")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.apostadores.Textura")));
-        else gamblersItem = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.apostadores.Id")), 1, (byte) getConfig.getInt("Itens.apostadores.Data"));
-        gamblersItem.setGlow(getConfig.getBoolean("Itens.apostadores.Glow"));
+        if (getConfig.getBoolean("items.bettors.use-head-last-player")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
+        else if (getConfig.getBoolean("items.bettors.use-head")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.bettors.texture")));
+        else gamblersItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.bettors.id")), 1, (byte) getConfig.getInt("items.bettors.data"));
+        gamblersItem.setGlow(getConfig.getBoolean("items.bettors.glow"));
 
-        this.gamblersLore = getConfig.getStringList("Itens.apostadores.Lore");
-        this.gamblersName = c(getConfig.getString("Itens.apostadores.Nome"));
+        this.gamblersLore = getConfig.getStringList("items.bettors.lore");
+        this.gamblersName = c(getConfig.getString("items.bettors.name"));
 
-        this.gamblersUsePlayersHead = getConfig.getBoolean("Itens.apostadores.Usar-head-ultimo-player");
+        this.gamblersUsePlayersHead = getConfig.getBoolean("items.bettors.use-head-last-player");
 
-        if (getConfig.getBoolean("Itens.tempo.Usar-head")) timeItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.tempo.Textura")));
-        else timeItem = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.tempo.Id")), 1, (byte) getConfig.getInt("Itens.tempo.Data"));
-        timeItem.setGlow(getConfig.getBoolean("Itens.tempo.Glow"));
+        if (getConfig.getBoolean("items.time.use-head")) timeItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.time.texture")));
+        else timeItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.time.id")), 1, (byte) getConfig.getInt("items.time.data"));
+        timeItem.setGlow(getConfig.getBoolean("items.time.glow"));
 
-        this.timeLore = getConfig.getStringList("Itens.tempo.Lore");
-        this.timeName = c(getConfig.getString("Itens.tempo.Nome"));
+        this.timeLore = getConfig.getStringList("items.time.lore");
+        this.timeName = c(getConfig.getString("items.time.name"));
 
-        if (getConfig.getBoolean("Itens.money.Usar-head")) moneyItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.money.Textura")));
-        else moneyItem = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.money.Id")), 1, (byte) getConfig.getInt("Itens.money.Data"));
-        moneyItem.setGlow(getConfig.getBoolean("Itens.money.Glow"));
+        if (getConfig.getBoolean("items.money.use-head")) moneyItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.money.texture")));
+        else moneyItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.money.id")), 1, (byte) getConfig.getInt("items.money.data"));
+        moneyItem.setGlow(getConfig.getBoolean("items.money.glow"));
 
-        this.moneyLore = getConfig.getStringList("Itens.money.Lore");
-        this.moneyName = c(getConfig.getString("Itens.money.Nome"));
+        this.moneyLore = getConfig.getStringList("items.money.lore");
+        this.moneyName = c(getConfig.getString("items.money.name"));
 
-        if (getConfig.getBoolean("Itens.cash.Usar-head")) cashItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("Itens.cash.Textura")));
-        else cashItem = new ItemBuilder(Material.getMaterial(getConfig.getString("Itens.cash.Id")), 1, (byte) getConfig.getInt("Itens.cash.Data"));
-        cashItem.setGlow(getConfig.getBoolean("Itens.cash.Glow"));
+        if (getConfig.getBoolean("items.cash.use-head")) cashItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.cash.texture")));
+        else cashItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.cash.id")), 1, (byte) getConfig.getInt("items.cash.data"));
+        cashItem.setGlow(getConfig.getBoolean("items.cash.glow"));
 
-        this.cashLore = getConfig.getStringList("Itens.cash.Lore");
-        this.cashName = c(getConfig.getString("Itens.cash.Nome"));
+        this.cashLore = getConfig.getStringList("items.cash.lore");
+        this.cashName = c(getConfig.getString("items.cash.name"));
 
-        this.betDecreaseSlot = getConfig.getInt("Itens.apostar-diminuir.Slot");
-        this.betUpSlot = getConfig.getInt("Itens.apostar-aumentar.Slot");
-        this.timeSlot = getConfig.getInt("Itens.tempo.Slot");
-        this.moneySlot = getConfig.getInt("Itens.money.Slot");
-        this.cashSlot = getConfig.getInt("Itens.cash.Slot");
-        this.historicSlot = getConfig.getInt("Itens.historico.Slot");
-        this.gamblersSlot = getConfig.getInt("Itens.apostadores.Slot");
+        this.betDecreaseSlot = getConfig.getInt("items.bet-decrease.slot");
+        this.betUpSlot = getConfig.getInt("items.bet-increase.slot");
+        this.timeSlot = getConfig.getInt("items.time.slot");
+        this.moneySlot = getConfig.getInt("items.money.slot");
+        this.cashSlot = getConfig.getInt("items.cash.slot");
+        this.historicSlot = getConfig.getInt("items.history.slot");
+        this.gamblersSlot = getConfig.getInt("items.bettors.slot");
 
         lastPointValue = getInstance().getConfig().getDouble("config.graph.initial-value");
 
-        this.menuTitle = c(getConfig.getString("Titulo"));
+        this.menuTitle = c(getConfig.getString("title"));
 
         this.receiveValue = getInstance().getConfig().getDouble("config.graph.win-return");
         this.maxRandomValue = getInstance().getConfig().getDouble("config.graph.max-random");

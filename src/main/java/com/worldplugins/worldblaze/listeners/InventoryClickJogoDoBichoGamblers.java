@@ -17,7 +17,7 @@ public class InventoryClickJogoDoBichoGamblers implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if(!e.getInventory().getName().equalsIgnoreCase(c(getJogoDoBichoGamblersGuiYml().getConfig().getString("Titulo")))) return;
+        if(!e.getInventory().getName().equalsIgnoreCase(c(getJogoDoBichoGamblersGuiYml().getConfig().getString("title")))) return;
         e.setCancelled(true);
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
@@ -33,7 +33,7 @@ public class InventoryClickJogoDoBichoGamblers implements Listener {
 
         FileConfiguration getConfig = getJogoDoBichoGamblersGuiYml().getConfig();
 
-        if(e.getSlot() == getConfig.getInt("Itens.voltar.Slot")) {
+        if(e.getSlot() == getConfig.getInt("items.back.slot")) {
 
             String nbt = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_bichoVoltar");
 
