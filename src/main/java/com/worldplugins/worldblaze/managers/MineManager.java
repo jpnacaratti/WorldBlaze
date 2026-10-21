@@ -47,31 +47,31 @@ public class MineManager {
 
         this.mineBets = new ArrayList<>();
         this.playersGuiOpen = new HashSet<>();
-        this.availableSlots = new ArrayList<>(getInstance().getConfig().getIntegerList("Config.Mine.Slots-jogo"));
+        this.availableSlots = new ArrayList<>(getInstance().getConfig().getIntegerList("config.mine.game-slots"));
         this.principalInventories = new HashMap<>();
         this.multipliers = new HashMap<>();
         this.cashDop = new LinkedHashMap<>();
         this.moneyDop = new LinkedHashMap<>();
 
-        this.dopChanceMultiplier = getInstance().getConfig().getInt("Config.Mine.Dopagem.Multiplicador-de-chance");
+        this.dopChanceMultiplier = getInstance().getConfig().getInt("config.mine.rigging.chance-multiplier");
 
-        this.dop = getInstance().getConfig().getBoolean("Config.Mine.Dopagem.Ativar");
+        this.dop = getInstance().getConfig().getBoolean("config.mine.rigging.enabled");
 
         this.rand = new Random();
 
-        this.mineLines = getInstance().getConfig().getInt("Config.Mine.Linhas-menu");
-        this.minSlots = getInstance().getConfig().getInt("Config.Mine.Minimo-slots-sair");
+        this.mineLines = getInstance().getConfig().getInt("config.mine.menu-rows");
+        this.minSlots = getInstance().getConfig().getInt("config.mine.min-slots-to-exit");
 
-        this.alertCash = getInstance().getConfig().getDouble("Config.Mine.Alerta-cash");
-        this.alertMoney = getInstance().getConfig().getDouble("Config.Mine.Alerta-money");
+        this.alertCash = getInstance().getConfig().getDouble("config.mine.cash-alert");
+        this.alertMoney = getInstance().getConfig().getDouble("config.mine.money-alert");
 
-        for (String s : getInstance().getConfig().getStringList("Config.Mine.Multiplicadores")) {
+        for (String s : getInstance().getConfig().getStringList("config.mine.multipliers")) {
             String[] split = s.split(";");
 
             multipliers.put(Integer.parseInt(split[0]), Double.parseDouble(split[1]));
         }
 
-        for (String s : getInstance().getConfig().getStringList("Config.Mine.Dopagem.Money")) {
+        for (String s : getInstance().getConfig().getStringList("config.mine.rigging.money")) {
             String[] split = s.split(";");
 
             moneyDop.put(Double.parseDouble(split[0]), Double.parseDouble(split[1]));
@@ -82,7 +82,7 @@ public class MineManager {
         moneyDop.clear();
         moneyEntryList.forEach(w -> moneyDop.put(w.getKey(), w.getValue()));
 
-        for (String s : getInstance().getConfig().getStringList("Config.Mine.Dopagem.Cash")) {
+        for (String s : getInstance().getConfig().getStringList("config.mine.rigging.cash")) {
             String[] split = s.split(";");
 
             cashDop.put(Double.parseDouble(split[0]), Double.parseDouble(split[1]));

@@ -37,7 +37,7 @@ public class InventoryClickMineCreate implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Mine-typing-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.mine-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.mineMoneyList.add(p.getName());
         }
@@ -45,7 +45,7 @@ public class InventoryClickMineCreate implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Mine-typing-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.mine-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.mineCashList.add(p.getName());
         }
@@ -55,7 +55,7 @@ public class InventoryClickMineCreate implements Listener {
             if(e.isRightClick()){
                 int nValue = user.getMineBombs() - 1;
 
-                if(getInstance().getConfig().getInt("Config.Mine.Minimo-bombas") > nValue){
+                if(getInstance().getConfig().getInt("config.mine.min-mines") > nValue){
                     p.sendMessage(getMessages().CANNOT_DECREASE_MINES);
                     return;
                 }
@@ -64,7 +64,7 @@ public class InventoryClickMineCreate implements Listener {
             }else{
                 int nValue = user.getMineBombs() + 1;
 
-                if(getInstance().getConfig().getInt("Config.Mine.Maximo-bombas") < nValue){
+                if(getInstance().getConfig().getInt("config.mine.max-mines") < nValue){
                     p.sendMessage(getMessages().CANNOT_INCREASE_MINES);
                     return;
                 }
@@ -93,22 +93,22 @@ public class InventoryClickMineCreate implements Listener {
                 return;
             }
 
-            if(user.getMineMoneyValue() < getInstance().getConfig().getDouble("Config.Mine.Min-money-aposta")){
+            if(user.getMineMoneyValue() < getInstance().getConfig().getDouble("config.mine.min-money-bet")){
                 p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
-            if(user.getMineCashValue() < getInstance().getConfig().getDouble("Config.Mine.Min-cash-aposta")){
+            if(user.getMineCashValue() < getInstance().getConfig().getDouble("config.mine.min-cash-bet")){
                 p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
-            if(user.getMineMoneyValue() > getInstance().getConfig().getDouble("Config.Mine.Max-money-aposta")){
+            if(user.getMineMoneyValue() > getInstance().getConfig().getDouble("config.mine.max-money-bet")){
                 p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
-            if(user.getMineCashValue() > getInstance().getConfig().getDouble("Config.Mine.Max-cash-aposta")){
+            if(user.getMineCashValue() > getInstance().getConfig().getDouble("config.mine.max-cash-bet")){
                 p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }

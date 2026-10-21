@@ -65,43 +65,43 @@ public class DoubleManager {
         this.doubleBets = new ArrayList<>();
         this.historic = new ArrayList<>();
 
-        this.maxHistoricValues = getInstance().getConfig().getInt("Config.Double.Valores-max-historico");
+        this.maxHistoricValues = getInstance().getConfig().getInt("config.double.max-history-values");
 
         this.rand = new Random();
 
-        this.startingTime = getInstance().getConfig().getDouble("Config.Double.Tempo-iniciando");
-        this.stoppedTime = getInstance().getConfig().getDouble("Config.Double.Tempo-finalizado");
+        this.startingTime = getInstance().getConfig().getDouble("config.double.starting-time");
+        this.stoppedTime = getInstance().getConfig().getDouble("config.double.finished-time");
 
         this.startingRemainingTime = startingTime;
         this.stoppedRemainingTime = stoppedTime;
 
         this.starting = true;
 
-        this.breakChangeTime = getInstance().getConfig().getDouble("Config.Double.Tempo-mudanca-intervalo");
-        this.startBreak = getInstance().getConfig().getInt("Config.Double.Intervalo-inicial");
-        this.finalBreak = getInstance().getConfig().getInt("Config.Double.Intervalo-final");
+        this.breakChangeTime = getInstance().getConfig().getDouble("config.double.interval-change-time");
+        this.startBreak = getInstance().getConfig().getInt("config.double.initial-interval");
+        this.finalBreak = getInstance().getConfig().getInt("config.double.final-interval");
 
-        this.dop = getInstance().getConfig().getBoolean("Config.Double.Dopagem.Ativar");
-        this.dopMoney = getInstance().getConfig().getDouble("Config.Double.Dopagem.Money");
-        this.dopCash = getInstance().getConfig().getDouble("Config.Double.Dopagem.Cash");
-        this.dopChance = getInstance().getConfig().getDouble("Config.Double.Dopagem.Chance");
+        this.dop = getInstance().getConfig().getBoolean("config.double.rigging.enabled");
+        this.dopMoney = getInstance().getConfig().getDouble("config.double.rigging.money");
+        this.dopCash = getInstance().getConfig().getDouble("config.double.rigging.cash");
+        this.dopChance = getInstance().getConfig().getDouble("config.double.rigging.chance");
 
         this.animationSpeedTime = startBreak;
         this.animationSpeedRemainingTime = animationSpeedTime;
 
-        this.animationTotalTime = getInstance().getConfig().getDouble("Config.Double.Tempo-animacao");
+        this.animationTotalTime = getInstance().getConfig().getDouble("config.double.animation-time");
         this.animationRemainingTime = animationTotalTime;
 
-        this.startRedChance = getInstance().getConfig().getDouble("Config.Double.Chance-inicial-vermelho");
-        this.startWhiteChance = getInstance().getConfig().getDouble("Config.Double.Chance-inicial-branco");
-        this.startBlackChance = getInstance().getConfig().getDouble("Config.Double.Chance-inicial-preto");
+        this.startRedChance = getInstance().getConfig().getDouble("config.double.initial-red-chance");
+        this.startWhiteChance = getInstance().getConfig().getDouble("config.double.initial-white-chance");
+        this.startBlackChance = getInstance().getConfig().getDouble("config.double.initial-black-chance");
 
         redChance = startRedChance;
         whiteChance = startWhiteChance;
         blackChance = startBlackChance;
 
-        this.moneyAlert = getInstance().getConfig().getDouble("Config.Double.Alerta-money");
-        this.cashAlert = getInstance().getConfig().getDouble("Config.Double.Alerta-cash");
+        this.moneyAlert = getInstance().getConfig().getDouble("config.double.money-alert");
+        this.cashAlert = getInstance().getConfig().getDouble("config.double.cash-alert");
 
         for (String s : getConfig.getConfigurationSection("Starting-animation").getKeys(false)) doubleAnimationSpots.add(new DoubleAnimationSpot(s));
         doubleAnimationSpots = doubleAnimationSpots.stream().sorted(Comparator.comparingDouble(DoubleAnimationSpot::getTime).reversed()).collect(Collectors.toList());

@@ -35,7 +35,7 @@ public class InventoryClickCrash implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Crash-typing-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.crash-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.crashMoneyList.add(p.getName());
         }
@@ -43,7 +43,7 @@ public class InventoryClickCrash implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Crash-typing-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.crash-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.crashCashList.add(p.getName());
         }
@@ -89,15 +89,15 @@ public class InventoryClickCrash implements Listener {
                     if(player != null) CrashGamblersGui.create(player);
                 }
 
-                if(getCrashManager().getCrashValue() >= getInstance().getConfig().getDouble("Config.Crash.Alerta")){
-                    getInstance().getConfig().getStringList("Messages.Broadcast-cashed-out-crash").forEach(w -> Bukkit.broadcastMessage(c(w.
+                if(getCrashManager().getCrashValue() >= getInstance().getConfig().getDouble("config.crash.alert")){
+                    getInstance().getConfig().getStringList("messages.broadcast-cashed-out-crash").forEach(w -> Bukkit.broadcastMessage(c(w.
                             replace("{player}", crashBet.getOwner()).
                             replace("{crash}", String.format("%.2f", crashBet.getLeftValue())).
                             replace("{money}", letterFormatter(money)).
                             replace("{cash}", letterFormatter(cash)))));
                 }
 
-                getInstance().getConfig().getStringList("Messages.Won-crash").forEach(w -> p.sendMessage(c(w.
+                getInstance().getConfig().getStringList("messages.won-crash").forEach(w -> p.sendMessage(c(w.
                         replace("{money}", letterFormatter(money)).
                         replace("{cash}", letterFormatter(cash)))));
                 return;
@@ -123,22 +123,22 @@ public class InventoryClickCrash implements Listener {
                 return;
             }
 
-            if(user.getCrashMoneyValue() < getInstance().getConfig().getDouble("Config.Crash.Min-money-aposta")){
+            if(user.getCrashMoneyValue() < getInstance().getConfig().getDouble("config.crash.min-money-bet")){
                 p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
-            if(user.getCrashCashValue() < getInstance().getConfig().getDouble("Config.Crash.Min-cash-aposta")){
+            if(user.getCrashCashValue() < getInstance().getConfig().getDouble("config.crash.min-cash-bet")){
                 p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
-            if(user.getCrashMoneyValue() > getInstance().getConfig().getDouble("Config.Crash.Max-money-aposta")){
+            if(user.getCrashMoneyValue() > getInstance().getConfig().getDouble("config.crash.max-money-bet")){
                 p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
-            if(user.getCrashCashValue() > getInstance().getConfig().getDouble("Config.Crash.Max-cash-aposta")){
+            if(user.getCrashCashValue() > getInstance().getConfig().getDouble("config.crash.max-cash-bet")){
                 p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
@@ -166,7 +166,7 @@ public class InventoryClickCrash implements Listener {
 
             removeValues(p, user.getCrashCashValue(), user.getCrashMoneyValue());
 
-            getInstance().getConfig().getStringList("Messages.Joined-crash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.joined-crash").forEach(w -> p.sendMessage(c(w)));
         }
 
     }

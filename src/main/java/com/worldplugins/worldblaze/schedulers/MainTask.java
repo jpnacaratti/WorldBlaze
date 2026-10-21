@@ -83,7 +83,7 @@ public class MainTask implements Runnable {
 
             getJogoDoBichoManager().loadPlayers();
 
-            send = getInstance().getConfig().getBoolean("Config.Debug");
+            send = getInstance().getConfig().getBoolean("config.debug");
 
             getInstance().setReloading(false);
 
@@ -148,20 +148,20 @@ public class MainTask implements Runnable {
 
                     coinFlipbet.updateInventories();
 
-                    double wonMoney = (getInstance().getConfig().getDouble("Config.Coinflip.Taxa")/100.0) * coinFlipbet.getMoneyValue() * 2;
-                    double wonCash = (getInstance().getConfig().getDouble("Config.Coinflip.Taxa")/100.0) * coinFlipbet.getCashValue() * 2;
+                    double wonMoney = (getInstance().getConfig().getDouble("config.coinflip.payout-rate")/100.0) * coinFlipbet.getMoneyValue() * 2;
+                    double wonCash = (getInstance().getConfig().getDouble("config.coinflip.payout-rate")/100.0) * coinFlipbet.getCashValue() * 2;
 
                     Player owner = Bukkit.getPlayer(coinFlipbet.getOwner());
                     Player opponent = Bukkit.getPlayer(coinFlipbet.getOpponent());
                     if (getCoinFlipManager().isOwnerWin(coinFlipbet)) {
 
                         if (owner != null) {
-                            getInstance().getConfig().getStringList("Messages.Won-coinflip").forEach(w -> owner.sendMessage(c(w.
+                            getInstance().getConfig().getStringList("messages.won-coinflip").forEach(w -> owner.sendMessage(c(w.
                                     replace("{money}", letterFormatter(wonMoney)).
                                     replace("{cash}", letterFormatter(wonCash)))));
 
                             if(wonCash >= getCoinFlipManager().getCashAlert() || wonMoney >= getCoinFlipManager().getMoneyAlert()){
-                                getInstance().getConfig().getStringList("Messages.Broadcast-won-coinflip").forEach(w -> Bukkit.broadcastMessage(c(w.
+                                getInstance().getConfig().getStringList("messages.broadcast-won-coinflip").forEach(w -> Bukkit.broadcastMessage(c(w.
                                         replace("{player}", coinFlipbet.getOwner()).
                                         replace("{oponente}", coinFlipbet.getOpponent()).
                                         replace("{money}", letterFormatter(wonMoney)).
@@ -172,17 +172,17 @@ public class MainTask implements Runnable {
                         }
 
                         if (opponent != null) {
-                            getInstance().getConfig().getStringList("Messages.Lost-coinflip").forEach(w -> opponent.sendMessage(c(w)));
+                            getInstance().getConfig().getStringList("messages.lost-coinflip").forEach(w -> opponent.sendMessage(c(w)));
                         }
 
                     }else{
                         if (opponent != null) {
-                            getInstance().getConfig().getStringList("Messages.Won-coinflip").forEach(w -> opponent.sendMessage(c(w.
+                            getInstance().getConfig().getStringList("messages.won-coinflip").forEach(w -> opponent.sendMessage(c(w.
                                     replace("{money}", letterFormatter(wonMoney)).
                                     replace("{cash}", letterFormatter(wonCash)))));
 
                             if(wonCash >= getCoinFlipManager().getCashAlert() || wonMoney >= getCoinFlipManager().getMoneyAlert()){
-                                getInstance().getConfig().getStringList("Messages.Broadcast-won-coinflip").forEach(w -> Bukkit.broadcastMessage(c(w.
+                                getInstance().getConfig().getStringList("messages.broadcast-won-coinflip").forEach(w -> Bukkit.broadcastMessage(c(w.
                                         replace("{player}", coinFlipbet.getOpponent()).
                                         replace("{oponente}", coinFlipbet.getOwner()).
                                         replace("{money}", letterFormatter(wonMoney)).
@@ -193,7 +193,7 @@ public class MainTask implements Runnable {
                         }
 
                         if (owner != null) {
-                            getInstance().getConfig().getStringList("Messages.Lost-coinflip").forEach(w -> owner.sendMessage(c(w)));
+                            getInstance().getConfig().getStringList("messages.lost-coinflip").forEach(w -> owner.sendMessage(c(w)));
                         }
                     }
 
@@ -268,7 +268,7 @@ public class MainTask implements Runnable {
                         depositValues(Bukkit.getOfflinePlayer(doubleBet.getOwner()), wonCash, wonMoney);
                         if(wonMoney >= getDoubleManager().getMoneyAlert() || wonCash >= getDoubleManager().getCashAlert()){
 
-                            getInstance().getConfig().getStringList("Messages.Broadcast-won-double").forEach(w -> Bukkit.broadcastMessage(c(w.
+                            getInstance().getConfig().getStringList("messages.broadcast-won-double").forEach(w -> Bukkit.broadcastMessage(c(w.
                                     replace("{player}", doubleBet.getOwner()).
                                     replace("{money}", letterFormatter(wonMoney)).
                                     replace("{cash}", letterFormatter(wonCash)))));
@@ -279,11 +279,11 @@ public class MainTask implements Runnable {
 
                     if(p != null) {
                         if(win){
-                            getInstance().getConfig().getStringList("Messages.Won-double").forEach(w -> p.sendMessage(c(w.
+                            getInstance().getConfig().getStringList("messages.won-double").forEach(w -> p.sendMessage(c(w.
                                     replace("{money}", letterFormatter(wonMoney)).
                                     replace("{cash}", letterFormatter(wonCash)))));
                         }else{
-                            getInstance().getConfig().getStringList("Messages.Lost-double").forEach(w -> p.sendMessage(c(w.
+                            getInstance().getConfig().getStringList("messages.lost-double").forEach(w -> p.sendMessage(c(w.
                                     replace("{money}", letterFormatter(doubleBet.getMoneyValue())).
                                     replace("{cash}", letterFormatter(doubleBet.getCashValue())))));
                         }
@@ -448,7 +448,7 @@ public class MainTask implements Runnable {
                             CrashBet crashBet = getCrashManager().getCrashBets().get(entry.getKey());
 
                             // VERIFICA SE O JOGADOR JA SAIU DO CRASH
-                            if (!crashBet.isLeft()) getInstance().getConfig().getStringList("Messages.Lost-crash").forEach(w -> target.sendMessage(c(w.
+                            if (!crashBet.isLeft()) getInstance().getConfig().getStringList("messages.lost-crash").forEach(w -> target.sendMessage(c(w.
                                     replace("{money}", letterFormatter(crashBet.getMoneyValue())).
                                     replace("{cash}", letterFormatter(crashBet.getCashValue())))));
                         }
@@ -510,7 +510,7 @@ public class MainTask implements Runnable {
                 OfflinePlayer player = Bukkit.getOfflinePlayer(graphBet.getOwner());
 
                 if (graphBet.getGraphValue() == getGraphManager().getLastPointValue()) {
-                    if (player.isOnline()) getInstance().getConfig().getStringList("Messages.Graph-draw").forEach(w -> player.getPlayer().sendMessage(c(w)));
+                    if (player.isOnline()) getInstance().getConfig().getStringList("messages.graph-draw").forEach(w -> player.getPlayer().sendMessage(c(w)));
 
                     depositValues(player, graphBet.getCashValue(), graphBet.getMoneyValue());
                     continue;
@@ -523,11 +523,11 @@ public class MainTask implements Runnable {
                         double moneyValue = graphBet.getMoneyValue() + ((getGraphManager().getReceiveValue() / 100.0) * graphBet.getMoneyValue());
                         depositValues(player, cashValue, moneyValue);
 
-                        if (player.isOnline()) getInstance().getConfig().getStringList("Messages.Graph-won").forEach(w -> player.getPlayer().sendMessage(c(w.
+                        if (player.isOnline()) getInstance().getConfig().getStringList("messages.graph-won").forEach(w -> player.getPlayer().sendMessage(c(w.
                                 replace("{money}", letterFormatter(moneyValue)).replace("{cash}", letterFormatter(cashValue)))));
 
                     } else if (player.isOnline()) {
-                        getInstance().getConfig().getStringList("Messages.Graph-lost").forEach(w -> player.getPlayer().sendMessage(c(w.
+                        getInstance().getConfig().getStringList("messages.graph-lost").forEach(w -> player.getPlayer().sendMessage(c(w.
                                 replace("{money}", letterFormatter(graphBet.getMoneyValue())).replace("{cash}", letterFormatter(graphBet.getCashValue())))));
                     }
                 } else {
@@ -537,11 +537,11 @@ public class MainTask implements Runnable {
                         double moneyValue = graphBet.getMoneyValue() + ((getGraphManager().getReceiveValue() / 100.0) * graphBet.getMoneyValue());
                         depositValues(player, cashValue, moneyValue);
 
-                        if (player.isOnline()) getInstance().getConfig().getStringList("Messages.Graph-won").forEach(w -> player.getPlayer().sendMessage(c(w.
+                        if (player.isOnline()) getInstance().getConfig().getStringList("messages.graph-won").forEach(w -> player.getPlayer().sendMessage(c(w.
                                 replace("{money}", letterFormatter(moneyValue)).replace("{cash}", letterFormatter(cashValue)))));
 
                     } else if (player.isOnline()) {
-                        getInstance().getConfig().getStringList("Messages.Graph-lost").forEach(w -> player.getPlayer().sendMessage(c(w.
+                        getInstance().getConfig().getStringList("messages.graph-lost").forEach(w -> player.getPlayer().sendMessage(c(w.
                                 replace("{money}", letterFormatter(graphBet.getMoneyValue())).replace("{cash}", letterFormatter(graphBet.getCashValue())))));
 
                     }

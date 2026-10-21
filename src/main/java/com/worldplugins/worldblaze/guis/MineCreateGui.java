@@ -34,7 +34,7 @@ public class MineCreateGui {
                     replace("{money}", letterFormatter(blazeUser.getMineMoneyValue())).
                     replace("{cash}", letterFormatter(blazeUser.getMineCashValue())).
                     replace("{bombas}",blazeUser.getMineBombs()+"").
-                    replace("{chance}", String.format("%.2f", 100.0 - ((double) blazeUser.getMineBombs() / (double) getInstance().getConfig().getIntegerList("Config.Mine.Slots-jogo").size()) * 100.0)))));
+                    replace("{chance}", String.format("%.2f", 100.0 - ((double) blazeUser.getMineBombs() / (double) getInstance().getConfig().getIntegerList("config.mine.game-slots").size()) * 100.0)))));
 
             int slot = getConfig.getInt("Itens." + s + ".Slot");
 

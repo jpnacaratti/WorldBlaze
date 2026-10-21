@@ -46,14 +46,14 @@ public class InventoryClickMine implements Listener {
             double wonCash = mineBet.getCashValue() * mineBet.getMultiplier();
 
             if((wonMoney > 0 && wonMoney >= getMineManager().getAlertMoney()) || (wonCash > 0 && wonCash >= getMineManager().getAlertCash())){
-                getInstance().getConfig().getStringList("Messages.Broadcast-won-mine").forEach(w -> Bukkit.broadcastMessage(c(w.
+                getInstance().getConfig().getStringList("messages.broadcast-won-mine").forEach(w -> Bukkit.broadcastMessage(c(w.
                         replace("{player}", p.getName()).
                         replace("{multiplicador}",String.format("%.2f",mineBet.getMultiplier())).
                         replace("{money}",letterFormatter(wonMoney)).
                         replace("{cash}",letterFormatter(wonCash)))));
             }
 
-            getInstance().getConfig().getStringList("Messages.Won-mine").forEach(w -> p.sendMessage(c(w.
+            getInstance().getConfig().getStringList("messages.won-mine").forEach(w -> p.sendMessage(c(w.
                     replace("{multiplicador}",String.format("%.2f",mineBet.getMultiplier())).
                     replace("{money}",letterFormatter(wonMoney)).
                     replace("{cash}",letterFormatter(wonCash)))));
@@ -68,7 +68,7 @@ public class InventoryClickMine implements Listener {
             for (String spectator : mineBet.getSpectators()) {
                 Player player = Bukkit.getPlayer(spectator);
 
-                if(player != null) getInstance().getConfig().getStringList("Messages.Spectators-game-ended").forEach(w -> player.sendMessage(c(w)));
+                if(player != null) getInstance().getConfig().getStringList("messages.spectators-game-ended").forEach(w -> player.sendMessage(c(w)));
 
             }
 

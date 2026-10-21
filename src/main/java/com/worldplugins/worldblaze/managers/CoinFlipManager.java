@@ -41,13 +41,13 @@ public class CoinFlipManager {
         this.principalInventories = new HashMap<>();
         this.coinFlipGamblersGuiOpen = new HashSet<>();
 
-        this.startingTime = getInstance().getConfig().getDouble("Config.Coinflip.Tempo-iniciando");
-        this.flippingTime = getInstance().getConfig().getDouble("Config.Coinflip.Tempo-flipping");
+        this.startingTime = getInstance().getConfig().getDouble("config.coinflip.starting-time");
+        this.flippingTime = getInstance().getConfig().getDouble("config.coinflip.flipping-time");
 
-        this.breakTime = getInstance().getConfig().getInt("Config.Coinflip.Intervalo-troca");
+        this.breakTime = getInstance().getConfig().getInt("config.coinflip.swap-interval");
 
-        this.moneyAlert = getInstance().getConfig().getDouble("Config.Coinflip.Alerta-money");
-        this.cashAlert = getInstance().getConfig().getDouble("Config.Coinflip.Alerta-cash");
+        this.moneyAlert = getInstance().getConfig().getDouble("config.coinflip.money-alert");
+        this.cashAlert = getInstance().getConfig().getDouble("config.coinflip.cash-alert");
 
         this.rand = new Random();
 

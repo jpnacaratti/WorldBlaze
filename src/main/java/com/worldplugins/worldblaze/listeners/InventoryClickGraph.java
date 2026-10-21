@@ -38,7 +38,7 @@ public class  InventoryClickGraph implements Listener {
             if(e.isRightClick()){
                 int nValue = user.getGraphTime() - 1;
 
-                if(getInstance().getConfig().getInt("Config.Graph.Min-time-update") > nValue){
+                if(getInstance().getConfig().getInt("config.graph.min-time-update") > nValue){
                     p.sendMessage(getMessages().CANNOT_DECREASE_UPDATE);
                     return;
                 }
@@ -47,7 +47,7 @@ public class  InventoryClickGraph implements Listener {
             }else{
                 int nValue = user.getGraphTime() + 1;
 
-                if(getInstance().getConfig().getInt("Config.Graph.Max-time-update") < nValue){
+                if(getInstance().getConfig().getInt("config.graph.max-time-update") < nValue){
                     p.sendMessage(getMessages().CANNOT_INCREASE_UPDATE);
                     return;
                 }
@@ -67,7 +67,7 @@ public class  InventoryClickGraph implements Listener {
             p.closeInventory();
             InventoryClose.bypassClose.remove(p.getName());
 
-            getInstance().getConfig().getStringList("Messages.Graph-typing-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.graph-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.graphMoneyList.add(p.getName());
         }
@@ -77,7 +77,7 @@ public class  InventoryClickGraph implements Listener {
             p.closeInventory();
             InventoryClose.bypassClose.remove(p.getName());
 
-            getInstance().getConfig().getStringList("Messages.Graph-typing-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.graph-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.graphCashList.add(p.getName());
         }
@@ -113,22 +113,22 @@ public class  InventoryClickGraph implements Listener {
                 return;
             }
 
-            if(user.getGraphMoneyValue() < getInstance().getConfig().getDouble("Config.Graph.Min-money-aposta")){
+            if(user.getGraphMoneyValue() < getInstance().getConfig().getDouble("config.graph.min-money-bet")){
                 p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
-            if(user.getGraphCashValue() < getInstance().getConfig().getDouble("Config.Graph.Min-cash-aposta")){
+            if(user.getGraphCashValue() < getInstance().getConfig().getDouble("config.graph.min-cash-bet")){
                 p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
-            if(user.getGraphMoneyValue() > getInstance().getConfig().getDouble("Config.Graph.Max-money-aposta")){
+            if(user.getGraphMoneyValue() > getInstance().getConfig().getDouble("config.graph.max-money-bet")){
                 p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
-            if(user.getGraphCashValue() > getInstance().getConfig().getDouble("Config.Graph.Max-cash-aposta")){
+            if(user.getGraphCashValue() > getInstance().getConfig().getDouble("config.graph.max-cash-bet")){
                 p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }

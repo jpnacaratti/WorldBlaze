@@ -12,78 +12,78 @@
 # worldblaze.jogodobicho // concede acesso ao jogo 'Jogo do Bicho'
 # worldblaze.coinflip // concede acesso ao jogo 'Coinflip'
 
-Config:
+config:
 
   # Ative caso queira ver os resultados das apostas antecipadamente e visualizar como estão indo as probabilidades
-  Debug: true
+  debug: true
 
   # Configurações do graph
-  Graph:
-    Delay-entre-aposta: 5 # segundos
-    Padrao-time-update: 3 # Quando jogador logar essa vai ser a quantia padrão
-    Max-time-update: 8 # Tempo máximo que o jogador pode apostar na mudança de gráfico
-    Min-time-update: 3 # Tempo mínimo que o jogador pode apostar na mudança de gráfico
-    Max-cash-aposta: 1500000.0 # Quantia máxima de cash que pode ser apostado
-    Min-cash-aposta: 0.0 # Quantia mínima de cash que pode ser apostado
-    Max-money-aposta: 100000000000.0 # Quantia máxima de money que pode ser apostado
-    Min-money-aposta: 15000.0 # Quantia mínima de money que pode ser apostado
-    Valor-inicial: 1250.0 # Valor que vai começar no gráfico antes de começar a ser randomizado
-    Max-random: 25.0 # Máximo do valor que poderá ser randomizado
-    Min-random: 12.5 # Mínimo do valor que poderá ser randomizado
-    Retorno-ganho: 82.0 # % porcentagem que os jogadores que ganhar vão receber
+  graph:
+    bet-delay: 5 # segundos
+    default-time-update: 3 # Quando jogador logar essa vai ser a quantia padrão
+    max-time-update: 8 # Tempo máximo que o jogador pode apostar na mudança de gráfico
+    min-time-update: 3 # Tempo mínimo que o jogador pode apostar na mudança de gráfico
+    max-cash-bet: 1500000.0 # Quantia máxima de cash que pode ser apostado
+    min-cash-bet: 0.0 # Quantia mínima de cash que pode ser apostado
+    max-money-bet: 100000000000.0 # Quantia máxima de money que pode ser apostado
+    min-money-bet: 15000.0 # Quantia mínima de money que pode ser apostado
+    initial-value: 1250.0 # Valor que vai começar no gráfico antes de começar a ser randomizado
+    max-random: 25.0 # Máximo do valor que poderá ser randomizado
+    min-random: 12.5 # Mínimo do valor que poderá ser randomizado
+    win-return: 82.0 # % porcentagem que os jogadores que ganhar vão receber
 
   # Configurações do crash
-  Crash:
-    Tempo-crashado: 5.0 # segundos. É o tempo que vai ficar na tela de crash após acabar a rodada
-    Tempo-iniciando: 10.0 # segundos. Vai ficar 10 segundos na tela de iniciando esperando os jogadores decidirem se vão entrar ou não
-    Tempo-inicio-crash: 10.0 # segundos. Tempo que vai ficar no inicio do crash somando o valor abaixo antes de ir pro somatório do valor final
-    Soma-crash-tick-inicial: 0.01 # Valor que vai ser somando no multiplicador do crash a cada tick
-    Soma-crash-tick-final: 0.05 # Valor que vai ser somando no multiplicador do crash a cada tick após o tempo de inicio da rodada
-    Valores-max-historico: 5 # Quantidade de números que o histórico vai armazenar
-    Max-cash-aposta: 1500000.0 # Quantia máxima de cash que pode ser apostado
-    Min-cash-aposta: 0.0 # Quantia mínima de cash que pode ser apostado
-    Max-money-aposta: 100000000000.0 # Quantia máxima de money que pode ser apostado
-    Min-money-aposta: 15000.0 # Quantia mínima de money que pode ser apostado
-    Alerta: 2.0 # Vai enviar um alerta quando alguém retirar do crash
-    Valores: # {valor-crash-inicial};{valor-crash-final};{chance}
+  crash:
+    crashed-time: 5.0 # segundos. É o tempo que vai ficar na tela de crash após acabar a rodada
+    starting-time: 10.0 # segundos. Vai ficar 10 segundos na tela de iniciando esperando os jogadores decidirem se vão entrar ou não
+    crash-start-time: 10.0 # segundos. Tempo que vai ficar no inicio do crash somando o valor abaixo antes de ir pro somatório do valor final
+    crash-tick-sum-initial: 0.01 # Valor que vai ser somando no multiplicador do crash a cada tick
+    crash-tick-sum-final: 0.05 # Valor que vai ser somando no multiplicador do crash a cada tick após o tempo de inicio da rodada
+    max-history-values: 5 # Quantidade de números que o histórico vai armazenar
+    max-cash-bet: 1500000.0 # Quantia máxima de cash que pode ser apostado
+    min-cash-bet: 0.0 # Quantia mínima de cash que pode ser apostado
+    max-money-bet: 100000000000.0 # Quantia máxima de money que pode ser apostado
+    min-money-bet: 15000.0 # Quantia mínima de money que pode ser apostado
+    alert: 2.0 # Vai enviar um alerta quando alguém retirar do crash
+    values: # {valor-crash-inicial};{valor-crash-final};{chance}
       - '1.00;1.00;10.0'
       - '1.07;1.65;8.0'
       - '1.15;2.13;6.0'
 
   # Configurações do double
-  Double:
-    Tempo-fim: 5.0 # segundos. É o tempo que vai ficar na tela de fim após acabar a rodada
-    Tempo-iniciando: 10.0 # segundos. Vai ficar 10 segundos na tela de iniciando esperando os jogadores decidirem se vão entrar ou não
-    Tempo-finalizado: 5.0 # segundos. Vai ficar 5 segundos na tela de finalizado até trocar para a de iniciando
-    Valores-max-historico: 10 # Quantidade de números que o histórico vai armazenar
-    Max-cash-aposta: 1500000.0 # Quantia máxima de cash que pode ser apostado
-    Min-cash-aposta: 0.0 # Quantia mínima de cash que pode ser apostado
-    Max-money-aposta: 100000000000.0 # Quantia máxima de money que pode ser apostado
-    Min-money-aposta: 15000.0 # Quantia mínima de money que pode ser apostado
-    Tempo-animacao: 8.0 # segundos. Tempo que vai durar a animação das cores no menu. Após esse tempo a cor no slot definido vai ser a cor escolhida
-    Intervalo-inicial: 1 # ticks. Intervalo do aparecimento de cores no inicio da animação (a cada 5 ticks uma nova cor vai aparecer no menu durante a animação)
-    Intervalo-final: 20 # ticks. Intervalo do aparecimento de cores no final da animação (a cada 20 ticks uma nova cor vai aparecer no menu durante a animação)
-    Tempo-mudanca-intervalo: 4.0 # segundos. Durante esse tempo os intervalos vão de 1 a 20 ticks
-    Chance-inicial-vermelho: 49.5 # Chance que vai começar de vir a cor vermelha
-    Chance-inicial-preto: 49.5 # Chance que vai começar de vir a cor preta
-    Chance-inicial-branco: 1.0 # Chance que vai começar de vir a cor branca
-    Alerta-money: 200000.0 # Quando o money passar disso vai mandar um broadcast
-    Alerta-cash: 0.0 # Quando o cash ganho passar disso vai mandar um broadcast
-    Dopagem: # Prejudica o lado que mais apostou
-      Ativar: true # Ativar ou desativar a dopagem
-      Money: 500000.0 # Se passar de 500k de money vai ter a dopagem
-      Cash: 5000.0 # Se passar de 5k de cash vai ter a dopagem
-      Chance: 60.0 # 60% de chance de aplicar a dopagem pro lado que mais apostou
+  double:
+    end-time: 5.0 # segundos. É o tempo que vai ficar na tela de fim após acabar a rodada
+    starting-time: 10.0 # segundos. Vai ficar 10 segundos na tela de iniciando esperando os jogadores decidirem se vão entrar ou não
+    finished-time: 5.0 # segundos. Vai ficar 5 segundos na tela de finalizado até trocar para a de iniciando
+    max-history-values: 10 # Quantidade de números que o histórico vai armazenar
+    max-cash-bet: 1500000.0 # Quantia máxima de cash que pode ser apostado
+    min-cash-bet: 0.0 # Quantia mínima de cash que pode ser apostado
+    max-money-bet: 100000000000.0 # Quantia máxima de money que pode ser apostado
+    min-money-bet: 15000.0 # Quantia mínima de money que pode ser apostado
+    animation-time: 8.0 # segundos. Tempo que vai durar a animação das cores no menu. Após esse tempo a cor no slot definido vai ser a cor escolhida
+    initial-interval: 1 # ticks. Intervalo do aparecimento de cores no inicio da animação (a cada 5 ticks uma nova cor vai aparecer no menu durante a animação)
+    final-interval: 20 # ticks. Intervalo do aparecimento de cores no final da animação (a cada 20 ticks uma nova cor vai aparecer no menu durante a animação)
+    interval-change-time: 4.0 # segundos. Durante esse tempo os intervalos vão de 1 a 20 ticks
+    initial-red-chance: 49.5 # Chance que vai começar de vir a cor vermelha
+    initial-black-chance: 49.5 # Chance que vai começar de vir a cor preta
+    initial-white-chance: 1.0 # Chance que vai começar de vir a cor branca
+    money-alert: 200000.0 # Quando o money passar disso vai mandar um broadcast
+    cash-alert: 0.0 # Quando o cash ganho passar disso vai mandar um broadcast
+    rigging: # Prejudica o lado que mais apostou
+      enabled: true # Ativar ou desativar a dopagem
+      money: 500000.0 # Se passar de 500k de money vai ter a dopagem
+      cash: 5000.0 # Se passar de 5k de cash vai ter a dopagem
+      chance: 60.0 # 60% de chance de aplicar a dopagem pro lado que mais apostou
 
   # Configurações do mine
-  Mine:
-    Padrao-bombas: 3 # Número padrão de bombas, sempre que o server iniciar
-    Minimo-bombas: 3 # Número mínimo de bombas para iniciar uma partida
-    Maximo-bombas: 52 # Número máximo de bombas para iniciar uma partida
+  mine:
+    default-mines: 3 # Número padrão de bombas, sempre que o server iniciar
+    min-mines: 3 # Número mínimo de bombas para iniciar uma partida
+    max-mines: 52 # Número máximo de bombas para iniciar uma partida
     # Slots onde vai ser permitido do jogador clicar e jogar
-    Slots-jogo: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 50, 51, 52, 53]
-    Linhas-menu: 6 # Linhas que vai ter no menu de jogo principal
-    Multiplicadores: # {número de bombas};{multiplicador máximo}. Multiplicador que o jogador pode ter caso clique em todos os slots e em nenhuma bomba
+    game-slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 50, 51, 52, 53]
+    menu-rows: 6 # Linhas que vai ter no menu de jogo principal
+    multipliers: # {número de bombas};{multiplicador máximo}. Multiplicador que o jogador pode ter caso clique em todos os slots e em nenhuma bomba
       - '3;1.5'
       - '4;2.0'
       - '5;2.5'
@@ -94,119 +94,119 @@ Config:
       - '10;5.0'
       - '11;5.5'
       - '12;6.0'
-    Minimo-slots-sair: 1 # O jogador precisa pelo menos clicar em um slot para poder retirar o dinheiro
-    Max-cash-aposta: 1500000.0 # Quantia máxima de cash que pode ser apostado
-    Min-cash-aposta: 0.0 # Quantia mínima de cash que pode ser apostado
-    Max-money-aposta: 100000000000.0 # Quantia máxima de money que pode ser apostado
-    Min-money-aposta: 15000.0 # Quantia mínima de money que pode ser apostado
-    Alerta-money: 200000.0 # Quando o money passar disso vai mandar um broadcast
-    Alerta-cash: 0.0 # Quando o cash ganho passar disso vai mandar um broadcast
-    Dopagem:
-      Ativar: true
-      Multiplicador-de-chance: 10 # Vai multiplicar a chance de dar errado em 10x
-      Money: # {valor dinheiro};{chance}
+    min-slots-to-exit: 1 # O jogador precisa pelo menos clicar em um slot para poder retirar o dinheiro
+    max-cash-bet: 1500000.0 # Quantia máxima de cash que pode ser apostado
+    min-cash-bet: 0.0 # Quantia mínima de cash que pode ser apostado
+    max-money-bet: 100000000000.0 # Quantia máxima de money que pode ser apostado
+    min-money-bet: 15000.0 # Quantia mínima de money que pode ser apostado
+    money-alert: 200000.0 # Quando o money passar disso vai mandar um broadcast
+    cash-alert: 0.0 # Quando o cash ganho passar disso vai mandar um broadcast
+    rigging:
+      enabled: true
+      chance-multiplier: 10 # Vai multiplicar a chance de dar errado em 10x
+      money: # {valor dinheiro};{chance}
         - '500000.0;50.0'
         - '750000.0;75.0'
-      Cash: # {valor cash};{chance}
+      cash: # {valor cash};{chance}
         - '5000.0;50.0'
         - '7500.0;75.0'
 
   # Configurações do Jogo do Bicho
-  Jogo-do-bicho:
-    Max-cash-aposta: 1500000.0 # Quantia máxima de cash que pode ser apostado
-    Min-cash-aposta: 0.0 # Quantia mínima de cash que pode ser apostado
-    Max-money-aposta: 100000000000.0 # Quantia máxima de money que pode ser apostado
-    Min-money-aposta: 15000.0 # Quantia mínima de money que pode ser apostado
-    Alerta-money: 200000.0 # Quando o money passar disso vai mandar um broadcast
-    Alerta-cash: 0.0 # Quando o cash ganho passar disso vai mandar um broadcast
-    Dopagem:
-      Ativar: true
-      Money: 5000000.0
-      Cash: 5000.0
-      Chance: 60.0
+  jogo-do-bicho:
+    max-cash-bet: 1500000.0 # Quantia máxima de cash que pode ser apostado
+    min-cash-bet: 0.0 # Quantia mínima de cash que pode ser apostado
+    max-money-bet: 100000000000.0 # Quantia máxima de money que pode ser apostado
+    min-money-bet: 15000.0 # Quantia mínima de money que pode ser apostado
+    money-alert: 200000.0 # Quando o money passar disso vai mandar um broadcast
+    cash-alert: 0.0 # Quando o cash ganho passar disso vai mandar um broadcast
+    rigging:
+      enabled: true
+      money: 5000000.0
+      cash: 5000.0
+      chance: 60.0
 
   # Configurações do CoinFlip
-  Coinflip:
-    Tempo-iniciando: 10.0 # segundos. Vai ficar 10 segundos na tela de iniciando
-    Tempo-flipping: 5.0 # segundos. Vai ficar 5 segundos girando a moeda
-    Intervalo-troca: 10 # ticks. A cada 10 ticks vai alterar a moeda no meio do inventário. Deixe '0' para não alterar. Não coloque mais que 20
-    Max-cash-aposta: 1500000.0 # Quantia máxima de cash que pode ser apostado
-    Min-cash-aposta: 0.0 # Quantia mínima de cash que pode ser apostado
-    Max-money-aposta: 100000000000.0 # Quantia máxima de money que pode ser apostado
-    Min-money-aposta: 15000.0 # Quantia mínima de money que pode ser apostado
-    Alerta-money: 200000.0 # Quando o money passar disso vai mandar um broadcast
-    Alerta-cash: 0.0 # Quando o cash ganho passar disso vai mandar um broadcast
-    Taxa: 90.0 # Quantia que o jogador vai receber
+  coinflip:
+    starting-time: 10.0 # segundos. Vai ficar 10 segundos na tela de iniciando
+    flipping-time: 5.0 # segundos. Vai ficar 5 segundos girando a moeda
+    swap-interval: 10 # ticks. A cada 10 ticks vai alterar a moeda no meio do inventário. Deixe '0' para não alterar. Não coloque mais que 20
+    max-cash-bet: 1500000.0 # Quantia máxima de cash que pode ser apostado
+    min-cash-bet: 0.0 # Quantia mínima de cash que pode ser apostado
+    max-money-bet: 100000000000.0 # Quantia máxima de money que pode ser apostado
+    min-money-bet: 15000.0 # Quantia mínima de money que pode ser apostado
+    money-alert: 200000.0 # Quando o money passar disso vai mandar um broadcast
+    cash-alert: 0.0 # Quando o cash ganho passar disso vai mandar um broadcast
+    payout-rate: 90.0 # Quantia que o jogador vai receber
 
-Messages:
+messages:
 
-  Only-ingame: '&cApenas jogadores podem usar esse comando!'
+  only-ingame: '&cApenas jogadores podem usar esse comando!'
 
-  No-permission: '&cVocê não tem permissão para fazer isso!'
+  no-permission: '&cVocê não tem permissão para fazer isso!'
 
   # Quando o staff digitar /blaze reload e algum jogador tentar jogar enquanto isso
-  Reloading: '&cO plugin será atualizado e portanto não é possível jogar nesse modo agora! Aguarde alguns segundos...'
+  reloading: '&cO plugin será atualizado e portanto não é possível jogar nesse modo agora! Aguarde alguns segundos...'
 
   # /blaze lock e /blaze unlock
-  Games-already-locked: '&cOs jogos já estão bloqueados, desative usando o /blaze unlock'
-  Games-locked: '&cTodos os futuros jogos agora estão bloqueados!'
-  Games-already-unlocked: '&cOs jogos já estão ativos, bloquei-os usando o /blaze lock'
-  Games-unlocked: '&aTodos os futuros jogos serão ativos novamente em 5 segundos!'
-  Games-unavailable: '&cTodos os jogos estão desativados temporariamente!' # Para quando o jogador clicar em apostar alguma hora em algum jogo enquanto bloqueado
+  games-already-locked: '&cOs jogos já estão bloqueados, desative usando o /blaze unlock'
+  games-locked: '&cTodos os futuros jogos agora estão bloqueados!'
+  games-already-unlocked: '&cOs jogos já estão ativos, bloquei-os usando o /blaze lock'
+  games-unlocked: '&aTodos os futuros jogos serão ativos novamente em 5 segundos!'
+  games-unavailable: '&cTodos os jogos estão desativados temporariamente!' # Para quando o jogador clicar em apostar alguma hora em algum jogo enquanto bloqueado
 
   # /blaze reload
-  Already-reloading: '&aO plugin já está em estado de recarregamento e em breve será atualizado!'
-  Waiting-reload: '&aArquivos de configuração serão recarregados assim que todas as apostas existentes acabarem!'
-  Config-reloaded: '&aTodos os arquivos de configuração foram recarregados com sucesso!'
+  already-reloading: '&aO plugin já está em estado de recarregamento e em breve será atualizado!'
+  waiting-reload: '&aArquivos de configuração serão recarregados assim que todas as apostas existentes acabarem!'
+  config-reloaded: '&aTodos os arquivos de configuração foram recarregados com sucesso!'
 
   # Interações do chat, quando algum jogador colocar dinheiro em algum jogo ou for definir um adversário
-  Chat-cancelled: '&cCancelou com sucesso!'
-  Invalid-chat-number: '&cInsira um número válido!'
-  Challenged-self: '&cVocê não pode desafiar si mesmo!' # Quando jogador digitar seu próprio nome como adversário no coinflip
-  Nonexistent-chat-player: '&cEsse jogador não existe, tente novamente.' # Quando jogador digitar um jogador que não existe como adversário no coinflip
+  chat-cancelled: '&cCancelou com sucesso!'
+  invalid-chat-number: '&cInsira um número válido!'
+  challenged-self: '&cVocê não pode desafiar si mesmo!' # Quando jogador digitar seu próprio nome como adversário no coinflip
+  nonexistent-chat-player: '&cEsse jogador não existe, tente novamente.' # Quando jogador digitar um jogador que não existe como adversário no coinflip
 
   # Quando o jogador apostar e a quantia não bater o mínimo ou passar do máximo em qualquer um dos jogos
-  Minimum-money: '&cA quantia de money apostado não bate com o mínimo necessário!'
-  Minimum-cash: '&cA quantia de cash apostada não bate com o mínimo necessário!'
-  Maximum-money: '&cA quantia de money apostado passa do limite permitido!'
-  Maximum-cash: '&cA quantia de cash apostada passa do limite permitido!'
+  minimum-money: '&cA quantia de money apostado não bate com o mínimo necessário!'
+  minimum-cash: '&cA quantia de cash apostada não bate com o mínimo necessário!'
+  maximum-money: '&cA quantia de money apostado passa do limite permitido!'
+  maximum-cash: '&cA quantia de cash apostada passa do limite permitido!'
 
   # Quando o jogador fechar o menu enquanto ta no coinflip ou no mine
-  Cannot-close-game-menu: '&cFinalize a partida antes de fechar o menu!'
+  cannot-close-game-menu: '&cFinalize a partida antes de fechar o menu!'
 
   # Configuração das mensagens do CoinFlip
 
   # Quando jogador clicar para cancelar a aposta atual dele no coinflip
-  Bet-cancelled: '&cSua aposta foi cancelada com sucesso! Você saiu da fila.'
+  bet-cancelled: '&cSua aposta foi cancelada com sucesso! Você saiu da fila.'
 
   # Quando jogador clicar em definir o dinheiro que vai ser apostado no CoinFlip
-  CoinFlip-typing-money:
+  coinflip-typing-money:
     - ''
     - '&aDigite a quantia de &7money &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar em definir o cash que vai ser apostado no CoinFlip
-  CoinFlip-typing-cash:
+  coinflip-typing-cash:
     - ''
     - '&aDigite a quantia de &7cash &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar em definir o oponente no CoinFlip
-  CoinFlip-typing-opponent:
+  coinflip-typing-opponent:
     - ''
     - '&aDigite o nick do jogador que você quer desafiar'
     - ''
 
   # Quando o jogador iniciar uma partida coinflip para um jogador específico (quem desafiou)
-  Challenged-player-coinflip:
+  challenged-player-coinflip:
     - ''
     - '&9[CoinFlip] &7Sua partida de CoinFlip foi registrada e assim que o jogador aceitar, ela será iniciada!'
     - ''
 
   # Quando o jogador iniciar uma partida coinflip para um jogador específico (quem foi desafiado)
-  Player-challenged-coinflip:
+  player-challenged-coinflip:
     - ''
     - '&9[CoinFlip] &7O jogador &9{player} &7está chamando você para um CoinFlip, digite /coinflip e aceite.'
     - '&7Valor de entrada (money): &9{money}'
@@ -214,43 +214,43 @@ Messages:
     - ''
 
   # Quando o jogador iniciar uma partida coinflip para todos os jogadores
-  Challenged-coinflip:
+  challenged-coinflip:
     - ''
     - '&9[CoinFlip] &7Sua partida de CoinFlip foi registrada e assim que um jogador aceitar, ela será iniciada!'
     - ''
 
   # Quando jogador clicar em aceitar uma aposta específica para ele no coinflip
-  Challenged-accepted-bet: '&9[CoinFlip] &7Você aceitou a aposta de &9{player}&7, iniciando partida...'
-  Challenger-bet-accepted: '&9[CoinFlip] {player} &7aceitou sua aposta, iniciando partida... clique aqui para abrir o menu!'
+  challenged-accepted-bet: '&9[CoinFlip] &7Você aceitou a aposta de &9{player}&7, iniciando partida...'
+  challenger-bet-accepted: '&9[CoinFlip] {player} &7aceitou sua aposta, iniciando partida... clique aqui para abrir o menu!'
 
   # Jogador tentou criar game com um X1 rolando
-  Already-in-game: '&cVocê já está em um jogo!'
+  already-in-game: '&cVocê já está em um jogo!'
 
   # Quando jogador clicar para aceitar X1 de coinflip porém o jogo clicado ja começou
-  Game-already-started: '&cEsse jogo já foi iniciado...'
+  game-already-started: '&cEsse jogo já foi iniciado...'
 
   # Jogador tentou entrar em X1 de coinflip que é para outra pessoa
-  Invalid-game: '&cEsse jogo não foi feito para você!'
+  invalid-game: '&cEsse jogo não foi feito para você!'
 
   # Quando jogador for aceitar a partida porém o dono dela ta offline, coinflip
-  Owner-offline: '&cO dono dessa aposta ta offline, tente novamente mais tarde'
+  owner-offline: '&cO dono dessa aposta ta offline, tente novamente mais tarde'
 
   # Quando jogador aceitar X1 coinflip com ele mesmo
-  Joined-own-game: '&cVocê não pode entrar na sua própria aposta'
+  joined-own-game: '&cVocê não pode entrar na sua própria aposta'
 
-  Broadcast-won-coinflip:
+  broadcast-won-coinflip:
     - ''
     - '&9[CoinFlip] &7O jogador &9{player} &7ganhou o CoinFlip contra &9{oponente} &7e recebeu &9{money} &7money e &9{cash} &7cash!'
     - ''
 
-  Won-coinflip:
+  won-coinflip:
     - ''
     - '&9[CoinFlip] &7Você ganhou o CoinFlip parabéns!'
     - '&7Prêmio (money): &9{money}'
     - '&7Prêmio (cash): &9{cash}'
     - ''
 
-  Lost-coinflip:
+  lost-coinflip:
     - ''
     - '&cNão foi dessa vez... Você perdeu o CoinFlip!'
     - ''
@@ -258,80 +258,80 @@ Messages:
   # Configuração das mensagens do Mine
 
   # Quando jogador clicar em definir o dinheiro que vai ser apostado no Mine
-  Mine-typing-money:
+  mine-typing-money:
     - ''
     - '&aDigite a quantia de &7money &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar em definir o cash que vai ser apostado no Mine
-  Mine-typing-cash:
+  mine-typing-cash:
     - ''
     - '&aDigite a quantia de &7cash &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar para diminuir as bombas porém passou do limite permitido
-  Cannot-decrease-mines: '&cVocê não pode diminuir mais as bombas que isso!'
+  cannot-decrease-mines: '&cVocê não pode diminuir mais as bombas que isso!'
 
   # Quando jogador clicar para aumentar as bombas porém passou do limite permitido
-  Cannot-increase-mines: '&cVocê não pode aumentar mais as bombas que isso!'
+  cannot-increase-mines: '&cVocê não pode aumentar mais as bombas que isso!'
 
   # Quando jogador tentar retirar no Mine mas não minerou o mínimo necessário
-  Minimum-slots: '&cVocê precisa clicar em pelo menos 1 slot para poder retirar!'
+  minimum-slots: '&cVocê precisa clicar em pelo menos 1 slot para poder retirar!'
 
-  Broadcast-won-mine:
+  broadcast-won-mine:
     - ''
     - '&c[Mine] &7O jogador &c{player} &7saiu do mine com um multiplicador de &c&l{multiplicador}x &7e ganhou &c{money} &7money e &c{cash} &7cash!'
     - ''
 
-  Won-mine:
+  won-mine:
     - ''
     - '&c[Mine] §7Você saiu do mine com um multiplicador de &c&l{multiplicador}x &7e ganhou &c{money} &7money e &c{cash} &7cash!'
     - ''
 
-  Spectators-game-ended:
+  spectators-game-ended:
     - '&cO jogador que estava jogando essa partida finalizou, esse menu não será mais atualizado!'
     - '&cVocê já pode fechar ele!'
 
   # Configuração das mensagens do Double
 
   # Quando jogador clicar em definir o dinheiro que vai ser apostado no Double
-  Double-typing-money:
+  double-typing-money:
     - ''
     - '&aDigite a quantia de &7money &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar em definir o cash que vai ser apostado no Double
-  Double-typing-cash:
+  double-typing-cash:
     - ''
     - '&aDigite a quantia de &7cash &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador for tentar apostar com a rodada terminando
-  Round-ending: '&cEspere a rodada terminar totalmente para você poder apostar!'
+  round-ending: '&cEspere a rodada terminar totalmente para você poder apostar!'
 
   # Quando jogador for tentar apostar, porém, já apostou na cor selecionada
-  Already-bet-on-color: '&cVocê já apostou nessa cor!'
+  already-bet-on-color: '&cVocê já apostou nessa cor!'
 
-  Bet-placed-double:
+  bet-placed-double:
     - ''
     - '&6[WorldBlaze] §7Você está participando agora do double e apostou na cor: {cor}'
     - ''
 
-  Broadcast-won-double:
+  broadcast-won-double:
     - ''
     - '&b[Double] &7O jogador &b{player} &7ganhou &b{money} &7money e &b{cash}&7 cash no double! (/blaze)'
     - ''
 
-  Won-double:
+  won-double:
     - ''
     - '&b[Double] &7Sua aposta no double deu certo e você ganhou &b{money} &7money e &b{cash} &7cash!'
     - ''
 
-  Lost-double:
+  lost-double:
     - ''
     - '&b[Double] &7Uma aposta sua no double deu errado e você perdeu &b{money} &7money e &b{cash} &7cash!'
     - ''
@@ -339,48 +339,48 @@ Messages:
   # Configuração das mensagens do Crash
 
   # Quando jogador clicar em definir o dinheiro que vai ser apostado no Crash
-  Crash-typing-money:
+  crash-typing-money:
     - ''
     - '&aDigite a quantia de &7money &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar em definir o cash que vai ser apostado no Crash
-  Crash-typing-cash:
+  crash-typing-cash:
     - ''
     - '&aDigite a quantia de &7cash &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando o crash ja tiver começado ou acabado e o jogador tentar apostar
-  Crash-started: '&cEspere a rodada terminar totalmente para você poder apostar!'
-  Crash-ended: '&cAguarde um pouco pelo início da próxima rodada!'
+  crash-started: '&cEspere a rodada terminar totalmente para você poder apostar!'
+  crash-ended: '&cAguarde um pouco pelo início da próxima rodada!'
 
   # Quando jogador tentar entrar no crash porém já está participando
-  Already-in-crash: '&cVocê já está participando dessa rodada!'
+  already-in-crash: '&cVocê já está participando dessa rodada!'
 
   # Quando jogador participou da rodada passada e quer participar de novo porém a partida acabou de acabar
-  Crash-recently-ended: '&cAguarde um pouco para poder jogar novamente!'
+  crash-recently-ended: '&cAguarde um pouco para poder jogar novamente!'
 
   # Quando jogador clicar para sair do crash porém já havia saido anteriormente
-  Already-exited: '&cFique tranquilo, você já saiu do crash'
+  already-exited: '&cFique tranquilo, você já saiu do crash'
 
-  Broadcast-cashed-out-crash:
+  broadcast-cashed-out-crash:
     - ''
     - '&a[Crash] &7O jogador &a{player} &7retirou em &a&l{crash}x &7e ganhou &a{money} &7coins e &a{cash} &7cash!'
     - ''
 
-  Won-crash:
+  won-crash:
     - ''
     - '&a[Crash] &7Você saiu antes de crashar e ganhou &a{money} &7money e &a{cash} &7cash!'
     - ''
 
-  Lost-crash:
+  lost-crash:
     - ''
     - '&a[Crash] &7Você não saiu antes de crashar e perdeu &a{money} &7money e &a{cash} &7cash!'
     - ''
 
-  Joined-crash:
+  joined-crash:
     - ''
     - '&6[WorldBlaze] &7Você está participando agora do crash!'
     - ''
@@ -388,45 +388,45 @@ Messages:
   # Configuração das mensagens do Graph
 
   # Quando jogador clicar para diminuir o tempo do update porém passou do limite permitido
-  Cannot-decrease-update: '&cVocê não pode diminuir mais o tempo que isso!'
+  cannot-decrease-update: '&cVocê não pode diminuir mais o tempo que isso!'
 
   # Quando jogador clicar para aumentar o tempo do update porém passou do limite permitido
-  Cannot-increase-update: '&cVocê não pode aumentar mais o tempo que isso!'
+  cannot-increase-update: '&cVocê não pode aumentar mais o tempo que isso!'
 
   # Quando jogador clicar em definir o dinheiro que vai ser apostado no Graph
-  Graph-typing-money:
+  graph-typing-money:
     - ''
     - '&aDigite a quantia de &7money &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar em definir o cash que vai ser apostado no Graph
-  Graph-typing-cash:
+  graph-typing-cash:
     - ''
     - '&aDigite a quantia de &7cash &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador for apostar mas tem que esperar o intervalo de aposta do Graph
-  Wait-before-betting: '&cVocê tem que esperar {tempo} segundos antes de apostar de novo!'
+  wait-before-betting: '&cVocê tem que esperar {tempo} segundos antes de apostar de novo!'
 
   # Servidor iniciou e infeliz foi tentar apostar antes mesmo de qualquer update sair
-  Graph-starting: '&cAguarde um pouco antes de apostar!'
+  graph-starting: '&cAguarde um pouco antes de apostar!'
 
   # Quando jogador apostar no Graph
-  Graph-bet-placed: '&6[WorldBlaze] &7Apostou no point &6{point}'
+  graph-bet-placed: '&6[WorldBlaze] &7Apostou no point &6{point}'
 
-  Graph-draw:
+  graph-draw:
     - ''
     - '&d[WorldBlaze] &7Sua aposta no &dGraph &7acabou em um empate, seu dinheiro foi devolvido!'
     - ''
 
-  Graph-won:
+  graph-won:
     - ''
     - '&d[WorldBlaze] &7Sua aposta no &dGraph &7deu certo e rendeu um total de &d{money} &7money e &d{cash} &7cash!'
     - ''
 
-  Graph-lost:
+  graph-lost:
     - ''
     - '&d[WorldBlaze] &7Sua aposta no &dGraph &7deu errado e você perdeu um total de &d{money} &7money e &d{cash} &7cash!'
     - ''
@@ -434,60 +434,60 @@ Messages:
   # Configuração das mensagens do Jogo do Bicho
 
   # Quando o bicho do /jogodobicho sortear <bicho> for inválido
-  Invalid-animal: '&cBicho inválido, escolha novamente!'
+  invalid-animal: '&cBicho inválido, escolha novamente!'
 
   # Quando sortearem um bicho
-  Animal-drawn-broadcast:
+  animal-drawn-broadcast:
     - ''
     - '&e[Jogo do Bicho] &7O bicho sorteado da vez foi: &e{bicho}'
     - ''
 
   # Quando algum jogador ganhar e passar da quantidade de dinheiro que precisa para mandar um alerta
-  Broadcast-animal-profit:
+  broadcast-animal-profit:
     - '&e[Jogo do Bicho] &7O jogador &e{player} &7ganhou &e{money} &7money e &e{cash} &7cash!'
 
   # Quando jogador ganhar no jogo do bicho
-  Won-jogo-do-bicho:
+  won-jogo-do-bicho:
     - ''
     - '&e[Jogo do Bicho] &7Você ganhou &e{money} &7money e &e{cash} &7cash!'
     - ''
 
   # Quando jogador perder no jogo do bicho
-  Lost-jogo-do-bicho:
+  lost-jogo-do-bicho:
     - ''
     - '&e[Jogo do Bicho] &7Você perdeu...'
     - ''
 
   # Quando staff digitar /jogodobicho sortear
-  Animal-drawn: '&aBicho sorteado'
+  animal-drawn: '&aBicho sorteado'
 
   # Quando jogador clicar em definir o dinheiro que vai ser apostado no Jogo do Bicho
-  Jogo-do-bicho-typing-money:
+  jogo-do-bicho-typing-money:
     - ''
     - '&aDigite a quantia de &7money &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar em definir o cash que vai ser apostado no Jogo do Bicho
-  Jogo-do-bicho-typing-cash:
+  jogo-do-bicho-typing-cash:
     - ''
     - '&aDigite a quantia de &7cash &aque quer apostar'
     - '&aPara cancelar digite &7"cancelar"'
     - ''
 
   # Quando jogador clicar para apostar em um animal específico porém já apostou no mesmo
-  Already-bet-on-animal: '&cVocê já apostou nesse animal!'
+  already-bet-on-animal: '&cVocê já apostou nesse animal!'
 
   # Quando jogador apostar em algum animal
-  Bet-placed-animal:
+  bet-placed-animal:
     - ''
     - '&e[Jogo do Bicho] &7Apostou com sucesso no &e{animal}'
     - ''
 
-  Insufficient-money: '&cVocê não possui essa quantia de money!'
-  Insufficient-cash: '&cVocê não possui essa quantia de cash!'
+  insufficient-money: '&cVocê não possui essa quantia de money!'
+  insufficient-cash: '&cVocê não possui essa quantia de cash!'
 
-Formats: # Para não formatar deixe apenas ''
+formats: # Para não formatar deixe apenas ''
   - ''
   - ''
   - 'K'

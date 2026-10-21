@@ -35,7 +35,7 @@ public class InventoryClickDouble implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Double-typing-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.double-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.doubleMoneyList.add(p.getName());
         }
@@ -43,7 +43,7 @@ public class InventoryClickDouble implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Double-typing-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.double-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.doubleCashList.add(p.getName());
         }
@@ -84,22 +84,22 @@ public class InventoryClickDouble implements Listener {
                 return;
             }
 
-            if(user.getDoubleMoneyValue() < getInstance().getConfig().getDouble("Config.Double.Min-money-aposta")){
+            if(user.getDoubleMoneyValue() < getInstance().getConfig().getDouble("config.double.min-money-bet")){
                 p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
-            if(user.getDoubleCashValue() < getInstance().getConfig().getDouble("Config.Double.Min-cash-aposta")){
+            if(user.getDoubleCashValue() < getInstance().getConfig().getDouble("config.double.min-cash-bet")){
                 p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
-            if(user.getDoubleMoneyValue() > getInstance().getConfig().getDouble("Config.Double.Max-money-aposta")){
+            if(user.getDoubleMoneyValue() > getInstance().getConfig().getDouble("config.double.max-money-bet")){
                 p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
-            if(user.getDoubleCashValue() > getInstance().getConfig().getDouble("Config.Double.Max-cash-aposta")){
+            if(user.getDoubleCashValue() > getInstance().getConfig().getDouble("config.double.max-cash-bet")){
                 p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
@@ -127,7 +127,7 @@ public class InventoryClickDouble implements Listener {
 
             removeValues(p, user.getDoubleCashValue(), user.getDoubleMoneyValue());
 
-            getInstance().getConfig().getStringList("Messages.Bet-placed-double").forEach(w -> p.sendMessage(c(w.replace("{cor}", chose.getNameStr()))));
+            getInstance().getConfig().getStringList("messages.bet-placed-double").forEach(w -> p.sendMessage(c(w.replace("{cor}", chose.getNameStr()))));
         }
 
     }

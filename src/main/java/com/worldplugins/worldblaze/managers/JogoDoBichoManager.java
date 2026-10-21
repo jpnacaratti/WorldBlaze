@@ -151,9 +151,9 @@ public class JogoDoBichoManager {
 
         for (JogoDoBichoBet bet : jogoDoBichoBets) {
 
-            if(bet.getCashValue() >= getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Dopagem.Cash") ||
-                    bet.getMoneyValue() >= getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Dopagem.Money")){
-                if(rand.nextDouble() <= getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Dopagem.Chance")){
+            if(bet.getCashValue() >= getInstance().getConfig().getDouble("config.jogo-do-bicho.rigging.cash") ||
+                    bet.getMoneyValue() >= getInstance().getConfig().getDouble("config.jogo-do-bicho.rigging.money")){
+                if(rand.nextDouble() <= getInstance().getConfig().getDouble("config.jogo-do-bicho.rigging.chance")){
                     blackList.add(bet.getAnimal());
                     sendDebugMessage("[Jogo do Bicho] Caiu na dopagem");
                 }

@@ -51,7 +51,7 @@ public class CrashManager {
 
         this.crashChances = new ArrayList<>();
 
-        for (String s : getInstance().getConfig().getStringList("Config.Crash.Valores")) {
+        for (String s : getInstance().getConfig().getStringList("config.crash.values")) {
             String[] split = s.split(";");
 
             CrashChance crashChance = new CrashChance(Double.parseDouble(split[2]), Double.parseDouble(split[0]), Double.parseDouble(split[1]));
@@ -74,14 +74,14 @@ public class CrashManager {
 
         this.rand = new Random();
 
-        this.secondsBeforeStart = getInstance().getConfig().getDouble("Config.Crash.Tempo-iniciando");
-        this.timeToChangeCrashedState = getInstance().getConfig().getDouble("Config.Crash.Tempo-crashado");
-        this.timeStartCrash = getInstance().getConfig().getDouble("Config.Crash.Tempo-inicio-crash");
+        this.secondsBeforeStart = getInstance().getConfig().getDouble("config.crash.starting-time");
+        this.timeToChangeCrashedState = getInstance().getConfig().getDouble("config.crash.crashed-time");
+        this.timeStartCrash = getInstance().getConfig().getDouble("config.crash.crash-start-time");
 
-        this.sumStart = getInstance().getConfig().getDouble("Config.Crash.Soma-crash-tick-inicial");
-        this.sumFinal = getInstance().getConfig().getDouble("Config.Crash.Soma-crash-tick-final");
+        this.sumStart = getInstance().getConfig().getDouble("config.crash.crash-tick-sum-initial");
+        this.sumFinal = getInstance().getConfig().getDouble("config.crash.crash-tick-sum-final");
 
-        this.maxHistoricValues = getInstance().getConfig().getInt("Config.Crash.Valores-max-historico");
+        this.maxHistoricValues = getInstance().getConfig().getInt("config.crash.max-history-values");
 
         this.crashValue = 1.0;
 

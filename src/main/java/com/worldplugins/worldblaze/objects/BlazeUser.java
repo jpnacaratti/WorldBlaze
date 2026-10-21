@@ -14,8 +14,8 @@ public class BlazeUser {
 
     public BlazeUser(String owner) {
         this.owner = owner;
-        this.graphTime = getInstance().getConfig().getInt("Config.Graph.Padrao-time-update");
-        this.mineBombs = getInstance().getConfig().getInt("Config.Mine.Padrao-bombas");
+        this.graphTime = getInstance().getConfig().getInt("config.graph.default-time-update");
+        this.mineBombs = getInstance().getConfig().getInt("config.mine.default-mines");
         this.coinFlipCara = true;
     }
 

@@ -140,7 +140,7 @@ public class WorldBlaze extends JavaPlugin {
 
         messages = new Messages();
 
-        send = getConfig().getBoolean("Config.Debug");
+        send = getConfig().getBoolean("config.debug");
     }
 
     private void registerEvents(){

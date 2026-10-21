@@ -45,7 +45,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.money.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Jogo-do-bicho-typing-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.jogo-do-bicho-typing-money").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.jogoDoBichoMoneyList.put(p.getName(), bicho);
         }
@@ -53,7 +53,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
         if(e.getSlot() == getConfig.getInt("Itens.cash.Slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Jogo-do-bicho-typing-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.jogo-do-bicho-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
             AsyncPlayerChat.jogoDoBichoCashList.put(p.getName(), bicho);
         }
@@ -88,22 +88,22 @@ public class InventoryClickJogoDoBichoBet implements Listener {
                 return;
             }
 
-            if(user.getJogoDoBichoMoneyValue() < getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Min-money-aposta")){
+            if(user.getJogoDoBichoMoneyValue() < getInstance().getConfig().getDouble("config.jogo-do-bicho.min-money-bet")){
                 p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
-            if(user.getJogoDoBichoCashValue() < getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Min-cash-aposta")){
+            if(user.getJogoDoBichoCashValue() < getInstance().getConfig().getDouble("config.jogo-do-bicho.min-cash-bet")){
                 p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
-            if(user.getJogoDoBichoMoneyValue() > getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Max-money-aposta")){
+            if(user.getJogoDoBichoMoneyValue() > getInstance().getConfig().getDouble("config.jogo-do-bicho.max-money-bet")){
                 p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
-            if(user.getJogoDoBichoCashValue() > getInstance().getConfig().getDouble("Config.Jogo-do-bicho.Max-cash-aposta")){
+            if(user.getJogoDoBichoCashValue() > getInstance().getConfig().getDouble("config.jogo-do-bicho.max-cash-bet")){
                 p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
@@ -118,7 +118,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("Messages.Bet-placed-animal").forEach(w -> p.sendMessage(c(w.replace("{animal}", bicho.getNameStr()))));
+            getInstance().getConfig().getStringList("messages.bet-placed-animal").forEach(w -> p.sendMessage(c(w.replace("{animal}", bicho.getNameStr()))));
         }
 
     }

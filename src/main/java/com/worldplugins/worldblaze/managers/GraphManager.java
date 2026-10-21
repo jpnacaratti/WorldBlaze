@@ -133,19 +133,19 @@ public class GraphManager {
         this.historicSlot = getConfig.getInt("Itens.historico.Slot");
         this.gamblersSlot = getConfig.getInt("Itens.apostadores.Slot");
 
-        lastPointValue = getInstance().getConfig().getDouble("Config.Graph.Valor-inicial");
+        lastPointValue = getInstance().getConfig().getDouble("config.graph.initial-value");
 
         this.menuTitle = c(getConfig.getString("Titulo"));
 
-        this.receiveValue = getInstance().getConfig().getDouble("Config.Graph.Retorno-ganho");
-        this.maxRandomValue = getInstance().getConfig().getDouble("Config.Graph.Max-random");
-        this.minRandomValue = getInstance().getConfig().getDouble("Config.Graph.Min-random");
+        this.receiveValue = getInstance().getConfig().getDouble("config.graph.win-return");
+        this.maxRandomValue = getInstance().getConfig().getDouble("config.graph.max-random");
+        this.minRandomValue = getInstance().getConfig().getDouble("config.graph.min-random");
 
         this.graphDirection = rand.nextBoolean();
 
         this.pointsNum = 1;
 
-        this.delay = getInstance().getConfig().getInt("Config.Graph.Delay-entre-aposta");
+        this.delay = getInstance().getConfig().getInt("config.graph.bet-delay");
     }
 
     public Set<String> getGamblersGuiOpen() {

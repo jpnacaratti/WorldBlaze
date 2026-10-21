@@ -31,7 +31,7 @@ public class MineBet {
         this.moneyValue = moneyValue;
         this.numBombs = numBombs;
         this.mid = (moneyValue + cashValue) / 2;
-        this.multiplierSum = getMineManager().getMultipliers().get(numBombs) / (getInstance().getConfig().getIntegerList("Config.Mine.Slots-jogo").size() - numBombs);
+        this.multiplierSum = getMineManager().getMultipliers().get(numBombs) / (getInstance().getConfig().getIntegerList("config.mine.game-slots").size() - numBombs);
 
         this.clickedSlots = new ArrayList<>();
         this.bombSlots = new ArrayList<>();

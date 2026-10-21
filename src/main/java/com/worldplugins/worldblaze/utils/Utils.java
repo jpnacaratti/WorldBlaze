@@ -19,7 +19,7 @@ import static com.worldplugins.worldblaze.WorldBlaze.*;
 
 public class Utils {
 
-    public static String[] formats = getInstance().getConfig().getStringList("Formats").toArray(new String[0]);
+    public static String[] formats = getInstance().getConfig().getStringList("formats").toArray(new String[0]);
 
     public static String letterFormatter(Object bigDecimal) {
 
