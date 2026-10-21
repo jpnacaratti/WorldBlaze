@@ -51,7 +51,7 @@ public class AsyncPlayerChat implements Listener {
         if(graphMoneyList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 graphMoneyList.remove(p.getName());
                 getGraphManager().getGraphInventories().remove(p.getName());
@@ -101,7 +101,7 @@ public class AsyncPlayerChat implements Listener {
         if(graphCashList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 graphCashList.remove(p.getName());
                 getGraphManager().getGraphInventories().remove(p.getName());
@@ -151,7 +151,7 @@ public class AsyncPlayerChat implements Listener {
         if(crashMoneyList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 crashMoneyList.remove(p.getName());
                 return;
@@ -190,7 +190,7 @@ public class AsyncPlayerChat implements Listener {
         if(crashCashList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 crashCashList.remove(p.getName());
                 return;
@@ -229,7 +229,7 @@ public class AsyncPlayerChat implements Listener {
         if(doubleMoneyList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 doubleMoneyList.remove(p.getName());
                 return;
@@ -268,7 +268,7 @@ public class AsyncPlayerChat implements Listener {
         if(doubleCashList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 doubleCashList.remove(p.getName());
                 return;
@@ -307,7 +307,7 @@ public class AsyncPlayerChat implements Listener {
         if(mineMoneyList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 mineMoneyList.remove(p.getName());
                 return;
@@ -346,7 +346,7 @@ public class AsyncPlayerChat implements Listener {
         if(mineCashList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 mineCashList.remove(p.getName());
                 return;
@@ -385,7 +385,7 @@ public class AsyncPlayerChat implements Listener {
         if(jogoDoBichoMoneyList.containsKey(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 jogoDoBichoMoneyList.remove(p.getName());
                 return;
@@ -424,7 +424,7 @@ public class AsyncPlayerChat implements Listener {
         if(jogoDoBichoCashList.containsKey(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 jogoDoBichoCashList.remove(p.getName());
                 return;
@@ -463,7 +463,7 @@ public class AsyncPlayerChat implements Listener {
         if(coinFlipMoneyList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 coinFlipMoneyList.remove(p.getName());
                 return;
@@ -502,7 +502,7 @@ public class AsyncPlayerChat implements Listener {
         if(coinFlipCashList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 coinFlipCashList.remove(p.getName());
                 return;
@@ -541,7 +541,7 @@ public class AsyncPlayerChat implements Listener {
         if(coinFlipOpponentList.contains(p.getName())){
             e.setCancelled(true);
 
-            if(msg.equalsIgnoreCase("cancelar")){
+            if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
                 coinFlipOpponentList.remove(p.getName());
                 return;
