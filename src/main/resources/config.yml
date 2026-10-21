@@ -287,7 +287,7 @@ messages:
 
   won-mine:
     - ''
-    - '&c[Mine] §7You left the mine with a multiplier of &c&l{multiplier}x &7and won &c{money} &7money and &c{cash} &7cash!'
+    - '&c[Mine] &7You left the mine with a multiplier of &c&l{multiplier}x &7and won &c{money} &7money and &c{cash} &7cash!'
     - ''
 
   spectators-game-ended:
@@ -318,7 +318,7 @@ messages:
 
   bet-placed-double:
     - ''
-    - '&6[WorldBlaze] §7You are now taking part in the double and bet on the color: {color}'
+    - '&6[WorldBlaze] &7You are now taking part in the double and bet on the color: {color}'
     - ''
 
   broadcast-won-double:
