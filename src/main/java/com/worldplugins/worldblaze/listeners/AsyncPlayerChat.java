@@ -62,7 +62,7 @@ public class AsyncPlayerChat implements Listener {
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 graphMoneyList.remove(p.getName());
                 getGraphManager().getGraphInventories().remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -112,7 +112,7 @@ public class AsyncPlayerChat implements Listener {
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 graphCashList.remove(p.getName());
                 getGraphManager().getGraphInventories().remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -160,7 +160,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 crashMoneyList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -199,7 +199,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 crashCashList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -238,7 +238,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 doubleMoneyList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -277,7 +277,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 doubleCashList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -316,7 +316,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 mineMoneyList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -355,7 +355,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 mineCashList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -394,7 +394,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 jogoDoBichoMoneyList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -433,7 +433,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 jogoDoBichoCashList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -472,7 +472,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 coinFlipMoneyList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 
@@ -511,7 +511,7 @@ public class AsyncPlayerChat implements Listener {
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
                 coinFlipCashList.remove(p.getName());
-                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("Duplication attempt"));
+                Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
 

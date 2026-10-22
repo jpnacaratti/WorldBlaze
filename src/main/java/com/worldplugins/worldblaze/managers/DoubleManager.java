@@ -346,12 +346,12 @@ public class DoubleManager {
                     red = getColorTotalBetCash(DoubleColor.RED);
                     white = getColorTotalBetCash(DoubleColor.WHITE);
                     black = getColorTotalBetCash(DoubleColor.BLACK);
-                    sendDebugMessage("[Double] Quebrou (CASH)");
+                    sendDebugMessage("[Double] Rigged (CASH)");
                 } else {
                     red = getColorTotalBetMoney(DoubleColor.RED);
                     white = getColorTotalBetMoney(DoubleColor.WHITE);
                     black = getColorTotalBetMoney(DoubleColor.BLACK);
-                    sendDebugMessage("[Double] Quebrou (MONEY)");
+                    sendDebugMessage("[Double] Rigged (MONEY)");
                 }
 
                 Map<DoubleColor, Double> sorted = new HashMap<>();
@@ -376,7 +376,7 @@ public class DoubleManager {
             }
         }else this.roundChosenColor = getRandomDefinitiveColor();
 
-        sendDebugMessage("[Double] A próxima cor vai ser: " + roundChosenColor);
+        sendDebugMessage("[Double] The next color will be: " + roundChosenColor);
 
     }
 
@@ -719,7 +719,7 @@ public class DoubleManager {
         }
 
         if(animationSpot == null){
-            sendDebugMessage("Animation SPOT está nulo!");
+            sendDebugMessage("Animation SPOT is null!");
             return;
         }
 
@@ -846,9 +846,9 @@ public class DoubleManager {
 
             }
 
-            sendDebugMessage("[Double] Vermelho: " + redChance);
-            sendDebugMessage("[Double] Branco: " + whiteChance);
-            sendDebugMessage("[Double] Preto: " + blackChance);
+            sendDebugMessage("[Double] Red: " + redChance);
+            sendDebugMessage("[Double] White: " + whiteChance);
+            sendDebugMessage("[Double] Black: " + blackChance);
 
             setNumOfItem(0);
             return true;

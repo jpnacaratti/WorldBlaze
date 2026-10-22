@@ -44,7 +44,7 @@ public class InventoryClickJogoDoBichoBichos implements Listener {
             bicho = Bicho.valueOf(nbt);
 
         }catch (IllegalArgumentException ex){
-            p.sendMessage("§cNão foi possível apostar nesse bicho, contate o Miinero! ("+nbt+")");
+            p.sendMessage("§cUnable to bet on this animal, contact Miinero! ("+nbt+")");
             return;
         }
 

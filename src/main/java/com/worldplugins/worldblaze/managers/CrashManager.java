@@ -226,14 +226,14 @@ public class CrashManager {
                     crashVar = ThreadLocalRandom.current().nextDouble(crashChance.getCrashStart(), crashChance.getCrashFinal());
                 }
                 whenWillCrash = crashVar;
-                sendDebugMessage("[Crash] Próximo crash vai ser em: " + String.format("%.2f", whenWillCrash));
+                sendDebugMessage("[Crash] Next crash will be at: " + String.format("%.2f", whenWillCrash));
             }
         }
 
         /*if(crashInZero){
             if (rand.nextInt(100) <= 40) {
                 whenWillCrash = 6 + (rand.nextDouble() * 2);
-                sendDebugMessage("[Crash] Crashou em zero e agora vai subir ate: " + String.format("%.2f", whenWillCrash));
+                sendDebugMessage("[Crash] Crashed at zero and will now rise to: " + String.format("%.2f", whenWillCrash));
                 return;
             }else{
                 crashInZero = false;
@@ -243,13 +243,13 @@ public class CrashManager {
 
         if(high){
             if(rand.nextInt(100) <= gamesInHigh * 2) {
-                sendDebugMessage("[Crash] Crash agr ta em baixa");
+                sendDebugMessage("[Crash] Crash is now low");
                 high = false;
                 gamesInHigh = 0;
             }else gamesInHigh++;
         }else{
             if(rand.nextInt(100) <= gamesInLow * 1.5) {
-                sendDebugMessage("[Crash] Crash agr ta em alta");
+                sendDebugMessage("[Crash] Crash is now high");
                 high = true;
                 gamesInLow = 0;
             }else gamesInLow++;

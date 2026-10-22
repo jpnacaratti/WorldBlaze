@@ -64,7 +64,7 @@ public class WorldBlaze extends JavaPlugin {
 
         instance = this;
 
-        Bukkit.getConsoleSender().sendMessage("[WorldBlaze] Plugin iniciado!");
+        Bukkit.getConsoleSender().sendMessage("[WorldBlaze] Plugin started!");
         setupEconomy();
         registerCommands();
         registerEvents();

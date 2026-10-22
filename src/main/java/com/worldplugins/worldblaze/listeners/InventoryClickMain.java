@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import static com.worldplugins.worldblaze.WorldBlaze.getInstance;
+import static com.worldplugins.worldblaze.WorldBlaze.getMessages;
 import static com.worldplugins.worldblaze.WorldBlaze.getPrincipalGuiYml;
 import static com.worldplugins.worldblaze.utils.Utils.c;
 
@@ -29,12 +30,12 @@ public class InventoryClickMain implements Listener {
         if (e.getSlot() == getConfig.getInt("items.graph.slot")) {
 
             if (!p.hasPermission("worldblaze.graph")) {
-                p.sendMessage("§cVocê não tem permissão para fazer isso.");
+                p.sendMessage(getMessages().NO_PERMISSION);
                 return;
             }
 
             if(getInstance().isReloading()){
-                p.sendMessage("§cO plugin será atualizado e portanto não é possível jogar nesse modo agora! Aguarde alguns segundos...");
+                p.sendMessage(getMessages().RELOADING);
                 return;
             }
 
@@ -48,12 +49,12 @@ public class InventoryClickMain implements Listener {
         if (e.getSlot() == getConfig.getInt("items.crash.slot")) {
 
             if (!p.hasPermission("worldblaze.crash")) {
-                p.sendMessage("§cVocê não tem permissão para fazer isso.");
+                p.sendMessage(getMessages().NO_PERMISSION);
                 return;
             }
 
             if(getInstance().isReloading()){
-                p.sendMessage("§cO plugin será atualizado e portanto não é possível jogar nesse modo agora! Aguarde alguns segundos...");
+                p.sendMessage(getMessages().RELOADING);
                 return;
             }
 
@@ -67,12 +68,12 @@ public class InventoryClickMain implements Listener {
         if (e.getSlot() == getConfig.getInt("items.double.slot")) {
 
             if (!p.hasPermission("worldblaze.double")) {
-                p.sendMessage("§cVocê não tem permissão para fazer isso.");
+                p.sendMessage(getMessages().NO_PERMISSION);
                 return;
             }
 
             if(getInstance().isReloading()){
-                p.sendMessage("§cO plugin será atualizado e portanto não é possível jogar nesse modo agora! Aguarde alguns segundos...");
+                p.sendMessage(getMessages().RELOADING);
                 return;
             }
 
@@ -86,12 +87,12 @@ public class InventoryClickMain implements Listener {
         if (e.getSlot() == getConfig.getInt("items.mine.slot")) {
 
             if (!p.hasPermission("worldblaze.mine")) {
-                p.sendMessage("§cVocê não tem permissão para fazer isso.");
+                p.sendMessage(getMessages().NO_PERMISSION);
                 return;
             }
 
             if(getInstance().isReloading()){
-                p.sendMessage("§cO plugin será atualizado e portanto não é possível jogar nesse modo agora! Aguarde alguns segundos...");
+                p.sendMessage(getMessages().RELOADING);
                 return;
             }
 
@@ -105,12 +106,12 @@ public class InventoryClickMain implements Listener {
         if (e.getSlot() == getConfig.getInt("items.jogo-do-bicho.slot")) {
 
             if (!p.hasPermission("worldblaze.jogodobicho")) {
-                p.sendMessage("§cVocê não tem permissão para fazer isso.");
+                p.sendMessage(getMessages().NO_PERMISSION);
                 return;
             }
 
             if(getInstance().isReloading()){
-                p.sendMessage("§cO plugin será atualizado e portanto não é possível jogar nesse modo agora! Aguarde alguns segundos...");
+                p.sendMessage(getMessages().RELOADING);
                 return;
             }
 
@@ -124,12 +125,12 @@ public class InventoryClickMain implements Listener {
         if (e.getSlot() == getConfig.getInt("items.coinflip.slot")) {
 
             if (!p.hasPermission("worldblaze.coinflip")) {
-                p.sendMessage("§cVocê não tem permissão para fazer isso.");
+                p.sendMessage(getMessages().NO_PERMISSION);
                 return;
             }
 
             if(getInstance().isReloading()){
-                p.sendMessage("§cO plugin será atualizado e portanto não é possível jogar nesse modo agora! Aguarde alguns segundos...");
+                p.sendMessage(getMessages().RELOADING);
                 return;
             }
 

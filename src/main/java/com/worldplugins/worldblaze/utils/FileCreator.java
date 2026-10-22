@@ -24,7 +24,7 @@ public class FileCreator {
             try {
                 FileUtils.copyInputStreamToFile(getInstance().getResource(name), file);
             } catch (IOException e) {
-                Bukkit.getConsoleSender().sendMessage("[WorldBlaze] Arquivo " + name + " criado com sucesso!");
+                Bukkit.getConsoleSender().sendMessage("[WorldBlaze] File " + name + " created successfully!");
             }
         }
 
@@ -41,7 +41,7 @@ public class FileCreator {
         try {
             fileConfiguration.save(file);
         } catch (Exception e) {
-            Bukkit.getConsoleSender().sendMessage("[WorldBlaze] Ocorreu um erro ao salvar o arquivo "+name+", contate um desenvolvedor!");
+            Bukkit.getConsoleSender().sendMessage("[WorldBlaze] An error occurred while saving the file "+name+", contact a developer!");
         }
 
     }
@@ -55,14 +55,14 @@ public class FileCreator {
                 try {
                     FileUtils.copyInputStreamToFile(getInstance().getResource(name), file);
                 } catch (IOException e) {
-                    Bukkit.getConsoleSender().sendMessage("[WorldBlaze] Arquivo " + name + " criado com sucesso!");
+                    Bukkit.getConsoleSender().sendMessage("[WorldBlaze] File " + name + " created successfully!");
                 }
             }
 
             fileConfiguration = YamlConfiguration.loadConfiguration(file);
 
         }catch (Exception e){
-            Bukkit.getConsoleSender().sendMessage( "[WorldBlaze] Ocorreu um erro ao recarregar o arquivo "+name);
+            Bukkit.getConsoleSender().sendMessage( "[WorldBlaze] An error occurred while reloading the file "+name);
         }
     }
 

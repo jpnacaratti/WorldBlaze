@@ -4,9 +4,9 @@ import java.util.List;
 
 public enum DoubleColor {
 
-    RED("Vermelho"),
-    WHITE("Branco"),
-    BLACK("Preto");
+    RED("Red"),
+    WHITE("White"),
+    BLACK("Black");
 
     private final String nameStr;
 

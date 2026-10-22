@@ -16,16 +16,16 @@ public class MainCMD implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if(args.length == 1 && args[0].equalsIgnoreCase("help")){
-            sender.sendMessage("§7/apostar §7- Abre o menu para você escolher qual jogo deseja jogar.");
-            sender.sendMessage("§7/graph §7- Abre o graph direto.");
-            sender.sendMessage("§7/crash §7- Abre o crash direto.");
-            sender.sendMessage("§7/double §7- Abre o double direto.");
-            sender.sendMessage("§7/mine §7- Abre o mine direto.");
-            sender.sendMessage("§7/jogodobicho §7- Abre o jogo do bicho direto.");
-            sender.sendMessage("§7/coinflip §7- Abre o CoinFlip direto.");
-            if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§7/blaze lock §7- Desativa e proibi os futuros jogos ate você ativar novamente.");
-            if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§7/blaze unlock §7- Ativa novamente os jogos.");
-            if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§7/blaze reload §7- Recarrega todos os arquivos de configurações.");
+            sender.sendMessage("§7/apostar §7- Opens the menu so you can choose which game to play.");
+            sender.sendMessage("§7/graph §7- Opens the graph directly.");
+            sender.sendMessage("§7/crash §7- Opens the crash directly.");
+            sender.sendMessage("§7/double §7- Opens the double directly.");
+            sender.sendMessage("§7/mine §7- Opens the mine directly.");
+            sender.sendMessage("§7/jogodobicho §7- Opens the jogo do bicho directly.");
+            sender.sendMessage("§7/coinflip §7- Opens the CoinFlip directly.");
+            if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§7/blaze lock §7- Disables and blocks future games until you enable them again.");
+            if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§7/blaze unlock §7- Enables the games again.");
+            if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§7/blaze reload §7- Reloads all configuration files.");
             return true;
         }
 

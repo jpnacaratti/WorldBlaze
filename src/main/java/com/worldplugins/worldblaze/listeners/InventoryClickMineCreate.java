@@ -89,7 +89,7 @@ public class InventoryClickMineCreate implements Listener {
 
             if(getMineManager().isPlayerInGame(p.getName())){
                 p.closeInventory();
-                p.sendMessage("§cHouve um erro ao iniciar seu jogo, aparentemente você já está em uma partida, contate um STAFF!");
+                p.sendMessage("§cThere was an error starting your game, you seem to already be in a match, contact a STAFF member!");
                 return;
             }
 

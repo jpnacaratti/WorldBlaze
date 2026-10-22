@@ -87,7 +87,7 @@ public class InventoryClickCoinFlipGames implements Listener {
 
         TextComponent textComponent = new TextComponent(c(getMessages().CHALLENGER_BET_ACCEPTED.replace("{player}", p.getName())));
         textComponent.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/verx1coinflip"));
-        textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§aClique para ver!").create()));
+        textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§aClick to view!").create()));
 
         owner.spigot().sendMessage(textComponent);
 

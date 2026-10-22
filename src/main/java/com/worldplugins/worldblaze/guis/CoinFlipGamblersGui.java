@@ -126,8 +126,8 @@ public class CoinFlipGamblersGui {
                 String finalStatusSpecific = statusSpecific;
                 getConfig.getStringList("items.player.lore").forEach(w -> item.addLoreLine(c(w.
                         replace("{nick}", coinFlipBet.getOwner()).
-                        replace("{owner-choice}", coinFlipBet.isCara() ? "Cara" : "Coroa").
-                        replace("{opponent-choice}", coinFlipBet.isCara() ? "Coroa" : "Cara").
+                        replace("{owner-choice}", coinFlipBet.isCara() ? "Heads" : "Tails").
+                        replace("{opponent-choice}", coinFlipBet.isCara() ? "Tails" : "Heads").
                         replace("{opponent}", opponent).
                         replace("{money}", letterFormatter(coinFlipBet.getMoneyValue())).
                         replace("{cash}", letterFormatter(coinFlipBet.getCashValue())).

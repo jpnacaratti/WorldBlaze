@@ -49,7 +49,7 @@ public class MineBet {
         if(dopChance > 0){
             if (ThreadLocalRandom.current().nextDouble(0, 100) <= dopChance) {
                 this.chanceMultiplier = getMineManager().getDopChanceMultiplier();
-                sendDebugMessage("[Mine] Foi pego na dopagem...");
+                sendDebugMessage("[Mine] Got caught by the rigging...");
             }
         }
 

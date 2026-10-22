@@ -38,7 +38,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
         try {
             bicho = Bicho.valueOf(nbtAnimal.toUpperCase());
         }catch (IllegalArgumentException ex){
-            p.sendMessage("§cErro, chame o Miinero ("+nbtAnimal+")");
+            p.sendMessage("§cError, contact Miinero ("+nbtAnimal+")");
             return;
         }
 

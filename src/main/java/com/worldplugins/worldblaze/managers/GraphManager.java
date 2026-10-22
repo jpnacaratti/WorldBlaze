@@ -549,7 +549,7 @@ public class GraphManager {
                 graphDirection = !(positiveBetAverage > negativeBetAverage);
             }
 
-            sendDebugMessage("[Graph] Próxima tendencia é: "+graphDirection);
+            sendDebugMessage("[Graph] Next trend is: "+graphDirection);
 
             return !graphDirection;
         }else{
@@ -557,7 +557,7 @@ public class GraphManager {
             int minus = 33 - waveCounter;
             double positivePercent;
             if(minus <= 5){
-                sendDebugMessage("[Graph] Voltou a subir " + waveCounter);
+                sendDebugMessage("[Graph] Went back up " + waveCounter);
 
                 if(minus == 2 || minus == 1) return graphDirection;
 
@@ -567,7 +567,7 @@ public class GraphManager {
                 return rand.nextInt(100) <= positivePercent;
             }else if(minus <= 8){
 
-                sendDebugMessage("[Graph] Começou a cair " + waveCounter);
+                sendDebugMessage("[Graph] Started to fall " + waveCounter);
 
                 if(graphDirection) positivePercent = 50.0 - (5 * (9.0 - minus));
                 else positivePercent = 50.0 + (5 * (9.0 - minus));
@@ -576,13 +576,13 @@ public class GraphManager {
             }
 
             if(rand.nextInt(100) < 15){
-                sendDebugMessage("[Graph] Prejudicou o povo");
+                sendDebugMessage("[Graph] Hurt the players");
                 if(positiveBetAverage > negativeBetAverage) return false;
                 if(positiveBetAverage < negativeBetAverage) return true;
             }
 
             if(rand.nextInt(100) < 10){
-                sendDebugMessage("[Graph] Ajudou o povo");
+                sendDebugMessage("[Graph] Helped the players");
                 if(positiveBetAverage > negativeBetAverage) return true;
                 if(positiveBetAverage < negativeBetAverage) return false;
             }

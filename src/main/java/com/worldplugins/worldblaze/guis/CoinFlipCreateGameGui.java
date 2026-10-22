@@ -27,7 +27,7 @@ public class CoinFlipCreateGameGui {
 
             if(s.equalsIgnoreCase("games")) continue;
 
-            String choice = user.isCoinFlipCara() ? "Cara" : "Coroa";
+            String choice = user.isCoinFlipCara() ? "Heads" : "Tails";
 
             ItemBuilder item;
             if (getConfig.getBoolean("items." + s + ".use-head-player")) item = user.getCoinFlipSpecific() == null ? new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654")) : new ItemBuilder(SkullCreator.itemFromName(user.getCoinFlipSpecific()));

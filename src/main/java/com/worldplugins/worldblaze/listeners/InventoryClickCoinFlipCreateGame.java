@@ -82,7 +82,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
 
             if(getCoinFlipManager().isPlayerParticipating(p.getName())){
                 p.closeInventory();
-                p.sendMessage("§cVocê já está em uma partida, contate um staff!");
+                p.sendMessage("§cYou are already in a match, contact a staff member!");
                 return;
             }
 

@@ -356,7 +356,7 @@ public class MineManager {
             inv.setItem(bombSlot, getMineManager().getBombItem());
         }
 
-        p.sendMessage("§cVocê minerou uma bomba... Infelizmente perdeu tudo que apostou. Já pode fechar esse menu");
+        p.sendMessage("§cYou hit a mine... Unfortunately you lost everything you bet. You can close this menu now");
 
         getMineManager().getMineBets().remove(mineBet);
 
@@ -367,8 +367,8 @@ public class MineManager {
             Player player = Bukkit.getPlayer(spectator);
 
             if(player != null){
-                player.sendMessage("§cO jogador que estava jogando essa partida minerou uma bomba, esse menu não será mais atualizado!");
-                player.sendMessage("§cVocê já pode fechar ele!");
+                player.sendMessage("§cThe player who was playing this match hit a mine, this menu will no longer be updated!");
+                player.sendMessage("§cYou can close it now!");
                 player.updateInventory();
             }
         }
@@ -403,7 +403,7 @@ public class MineManager {
                 if (mineBet.getCashValue() >= entry.getKey()){
                     cashPass = true;
                     cashPrct = entry.getValue();
-                    sendDebugMessage("[Mine] Passou na dopagem (cash): " + entry.getValue());
+                    sendDebugMessage("[Mine] Reached the rigging threshold (cash): " + entry.getValue());
                     break;
                 }
             }
@@ -418,7 +418,7 @@ public class MineManager {
                 if (mineBet.getMoneyValue() >= entry.getKey()){
                     moneyPass = true;
                     moneyPrct = entry.getValue();
-                    sendDebugMessage("[Mine] Passou na dopagem (money): " + entry.getValue());
+                    sendDebugMessage("[Mine] Reached the rigging threshold (money): " + entry.getValue());
                     break;
                 }
             }
