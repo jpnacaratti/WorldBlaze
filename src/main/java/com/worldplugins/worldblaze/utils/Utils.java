@@ -1,7 +1,6 @@
 package com.worldplugins.worldblaze.utils;
 
-import com.grandemc.cash.GrandeCash;
-import com.grandemc.cash.api.GrandeCashAPI;
+import com.worldplugins.worldblaze.cash.CashProvider;
 import com.worldplugins.worldblaze.guis.CrashGamblersGui;
 import com.worldplugins.worldblaze.guis.DoubleGamblersGui;
 import com.worldplugins.worldblaze.guis.GraphGamblersGui;
@@ -65,9 +64,13 @@ public class Utils {
             return false;
         }
 
-        if(Bukkit.getPluginManager().getPlugin("GrandeCash") != null) {
-            GrandeCashAPI api = GrandeCash.api();
-            if (!api.has(p.getUniqueId(), cash)) {
+        if(cash > 0) {
+            CashProvider cashProvider = getCashProvider();
+            if (!cashProvider.isEnabled()) {
+                p.sendMessage(getMessages().CASH_UNAVAILABLE);
+                return false;
+            }
+            if (!cashProvider.has(p.getUniqueId(), cash)) {
                 p.sendMessage(getMessages().INSUFFICIENT_CASH);
                 return false;
             }
@@ -79,19 +82,13 @@ public class Utils {
     public static void removeValues(Player p, double cash, double money){
         econ.withdrawPlayer(p, money);
 
-        if(Bukkit.getPluginManager().getPlugin("GrandeCash") != null) {
-            GrandeCashAPI api = GrandeCash.api();
-            api.withdraw(p.getUniqueId(), cash);
-        }
+        if(cash > 0) getCashProvider().withdraw(p.getUniqueId(), cash);
     }
 
     public static void depositValues(OfflinePlayer p, double cash, double money){
         econ.depositPlayer(p, money);
 
-        if(Bukkit.getPluginManager().getPlugin("GrandeCash") != null) {
-            GrandeCashAPI api = GrandeCash.api();
-            api.deposit(p.getUniqueId(), cash);
-        }
+        if(cash > 0) getCashProvider().deposit(p.getUniqueId(), cash);
     }
 
     public static void sendDebugMessage(String msg){

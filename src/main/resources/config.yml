@@ -17,6 +17,11 @@ config:
   # Enable to see the bet results in advance and check how the odds are going
   debug: true
 
+  # Plugin that provides the cash used in the cash bets: auto, playerpoints, grandecash or none
+  # auto uses the first supported plugin found on the server (GrandeCash, then PlayerPoints)
+  # If no provider is found (or none is set), cash bets are disabled
+  cash-provider: auto
+
   # Graph settings
   graph:
     bet-delay: 5 # seconds
@@ -486,6 +491,7 @@ messages:
 
   insufficient-money: '&cYou do not have that amount of money!'
   insufficient-cash: '&cYou do not have that amount of cash!'
+  cash-unavailable: '&cCash bets are not available on this server!'
 
 formats: # To disable formatting leave only ''
   - ''

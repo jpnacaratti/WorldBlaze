@@ -11,6 +11,7 @@ repositories {
     maven("https://hub.spigotmc.org/nexus/content/groups/public/")
     maven("https://jitpack.io")
     maven("https://libraries.minecraft.net")
+    maven("https://repo.rosewooddev.io/repository/public/")
 }
 
 dependencies {
@@ -22,6 +23,7 @@ dependencies {
         exclude(group = "org.bukkit", module = "bukkit")
     }
     compileOnly("com.mojang:authlib:1.5.21")
+    compileOnly("org.black_ixx:playerpoints:3.2.7")
     compileOnly(fileTree("libs") { include("*.jar") })
     implementation("commons-io:commons-io:2.11.0")
 }

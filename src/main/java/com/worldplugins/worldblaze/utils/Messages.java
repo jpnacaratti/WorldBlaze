@@ -49,6 +49,7 @@ public class Messages {
     public String COIN_FLIP_OWNER_OFFLINE = c(getInstance().getConfig().getString("messages.owner-offline"));
     public String INSUFFICIENT_MONEY = c(getInstance().getConfig().getString("messages.insufficient-money"));
     public String INSUFFICIENT_CASH = c(getInstance().getConfig().getString("messages.insufficient-cash"));
+    public String CASH_UNAVAILABLE = c(getInstance().getConfig().getString("messages.cash-unavailable"));
     public String ALREADY_IN_GAME = c(getInstance().getConfig().getString("messages.already-in-game"));
     public String GAME_ALREADY_STARTED = c(getInstance().getConfig().getString("messages.game-already-started"));
     public String INVALID_GAME = c(getInstance().getConfig().getString("messages.invalid-game"));

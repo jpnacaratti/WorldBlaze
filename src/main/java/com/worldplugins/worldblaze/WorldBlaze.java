@@ -1,5 +1,7 @@
 package com.worldplugins.worldblaze;
 
+import com.worldplugins.worldblaze.cash.CashProvider;
+import com.worldplugins.worldblaze.cash.CashProviders;
 import com.worldplugins.worldblaze.commands.*;
 import com.worldplugins.worldblaze.listeners.*;
 import com.worldplugins.worldblaze.managers.*;
@@ -54,6 +56,8 @@ public class WorldBlaze extends JavaPlugin {
     private static Messages messages;
 
     public static Economy econ = null;
+
+    private static CashProvider cashProvider;
 
     private boolean reloading, locked;
     public static boolean send;
@@ -141,6 +145,8 @@ public class WorldBlaze extends JavaPlugin {
         messages = new Messages();
 
         send = getConfig().getBoolean("config.debug");
+
+        setupCashProvider();
     }
 
     private void registerEvents(){
@@ -186,6 +192,12 @@ public class WorldBlaze extends JavaPlugin {
         mineManager = new MineManager();
         jogoDoBichoManager = new JogoDoBichoManager();
         coinFlipManager = new CoinFlipManager();
+
+        setupCashProvider();
+    }
+
+    private void setupCashProvider(){
+        cashProvider = CashProviders.detect(getConfig().getString("config.cash-provider"));
     }
 
     private boolean setupEconomy() {
@@ -198,6 +210,10 @@ public class WorldBlaze extends JavaPlugin {
         }
         econ = rsp.getProvider();
         return econ != null;
+    }
+
+    public static CashProvider getCashProvider() {
+        return cashProvider;
     }
 
     public static FileCreator getDataYml() {
