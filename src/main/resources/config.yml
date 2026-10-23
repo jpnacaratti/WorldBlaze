@@ -17,8 +17,8 @@ config:
   # Enable to see the bet results in advance and check how the odds are going
   debug: true
 
-  # Plugin that provides the cash used in the cash bets: auto, playerpoints, grandecash or none
-  # auto uses the first supported plugin found on the server (GrandeCash, then PlayerPoints)
+  # Plugin that provides the cash used in the cash bets: auto, grandecash, playerpoints, ypoints or none
+  # auto uses the first supported plugin found on the server (GrandeCash, then PlayerPoints, then yPoints)
   # If no provider is found (or none is set), cash bets are disabled
   cash-provider: auto
 

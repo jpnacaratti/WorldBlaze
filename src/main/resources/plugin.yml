@@ -5,6 +5,7 @@ softdepend:
   - Vault
   - PlayerPoints
   - GrandeCash
+  - yPoints
 commands:
   verx1coinflip:
   coinflip:

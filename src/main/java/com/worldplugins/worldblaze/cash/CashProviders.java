@@ -24,9 +24,14 @@ public final class CashProviders {
                 provider = playerPoints();
                 if (provider == null) log("PlayerPoints is not installed or enabled, cash bets are disabled");
                 break;
+            case "ypoints":
+                provider = yPoints();
+                if (provider == null) log("yPoints is not installed or enabled, cash bets are disabled");
+                break;
             default:
                 provider = grandeCash();
                 if (provider == null) provider = playerPoints();
+                if (provider == null) provider = yPoints();
                 if (provider == null) log("No supported cash provider found, cash bets are disabled");
                 break;
         }
@@ -45,6 +50,11 @@ public final class CashProviders {
     private static CashProvider playerPoints() {
         if (!isEnabled("PlayerPoints")) return null;
         return new PlayerPointsProvider();
+    }
+
+    private static CashProvider yPoints() {
+        if (!isEnabled("yPoints")) return null;
+        return new YPointsProvider();
     }
 
     private static boolean isEnabled(String name) {
