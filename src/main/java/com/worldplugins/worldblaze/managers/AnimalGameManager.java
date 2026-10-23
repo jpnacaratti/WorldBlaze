@@ -153,7 +153,7 @@ public class AnimalGameManager {
 
             if(bet.getCashValue() >= getInstance().getConfig().getDouble("config.animal-game.rigging.cash") ||
                     bet.getMoneyValue() >= getInstance().getConfig().getDouble("config.animal-game.rigging.money")){
-                if(rand.nextDouble() <= getInstance().getConfig().getDouble("config.animal-game.rigging.chance")){
+                if(rand.nextDouble() * 100 <= getInstance().getConfig().getDouble("config.animal-game.rigging.chance")){
                     blackList.add(bet.getAnimal());
                     sendDebugMessage("[Animal Game] Hit by the rigging");
                 }
