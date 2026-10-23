@@ -19,9 +19,7 @@ public class InventoryClickCoinFlipGames implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if (!MenuHolder.is(e.getInventory(), MenuType.COINFLIP_GAMES)) return;
-        e.setCancelled(true);
-        if (e.getRawSlot() >= e.getInventory().getSize()) return;
+        if (!MenuHolder.handleClick(e, MenuType.COINFLIP_GAMES)) return;
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

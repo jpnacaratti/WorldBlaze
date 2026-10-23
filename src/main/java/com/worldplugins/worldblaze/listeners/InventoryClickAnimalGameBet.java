@@ -19,9 +19,7 @@ public class InventoryClickAnimalGameBet implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!MenuHolder.is(e.getInventory(), MenuType.ANIMAL_GAME_BET)) return;
-        e.setCancelled(true);
-        if (e.getRawSlot() >= e.getInventory().getSize()) return;
+        if (!MenuHolder.handleClick(e, MenuType.ANIMAL_GAME_BET)) return;
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

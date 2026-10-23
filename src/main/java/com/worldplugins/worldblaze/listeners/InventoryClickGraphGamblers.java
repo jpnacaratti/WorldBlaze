@@ -19,9 +19,7 @@ public class InventoryClickGraphGamblers implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if (!MenuHolder.is(e.getInventory(), MenuType.GRAPH_BETTORS)) return;
-        e.setCancelled(true);
-        if (e.getRawSlot() >= e.getInventory().getSize()) return;
+        if (!MenuHolder.handleClick(e, MenuType.GRAPH_BETTORS)) return;
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

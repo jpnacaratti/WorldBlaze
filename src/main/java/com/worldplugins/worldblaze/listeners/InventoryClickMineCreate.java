@@ -25,9 +25,7 @@ public class InventoryClickMineCreate implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!MenuHolder.is(e.getInventory(), MenuType.MINE_CREATE)) return;
-        e.setCancelled(true);
-        if (e.getRawSlot() >= e.getInventory().getSize()) return;
+        if (!MenuHolder.handleClick(e, MenuType.MINE_CREATE)) return;
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

@@ -22,9 +22,7 @@ public class InventoryClickAnimalGameAnimals implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!MenuHolder.is(e.getInventory(), MenuType.ANIMAL_GAME_ANIMALS)) return;
-        e.setCancelled(true);
-        if (e.getRawSlot() >= e.getInventory().getSize()) return;
+        if (!MenuHolder.handleClick(e, MenuType.ANIMAL_GAME_ANIMALS)) return;
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

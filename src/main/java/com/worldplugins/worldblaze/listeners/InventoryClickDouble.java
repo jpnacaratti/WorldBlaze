@@ -23,9 +23,7 @@ public class InventoryClickDouble implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if (!MenuHolder.is(e.getInventory(), MenuType.DOUBLE)) return;
-        e.setCancelled(true);
-        if (e.getRawSlot() >= e.getInventory().getSize()) return;
+        if (!MenuHolder.handleClick(e, MenuType.DOUBLE)) return;
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

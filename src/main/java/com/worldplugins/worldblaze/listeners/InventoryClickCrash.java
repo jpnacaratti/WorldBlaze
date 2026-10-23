@@ -23,9 +23,7 @@ public class InventoryClickCrash implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if (!MenuHolder.is(e.getInventory(), MenuType.CRASH)) return;
-        e.setCancelled(true);
-        if (e.getRawSlot() >= e.getInventory().getSize()) return;
+        if (!MenuHolder.handleClick(e, MenuType.CRASH)) return;
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 
