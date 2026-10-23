@@ -33,7 +33,7 @@ public class GraphGui {
         inv.setItem(getGraphManager().getTimeSlot(), getGraphManager().getTimeItem(blazeUser));
         inv.setItem(getGraphManager().getBetUpSlot(), getGraphManager().getBetUpItem(blazeUser));
 
-        inv.setItem(getGraphManager().getHistoricSlot(), getGraphManager().getHistoricItem());
+        inv.setItem(getGraphManager().getHistorySlot(), getGraphManager().getHistoryItem());
         inv.setItem(getGraphManager().getGamblersSlot(), getGraphManager().getGamblersItem());
 
         for(String s : getConfig.getConfigurationSection("items").getKeys(false)){

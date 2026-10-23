@@ -35,14 +35,14 @@ public class GraphManager {
     // VARIABLES THAT WILL CHANGE AS THE GRAPH PROGRESSES
     private int pointsNum;
     private double lastPointValue, positiveBetAverage, negativeBetAverage, totalBetCash, totalBetMoney;
-    private final List<Boolean> historic;
+    private final List<Boolean> history;
 
     // MENU ITEMS SETTINGS
-    private final ItemBuilder positiveItem, negativeItem, betDecreaseItem, betUpItem, historicItem, gamblersItem, timeItem, moneyItem, cashItem;
-    private final List<String> positiveLore, negativeLore, betDecreaseLore, betUpLore, historicLore, gamblersLore, timeLore, moneyLore, cashLore;
-    private final String positiveName, negativeName, betDecreaseName, betUpName, historicName, historicPositiveDisplay, historicNegativeDisplay, gamblersName, timeName, moneyName, cashName;
+    private final ItemBuilder positiveItem, negativeItem, betDecreaseItem, betUpItem, historyItem, gamblersItem, timeItem, moneyItem, cashItem;
+    private final List<String> positiveLore, negativeLore, betDecreaseLore, betUpLore, historyLore, gamblersLore, timeLore, moneyLore, cashLore;
+    private final String positiveName, negativeName, betDecreaseName, betUpName, historyName, historyPositiveDisplay, historyNegativeDisplay, gamblersName, timeName, moneyName, cashName;
     private final boolean gamblersUsePlayersHead;
-    private final int betDecreaseSlot, betUpSlot, historicSlot, gamblersSlot, timeSlot, moneySlot, cashSlot;
+    private final int betDecreaseSlot, betUpSlot, historySlot, gamblersSlot, timeSlot, moneySlot, cashSlot;
 
     public GraphManager(){
 
@@ -53,7 +53,7 @@ public class GraphManager {
         this.gamblersGuiOpen = new HashSet<>();
         this.graphInventories = new HashMap<>();
         this.graphBets = new ArrayList<>();
-        this.historic = new ArrayList<>();
+        this.history = new ArrayList<>();
         this.graphPoints = new ArrayList<>();
 
         if (getConfig.getBoolean("positive.use-head")) positiveItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("positive.texture")));
@@ -84,15 +84,15 @@ public class GraphManager {
         this.betUpLore = getConfig.getStringList("items.bet-increase.lore");
         this.betUpName = c(getConfig.getString("items.bet-increase.name"));
 
-        if (getConfig.getBoolean("items.history.use-head")) historicItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.history.texture")));
-        else historicItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.history.id")), 1, (byte) getConfig.getInt("items.history.data"));
-        historicItem.setGlow(getConfig.getBoolean("items.history.glow"));
+        if (getConfig.getBoolean("items.history.use-head")) historyItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.history.texture")));
+        else historyItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.history.id")), 1, (byte) getConfig.getInt("items.history.data"));
+        historyItem.setGlow(getConfig.getBoolean("items.history.glow"));
 
-        this.historicLore = getConfig.getStringList("items.history.lore");
-        this.historicName = c(getConfig.getString("items.history.name"));
+        this.historyLore = getConfig.getStringList("items.history.lore");
+        this.historyName = c(getConfig.getString("items.history.name"));
 
-        this.historicPositiveDisplay = c(getConfig.getString("items.history.display-positive"));
-        this.historicNegativeDisplay = c(getConfig.getString("items.history.display-negative"));
+        this.historyPositiveDisplay = c(getConfig.getString("items.history.display-positive"));
+        this.historyNegativeDisplay = c(getConfig.getString("items.history.display-negative"));
 
         if (getConfig.getBoolean("items.bettors.use-head-last-player")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
         else if (getConfig.getBoolean("items.bettors.use-head")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.bettors.texture")));
@@ -130,7 +130,7 @@ public class GraphManager {
         this.timeSlot = getConfig.getInt("items.time.slot");
         this.moneySlot = getConfig.getInt("items.money.slot");
         this.cashSlot = getConfig.getInt("items.cash.slot");
-        this.historicSlot = getConfig.getInt("items.history.slot");
+        this.historySlot = getConfig.getInt("items.history.slot");
         this.gamblersSlot = getConfig.getInt("items.bettors.slot");
 
         lastPointValue = getInstance().getConfig().getDouble("config.graph.initial-value");
@@ -172,8 +172,8 @@ public class GraphManager {
         return betUpSlot;
     }
 
-    public int getHistoricSlot() {
-        return historicSlot;
+    public int getHistorySlot() {
+        return historySlot;
     }
 
     public int getGamblersSlot() {
@@ -413,15 +413,15 @@ public class GraphManager {
         }
     }
 
-    public List<Boolean> getHistoric(){
-        return historic;
+    public List<Boolean> getHistory(){
+        return history;
     }
 
     public String getMenuTitle() {
         return menuTitle;
     }
 
-    public void updateHistoric(){
+    public void updateHistory(){
         List<Boolean> toR = new ArrayList<>();
 
         for (int i = 0; i < 15; i++) {
@@ -432,8 +432,8 @@ public class GraphManager {
             }
         }
 
-        historic.clear();
-        historic.addAll(toR);
+        history.clear();
+        history.addAll(toR);
     }
 
     public ItemStack getBetUpItem(BlazeUser user){
@@ -462,15 +462,15 @@ public class GraphManager {
         return clone.toItemStack();
     }
 
-    public ItemStack getHistoricItem(){
-        ItemBuilder clone = historicItem.clone();
+    public ItemStack getHistoryItem(){
+        ItemBuilder clone = historyItem.clone();
 
-        clone.setName(historicName);
+        clone.setName(historyName);
 
-        for (String s : historicLore) {
+        for (String s : historyLore) {
             if(s.contains("{history}")){
-                for (Boolean b : getGraphManager().getHistoric()) if(b) clone.addLoreLine(c(s.replace("{history}", historicPositiveDisplay)));
-                else clone.addLoreLine(c(s.replace("{history}", historicNegativeDisplay)));
+                for (Boolean b : getGraphManager().getHistory()) if(b) clone.addLoreLine(c(s.replace("{history}", historyPositiveDisplay)));
+                else clone.addLoreLine(c(s.replace("{history}", historyNegativeDisplay)));
             }else clone.addLoreLine(c(s));
         }
 

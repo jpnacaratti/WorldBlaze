@@ -37,7 +37,7 @@ public class DoubleGui {
         inv.setItem(getDoubleManager().getBetWhiteSlot(), getDoubleManager().getBetWhiteItem(blazeUser));
         inv.setItem(getDoubleManager().getBetBlackSlot(), getDoubleManager().getBetBlackItem(blazeUser));
 
-        inv.setItem(getDoubleManager().getHistoricSlot(), getDoubleManager().getHistoricItem());
+        inv.setItem(getDoubleManager().getHistorySlot(), getDoubleManager().getHistoryItem());
         inv.setItem(getDoubleManager().getGamblersSlot(), getDoubleManager().getGamblersItem());
 
         for(String s : getConfig.getConfigurationSection("items").getKeys(false)){

@@ -326,7 +326,7 @@ public class MainTask implements Runnable {
                 getDoubleManager().setWhiteAverage();
                 getDoubleManager().setBlackAverage();
 
-                getDoubleManager().addHistoric(getDoubleManager().getColorCache().get(13));
+                getDoubleManager().addHistory(getDoubleManager().getColorCache().get(13));
 
                 getDoubleManager().updateInventories(true, true, true);
 
@@ -388,7 +388,7 @@ public class MainTask implements Runnable {
 
                 getCrashManager().updateVariables();
 
-                getCrashManager().addHistoric(getCrashManager().getCrashValue());
+                getCrashManager().addHistory(getCrashManager().getCrashValue());
                 getCrashManager().getCrashBets().clear();
 
                 getCrashManager().setTimeToSubtract(0);
@@ -411,7 +411,7 @@ public class MainTask implements Runnable {
                     if(target != null) {
                         BlazeUser user = getManager().getBlazeUser(entry.getKey());
 
-                        entry.getValue().setItem(getCrashManager().getHistoricSlot(), getCrashManager().getHistoricItem());
+                        entry.getValue().setItem(getCrashManager().getHistorySlot(), getCrashManager().getHistoryItem());
                         entry.getValue().setItem(getCrashManager().getGamblersSlot(), getCrashManager().getGamblersItem());
                         entry.getValue().setItem(getCrashManager().getCrashStartingSlot(), getCrashManager().getCrashStartingItem(user));
 
@@ -639,7 +639,7 @@ public class MainTask implements Runnable {
                 }
 
                 // SETTING THE HISTORY SLOT, WHICH IS THE ONE THAT CHANGES EVERY SECOND
-                inv.setItem(getGraphManager().getHistoricSlot(), getGraphManager().getHistoricItem());
+                inv.setItem(getGraphManager().getHistorySlot(), getGraphManager().getHistoryItem());
                 if (change) {
                     BlazeUser user = getManager().getBlazeUser(entry.getKey());
                     entry.getValue().setItem(getGraphManager().getGamblersSlot(), getGraphManager().getGamblersItem());
@@ -668,7 +668,7 @@ public class MainTask implements Runnable {
                 Collections.reverse(getGraphManager().getGraphPoints());
             }
 
-            getGraphManager().updateHistoric();
+            getGraphManager().updateHistory();
 
             getGraphManager().setPointsNum(getGraphManager().getPointsNum() + 1);
         }

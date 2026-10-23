@@ -29,7 +29,7 @@ public class DoubleManager {
     private final Map<ItemStack, List<Integer>> finalItems;
     private final String menuTitle;
     private final double riggingMoney, riggingCash, riggingChance, startingTime, stoppedTime, animationTotalTime, breakChangeTime, startRedChance, startWhiteChance, startBlackChance, moneyAlert, cashAlert;
-    private final int maxHistoricValues, startBreak, finalBreak;
+    private final int maxHistoryValues, startBreak, finalBreak;
     private final boolean rigging;
     private final Random rand;
 
@@ -39,15 +39,15 @@ public class DoubleManager {
     private int numOfItem;
     private DoubleColor roundChosenColor;
     private final List<DoubleAnimationSpot> setAnimationSpots;
-    private List<DoubleColor> historic;
+    private List<DoubleColor> history;
     private Map<Integer, DoubleColor> colorCache;
 
     // VARIABLES THAT WILL NOT CHANGE UNDER ANY CIRCUMSTANCES
-    private final ItemBuilder redItem, whiteItem, blackItem, moneyItem, cashItem, betRedItem, betWhiteItem, betBlackItem, historicItem, gamblersItem;
-    private final List<String> moneyLore, cashLore, betRedLore, betWhiteLore, betBlackLore, historicLore, gamblersLore;
-    private final String redStatusBet, redStatusNoBet, redRoundStatusStarting, redRoundStatusStarted, whiteStatusBet, whiteStatusNoBet, whiteRoundStatusStarting, whiteRoundStatusStarted, blackStatusBet, blackStatusNoBet, blackRoundStatusStarting, blackRoundStatusStarted, moneyName, cashName, betRedName, betWhiteName, betBlackName, historicName, gamblersName, redDisplay, whiteDisplay, blackDisplay;
+    private final ItemBuilder redItem, whiteItem, blackItem, moneyItem, cashItem, betRedItem, betWhiteItem, betBlackItem, historyItem, gamblersItem;
+    private final List<String> moneyLore, cashLore, betRedLore, betWhiteLore, betBlackLore, historyLore, gamblersLore;
+    private final String redStatusBet, redStatusNoBet, redRoundStatusStarting, redRoundStatusStarted, whiteStatusBet, whiteStatusNoBet, whiteRoundStatusStarting, whiteRoundStatusStarted, blackStatusBet, blackStatusNoBet, blackRoundStatusStarting, blackRoundStatusStarted, moneyName, cashName, betRedName, betWhiteName, betBlackName, historyName, gamblersName, redDisplay, whiteDisplay, blackDisplay;
     private final boolean gamblersUsePlayersHead;
-    private final int moneySlot, cashSlot, betRedSlot, betWhiteSlot, betBlackSlot, historicSlot, gamblersSlot;
+    private final int moneySlot, cashSlot, betRedSlot, betWhiteSlot, betBlackSlot, historySlot, gamblersSlot;
 
     public DoubleManager() {
 
@@ -63,9 +63,9 @@ public class DoubleManager {
 
         this.doubleAnimationSpots = new ArrayList<>();
         this.doubleBets = new ArrayList<>();
-        this.historic = new ArrayList<>();
+        this.history = new ArrayList<>();
 
-        this.maxHistoricValues = getInstance().getConfig().getInt("config.double.max-history-values");
+        this.maxHistoryValues = getInstance().getConfig().getInt("config.double.max-history-values");
 
         this.rand = new Random();
 
@@ -193,14 +193,14 @@ public class DoubleManager {
         this.blackRoundStatusStarted = c(getConfig.getString("items.bet-black.round-status-started"));
         this.blackRoundStatusStarting = c(getConfig.getString("items.bet-black.round-status-not-started"));
 
-        if (getConfig.getBoolean("items.history.use-head")) historicItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.history.texture")));
-        else historicItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.history.id")), 1, (byte) getConfig.getInt("items.history.data"));
-        historicItem.setGlow(getConfig.getBoolean("items.history.glow"));
+        if (getConfig.getBoolean("items.history.use-head")) historyItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.history.texture")));
+        else historyItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.history.id")), 1, (byte) getConfig.getInt("items.history.data"));
+        historyItem.setGlow(getConfig.getBoolean("items.history.glow"));
 
-        this.historicLore = getConfig.getStringList("items.history.lore");
-        this.historicName = c(getConfig.getString("items.history.name"));
+        this.historyLore = getConfig.getStringList("items.history.lore");
+        this.historyName = c(getConfig.getString("items.history.name"));
 
-        this.historicSlot = getConfig.getInt("items.history.slot");
+        this.historySlot = getConfig.getInt("items.history.slot");
 
         this.redDisplay = c(getConfig.getString("items.history.display-red"));
         this.whiteDisplay = c(getConfig.getString("items.history.display-white"));
@@ -296,15 +296,15 @@ public class DoubleManager {
         return clone.toItemStack();
     }
 
-    public ItemStack getHistoricItem() {
-        ItemBuilder clone = historicItem.clone();
+    public ItemStack getHistoryItem() {
+        ItemBuilder clone = historyItem.clone();
 
-        clone.setName(historicName);
+        clone.setName(historyName);
 
-        List<DoubleColor> copy = new ArrayList<>(historic);
+        List<DoubleColor> copy = new ArrayList<>(history);
         Collections.reverse(copy);
 
-        for (String s : historicLore) {
+        for (String s : historyLore) {
             if(s.contains("{history}")){
                 for (DoubleColor doubleColor : copy){
                     if (doubleColor == DoubleColor.RED) clone.addLoreLine(c(s.replace("{history}", redDisplay)));
@@ -419,8 +419,8 @@ public class DoubleManager {
         return betBlackSlot;
     }
 
-    public int getHistoricSlot() {
-        return historicSlot;
+    public int getHistorySlot() {
+        return historySlot;
     }
 
     public int getGamblersSlot() {
@@ -509,15 +509,15 @@ public class DoubleManager {
         return menuTitle;
     }
 
-    public void addHistoric(DoubleColor color) {
+    public void addHistory(DoubleColor color) {
 
-        historic.add(color);
+        history.add(color);
 
         List<DoubleColor> cache = new ArrayList<>();
 
-        for (int i = 0; i < maxHistoricValues; i++) {
+        for (int i = 0; i < maxHistoryValues; i++) {
             try{
-                cache.add(historic.get((historic.size() - 1) - i));
+                cache.add(history.get((history.size() - 1) - i));
             }catch (IndexOutOfBoundsException e) {
                 break;
             }
@@ -525,7 +525,7 @@ public class DoubleManager {
 
         Collections.reverse(cache);
 
-        this.historic = cache;
+        this.history = cache;
 
     }
 
@@ -679,7 +679,7 @@ public class DoubleManager {
         }
     }
 
-    public void updateInventories(boolean threeItems, boolean historic, boolean gamblers){
+    public void updateInventories(boolean threeItems, boolean history, boolean gamblers){
         for (Map.Entry<String, Inventory> entry : doubleInventories.entrySet()) {
             Player target = Bukkit.getPlayer(entry.getKey());
 
@@ -692,7 +692,7 @@ public class DoubleManager {
                     entry.getValue().setItem(getBetBlackSlot(), getBetBlackItem(user));
                 }
 
-                if(historic) entry.getValue().setItem(getHistoricSlot(), getHistoricItem());
+                if(history) entry.getValue().setItem(getHistorySlot(), getHistoryItem());
                 if(gamblers) entry.getValue().setItem(getGamblersSlot(), getGamblersItem());
 
                 target.updateInventory();

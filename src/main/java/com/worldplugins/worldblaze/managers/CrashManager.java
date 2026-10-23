@@ -24,7 +24,7 @@ public class CrashManager {
     private final Map<String, Inventory> crashInventories;
     private final String menuTitle;
     private final double secondsBeforeStart, timeToChangeCrashedState, timeStartCrash, sumStart, sumFinal;
-    private final int maxHistoricValues;
+    private final int maxHistoryValues;
     private final Random rand;
 
     // VARIABLES THAT WILL CHANGE AS THE CRASH PROGRESSES
@@ -32,15 +32,15 @@ public class CrashManager {
     private double totalBetCash, totalBetMoney, crashValue, timeToSubtract, duration, crashZeroChance, whenWillCrash;
     private int gamesInHigh, gamesInLow;
     private String lastPlayer;
-    private List<Double> historic;
+    private List<Double> history;
 
     // MENU ITEMS SETTINGS
-    private final ItemBuilder moneyItem, cashItem, crashStartingItem, crashStartedItem, crashCrashedItem, historicItem, gamblersItem;
-    private final List<String> moneyLore, cashLore, crashStartingLore, crashStartedLore, crashCrashedLore, historicLore, gamblersLore;
-    private final String moneyName, cashName, crashStartingName, crashStartedName, crashCrashedName, historicName, gamblersName;
+    private final ItemBuilder moneyItem, cashItem, crashStartingItem, crashStartedItem, crashCrashedItem, historyItem, gamblersItem;
+    private final List<String> moneyLore, cashLore, crashStartingLore, crashStartedLore, crashCrashedLore, historyLore, gamblersLore;
+    private final String moneyName, cashName, crashStartingName, crashStartedName, crashCrashedName, historyName, gamblersName;
     private final String statusParticipatingStarting, statusParticipateStarting, statusNoParticipatedStarted, statusParticipatingStarted, statusParticipateStarted, statusNoParticipatedCrashed, statusWonCrashed, statusLoseCrashed;
     private final boolean gamblersUsePlayersHead;
-    private final int moneySlot, cashSlot, crashStartingSlot, crashStartedSlot, crashCrashedSlot, historicSlot, gamblersSlot;
+    private final int moneySlot, cashSlot, crashStartingSlot, crashStartedSlot, crashCrashedSlot, historySlot, gamblersSlot;
     private final Map<Integer, ItemStack> startingGlass, startedGlass, crashedGlass;
 
     private final List<CrashChance> crashChances;
@@ -66,7 +66,7 @@ public class CrashManager {
         this.crashBets = new LinkedHashMap<>();
         this.crashInventories = new HashMap<>();
 
-        this.historic = new ArrayList<>();
+        this.history = new ArrayList<>();
 
         this.startingGlass = new HashMap<>();
         this.startedGlass = new HashMap<>();
@@ -81,7 +81,7 @@ public class CrashManager {
         this.sumStart = getInstance().getConfig().getDouble("config.crash.crash-tick-sum-initial");
         this.sumFinal = getInstance().getConfig().getDouble("config.crash.crash-tick-sum-final");
 
-        this.maxHistoricValues = getInstance().getConfig().getInt("config.crash.max-history-values");
+        this.maxHistoryValues = getInstance().getConfig().getInt("config.crash.max-history-values");
 
         this.crashValue = 1.0;
 
@@ -153,14 +153,14 @@ public class CrashManager {
         this.statusWonCrashed = c(getConfig.getString("items.crash-crashed.status-won"));
         this.statusLoseCrashed = c(getConfig.getString("items.crash-crashed.status-lost"));
 
-        if (getConfig.getBoolean("items.history.use-head")) historicItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.history.texture")));
-        else historicItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.history.id")), 1, (byte) getConfig.getInt("items.history.data"));
-        historicItem.setGlow(getConfig.getBoolean("items.history.glow"));
+        if (getConfig.getBoolean("items.history.use-head")) historyItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.history.texture")));
+        else historyItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.history.id")), 1, (byte) getConfig.getInt("items.history.data"));
+        historyItem.setGlow(getConfig.getBoolean("items.history.glow"));
 
-        this.historicLore = getConfig.getStringList("items.history.lore");
-        this.historicName = c(getConfig.getString("items.history.name"));
+        this.historyLore = getConfig.getStringList("items.history.lore");
+        this.historyName = c(getConfig.getString("items.history.name"));
 
-        this.historicSlot = getConfig.getInt("items.history.slot");
+        this.historySlot = getConfig.getInt("items.history.slot");
 
         if (getConfig.getBoolean("items.bettors.use-head-last-player")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
         else if (getConfig.getBoolean("items.bettors.use-head")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.bettors.texture")));
@@ -349,15 +349,15 @@ public class CrashManager {
         return clone.toItemStack();
     }
 
-    public ItemStack getHistoricItem() {
-        ItemBuilder clone = historicItem.clone();
+    public ItemStack getHistoryItem() {
+        ItemBuilder clone = historyItem.clone();
 
-        clone.setName(historicName);
+        clone.setName(historyName);
 
-        List<Double> copy = new ArrayList<>(historic);
+        List<Double> copy = new ArrayList<>(history);
         Collections.reverse(copy);
 
-        for (String s : historicLore) {
+        for (String s : historyLore) {
             if(s.contains("{history}")){
                 for (Double d : copy) clone.addLoreLine(c(s.replace("{history}", String.format("%.2f",d))));
             }else clone.addLoreLine(c(s));
@@ -438,8 +438,8 @@ public class CrashManager {
         return crashCrashedSlot;
     }
 
-    public int getHistoricSlot() {
-        return historicSlot;
+    public int getHistorySlot() {
+        return historySlot;
     }
 
     public int getGamblersSlot() {
@@ -458,8 +458,8 @@ public class CrashManager {
         return crashedGlass;
     }
 
-    public List<Double> getHistoric() {
-        return historic;
+    public List<Double> getHistory() {
+        return history;
     }
 
     public double getCrashValue() {
@@ -601,14 +601,14 @@ public class CrashManager {
         return sumStart;
     }
 
-    public void addHistoric(double value){
-        historic.add(value);
+    public void addHistory(double value){
+        history.add(value);
 
         List<Double> cache = new ArrayList<>();
 
-        for (int i = 0; i < maxHistoricValues; i++) {
+        for (int i = 0; i < maxHistoryValues; i++) {
             try{
-                cache.add(historic.get((historic.size() - 1) - i));
+                cache.add(history.get((history.size() - 1) - i));
             }catch (IndexOutOfBoundsException e) {
                 break;
             }
@@ -616,7 +616,7 @@ public class CrashManager {
 
         Collections.reverse(cache);
 
-        this.historic = cache;
+        this.history = cache;
     }
 
     public double getMoneyWon(String player){

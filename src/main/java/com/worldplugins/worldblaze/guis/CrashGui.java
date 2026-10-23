@@ -48,7 +48,7 @@ public class CrashGui {
             }
         }
 
-        inv.setItem(getCrashManager().getHistoricSlot(), getCrashManager().getHistoricItem());
+        inv.setItem(getCrashManager().getHistorySlot(), getCrashManager().getHistoryItem());
         inv.setItem(getCrashManager().getGamblersSlot(), getCrashManager().getGamblersItem());
 
         for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
