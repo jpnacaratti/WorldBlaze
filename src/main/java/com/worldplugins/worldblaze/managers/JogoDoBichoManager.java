@@ -1,6 +1,6 @@
 package com.worldplugins.worldblaze.managers;
 
-import com.worldplugins.worldblaze.enums.Bicho;
+import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.objects.JogoDoBichoBet;
 import com.worldplugins.worldblaze.utils.ItemBuilder;
 import com.worldplugins.worldblaze.utils.SkullCreator;
@@ -44,8 +44,8 @@ public class JogoDoBichoManager {
         else return SkullCreator.itemFromName(lastPlayer);
     }
 
-    public ItemStack getHeadLastPlayer(Bicho bicho){
-        String lastPlayer = getAnimalLastPlayer(bicho);
+    public ItemStack getHeadLastPlayer(Animal animal){
+        String lastPlayer = getAnimalLastPlayer(animal);
         if(Objects.equals(lastPlayer, "-/-")) return SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654");
         else return SkullCreator.itemFromName(lastPlayer);
     }
@@ -76,37 +76,37 @@ public class JogoDoBichoManager {
         return sum;
     }
 
-    public String getAnimalLastPlayer(Bicho bicho){
+    public String getAnimalLastPlayer(Animal animal){
 
-        if(bicho == null) return "-/-";
+        if(animal == null) return "-/-";
 
         if(jogoDoBichoBets.isEmpty()) return "-/-";
 
-        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == bicho).collect(Collectors.toList());
+        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
         if(collect.isEmpty()) return "-/-";
 
         return collect.get(collect.size() - 1).getOwner();
     }
 
-    public int getNumOfBets(Bicho bicho){
+    public int getNumOfBets(Animal animal){
 
-        if(bicho == null) return 0;
+        if(animal == null) return 0;
 
         if(jogoDoBichoBets.isEmpty()) return 0;
 
-        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == bicho).collect(Collectors.toList());
+        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
         return collect.size();
     }
 
-    public double getAnimalTotalBetMoney(Bicho bicho){
+    public double getAnimalTotalBetMoney(Animal animal){
 
-        if(bicho == null) return 0;
+        if(animal == null) return 0;
 
         if(jogoDoBichoBets.isEmpty()) return 0;
 
-        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == bicho).collect(Collectors.toList());
+        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
         if(collect.isEmpty()) return 0;
 
@@ -119,13 +119,13 @@ public class JogoDoBichoManager {
         return d;
     }
 
-    public double getAnimalTotalBetCash(Bicho bicho){
+    public double getAnimalTotalBetCash(Animal animal){
 
-        if(bicho == null) return 0;
+        if(animal == null) return 0;
 
         if(jogoDoBichoBets.isEmpty()) return 0;
 
-        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == bicho).collect(Collectors.toList());
+        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
         if(collect.isEmpty()) return 0;
 
@@ -138,14 +138,14 @@ public class JogoDoBichoManager {
         return d;
     }
 
-    public boolean isPlayerBet(String name, Bicho bicho){
+    public boolean isPlayerBet(String name, Animal animal){
         if(jogoDoBichoBets.isEmpty()) return false;
 
-        return jogoDoBichoBets.stream().anyMatch(w -> w.getOwner().equalsIgnoreCase(name) && w.getAnimal() == bicho);
+        return jogoDoBichoBets.stream().anyMatch(w -> w.getOwner().equalsIgnoreCase(name) && w.getAnimal() == animal);
     }
 
-    public Set<Bicho> getBlackListRigging(){
-        Set<Bicho> blackList = new HashSet<>();
+    public Set<Animal> getBlackListRigging(){
+        Set<Animal> blackList = new HashSet<>();
 
         if(!getInstance().getConfig().getBoolean("config.jogo-do-bicho.rigging.enabled")) return blackList;
 
@@ -163,12 +163,12 @@ public class JogoDoBichoManager {
         return blackList;
     }
 
-    public Bicho getRandomBicho(){
-        List<Bicho> cache = new ArrayList<>(Arrays.asList(Bicho.values()));
+    public Animal getRandomAnimal(){
+        List<Animal> cache = new ArrayList<>(Arrays.asList(Animal.values()));
 
         cache.removeAll(getBlackListRigging());
 
-        if(cache.isEmpty()) return Bicho.DEER;
+        if(cache.isEmpty()) return Animal.DEER;
 
         return cache.get(rand.nextInt(cache.size()));
     }
@@ -199,7 +199,7 @@ public class JogoDoBichoManager {
             for (String user : getDataYml().getConfig().getConfigurationSection("bichos." + s).getKeys(false)) {
 
                 JogoDoBichoBet bet = new JogoDoBichoBet(s,
-                        getDataYml().getConfig().getString("bichos."+s+"."+user+".id"), Bicho.valueOf(user),
+                        getDataYml().getConfig().getString("bichos."+s+"."+user+".id"), Animal.valueOf(user),
                         getDataYml().getConfig().getDouble("bichos."+s+"."+user+".Cash"),
                         getDataYml().getConfig().getDouble("bichos."+s+"."+user+".Money"));
 
@@ -209,13 +209,13 @@ public class JogoDoBichoManager {
 
     }
 
-    public ItemStack getAnimalItem(Bicho bicho){
+    public ItemStack getAnimalItem(Animal animal){
 
         FileConfiguration getConfig = getBichosGuiYml().getConfig();
 
         ItemBuilder item;
-        if (getConfig.getBoolean("items." + bicho.name().toLowerCase() + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + bicho.name().toLowerCase() + ".texture")));
-        else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + bicho.name().toLowerCase() + ".id")), 1, (byte) getConfig.getInt("items." + bicho.name().toLowerCase() + ".data"));
+        if (getConfig.getBoolean("items." + animal.name().toLowerCase() + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + animal.name().toLowerCase() + ".texture")));
+        else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + animal.name().toLowerCase() + ".id")), 1, (byte) getConfig.getInt("items." + animal.name().toLowerCase() + ".data"));
 
         return item.toItemStack();
     }

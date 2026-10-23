@@ -1,6 +1,6 @@
 package com.worldplugins.worldblaze.guis;
 
-import com.worldplugins.worldblaze.enums.Bicho;
+import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.utils.ItemBuilder;
 import com.worldplugins.worldblaze.utils.NBTTag;
 import com.worldplugins.worldblaze.utils.SkullCreator;
@@ -35,12 +35,12 @@ public class JogoDoBichoBichosGui {
             String totalCash = "0";
             try{
 
-                Bicho bicho = Bicho.valueOf(s.toUpperCase());
+                Animal animal = Animal.valueOf(s.toUpperCase());
 
-                bets = getJogoDoBichoManager().getNumOfBets(bicho) + "";
-                lastPlayer = getJogoDoBichoManager().getAnimalLastPlayer(bicho);
-                totalMoney = letterFormatter(getJogoDoBichoManager().getAnimalTotalBetMoney(bicho));
-                totalCash = letterFormatter(getJogoDoBichoManager().getAnimalTotalBetCash(bicho));
+                bets = getJogoDoBichoManager().getNumOfBets(animal) + "";
+                lastPlayer = getJogoDoBichoManager().getAnimalLastPlayer(animal);
+                totalMoney = letterFormatter(getJogoDoBichoManager().getAnimalTotalBetMoney(animal));
+                totalCash = letterFormatter(getJogoDoBichoManager().getAnimalTotalBetCash(animal));
 
             }catch (IllegalArgumentException ignored){}
 
@@ -55,7 +55,7 @@ public class JogoDoBichoBichosGui {
 
             int slot = getConfig.getInt("items." + s + ".slot");
 
-            if(Bicho.isAnimal(s.toUpperCase())) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_bicho", s.toUpperCase());
+            if(Animal.isAnimal(s.toUpperCase())) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_bicho", s.toUpperCase());
 
             inv.setItem(slot, item.toItemStack());
         }

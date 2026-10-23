@@ -1,6 +1,6 @@
 package com.worldplugins.worldblaze.listeners;
 
-import com.worldplugins.worldblaze.enums.Bicho;
+import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.guis.*;
 import com.worldplugins.worldblaze.objects.BlazeUser;
 import org.bukkit.Bukkit;
@@ -33,8 +33,8 @@ public class AsyncPlayerChat implements Listener {
     public static Set<String> mineMoneyList = new HashSet<>();
     public static Set<String> mineCashList = new HashSet<>();
 
-    public static Map<String, Bicho> jogoDoBichoMoneyList = new HashMap<>();
-    public static Map<String, Bicho> jogoDoBichoCashList = new HashMap<>();
+    public static Map<String, Animal> jogoDoBichoMoneyList = new HashMap<>();
+    public static Map<String, Animal> jogoDoBichoCashList = new HashMap<>();
 
     public static Set<String> coinFlipMoneyList = new HashSet<>();
     public static Set<String> coinFlipCashList = new HashSet<>();

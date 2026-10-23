@@ -1,6 +1,6 @@
 package com.worldplugins.worldblaze.commands;
 
-import com.worldplugins.worldblaze.enums.Bicho;
+import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.guis.JogoDoBichoMainGui;
 import com.worldplugins.worldblaze.objects.JogoDoBichoBet;
 import org.bukkit.Bukkit;
@@ -51,15 +51,15 @@ public class JogoDoBichoCMD implements CommandExecutor {
                     return true;
                 }
 
-                Bicho randomBicho = getJogoDoBichoManager().getRandomBicho();
+                Animal randomAnimal = getJogoDoBichoManager().getRandomAnimal();
 
                 getInstance().getConfig().getStringList("messages.animal-drawn-broadcast").forEach(w -> Bukkit.broadcastMessage(c(w.
-                        replace("{animal}", randomBicho.getNameStr()))));
+                        replace("{animal}", randomAnimal.getNameStr()))));
 
                 for (JogoDoBichoBet bet : getJogoDoBichoManager().getJogoDoBichoBets()) {
                     Player player = Bukkit.getPlayer(bet.getOwner());
 
-                    if(bet.getAnimal() == randomBicho){
+                    if(bet.getAnimal() == randomAnimal){
 
                         double moneyWon = bet.getMoneyValue() * 2;
                         double cashWon = bet.getCashValue() * 2;
@@ -97,9 +97,9 @@ public class JogoDoBichoCMD implements CommandExecutor {
                     return true;
                 }
 
-                Bicho chose;
+                Animal chose;
                 try {
-                    chose = Bicho.valueOf(args[1]);
+                    chose = Animal.valueOf(args[1]);
                 }catch (IllegalArgumentException e){
                     sender.sendMessage(getMessages().INVALID_ANIMAL);
                     return true;

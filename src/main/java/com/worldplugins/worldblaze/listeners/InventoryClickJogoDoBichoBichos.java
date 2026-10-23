@@ -1,6 +1,6 @@
 package com.worldplugins.worldblaze.listeners;
 
-import com.worldplugins.worldblaze.enums.Bicho;
+import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.guis.JogoDoBichoBetGui;
 import com.worldplugins.worldblaze.guis.JogoDoBichoBichosGui;
 import com.worldplugins.worldblaze.guis.JogoDoBichoMainGui;
@@ -38,16 +38,16 @@ public class InventoryClickJogoDoBichoBichos implements Listener {
 
         if(nbt == null) return;
 
-        Bicho bicho;
+        Animal animal;
         try{
 
-            bicho = Bicho.valueOf(nbt);
+            animal = Animal.valueOf(nbt);
 
         }catch (IllegalArgumentException ex){
             p.sendMessage("§cUnable to bet on this animal, contact Miinero! ("+nbt+")");
             return;
         }
 
-        JogoDoBichoBetGui.create(p, bicho);
+        JogoDoBichoBetGui.create(p, animal);
     }
 }

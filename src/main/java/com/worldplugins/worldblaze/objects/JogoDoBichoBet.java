@@ -1,15 +1,15 @@
 package com.worldplugins.worldblaze.objects;
 
-import com.worldplugins.worldblaze.enums.Bicho;
+import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.enums.DoubleColor;
 
 public class JogoDoBichoBet {
 
     private final String owner, betId;
-    private final Bicho animal;
+    private final Animal animal;
     private final double cashValue, moneyValue, mid;
 
-    public JogoDoBichoBet(String owner, String betId, Bicho animal, double cashValue, double moneyValue) {
+    public JogoDoBichoBet(String owner, String betId, Animal animal, double cashValue, double moneyValue) {
         this.owner = owner;
         this.betId = betId;
         this.animal = animal;
@@ -26,7 +26,7 @@ public class JogoDoBichoBet {
         return betId;
     }
 
-    public Bicho getAnimal() {
+    public Animal getAnimal() {
         return animal;
     }
 

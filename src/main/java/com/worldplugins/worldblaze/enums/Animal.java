@@ -3,7 +3,7 @@ package com.worldplugins.worldblaze.enums;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum Bicho {
+public enum Animal {
 
     OSTRICH("Ostrich"),
     EAGLE("Eagle"),
@@ -33,7 +33,7 @@ public enum Bicho {
 
     private final String nameStr;
 
-    Bicho(String name) {
+    Animal(String name) {
         this.nameStr = name;
     }
 

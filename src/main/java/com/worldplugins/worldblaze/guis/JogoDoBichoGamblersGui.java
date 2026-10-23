@@ -1,6 +1,6 @@
 package com.worldplugins.worldblaze.guis;
 
-import com.worldplugins.worldblaze.enums.Bicho;
+import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.objects.JogoDoBichoBet;
 import com.worldplugins.worldblaze.objects.MineBet;
 import com.worldplugins.worldblaze.utils.ItemBuilder;
@@ -24,18 +24,18 @@ public class JogoDoBichoGamblersGui {
 
     public static Map<Player, ArrayList<Inventory>> invs = new HashMap<>();
 
-    public static void create(Player p, Bicho bicho){
+    public static void create(Player p, Animal animal){
         FileConfiguration getConfig = getJogoDoBichoGamblersGuiYml().getConfig();
 
         Inventory inv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("title")));
 
         List<JogoDoBichoBet> sorted = new ArrayList<>(getJogoDoBichoManager().getJogoDoBichoBets());
 
-        if(bicho == null){
+        if(animal == null){
             sorted = sorted.stream().sorted(Comparator.comparingDouble(JogoDoBichoBet::getMid).reversed()).collect(Collectors.toList());
         }else {
 
-            sorted = sorted.stream().filter(w -> w.getAnimal() == bicho).collect(Collectors.toList());
+            sorted = sorted.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
             sorted = sorted.stream().sorted(Comparator.comparingDouble(JogoDoBichoBet::getMid).reversed()).collect(Collectors.toList());
         }
@@ -153,7 +153,7 @@ public class JogoDoBichoGamblersGui {
             item.setLore(lore).setGlow(getConfig.getBoolean("items." + s + ".glow"));
             int slot = getConfig.getInt("items." + s + ".slot");
 
-            if(s.equalsIgnoreCase("back")) if(bicho != null) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_bichoVoltar", bicho.name());
+            if(s.equalsIgnoreCase("back")) if(animal != null) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_bichoVoltar", animal.name());
 
 
             for (int i = 0; i < invs.get(p).size(); i++) {

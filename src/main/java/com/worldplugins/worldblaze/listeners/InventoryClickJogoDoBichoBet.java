@@ -1,6 +1,6 @@
 package com.worldplugins.worldblaze.listeners;
 
-import com.worldplugins.worldblaze.enums.Bicho;
+import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.guis.*;
 import com.worldplugins.worldblaze.objects.BlazeUser;
 import com.worldplugins.worldblaze.objects.JogoDoBichoBet;
@@ -34,9 +34,9 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
         if(nbtAnimal == null) return;
 
-        Bicho bicho;
+        Animal animal;
         try {
-            bicho = Bicho.valueOf(nbtAnimal.toUpperCase());
+            animal = Animal.valueOf(nbtAnimal.toUpperCase());
         }catch (IllegalArgumentException ex){
             p.sendMessage("§cError, contact Miinero ("+nbtAnimal+")");
             return;
@@ -47,7 +47,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
             getInstance().getConfig().getStringList("messages.jogo-do-bicho-typing-money").forEach(w -> p.sendMessage(c(w)));
 
-            AsyncPlayerChat.jogoDoBichoMoneyList.put(p.getName(), bicho);
+            AsyncPlayerChat.jogoDoBichoMoneyList.put(p.getName(), animal);
         }
 
         if(e.getSlot() == getConfig.getInt("items.cash.slot")){
@@ -55,7 +55,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
             getInstance().getConfig().getStringList("messages.jogo-do-bicho-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
-            AsyncPlayerChat.jogoDoBichoCashList.put(p.getName(), bicho);
+            AsyncPlayerChat.jogoDoBichoCashList.put(p.getName(), animal);
         }
 
         if(e.getSlot() == getConfig.getInt("items.bettors.slot")){
@@ -64,7 +64,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
             getJogoDoBichoManager().getSeeingMap().put(p.getName(), e.getClickedInventory());
 
-            JogoDoBichoGamblersGui.create(p, bicho);
+            JogoDoBichoGamblersGui.create(p, animal);
 
             InventoryClose.bypassClose.remove(p.getName());
         }
@@ -83,7 +83,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
                 return;
             }
 
-            if(getJogoDoBichoManager().isPlayerBet(p.getName(), bicho)){
+            if(getJogoDoBichoManager().isPlayerBet(p.getName(), animal)){
                 p.sendMessage(getMessages().ALREADY_BET_ON_ANIMAL);
                 return;
             }
@@ -110,7 +110,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
             if(!checkValues(p, user.getJogoDoBichoCashValue(), user.getJogoDoBichoMoneyValue())) return;
 
-            JogoDoBichoBet jogoDoBichoBet = new JogoDoBichoBet(p.getName(), getNewBetId() + "", bicho, user.getJogoDoBichoCashValue(), user.getJogoDoBichoMoneyValue());
+            JogoDoBichoBet jogoDoBichoBet = new JogoDoBichoBet(p.getName(), getNewBetId() + "", animal, user.getJogoDoBichoCashValue(), user.getJogoDoBichoMoneyValue());
 
             getJogoDoBichoManager().getJogoDoBichoBets().add(jogoDoBichoBet);
 
@@ -118,7 +118,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("messages.bet-placed-animal").forEach(w -> p.sendMessage(c(w.replace("{animal}", bicho.getNameStr()))));
+            getInstance().getConfig().getStringList("messages.bet-placed-animal").forEach(w -> p.sendMessage(c(w.replace("{animal}", animal.getNameStr()))));
         }
 
     }
