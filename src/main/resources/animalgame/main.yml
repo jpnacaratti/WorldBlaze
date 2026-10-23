@@ -6,7 +6,7 @@ rows: 3
 
 items:
 
-  bichos:
+  animals:
     use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/d6df378bee6980a784593a1ae989280a6e9621a919172da49d31815f3c49286e'
     id: ''

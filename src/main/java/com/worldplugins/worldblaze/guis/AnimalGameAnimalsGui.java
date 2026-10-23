@@ -14,11 +14,11 @@ import static com.worldplugins.worldblaze.WorldBlaze.*;
 import static com.worldplugins.worldblaze.utils.Utils.c;
 import static com.worldplugins.worldblaze.utils.Utils.letterFormatter;
 
-public class JogoDoBichoBichosGui {
+public class AnimalGameAnimalsGui {
 
     public static void create(Player p){
 
-        FileConfiguration getConfig = getBichosGuiYml().getConfig();
+        FileConfiguration getConfig = getAnimalsGuiYml().getConfig();
 
         Inventory inv = MenuHolder.create(MenuType.ANIMAL_GAME_ANIMALS, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
@@ -37,10 +37,10 @@ public class JogoDoBichoBichosGui {
 
                 Animal animal = Animal.valueOf(s.toUpperCase());
 
-                bets = getJogoDoBichoManager().getNumOfBets(animal) + "";
-                lastPlayer = getJogoDoBichoManager().getAnimalLastPlayer(animal);
-                totalMoney = letterFormatter(getJogoDoBichoManager().getAnimalTotalBetMoney(animal));
-                totalCash = letterFormatter(getJogoDoBichoManager().getAnimalTotalBetCash(animal));
+                bets = getAnimalGameManager().getNumOfBets(animal) + "";
+                lastPlayer = getAnimalGameManager().getAnimalLastPlayer(animal);
+                totalMoney = letterFormatter(getAnimalGameManager().getAnimalTotalBetMoney(animal));
+                totalCash = letterFormatter(getAnimalGameManager().getAnimalTotalBetCash(animal));
 
             }catch (IllegalArgumentException ignored){}
 
@@ -55,7 +55,7 @@ public class JogoDoBichoBichosGui {
 
             int slot = getConfig.getInt("items." + s + ".slot");
 
-            if(Animal.isAnimal(s.toUpperCase())) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_bicho", s.toUpperCase());
+            if(Animal.isAnimal(s.toUpperCase())) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_animal", s.toUpperCase());
 
             inv.setItem(slot, item.toItemStack());
         }

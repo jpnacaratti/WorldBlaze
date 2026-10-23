@@ -3,7 +3,7 @@ package com.worldplugins.worldblaze.listeners;
 import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.guis.*;
 import com.worldplugins.worldblaze.objects.BlazeUser;
-import com.worldplugins.worldblaze.objects.JogoDoBichoBet;
+import com.worldplugins.worldblaze.objects.AnimalGameBet;
 import com.worldplugins.worldblaze.utils.NBTTag;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -14,7 +14,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import static com.worldplugins.worldblaze.WorldBlaze.*;
 import static com.worldplugins.worldblaze.utils.Utils.*;
 
-public class InventoryClickJogoDoBichoBet implements Listener {
+public class InventoryClickAnimalGameBet implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {
@@ -25,7 +25,7 @@ public class InventoryClickJogoDoBichoBet implements Listener {
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 
-        FileConfiguration getConfig = getBichosBetGuiYml().getConfig();
+        FileConfiguration getConfig = getAnimalsBetGuiYml().getConfig();
 
         Player p = (Player) e.getWhoClicked();
 
@@ -46,31 +46,31 @@ public class InventoryClickJogoDoBichoBet implements Listener {
         if(e.getSlot() == getConfig.getInt("items.money.slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("messages.jogo-do-bicho-typing-money").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.animal-game-typing-money").forEach(w -> p.sendMessage(c(w)));
 
-            AsyncPlayerChat.jogoDoBichoMoneyList.put(p.getName(), animal);
+            AsyncPlayerChat.animalGameMoneyList.put(p.getName(), animal);
         }
 
         if(e.getSlot() == getConfig.getInt("items.cash.slot")){
             p.closeInventory();
 
-            getInstance().getConfig().getStringList("messages.jogo-do-bicho-typing-cash").forEach(w -> p.sendMessage(c(w)));
+            getInstance().getConfig().getStringList("messages.animal-game-typing-cash").forEach(w -> p.sendMessage(c(w)));
 
-            AsyncPlayerChat.jogoDoBichoCashList.put(p.getName(), animal);
+            AsyncPlayerChat.animalGameCashList.put(p.getName(), animal);
         }
 
         if(e.getSlot() == getConfig.getInt("items.bettors.slot")){
 
             InventoryClose.bypassClose.add(p.getName());
 
-            getJogoDoBichoManager().getSeeingMap().put(p.getName(), e.getClickedInventory());
+            getAnimalGameManager().getSeeingMap().put(p.getName(), e.getClickedInventory());
 
-            JogoDoBichoGamblersGui.create(p, animal);
+            AnimalGameGamblersGui.create(p, animal);
 
             InventoryClose.bypassClose.remove(p.getName());
         }
 
-        if(e.getSlot() == getConfig.getInt("items.back.slot")) JogoDoBichoBichosGui.create(p);
+        if(e.getSlot() == getConfig.getInt("items.back.slot")) AnimalGameAnimalsGui.create(p);
 
         if(e.getSlot() == getConfig.getInt("items.bet.slot")){
 
@@ -84,38 +84,38 @@ public class InventoryClickJogoDoBichoBet implements Listener {
                 return;
             }
 
-            if(getJogoDoBichoManager().isPlayerBet(p.getName(), animal)){
+            if(getAnimalGameManager().isPlayerBet(p.getName(), animal)){
                 p.sendMessage(getMessages().ALREADY_BET_ON_ANIMAL);
                 return;
             }
 
-            if(user.getJogoDoBichoMoneyValue() < getInstance().getConfig().getDouble("config.jogo-do-bicho.min-money-bet")){
+            if(user.getAnimalGameMoneyValue() < getInstance().getConfig().getDouble("config.animal-game.min-money-bet")){
                 p.sendMessage(getMessages().MINIMUM_MONEY);
                 return;
             }
 
-            if(user.getJogoDoBichoCashValue() < getInstance().getConfig().getDouble("config.jogo-do-bicho.min-cash-bet")){
+            if(user.getAnimalGameCashValue() < getInstance().getConfig().getDouble("config.animal-game.min-cash-bet")){
                 p.sendMessage(getMessages().MINIMUM_CASH);
                 return;
             }
 
-            if(user.getJogoDoBichoMoneyValue() > getInstance().getConfig().getDouble("config.jogo-do-bicho.max-money-bet")){
+            if(user.getAnimalGameMoneyValue() > getInstance().getConfig().getDouble("config.animal-game.max-money-bet")){
                 p.sendMessage(getMessages().MAXIMUM_MONEY);
                 return;
             }
 
-            if(user.getJogoDoBichoCashValue() > getInstance().getConfig().getDouble("config.jogo-do-bicho.max-cash-bet")){
+            if(user.getAnimalGameCashValue() > getInstance().getConfig().getDouble("config.animal-game.max-cash-bet")){
                 p.sendMessage(getMessages().MAXIMUM_CASH);
                 return;
             }
 
-            if(!checkValues(p, user.getJogoDoBichoCashValue(), user.getJogoDoBichoMoneyValue())) return;
+            if(!checkValues(p, user.getAnimalGameCashValue(), user.getAnimalGameMoneyValue())) return;
 
-            JogoDoBichoBet jogoDoBichoBet = new JogoDoBichoBet(p.getName(), getNewBetId() + "", animal, user.getJogoDoBichoCashValue(), user.getJogoDoBichoMoneyValue());
+            AnimalGameBet animalGameBet = new AnimalGameBet(p.getName(), getNewBetId() + "", animal, user.getAnimalGameCashValue(), user.getAnimalGameMoneyValue());
 
-            getJogoDoBichoManager().getJogoDoBichoBets().add(jogoDoBichoBet);
+            getAnimalGameManager().getAnimalGameBets().add(animalGameBet);
 
-            removeValues(p, user.getJogoDoBichoCashValue(), user.getJogoDoBichoMoneyValue());
+            removeValues(p, user.getAnimalGameCashValue(), user.getAnimalGameMoneyValue());
 
             p.closeInventory();
 

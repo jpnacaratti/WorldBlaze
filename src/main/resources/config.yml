@@ -117,7 +117,7 @@ config:
         - '7500.0;75.0'
 
   # Animal Game (Jogo do Bicho) settings
-  jogo-do-bicho:
+  animal-game:
     max-cash-bet: 1500000.0 # Maximum amount of cash that can be bet
     min-cash-bet: 0.0 # Minimum amount of cash that can be bet
     max-money-bet: 100000000000.0 # Maximum amount of money that can be bet
@@ -452,13 +452,13 @@ messages:
     - '&e[Animal Game] &7The player &e{player} &7won &e{money} &7money and &e{cash} &7cash!'
 
   # When a player wins in animal game
-  won-jogo-do-bicho:
+  won-animal-game:
     - ''
     - '&e[Animal Game] &7You won &e{money} &7money and &e{cash} &7cash!'
     - ''
 
   # When a player loses in animal game
-  lost-jogo-do-bicho:
+  lost-animal-game:
     - ''
     - '&e[Animal Game] &7You lost...'
     - ''
@@ -467,14 +467,14 @@ messages:
   animal-drawn: '&aAnimal drawn'
 
   # When a player clicks to set the money amount to bet in Animal Game
-  jogo-do-bicho-typing-money:
+  animal-game-typing-money:
     - ''
     - '&aType the amount of &7money &ayou want to bet'
     - '&aTo cancel type &7"cancel"'
     - ''
 
   # When a player clicks to set the cash amount to bet in Animal Game
-  jogo-do-bicho-typing-cash:
+  animal-game-typing-cash:
     - ''
     - '&aType the amount of &7cash &ayou want to bet'
     - '&aTo cancel type &7"cancel"'

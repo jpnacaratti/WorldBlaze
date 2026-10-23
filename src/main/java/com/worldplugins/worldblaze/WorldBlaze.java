@@ -29,18 +29,18 @@ public class WorldBlaze extends JavaPlugin {
     private static FileCreator crashGuiYml;
     private static FileCreator doubleGuiYml;
     private static FileCreator mineGuiYml;
-    private static FileCreator jogoDoBichoGuiYml;
+    private static FileCreator animalGameGuiYml;
     private static FileCreator coinFlipGuiYml;
     private static FileCreator mainMineGuiYml;
     private static FileCreator graphGamblersGuiYml;
     private static FileCreator crashGamblersGuiYml;
     private static FileCreator doubleGamblersGuiYml;
     private static FileCreator minePlayersGuiYml;
-    private static FileCreator jogoDoBichoGamblersGuiYml;
+    private static FileCreator animalGameGamblersGuiYml;
     private static FileCreator coinFlipGamesGuiYml;
     private static FileCreator createMineGuiYml;
-    private static FileCreator bichosGuiYml;
-    private static FileCreator bichosBetGuiYml;
+    private static FileCreator animalsGuiYml;
+    private static FileCreator animalsBetGuiYml;
     private static FileCreator coinFlipMainGuiYml;
     private static FileCreator coinFlipCreateGameGuiYml;
     private static FileCreator dataYml;
@@ -50,7 +50,7 @@ public class WorldBlaze extends JavaPlugin {
     private static CrashManager crashManager;
     private static DoubleManager doubleManager;
     private static MineManager mineManager;
-    private static JogoDoBichoManager jogoDoBichoManager;
+    private static AnimalGameManager animalGameManager;
     private static CoinFlipManager coinFlipManager;
 
     private static Messages messages;
@@ -74,7 +74,7 @@ public class WorldBlaze extends JavaPlugin {
         registerEvents();
         loadConfiguration();
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new MainTask(), 200, 1);
-        getJogoDoBichoManager().loadPlayers();
+        getAnimalGameManager().loadPlayers();
     }
 
     @Override
@@ -105,7 +105,7 @@ public class WorldBlaze extends JavaPlugin {
             }
         }
 
-        getJogoDoBichoManager().savePlayers();
+        getAnimalGameManager().savePlayers();
     }
 
     private void loadConfiguration(){
@@ -126,10 +126,10 @@ public class WorldBlaze extends JavaPlugin {
         createMineGuiYml = new FileCreator("mine/create-game.yml", getDataFolder()+"/");
         mineGuiYml = new FileCreator("mine/mine.yml", getDataFolder()+"/");
         minePlayersGuiYml = new FileCreator("mine/players.yml", getDataFolder()+"/");
-        jogoDoBichoGuiYml = new FileCreator("jogodobicho/jogodobicho.yml", getDataFolder()+"/");
-        bichosGuiYml = new FileCreator("jogodobicho/bichos.yml", getDataFolder()+"/");
-        jogoDoBichoGamblersGuiYml = new FileCreator("jogodobicho/bettors.yml", getDataFolder()+"/");
-        bichosBetGuiYml = new FileCreator("jogodobicho/bet.yml", getDataFolder()+"/");
+        animalGameGuiYml = new FileCreator("animalgame/main.yml", getDataFolder()+"/");
+        animalsGuiYml = new FileCreator("animalgame/animals.yml", getDataFolder()+"/");
+        animalGameGamblersGuiYml = new FileCreator("animalgame/bettors.yml", getDataFolder()+"/");
+        animalsBetGuiYml = new FileCreator("animalgame/bet.yml", getDataFolder()+"/");
         coinFlipMainGuiYml = new FileCreator("coinflip/main.yml", getDataFolder()+"/");
         coinFlipCreateGameGuiYml = new FileCreator("coinflip/create-game.yml", getDataFolder()+"/");
         coinFlipGamesGuiYml = new FileCreator("coinflip/games.yml", getDataFolder()+"/");
@@ -139,7 +139,7 @@ public class WorldBlaze extends JavaPlugin {
         crashManager = new CrashManager();
         doubleManager = new DoubleManager();
         mineManager = new MineManager();
-        jogoDoBichoManager = new JogoDoBichoManager();
+        animalGameManager = new AnimalGameManager();
         coinFlipManager = new CoinFlipManager();
 
         messages = new Messages();
@@ -161,10 +161,10 @@ public class WorldBlaze extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new InventoryClickMineCreate(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickMine(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickMinePlayers(), this);
-        Bukkit.getPluginManager().registerEvents(new InventoryClickJogoDoBichoMain(), this);
-        Bukkit.getPluginManager().registerEvents(new InventoryClickJogoDoBichoBichos(), this);
-        Bukkit.getPluginManager().registerEvents(new InventoryClickJogoDoBichoGamblers(), this);
-        Bukkit.getPluginManager().registerEvents(new InventoryClickJogoDoBichoBet(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryClickAnimalGameMain(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryClickAnimalGameAnimals(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryClickAnimalGameGamblers(), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryClickAnimalGameBet(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickCoinFlipMain(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickCoinFlipCreateGame(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickCoinFlipGames(), this);
@@ -180,7 +180,7 @@ public class WorldBlaze extends JavaPlugin {
         getCommand("crash").setExecutor(new CrashCMD());
         getCommand("double").setExecutor(new DoubleCMD());
         getCommand("mine").setExecutor(new MineCMD());
-        getCommand("jogodobicho").setExecutor(new JogoDoBichoCMD());
+        getCommand("jogodobicho").setExecutor(new AnimalGameCMD());
         getCommand("coinflip").setExecutor(new CoinFlipCMD());
         getCommand("verx1coinflip").setExecutor(new VerX1CoinFlipCMD());
     }
@@ -190,7 +190,7 @@ public class WorldBlaze extends JavaPlugin {
         crashManager = new CrashManager();
         doubleManager = new DoubleManager();
         mineManager = new MineManager();
-        jogoDoBichoManager = new JogoDoBichoManager();
+        animalGameManager = new AnimalGameManager();
         coinFlipManager = new CoinFlipManager();
 
         messages = new Messages();
@@ -311,24 +311,24 @@ public class WorldBlaze extends JavaPlugin {
         return minePlayersGuiYml;
     }
 
-    public static FileCreator getJogoDoBichoGuiYml() {
-        return jogoDoBichoGuiYml;
+    public static FileCreator getAnimalGameGuiYml() {
+        return animalGameGuiYml;
     }
 
-    public static JogoDoBichoManager getJogoDoBichoManager() {
-        return jogoDoBichoManager;
+    public static AnimalGameManager getAnimalGameManager() {
+        return animalGameManager;
     }
 
-    public static FileCreator getBichosGuiYml() {
-        return bichosGuiYml;
+    public static FileCreator getAnimalsGuiYml() {
+        return animalsGuiYml;
     }
 
-    public static FileCreator getJogoDoBichoGamblersGuiYml() {
-        return jogoDoBichoGamblersGuiYml;
+    public static FileCreator getAnimalGameGamblersGuiYml() {
+        return animalGameGamblersGuiYml;
     }
 
-    public static FileCreator getBichosBetGuiYml() {
-        return bichosBetGuiYml;
+    public static FileCreator getAnimalsBetGuiYml() {
+        return animalsBetGuiYml;
     }
 
     public static CoinFlipManager getCoinFlipManager() {

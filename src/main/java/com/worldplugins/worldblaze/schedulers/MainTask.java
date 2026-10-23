@@ -67,10 +67,10 @@ public class MainTask implements Runnable {
             getCreateMineGuiYml().reloadFile();
             getMainMineGuiYml().reloadFile();
 
-            getJogoDoBichoGuiYml().reloadFile();
-            getJogoDoBichoGamblersGuiYml().reloadFile();
-            getBichosGuiYml().reloadFile();
-            getBichosBetGuiYml().reloadFile();
+            getAnimalGameGuiYml().reloadFile();
+            getAnimalGameGamblersGuiYml().reloadFile();
+            getAnimalsGuiYml().reloadFile();
+            getAnimalsBetGuiYml().reloadFile();
 
             getCoinFlipMainGuiYml().reloadFile();
             getCoinFlipCreateGameGuiYml().reloadFile();
@@ -79,11 +79,11 @@ public class MainTask implements Runnable {
 
             giveCoinFlipCoins();
 
-            getJogoDoBichoManager().savePlayers();
+            getAnimalGameManager().savePlayers();
 
             getInstance().reloadManagers();
 
-            getJogoDoBichoManager().loadPlayers();
+            getAnimalGameManager().loadPlayers();
 
             send = getInstance().getConfig().getBoolean("config.debug");
 

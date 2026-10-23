@@ -1,7 +1,7 @@
 package com.worldplugins.worldblaze.listeners;
 
-import com.worldplugins.worldblaze.guis.JogoDoBichoBichosGui;
-import com.worldplugins.worldblaze.guis.JogoDoBichoGamblersGui;
+import com.worldplugins.worldblaze.guis.AnimalGameAnimalsGui;
+import com.worldplugins.worldblaze.guis.AnimalGameGamblersGui;
 import com.worldplugins.worldblaze.guis.MenuHolder;
 import com.worldplugins.worldblaze.guis.MenuType;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -13,7 +13,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import static com.worldplugins.worldblaze.WorldBlaze.*;
 import static com.worldplugins.worldblaze.utils.Utils.c;
 
-public class InventoryClickJogoDoBichoMain implements Listener {
+public class InventoryClickAnimalGameMain implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {
@@ -24,13 +24,13 @@ public class InventoryClickJogoDoBichoMain implements Listener {
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 
-        FileConfiguration getConfig = getJogoDoBichoGuiYml().getConfig();
+        FileConfiguration getConfig = getAnimalGameGuiYml().getConfig();
 
         Player p = (Player) e.getWhoClicked();
 
-        if (e.getSlot() == getConfig.getInt("items.bichos.slot")) JogoDoBichoBichosGui.create(p);
+        if (e.getSlot() == getConfig.getInt("items.animals.slot")) AnimalGameAnimalsGui.create(p);
 
-        if (e.getSlot() == getConfig.getInt("items.bettors.slot")) JogoDoBichoGamblersGui.create(p, null);
+        if (e.getSlot() == getConfig.getInt("items.bettors.slot")) AnimalGameGamblersGui.create(p, null);
 
     }
 }

@@ -29,7 +29,7 @@ public class InventoryClose implements Listener {
 
         if(bypassClose.contains(e.getPlayer().getName())) return;
 
-        getJogoDoBichoManager().getSeeingMap().remove(e.getPlayer().getName());
+        getAnimalGameManager().getSeeingMap().remove(e.getPlayer().getName());
 
         if(MenuHolder.is(e.getInventory(), MenuType.GRAPH)){
 

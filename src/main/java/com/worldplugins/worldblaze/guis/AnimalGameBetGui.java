@@ -19,11 +19,11 @@ import static com.worldplugins.worldblaze.WorldBlaze.*;
 import static com.worldplugins.worldblaze.utils.Utils.c;
 import static com.worldplugins.worldblaze.utils.Utils.letterFormatter;
 
-public class JogoDoBichoBetGui {
+public class AnimalGameBetGui {
 
     public static void create(Player p, Animal animal){
 
-        FileConfiguration getConfig = getBichosBetGuiYml().getConfig();
+        FileConfiguration getConfig = getAnimalsBetGuiYml().getConfig();
 
         Inventory inv = MenuHolder.create(MenuType.ANIMAL_GAME_BET, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
@@ -32,19 +32,19 @@ public class JogoDoBichoBetGui {
         for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 
             ItemBuilder item;
-            if (getConfig.getBoolean("items." + s + ".use-head-last-player")) item = new ItemBuilder(getJogoDoBichoManager().getHeadLastPlayer(animal));
-            else if (getConfig.getBoolean("items." + s + ".use-head-animal")) item = new ItemBuilder(getJogoDoBichoManager().getAnimalItem(animal));
+            if (getConfig.getBoolean("items." + s + ".use-head-last-player")) item = new ItemBuilder(getAnimalGameManager().getHeadLastPlayer(animal));
+            else if (getConfig.getBoolean("items." + s + ".use-head-animal")) item = new ItemBuilder(getAnimalGameManager().getAnimalItem(animal));
             else if (getConfig.getBoolean("items." + s + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
             else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1, (byte) getConfig.getInt("items." + s + ".data"));
             item.setName(c(getConfig.getString("items." + s + ".name"))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
-                    replace("{cash}", letterFormatter(user.getJogoDoBichoCashValue())).
-                    replace("{money}", letterFormatter(user.getJogoDoBichoMoneyValue())).
-                    replace("{players}", getJogoDoBichoManager().getNumOfBets(animal) + "").
-                    replace("{last-player}", getJogoDoBichoManager().getAnimalLastPlayer(animal)).
-                    replace("{total-money}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetMoney(animal))).
-                    replace("{total-cash}", letterFormatter(getJogoDoBichoManager().getAnimalTotalBetCash(animal))).
+                    replace("{cash}", letterFormatter(user.getAnimalGameCashValue())).
+                    replace("{money}", letterFormatter(user.getAnimalGameMoneyValue())).
+                    replace("{players}", getAnimalGameManager().getNumOfBets(animal) + "").
+                    replace("{last-player}", getAnimalGameManager().getAnimalLastPlayer(animal)).
+                    replace("{total-money}", letterFormatter(getAnimalGameManager().getAnimalTotalBetMoney(animal))).
+                    replace("{total-cash}", letterFormatter(getAnimalGameManager().getAnimalTotalBetCash(animal))).
                     replace("{animal}", animal.getNameStr()))));
 
             int slot = getConfig.getInt("items." + s + ".slot");

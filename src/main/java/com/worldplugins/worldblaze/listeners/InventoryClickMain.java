@@ -103,7 +103,7 @@ public class InventoryClickMain implements Listener {
 
         }
 
-        if (e.getSlot() == getConfig.getInt("items.jogo-do-bicho.slot")) {
+        if (e.getSlot() == getConfig.getInt("items.animal-game.slot")) {
 
             if (!p.hasPermission("worldblaze.jogodobicho")) {
                 p.sendMessage(getMessages().NO_PERMISSION);
@@ -117,8 +117,8 @@ public class InventoryClickMain implements Listener {
 
             if (e.isRightClick()) {
                 p.closeInventory();
-                p.sendMessage(c(getConfig.getString("items.jogo-do-bicho.help")));
-            } else JogoDoBichoMainGui.create(p);
+                p.sendMessage(c(getConfig.getString("items.animal-game.help")));
+            } else AnimalGameMainGui.create(p);
 
         }
 

@@ -1,7 +1,7 @@
 package com.worldplugins.worldblaze.guis;
 
 import com.worldplugins.worldblaze.enums.Animal;
-import com.worldplugins.worldblaze.objects.JogoDoBichoBet;
+import com.worldplugins.worldblaze.objects.AnimalGameBet;
 import com.worldplugins.worldblaze.objects.MineBet;
 import com.worldplugins.worldblaze.utils.ItemBuilder;
 import com.worldplugins.worldblaze.utils.NBTTag;
@@ -20,24 +20,24 @@ import static com.worldplugins.worldblaze.WorldBlaze.*;
 import static com.worldplugins.worldblaze.utils.Utils.c;
 import static com.worldplugins.worldblaze.utils.Utils.letterFormatter;
 
-public class JogoDoBichoGamblersGui {
+public class AnimalGameGamblersGui {
 
     public static Map<Player, ArrayList<Inventory>> invs = new HashMap<>();
 
     public static void create(Player p, Animal animal){
-        FileConfiguration getConfig = getJogoDoBichoGamblersGuiYml().getConfig();
+        FileConfiguration getConfig = getAnimalGameGamblersGuiYml().getConfig();
 
         Inventory inv = MenuHolder.create(MenuType.ANIMAL_GAME_BETTORS, 9 * 6, c(getConfig.getString("title")));
 
-        List<JogoDoBichoBet> sorted = new ArrayList<>(getJogoDoBichoManager().getJogoDoBichoBets());
+        List<AnimalGameBet> sorted = new ArrayList<>(getAnimalGameManager().getAnimalGameBets());
 
         if(animal == null){
-            sorted = sorted.stream().sorted(Comparator.comparingDouble(JogoDoBichoBet::getMid).reversed()).collect(Collectors.toList());
+            sorted = sorted.stream().sorted(Comparator.comparingDouble(AnimalGameBet::getMid).reversed()).collect(Collectors.toList());
         }else {
 
             sorted = sorted.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
-            sorted = sorted.stream().sorted(Comparator.comparingDouble(JogoDoBichoBet::getMid).reversed()).collect(Collectors.toList());
+            sorted = sorted.stream().sorted(Comparator.comparingDouble(AnimalGameBet::getMid).reversed()).collect(Collectors.toList());
         }
 
         ArrayList<Inventory> list = new ArrayList<>();
@@ -65,7 +65,7 @@ public class JogoDoBichoGamblersGui {
             inv.setItem(slot, item.toItemStack());
         }else{
 
-            for (JogoDoBichoBet bet : sorted) {
+            for (AnimalGameBet bet : sorted) {
 
                 if(invs.get(p).get(numPage).getItem(16) != null) invLine = 19;
                 if(invs.get(p).get(numPage).getItem(25) != null) invLine = 28;
@@ -83,7 +83,7 @@ public class JogoDoBichoGamblersGui {
                     nLore.replaceAll(Utils::c);
                     next.setName(c(getConfig.getString("items.next-page.name"))).
                             setLore(nLore).setGlow(getConfig.getBoolean("items.next-page.glow"));
-                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_bichoPag", ""+(numPage+1));
+                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_animalPag", ""+(numPage+1));
                     int slot = getConfig.getInt("items.next-page.slot");
 
                     ItemBuilder prev;
@@ -95,7 +95,7 @@ public class JogoDoBichoGamblersGui {
                     prevLore.replaceAll(Utils::c);
                     prev.setName(c(getConfig.getString("items.previous-page.name"))).
                             setLore(prevLore).setGlow(getConfig.getBoolean("items.previous-page.glow"));
-                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_bichoPag", ""+numPage);
+                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_animalPag", ""+numPage);
                     int prevSlot = getConfig.getInt("items.previous-page.slot");
 
                     newInv.setItem(prevSlot, prev.toItemStack());
@@ -153,7 +153,7 @@ public class JogoDoBichoGamblersGui {
             item.setLore(lore).setGlow(getConfig.getBoolean("items." + s + ".glow"));
             int slot = getConfig.getInt("items." + s + ".slot");
 
-            if(s.equalsIgnoreCase("back")) if(animal != null) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_bichoVoltar", animal.name());
+            if(s.equalsIgnoreCase("back")) if(animal != null) NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_animalVoltar", animal.name());
 
 
             for (int i = 0; i < invs.get(p).size(); i++) {

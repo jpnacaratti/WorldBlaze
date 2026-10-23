@@ -1,9 +1,9 @@
 package com.worldplugins.worldblaze.listeners;
 
 import com.worldplugins.worldblaze.enums.Animal;
-import com.worldplugins.worldblaze.guis.JogoDoBichoBetGui;
-import com.worldplugins.worldblaze.guis.JogoDoBichoBichosGui;
-import com.worldplugins.worldblaze.guis.JogoDoBichoMainGui;
+import com.worldplugins.worldblaze.guis.AnimalGameBetGui;
+import com.worldplugins.worldblaze.guis.AnimalGameAnimalsGui;
+import com.worldplugins.worldblaze.guis.AnimalGameMainGui;
 import com.worldplugins.worldblaze.guis.MenuHolder;
 import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.utils.NBTTag;
@@ -13,11 +13,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-import static com.worldplugins.worldblaze.WorldBlaze.getBichosGuiYml;
-import static com.worldplugins.worldblaze.WorldBlaze.getJogoDoBichoGuiYml;
+import static com.worldplugins.worldblaze.WorldBlaze.getAnimalsGuiYml;
+import static com.worldplugins.worldblaze.WorldBlaze.getAnimalGameGuiYml;
 import static com.worldplugins.worldblaze.utils.Utils.c;
 
-public class InventoryClickJogoDoBichoBichos implements Listener {
+public class InventoryClickAnimalGameAnimals implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {
@@ -28,16 +28,16 @@ public class InventoryClickJogoDoBichoBichos implements Listener {
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 
-        FileConfiguration getConfig = getBichosGuiYml().getConfig();
+        FileConfiguration getConfig = getAnimalsGuiYml().getConfig();
 
         Player p = (Player) e.getWhoClicked();
 
         if (e.getSlot() == getConfig.getInt("items.back.slot")){
-            JogoDoBichoMainGui.create(p);
+            AnimalGameMainGui.create(p);
             return;
         }
 
-        String nbt = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_bicho");
+        String nbt = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_animal");
 
         if(nbt == null) return;
 
@@ -51,6 +51,6 @@ public class InventoryClickJogoDoBichoBichos implements Listener {
             return;
         }
 
-        JogoDoBichoBetGui.create(p, animal);
+        AnimalGameBetGui.create(p, animal);
     }
 }

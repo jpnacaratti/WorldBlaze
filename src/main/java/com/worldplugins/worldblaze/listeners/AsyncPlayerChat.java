@@ -33,8 +33,8 @@ public class AsyncPlayerChat implements Listener {
     public static Set<String> mineMoneyList = new HashSet<>();
     public static Set<String> mineCashList = new HashSet<>();
 
-    public static Map<String, Animal> jogoDoBichoMoneyList = new HashMap<>();
-    public static Map<String, Animal> jogoDoBichoCashList = new HashMap<>();
+    public static Map<String, Animal> animalGameMoneyList = new HashMap<>();
+    public static Map<String, Animal> animalGameCashList = new HashMap<>();
 
     public static Set<String> coinFlipMoneyList = new HashSet<>();
     public static Set<String> coinFlipCashList = new HashSet<>();
@@ -382,18 +382,18 @@ public class AsyncPlayerChat implements Listener {
             mineCashList.remove(p.getName());
         }
 
-        if(jogoDoBichoMoneyList.containsKey(p.getName())){
+        if(animalGameMoneyList.containsKey(p.getName())){
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
-                jogoDoBichoMoneyList.remove(p.getName());
+                animalGameMoneyList.remove(p.getName());
                 return;
             }
 
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
-                jogoDoBichoMoneyList.remove(p.getName());
+                animalGameMoneyList.remove(p.getName());
                 Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
@@ -405,34 +405,34 @@ public class AsyncPlayerChat implements Listener {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
-                jogoDoBichoMoneyList.remove(p.getName());
+                animalGameMoneyList.remove(p.getName());
                 return;
             }
 
             if(!checkValues(p, 0, val)){
-                jogoDoBichoMoneyList.remove(p.getName());
+                animalGameMoneyList.remove(p.getName());
                 return;
             }
 
-            user.setJogoDoBichoMoneyValue(val);
+            user.setAnimalGameMoneyValue(val);
 
-            JogoDoBichoBetGui.create(p,jogoDoBichoMoneyList.get(p.getName()));
+            AnimalGameBetGui.create(p,animalGameMoneyList.get(p.getName()));
 
-            jogoDoBichoMoneyList.remove(p.getName());
+            animalGameMoneyList.remove(p.getName());
         }
 
-        if(jogoDoBichoCashList.containsKey(p.getName())){
+        if(animalGameCashList.containsKey(p.getName())){
             e.setCancelled(true);
 
             if(msg.equalsIgnoreCase("cancel")){
                 p.sendMessage(getMessages().CHAT_CANCELLED);
-                jogoDoBichoCashList.remove(p.getName());
+                animalGameCashList.remove(p.getName());
                 return;
             }
 
             if(nan){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
-                jogoDoBichoCashList.remove(p.getName());
+                animalGameCashList.remove(p.getName());
                 Bukkit.getScheduler().runTask(getInstance(), ()->p.kickPlayer("DUP attempt"));
                 return;
             }
@@ -444,20 +444,20 @@ public class AsyncPlayerChat implements Listener {
                 val = passLetterToNumber(msg);
             }catch (NumberFormatException ex){
                 p.sendMessage(getMessages().INVALID_CHAT_NUMBER);
-                jogoDoBichoCashList.remove(p.getName());
+                animalGameCashList.remove(p.getName());
                 return;
             }
 
             if(!checkValues(p, val, 0)){
-                jogoDoBichoCashList.remove(p.getName());
+                animalGameCashList.remove(p.getName());
                 return;
             }
 
-            user.setJogoDoBichoCashValue(val);
+            user.setAnimalGameCashValue(val);
 
-            JogoDoBichoBetGui.create(p,jogoDoBichoCashList.get(p.getName()));
+            AnimalGameBetGui.create(p,animalGameCashList.get(p.getName()));
 
-            jogoDoBichoCashList.remove(p.getName());
+            animalGameCashList.remove(p.getName());
         }
 
         if(coinFlipMoneyList.contains(p.getName())){

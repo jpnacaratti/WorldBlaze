@@ -15,7 +15,7 @@ public class PlayerDisconnect implements Listener {
 
         Player p = e.getPlayer();
 
-        getJogoDoBichoManager().getSeeingMap().remove(p.getName());
+        getAnimalGameManager().getSeeingMap().remove(p.getName());
 
         getGraphManager().getGamblersGuiOpen().remove(p.getName());
         getCrashManager().getGamblersGuiOpen().remove(p.getName());
@@ -35,8 +35,8 @@ public class PlayerDisconnect implements Listener {
         AsyncPlayerChat.doubleMoneyList.remove(p.getName());
         AsyncPlayerChat.mineMoneyList.remove(p.getName());
         AsyncPlayerChat.mineCashList.remove(p.getName());
-        AsyncPlayerChat.jogoDoBichoMoneyList.remove(p.getName());
-        AsyncPlayerChat.jogoDoBichoCashList.remove(p.getName());
+        AsyncPlayerChat.animalGameMoneyList.remove(p.getName());
+        AsyncPlayerChat.animalGameCashList.remove(p.getName());
         AsyncPlayerChat.coinFlipMoneyList.remove(p.getName());
         AsyncPlayerChat.coinFlipCashList.remove(p.getName());
         AsyncPlayerChat.coinFlipOpponentList.remove(p.getName());

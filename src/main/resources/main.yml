@@ -86,7 +86,7 @@ items:
     help: '&7Tutorial -> &chttps://www.youtube.com/watch?v=gQlMMD8auMs'
     slot: 14
 
-  jogo-do-bicho:
+  animal-game:
     use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/f8222e684248aa8c5c23052592fbe4a57ba8b063aa4044f16bf0edc25b74130f'
     id: ''

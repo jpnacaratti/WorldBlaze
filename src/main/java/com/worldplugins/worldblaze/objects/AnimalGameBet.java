@@ -3,13 +3,13 @@ package com.worldplugins.worldblaze.objects;
 import com.worldplugins.worldblaze.enums.Animal;
 import com.worldplugins.worldblaze.enums.DoubleColor;
 
-public class JogoDoBichoBet {
+public class AnimalGameBet {
 
     private final String owner, betId;
     private final Animal animal;
     private final double cashValue, moneyValue, mid;
 
-    public JogoDoBichoBet(String owner, String betId, Animal animal, double cashValue, double moneyValue) {
+    public AnimalGameBet(String owner, String betId, Animal animal, double cashValue, double moneyValue) {
         this.owner = owner;
         this.betId = betId;
         this.animal = animal;

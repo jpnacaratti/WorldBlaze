@@ -7,7 +7,7 @@ import static com.worldplugins.worldblaze.WorldBlaze.*;
 public class BlazeUser {
 
     private final String owner;
-    private double graphCashValue, graphMoneyValue, crashCashValue, crashMoneyValue, doubleCashValue, doubleMoneyValue, mineCashValue, mineMoneyValue, jogoDoBichoMoneyValue, jogoDoBichoCashValue, coinFlipCashValue, coinFlipMoneyValue;
+    private double graphCashValue, graphMoneyValue, crashCashValue, crashMoneyValue, doubleCashValue, doubleMoneyValue, mineCashValue, mineMoneyValue, animalGameMoneyValue, animalGameCashValue, coinFlipCashValue, coinFlipMoneyValue;
     private int graphTime, mineBombs;
     private String coinFlipSpecific;
     private boolean coinFlipHeads;
@@ -103,20 +103,20 @@ public class BlazeUser {
         this.mineBombs = mineBombs;
     }
 
-    public double getJogoDoBichoMoneyValue() {
-        return jogoDoBichoMoneyValue;
+    public double getAnimalGameMoneyValue() {
+        return animalGameMoneyValue;
     }
 
-    public void setJogoDoBichoMoneyValue(double jogoDoBichoMoneyValue) {
-        this.jogoDoBichoMoneyValue = jogoDoBichoMoneyValue;
+    public void setAnimalGameMoneyValue(double animalGameMoneyValue) {
+        this.animalGameMoneyValue = animalGameMoneyValue;
     }
 
-    public double getJogoDoBichoCashValue() {
-        return jogoDoBichoCashValue;
+    public double getAnimalGameCashValue() {
+        return animalGameCashValue;
     }
 
-    public void setJogoDoBichoCashValue(double jogoDoBichoCashValue) {
-        this.jogoDoBichoCashValue = jogoDoBichoCashValue;
+    public void setAnimalGameCashValue(double animalGameCashValue) {
+        this.animalGameCashValue = animalGameCashValue;
     }
 
     public double getCoinFlipCashValue() {

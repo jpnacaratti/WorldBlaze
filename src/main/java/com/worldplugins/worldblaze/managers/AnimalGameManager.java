@@ -1,7 +1,7 @@
 package com.worldplugins.worldblaze.managers;
 
 import com.worldplugins.worldblaze.enums.Animal;
-import com.worldplugins.worldblaze.objects.JogoDoBichoBet;
+import com.worldplugins.worldblaze.objects.AnimalGameBet;
 import com.worldplugins.worldblaze.utils.ItemBuilder;
 import com.worldplugins.worldblaze.utils.SkullCreator;
 import org.bukkit.Material;
@@ -15,22 +15,22 @@ import java.util.stream.Collectors;
 import static com.worldplugins.worldblaze.WorldBlaze.*;
 import static com.worldplugins.worldblaze.utils.Utils.sendDebugMessage;
 
-public class JogoDoBichoManager {
+public class AnimalGameManager {
 
-    private final List<JogoDoBichoBet> jogoDoBichoBets;
+    private final List<AnimalGameBet> animalGameBets;
     private final Map<String, Inventory> seeingMap;
     private final Random rand;
 
-    public JogoDoBichoManager() {
+    public AnimalGameManager() {
 
-        this.jogoDoBichoBets = new ArrayList<>();
+        this.animalGameBets = new ArrayList<>();
         this.seeingMap = new HashMap<>();
 
         this.rand = new Random();
     }
 
-    public List<JogoDoBichoBet> getJogoDoBichoBets() {
-        return jogoDoBichoBets;
+    public List<AnimalGameBet> getAnimalGameBets() {
+        return animalGameBets;
     }
 
     public Map<String, Inventory> getSeeingMap() {
@@ -51,15 +51,15 @@ public class JogoDoBichoManager {
     }
 
     public String getLastPlayer(){
-        if(jogoDoBichoBets.isEmpty()) return "-/-";
+        if(animalGameBets.isEmpty()) return "-/-";
 
-        return jogoDoBichoBets.get(jogoDoBichoBets.size() - 1).getOwner();
+        return animalGameBets.get(animalGameBets.size() - 1).getOwner();
     }
 
     public double getTotalBetCash(){
         double sum = 0.0;
 
-        for (JogoDoBichoBet bet : jogoDoBichoBets) {
+        for (AnimalGameBet bet : animalGameBets) {
             sum += bet.getCashValue();
         }
 
@@ -69,7 +69,7 @@ public class JogoDoBichoManager {
     public double getTotalBetMoney(){
         double sum = 0.0;
 
-        for (JogoDoBichoBet bet : jogoDoBichoBets) {
+        for (AnimalGameBet bet : animalGameBets) {
             sum += bet.getMoneyValue();
         }
 
@@ -80,9 +80,9 @@ public class JogoDoBichoManager {
 
         if(animal == null) return "-/-";
 
-        if(jogoDoBichoBets.isEmpty()) return "-/-";
+        if(animalGameBets.isEmpty()) return "-/-";
 
-        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
+        List<AnimalGameBet> collect = animalGameBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
         if(collect.isEmpty()) return "-/-";
 
@@ -93,9 +93,9 @@ public class JogoDoBichoManager {
 
         if(animal == null) return 0;
 
-        if(jogoDoBichoBets.isEmpty()) return 0;
+        if(animalGameBets.isEmpty()) return 0;
 
-        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
+        List<AnimalGameBet> collect = animalGameBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
         return collect.size();
     }
@@ -104,15 +104,15 @@ public class JogoDoBichoManager {
 
         if(animal == null) return 0;
 
-        if(jogoDoBichoBets.isEmpty()) return 0;
+        if(animalGameBets.isEmpty()) return 0;
 
-        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
+        List<AnimalGameBet> collect = animalGameBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
         if(collect.isEmpty()) return 0;
 
         double d = 0;
 
-        for (JogoDoBichoBet bet : collect) {
+        for (AnimalGameBet bet : collect) {
             d += bet.getMoneyValue();
         }
 
@@ -123,15 +123,15 @@ public class JogoDoBichoManager {
 
         if(animal == null) return 0;
 
-        if(jogoDoBichoBets.isEmpty()) return 0;
+        if(animalGameBets.isEmpty()) return 0;
 
-        List<JogoDoBichoBet> collect = jogoDoBichoBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
+        List<AnimalGameBet> collect = animalGameBets.stream().filter(w -> w.getAnimal() == animal).collect(Collectors.toList());
 
         if(collect.isEmpty()) return 0;
 
         double d = 0;
 
-        for (JogoDoBichoBet bet : collect) {
+        for (AnimalGameBet bet : collect) {
             d += bet.getCashValue();
         }
 
@@ -139,21 +139,21 @@ public class JogoDoBichoManager {
     }
 
     public boolean isPlayerBet(String name, Animal animal){
-        if(jogoDoBichoBets.isEmpty()) return false;
+        if(animalGameBets.isEmpty()) return false;
 
-        return jogoDoBichoBets.stream().anyMatch(w -> w.getOwner().equalsIgnoreCase(name) && w.getAnimal() == animal);
+        return animalGameBets.stream().anyMatch(w -> w.getOwner().equalsIgnoreCase(name) && w.getAnimal() == animal);
     }
 
     public Set<Animal> getBlackListRigging(){
         Set<Animal> blackList = new HashSet<>();
 
-        if(!getInstance().getConfig().getBoolean("config.jogo-do-bicho.rigging.enabled")) return blackList;
+        if(!getInstance().getConfig().getBoolean("config.animal-game.rigging.enabled")) return blackList;
 
-        for (JogoDoBichoBet bet : jogoDoBichoBets) {
+        for (AnimalGameBet bet : animalGameBets) {
 
-            if(bet.getCashValue() >= getInstance().getConfig().getDouble("config.jogo-do-bicho.rigging.cash") ||
-                    bet.getMoneyValue() >= getInstance().getConfig().getDouble("config.jogo-do-bicho.rigging.money")){
-                if(rand.nextDouble() <= getInstance().getConfig().getDouble("config.jogo-do-bicho.rigging.chance")){
+            if(bet.getCashValue() >= getInstance().getConfig().getDouble("config.animal-game.rigging.cash") ||
+                    bet.getMoneyValue() >= getInstance().getConfig().getDouble("config.animal-game.rigging.money")){
+                if(rand.nextDouble() <= getInstance().getConfig().getDouble("config.animal-game.rigging.chance")){
                     blackList.add(bet.getAnimal());
                     sendDebugMessage("[Animal Game] Hit by the rigging");
                 }
@@ -175,18 +175,18 @@ public class JogoDoBichoManager {
 
     public void savePlayers(){
 
-        for (String s : getDataYml().getConfig().getConfigurationSection("bichos").getKeys(false)) {
-            getDataYml().getConfig().set("bichos."+s, null);
+        for (String s : getDataYml().getConfig().getConfigurationSection("animal-game").getKeys(false)) {
+            getDataYml().getConfig().set("animal-game."+s, null);
             getDataYml().saveFile();
         }
 
-        for (JogoDoBichoBet bet : jogoDoBichoBets) {
+        for (AnimalGameBet bet : animalGameBets) {
 
-            getDataYml().getConfig().set("bichos."+bet.getOwner()+"."+bet.getAnimal().name()+".id", bet.getBetId());
+            getDataYml().getConfig().set("animal-game."+bet.getOwner()+"."+bet.getAnimal().name()+".id", bet.getBetId());
             getDataYml().saveFile();
-            getDataYml().getConfig().set("bichos."+bet.getOwner()+"."+bet.getAnimal().name()+".Money", bet.getMoneyValue());
+            getDataYml().getConfig().set("animal-game."+bet.getOwner()+"."+bet.getAnimal().name()+".Money", bet.getMoneyValue());
             getDataYml().saveFile();
-            getDataYml().getConfig().set("bichos."+bet.getOwner()+"."+bet.getAnimal().name()+".Cash", bet.getCashValue());
+            getDataYml().getConfig().set("animal-game."+bet.getOwner()+"."+bet.getAnimal().name()+".Cash", bet.getCashValue());
             getDataYml().saveFile();
 
         }
@@ -195,15 +195,15 @@ public class JogoDoBichoManager {
 
     public void loadPlayers(){
 
-        for (String s : getDataYml().getConfig().getConfigurationSection("bichos").getKeys(false)) {
-            for (String user : getDataYml().getConfig().getConfigurationSection("bichos." + s).getKeys(false)) {
+        for (String s : getDataYml().getConfig().getConfigurationSection("animal-game").getKeys(false)) {
+            for (String user : getDataYml().getConfig().getConfigurationSection("animal-game." + s).getKeys(false)) {
 
-                JogoDoBichoBet bet = new JogoDoBichoBet(s,
-                        getDataYml().getConfig().getString("bichos."+s+"."+user+".id"), Animal.valueOf(user),
-                        getDataYml().getConfig().getDouble("bichos."+s+"."+user+".Cash"),
-                        getDataYml().getConfig().getDouble("bichos."+s+"."+user+".Money"));
+                AnimalGameBet bet = new AnimalGameBet(s,
+                        getDataYml().getConfig().getString("animal-game."+s+"."+user+".id"), Animal.valueOf(user),
+                        getDataYml().getConfig().getDouble("animal-game."+s+"."+user+".Cash"),
+                        getDataYml().getConfig().getDouble("animal-game."+s+"."+user+".Money"));
 
-                jogoDoBichoBets.add(bet);
+                animalGameBets.add(bet);
             }
         }
 
@@ -211,7 +211,7 @@ public class JogoDoBichoManager {
 
     public ItemStack getAnimalItem(Animal animal){
 
-        FileConfiguration getConfig = getBichosGuiYml().getConfig();
+        FileConfiguration getConfig = getAnimalsGuiYml().getConfig();
 
         ItemBuilder item;
         if (getConfig.getBoolean("items." + animal.name().toLowerCase() + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + animal.name().toLowerCase() + ".texture")));
