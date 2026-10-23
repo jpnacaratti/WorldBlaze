@@ -20,42 +20,42 @@ import static com.worldplugins.worldblaze.utils.Utils.*;
 
 public class MineManager {
 
-    // VARIAVEIS INICIAIS QUE NÃO VÃO MUDAR
+    // INITIAL VARIABLES THAT WILL NOT CHANGE
     private final List<MineBet> mineBets;
-    private final Map<String, Inventory> principalInventories;
+    private final Map<String, Inventory> mainInventories;
     private final Map<Integer, Double> multipliers;
     private final Set<String> playersGuiOpen;
     private final List<Integer> availableSlots;
     private final String menuTitle, mineMenuTitle;
-    private final int mineLines, minSlots, dopChanceMultiplier;
+    private final int mineLines, minSlots, riggingChanceMultiplier;
     private final double alertCash, alertMoney;
     private final Random rand;
-    private final boolean dop;
-    private final LinkedHashMap<Double, Double> cashDop, moneyDop;
+    private final boolean rigging;
+    private final LinkedHashMap<Double, Double> cashRigging, moneyRigging;
 
-    // VARIAVEIS QUE VAO MUDAR CONFORME O MINE
+    // VARIABLES THAT WILL CHANGE AS THE MINE PROGRESSES
     private double totalBetCash, totalBetMoney;
 
-    // VARIAVEIS QUE NAO VAO MUDAR EM HIPOTESE ALGUMA
-    private final ItemBuilder principalPlayersItem, hiddenItem, minedItem, bombItem, leftItem;
-    private final String principalPlayersName, leftName, leftFormat;
-    private final List<String> principalPlayersLore, leftLore;
-    private final boolean principalUsePlayersHead;
-    private final int principalPlayersSlot, leftSlot;
+    // VARIABLES THAT WILL NOT CHANGE UNDER ANY CIRCUMSTANCES
+    private final ItemBuilder mainPlayersItem, hiddenItem, minedItem, bombItem, leftItem;
+    private final String mainPlayersName, leftName, leftFormat;
+    private final List<String> mainPlayersLore, leftLore;
+    private final boolean mainUsePlayersHead;
+    private final int mainPlayersSlot, leftSlot;
 
     public MineManager() {
 
         this.mineBets = new ArrayList<>();
         this.playersGuiOpen = new HashSet<>();
         this.availableSlots = new ArrayList<>(getInstance().getConfig().getIntegerList("config.mine.game-slots"));
-        this.principalInventories = new HashMap<>();
+        this.mainInventories = new HashMap<>();
         this.multipliers = new HashMap<>();
-        this.cashDop = new LinkedHashMap<>();
-        this.moneyDop = new LinkedHashMap<>();
+        this.cashRigging = new LinkedHashMap<>();
+        this.moneyRigging = new LinkedHashMap<>();
 
-        this.dopChanceMultiplier = getInstance().getConfig().getInt("config.mine.rigging.chance-multiplier");
+        this.riggingChanceMultiplier = getInstance().getConfig().getInt("config.mine.rigging.chance-multiplier");
 
-        this.dop = getInstance().getConfig().getBoolean("config.mine.rigging.enabled");
+        this.rigging = getInstance().getConfig().getBoolean("config.mine.rigging.enabled");
 
         this.rand = new Random();
 
@@ -74,24 +74,24 @@ public class MineManager {
         for (String s : getInstance().getConfig().getStringList("config.mine.rigging.money")) {
             String[] split = s.split(";");
 
-            moneyDop.put(Double.parseDouble(split[0]), Double.parseDouble(split[1]));
+            moneyRigging.put(Double.parseDouble(split[0]), Double.parseDouble(split[1]));
         }
-        List<Map.Entry<Double, Double>> moneyEntryList = new ArrayList<>(moneyDop.entrySet());
+        List<Map.Entry<Double, Double>> moneyEntryList = new ArrayList<>(moneyRigging.entrySet());
         moneyEntryList.sort(Map.Entry.comparingByKey());
         Collections.reverse(moneyEntryList);
-        moneyDop.clear();
-        moneyEntryList.forEach(w -> moneyDop.put(w.getKey(), w.getValue()));
+        moneyRigging.clear();
+        moneyEntryList.forEach(w -> moneyRigging.put(w.getKey(), w.getValue()));
 
         for (String s : getInstance().getConfig().getStringList("config.mine.rigging.cash")) {
             String[] split = s.split(";");
 
-            cashDop.put(Double.parseDouble(split[0]), Double.parseDouble(split[1]));
+            cashRigging.put(Double.parseDouble(split[0]), Double.parseDouble(split[1]));
         }
-        List<Map.Entry<Double, Double>> cashEntryList = new ArrayList<>(cashDop.entrySet());
+        List<Map.Entry<Double, Double>> cashEntryList = new ArrayList<>(cashRigging.entrySet());
         cashEntryList.sort(Map.Entry.comparingByKey());
         Collections.reverse(cashEntryList);
-        cashDop.clear();
-        cashEntryList.forEach(w -> cashDop.put(w.getKey(), w.getValue()));
+        cashRigging.clear();
+        cashEntryList.forEach(w -> cashRigging.put(w.getKey(), w.getValue()));
 
         FileConfiguration getMineConfig = getMineGuiYml().getConfig();
 
@@ -130,21 +130,21 @@ public class MineManager {
 
 
 
-        FileConfiguration getPrincipalConfig = getPrincipalMineGuiYml().getConfig();
+        FileConfiguration getMainConfig = getMainMineGuiYml().getConfig();
 
-        this.menuTitle = c(getPrincipalConfig.getString("title"));
+        this.menuTitle = c(getMainConfig.getString("title"));
 
-        if (getPrincipalConfig.getBoolean("items.players.use-head-last-player")) principalPlayersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
-        else if (getPrincipalConfig.getBoolean("items.players.use-head")) principalPlayersItem = new ItemBuilder(SkullCreator.itemFromUrl(getPrincipalConfig.getString("items.players.texture")));
-        else principalPlayersItem = new ItemBuilder(Material.getMaterial(getPrincipalConfig.getString("items.players.id")), 1, (byte) getPrincipalConfig.getInt("items.players.data"));
-        principalPlayersItem.setGlow(getPrincipalConfig.getBoolean("items.players.glow"));
+        if (getMainConfig.getBoolean("items.players.use-head-last-player")) mainPlayersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
+        else if (getMainConfig.getBoolean("items.players.use-head")) mainPlayersItem = new ItemBuilder(SkullCreator.itemFromUrl(getMainConfig.getString("items.players.texture")));
+        else mainPlayersItem = new ItemBuilder(Material.getMaterial(getMainConfig.getString("items.players.id")), 1, (byte) getMainConfig.getInt("items.players.data"));
+        mainPlayersItem.setGlow(getMainConfig.getBoolean("items.players.glow"));
 
-        this.principalPlayersLore = getPrincipalConfig.getStringList("items.players.lore");
-        this.principalPlayersName = c(getPrincipalConfig.getString("items.players.name"));
+        this.mainPlayersLore = getMainConfig.getStringList("items.players.lore");
+        this.mainPlayersName = c(getMainConfig.getString("items.players.name"));
 
-        this.principalPlayersSlot = getPrincipalConfig.getInt("items.players.slot");
+        this.mainPlayersSlot = getMainConfig.getInt("items.players.slot");
 
-        this.principalUsePlayersHead = getPrincipalConfig.getBoolean("items.players.use-head-last-player");
+        this.mainUsePlayersHead = getMainConfig.getBoolean("items.players.use-head-last-player");
 
     }
 
@@ -187,14 +187,14 @@ public class MineManager {
         return clone.toItemStack();
     }
 
-    public ItemStack getPrincipalPlayersItem() {
+    public ItemStack getMainPlayersItem() {
         ItemBuilder clone;
-        if(!principalUsePlayersHead || mineBets.size() == 0) clone = principalPlayersItem.clone();
+        if(!mainUsePlayersHead || mineBets.size() == 0) clone = mainPlayersItem.clone();
         else clone = new ItemBuilder(SkullCreator.itemFromName(getLastPlayer()));
 
-        clone.setName(principalPlayersName);
+        clone.setName(mainPlayersName);
 
-        principalPlayersLore.forEach(w -> clone.addLoreLine(c(w.
+        mainPlayersLore.forEach(w -> clone.addLoreLine(c(w.
                 replace("{games}", mineBets.size()+"").
                 replace("{last-player}", getLastPlayer()).
                 replace("{total-money}", letterFormatter(totalBetMoney)).
@@ -203,8 +203,8 @@ public class MineManager {
         return clone.toItemStack();
     }
 
-    public int getPrincipalPlayersSlot() {
-        return principalPlayersSlot;
+    public int getMainPlayersSlot() {
+        return mainPlayersSlot;
     }
 
     public String getLastPlayer() {
@@ -230,8 +230,8 @@ public class MineManager {
         return String.format("%."+leftFormat+"f", value);
     }
 
-    public Map<String, Inventory> getPrincipalInventories() {
-        return principalInventories;
+    public Map<String, Inventory> getMainInventories() {
+        return mainInventories;
     }
 
     public Set<String> getPlayersGuiOpen() {
@@ -299,8 +299,8 @@ public class MineManager {
         return mineBets;
     }
 
-    public int getDopChanceMultiplier() {
-        return dopChanceMultiplier;
+    public int getRiggingChanceMultiplier() {
+        return riggingChanceMultiplier;
     }
 
     public void setTotalBetMoney(){
@@ -379,11 +379,11 @@ public class MineManager {
             if(player != null) MinePlayersGui.create(player);
         }
 
-        for (Map.Entry<String, Inventory> entry : principalInventories.entrySet()) {
+        for (Map.Entry<String, Inventory> entry : mainInventories.entrySet()) {
             Player player = Bukkit.getPlayer(entry.getKey());
 
             if(player != null){
-                entry.getValue().setItem(getPrincipalPlayersSlot(), getPrincipalPlayersItem());
+                entry.getValue().setItem(getMainPlayersSlot(), getMainPlayersItem());
                 player.updateInventory();
             }
         }
@@ -393,38 +393,38 @@ public class MineManager {
         return mineBets.stream().filter(w -> w.getSpectators().contains(player)).findFirst().orElse(null);
     }
 
-    public double getDopChance(MineBet mineBet){
-        if(!dop) return 0.0;
+    public double getRiggingChance(MineBet mineBet){
+        if(!rigging) return 0.0;
 
         boolean cashPass = false;
-        double cashPrct = 0.0;
+        double cashPercent = 0.0;
         if (mineBet.getCashValue() > 0) {
-            for (Map.Entry<Double, Double> entry : cashDop.entrySet()) {
+            for (Map.Entry<Double, Double> entry : cashRigging.entrySet()) {
                 if (mineBet.getCashValue() >= entry.getKey()){
                     cashPass = true;
-                    cashPrct = entry.getValue();
+                    cashPercent = entry.getValue();
                     sendDebugMessage("[Mine] Reached the rigging threshold (cash): " + entry.getValue());
                     break;
                 }
             }
         }
 
-        if(cashPass) return cashPrct;
+        if(cashPass) return cashPercent;
 
         boolean moneyPass = false;
-        double moneyPrct = 0.0;
+        double moneyPercent = 0.0;
         if (mineBet.getMoneyValue() > 0) {
-            for (Map.Entry<Double, Double> entry : moneyDop.entrySet()) {
+            for (Map.Entry<Double, Double> entry : moneyRigging.entrySet()) {
                 if (mineBet.getMoneyValue() >= entry.getKey()){
                     moneyPass = true;
-                    moneyPrct = entry.getValue();
+                    moneyPercent = entry.getValue();
                     sendDebugMessage("[Mine] Reached the rigging threshold (money): " + entry.getValue());
                     break;
                 }
             }
         }
 
-        if(moneyPass) return moneyPrct;
+        if(moneyPass) return moneyPercent;
 
         return 0.0;
     }

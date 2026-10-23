@@ -26,11 +26,11 @@ public class InventoryClickCoinFlipGames implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPag = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_coinflipPag");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_coinflipPag");
         String coinflipPlayer = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_coinflipJogador");
 
-        if(nbtPag != null){
-            p.openInventory(CoinFlipGamblersGui.invs.get(p).get(Integer.parseInt(nbtPag)));
+        if(nbtPage != null){
+            p.openInventory(CoinFlipGamblersGui.invs.get(p).get(Integer.parseInt(nbtPage)));
             return;
         }
 
@@ -40,7 +40,7 @@ public class InventoryClickCoinFlipGames implements Listener {
 
             getCoinFlipManager().getCoinFlipGamblersGuiOpen().remove(p.getName());
 
-            if(getCoinFlipManager().getPrincipalInventories().containsKey(p.getName())) p.openInventory(getCoinFlipManager().getPrincipalInventories().get(p.getName()));
+            if(getCoinFlipManager().getMainInventories().containsKey(p.getName())) p.openInventory(getCoinFlipManager().getMainInventories().get(p.getName()));
             else CoinFlipMainGui.create(p);
 
         }
@@ -94,7 +94,7 @@ public class InventoryClickCoinFlipGames implements Listener {
         //owner.sendMessage(getMessages().CHALLENGER_BET_ACCEPTED.replace("{player}", owner.getName()));
 
         getCoinFlipManager().updateGamblersInventories();
-        getCoinFlipManager().updatePrincipalInventories();
+        getCoinFlipManager().updateMainInventories();
     }
 
 }

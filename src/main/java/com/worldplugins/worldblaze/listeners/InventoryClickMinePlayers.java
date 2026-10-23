@@ -26,11 +26,11 @@ public class InventoryClickMinePlayers implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPag = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_minePag");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_minePag");
         String minePlayer = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_mineJogador");
 
-        if(nbtPag != null){
-            p.openInventory(MinePlayersGui.invs.get(p).get(Integer.parseInt(nbtPag)));
+        if(nbtPage != null){
+            p.openInventory(MinePlayersGui.invs.get(p).get(Integer.parseInt(nbtPage)));
             return;
         }
 
@@ -40,7 +40,7 @@ public class InventoryClickMinePlayers implements Listener {
 
             getMineManager().getPlayersGuiOpen().remove(p.getName());
 
-            if(getMineManager().getPrincipalInventories().containsKey(p.getName())) p.openInventory(getMineManager().getPrincipalInventories().get(p.getName()));
+            if(getMineManager().getMainInventories().containsKey(p.getName())) p.openInventory(getMineManager().getMainInventories().get(p.getName()));
             else MineMainGui.create(p);
 
         }

@@ -49,7 +49,7 @@ public class InventoryClose implements Listener {
 
         if(e.getInventory().getName().equalsIgnoreCase(getMineManager().getMenuTitle())){
 
-            getMineManager().getPrincipalInventories().remove(e.getPlayer().getName());
+            getMineManager().getMainInventories().remove(e.getPlayer().getName());
 
         }
 
@@ -72,9 +72,9 @@ public class InventoryClose implements Listener {
             }
         }
 
-        if(e.getInventory().getName().equalsIgnoreCase(getCoinFlipManager().getPrincipalMenuTitle())){
+        if(e.getInventory().getName().equalsIgnoreCase(getCoinFlipManager().getMainMenuTitle())){
 
-            getCoinFlipManager().getPrincipalInventories().remove(e.getPlayer().getName());
+            getCoinFlipManager().getMainInventories().remove(e.getPlayer().getName());
 
         }
 

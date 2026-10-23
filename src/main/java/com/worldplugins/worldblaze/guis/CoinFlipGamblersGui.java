@@ -45,7 +45,7 @@ public class CoinFlipGamblersGui {
         invs.put(p, list);
         int invLine = 10;
         int invSlot = 0;
-        int numPag = 0;
+        int numPage = 0;
         if(sorted.isEmpty()){
 
             ItemBuilder item;
@@ -66,10 +66,10 @@ public class CoinFlipGamblersGui {
 
             for (CoinFlipBet coinFlipBet : sorted) {
 
-                if(invs.get(p).get(numPag).getItem(16) != null) invLine = 19;
-                if(invs.get(p).get(numPag).getItem(25) != null) invLine = 28;
-                if(invs.get(p).get(numPag).getItem(34) != null) invLine = 37;
-                if(invs.get(p).get(numPag).getItem(43) != null) {
+                if(invs.get(p).get(numPage).getItem(16) != null) invLine = 19;
+                if(invs.get(p).get(numPage).getItem(25) != null) invLine = 28;
+                if(invs.get(p).get(numPage).getItem(34) != null) invLine = 37;
+                if(invs.get(p).get(numPage).getItem(43) != null) {
 
                     Inventory newInv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("title")));
 
@@ -82,26 +82,26 @@ public class CoinFlipGamblersGui {
                     nLore.replaceAll(Utils::c);
                     next.setName(c(getConfig.getString("items.next-page.name"))).
                             setLore(nLore).setGlow(getConfig.getBoolean("items.next-page.glow"));
-                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_coinflipPag", ""+(numPag+1));
+                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_coinflipPag", ""+(numPage+1));
                     int slot = getConfig.getInt("items.next-page.slot");
 
-                    ItemBuilder ant;
+                    ItemBuilder prev;
                     if (getConfig.getBoolean("items.previous-page.use-head"))
-                        ant = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.previous-page.texture")));
-                    else ant = new ItemBuilder(Material.getMaterial(getConfig.getString("items.previous-page.id")),1,
+                        prev = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.previous-page.texture")));
+                    else prev = new ItemBuilder(Material.getMaterial(getConfig.getString("items.previous-page.id")),1,
                             (byte) getConfig.getInt("items.previous-page.data"));
-                    List<String> antLore = getConfig.getStringList("items.previous-page.lore");
-                    antLore.replaceAll(Utils::c);
-                    ant.setName(c(getConfig.getString("items.previous-page.name"))).
-                            setLore(antLore).setGlow(getConfig.getBoolean("items.previous-page.glow"));
-                    NBTTag.setNBTString(ant.toItemStack().getItemMeta(), "WBlaze_coinflipPag", ""+numPag);
-                    int antSlot = getConfig.getInt("items.previous-page.slot");
+                    List<String> prevLore = getConfig.getStringList("items.previous-page.lore");
+                    prevLore.replaceAll(Utils::c);
+                    prev.setName(c(getConfig.getString("items.previous-page.name"))).
+                            setLore(prevLore).setGlow(getConfig.getBoolean("items.previous-page.glow"));
+                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_coinflipPag", ""+numPage);
+                    int prevSlot = getConfig.getInt("items.previous-page.slot");
 
-                    newInv.setItem(antSlot, ant.toItemStack());
-                    invs.get(p).get(numPag).setItem(slot, next.toItemStack());
+                    newInv.setItem(prevSlot, prev.toItemStack());
+                    invs.get(p).get(numPage).setItem(slot, next.toItemStack());
 
                     invs.get(p).add(newInv);
-                    numPag++;
+                    numPage++;
                     invLine = 10;
                     invSlot = 0;
                 }
@@ -126,8 +126,8 @@ public class CoinFlipGamblersGui {
                 String finalStatusSpecific = statusSpecific;
                 getConfig.getStringList("items.player.lore").forEach(w -> item.addLoreLine(c(w.
                         replace("{nick}", coinFlipBet.getOwner()).
-                        replace("{owner-choice}", coinFlipBet.isCara() ? "Heads" : "Tails").
-                        replace("{opponent-choice}", coinFlipBet.isCara() ? "Tails" : "Heads").
+                        replace("{owner-choice}", coinFlipBet.isHeads() ? "Heads" : "Tails").
+                        replace("{opponent-choice}", coinFlipBet.isHeads() ? "Tails" : "Heads").
                         replace("{opponent}", opponent).
                         replace("{money}", letterFormatter(coinFlipBet.getMoneyValue())).
                         replace("{cash}", letterFormatter(coinFlipBet.getCashValue())).
@@ -144,7 +144,7 @@ public class CoinFlipGamblersGui {
 
                 if(invSlot == 7) invSlot = 0;
 
-                invs.get(p).get(numPag).setItem(invLine+invSlot, item.toItemStack());
+                invs.get(p).get(numPage).setItem(invLine+invSlot, item.toItemStack());
                 invSlot++;
             }
         }

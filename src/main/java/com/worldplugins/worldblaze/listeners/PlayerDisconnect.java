@@ -25,8 +25,8 @@ public class PlayerDisconnect implements Listener {
         getGraphManager().getGraphInventories().remove(p.getName());
         getCrashManager().getCrashInventories().remove(p.getName());
         getDoubleManager().getDoubleInventories().remove(p.getName());
-        getMineManager().getPrincipalInventories().remove(p.getName());
-        getCoinFlipManager().getPrincipalInventories().remove(p.getName());
+        getMineManager().getMainInventories().remove(p.getName());
+        getCoinFlipManager().getMainInventories().remove(p.getName());
         AsyncPlayerChat.graphCashList.remove(p.getName());
         AsyncPlayerChat.graphMoneyList.remove(p.getName());
         AsyncPlayerChat.crashCashList.remove(p.getName());

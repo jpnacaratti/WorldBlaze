@@ -1,60 +1,60 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO mine E DEPOIS EM criar E POR FIM CONFIRMAR
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON mine AND THEN ON create AND FINALLY CONFIRMS
 
-title: 'WorldBlaze - Mine' # Configure o número de linhas na config.yml
+title: 'WorldBlaze - Mine' # Set the number of rows in config.yml
 
-hidden: # Slot ainda não minerado
-  use-head: false # caso true, ignora 'id' e 'data' abaixo
+hidden: # Slot not mined yet
+  use-head: false # if true, ignores 'id' and 'data' below
   texture: ''
   id: 'WOOL'
   data: 5
   glow: false
   name: '&5&kessej'
   lore:
-    - '&7Clique para minerar nesse SLOT'
+    - '&7Click to mine this SLOT'
 
-revealed: # Slot minerado com sucesso
-  use-head: false # caso true, ignora 'id' e 'data' abaixo
+revealed: # Slot mined successfully
+  use-head: false # if true, ignores 'id' and 'data' below
   texture: ''
   id: 'DIAMOND'
   data: 0
   glow: false
-  name: '&bSeguro'
+  name: '&bSafe'
   lore:
-    - '&7Slot minerado (uffa)'
+    - '&7Slot mined (phew)'
 
-bomb: # Explodiu, perdeu o mine
-  use-head: true # caso true, ignora 'id' e 'data' abaixo
+bomb: # Exploded, lost the mine
+  use-head: true # if true, ignores 'id' and 'data' below
   texture: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
   id: ''
   data: 0
   glow: false
   name: '&cBOOOOOOM...'
   lore:
-    - '&7Nãoooooo, tava torcendo tanto'
-    - '&7por você...'
+    - '&7Nooooo, I was rooting so hard'
+    - '&7for you...'
     - ''
-    - '&7Mais sorte na próxima.'
+    - '&7Better luck next time.'
 
 items:
 
   exit:
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'BARRIER'
     data: 0
     glow: false
-    name: '&cSair'
+    name: '&cExit'
     lore:
-      - '&7Slots revelados: &f{slots}'
+      - '&7Revealed slots: &f{slots}'
       - ''
-      - '&7Multiplicador atual: &b{multiplier}'
+      - '&7Current multiplier: &b{multiplier}'
       - ''
-      - '&7Espectadores:'
+      - '&7Spectators:'
       - '&7- &f{spectators}'
       - ''
-      - '&7 * Caso já esteja satisfeito'
-      - '&7clique para &lSAIR'
-    multiplier-format: 4 # Vai exibir ate as 4 casas decimais do multiplicador
+      - '&7 * If you are already satisfied'
+      - '&7click to &lEXIT'
+    multiplier-format: 4 # Will display up to 4 decimal places of the multiplier
     slot: 49
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

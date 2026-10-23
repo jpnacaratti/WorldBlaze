@@ -1,13 +1,13 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar
 
-title: 'WorldBlaze - Jogos de aposta'
+title: 'WorldBlaze - Betting Games'
 
 rows: 4
 
 items:
 
   graph:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/f21fd6ec1bae0b54fda8522eac54993ba400e314808cef0887d24b92c15c919f'
     id: ''
     data: 0
@@ -15,19 +15,19 @@ items:
     name: '&bGraph'
     lore:
       - '&7Nome: &dGraph'
-      - '&7Apostas disponíveis: &dDinheiro e CASH'
-      - '&7Retorno: &d83%'
-      - '&7Tipo de jogo: &dPúblico'
-      - '&7Lançamento no servidor: &d20/09/2022'
+      - '&7Available bets: &dMoney and CASH'
+      - '&7Return: &d83%'
+      - '&7Game type: &dPublic'
+      - '&7Server release: &d20/09/2022'
       - ''
-      - '&7Clique com botão direito para ver'
-      - '&7um tutorial desse jogo ou clique'
-      - '&7o botão esquerdo para jogar'
+      - '&7Right-click to see'
+      - '&7a tutorial for this game or click'
+      - '&7the left button to play'
     help: '&7Tutorial -> &dhttps://www.youtube.com/watch?v=pRfmrE0ToTo'
     slot: 10
 
   crash:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/beb588b21a6f98ad1ff4e085c552dcb050efc9cab427f46048f18fc803475f7'
     id: ''
     data: 0
@@ -35,19 +35,19 @@ items:
     name: '&bCrash'
     lore:
       - '&7Nome: &aCrash'
-      - '&7Apostas disponíveis: &aDinheiro e CASH'
-      - '&7Retorno: &aValor na hora da retirada'
-      - '&7Tipo de jogo: &aPúblico'
-      - '&7Lançamento no servidor: &a20/09/2022'
+      - '&7Available bets: &aMoney and CASH'
+      - '&7Return: &aValue at the time of cash out'
+      - '&7Game type: &aPublic'
+      - '&7Server release: &a20/09/2022'
       - ''
-      - '&7Clique com botão direito para ver'
-      - '&7um tutorial desse jogo ou clique'
-      - '&7o botão esquerdo para jogar'
+      - '&7Right-click to see'
+      - '&7a tutorial for this game or click'
+      - '&7the left button to play'
     help: '&7Tutorial -> &ahttps://www.youtube.com/watch?v=WcTRQXtXJPs'
     slot: 12
 
   double:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/33bbac230ba0bd526f83c5100fcfd5cd08dab35a9844416e6d4127fa54618926'
     id: ''
     data: 0
@@ -55,19 +55,19 @@ items:
     name: '&bDouble'
     lore:
       - '&7Nome: &bDouble'
-      - '&7Apostas disponíveis: &bDinheiro e CASH'
-      - '&7Retorno: &b2x ou 14x'
-      - '&7Tipo de jogo: &bPúblico'
-      - '&7Lançamento no servidor: &b20/09/2022'
+      - '&7Available bets: &bMoney and CASH'
+      - '&7Return: &b2x or 14x'
+      - '&7Game type: &bPublic'
+      - '&7Server release: &b20/09/2022'
       - ''
-      - '&7Clique com botão direito para ver'
-      - '&7um tutorial desse jogo ou clique'
-      - '&7o botão esquerdo para jogar'
+      - '&7Right-click to see'
+      - '&7a tutorial for this game or click'
+      - '&7the left button to play'
     help: '&7Tutorial -> &bhttps://www.youtube.com/watch?v=9qIfFvOD2Mc'
     slot: 13
 
   mine:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
     id: ''
     data: 0
@@ -75,39 +75,39 @@ items:
     name: '&bMine'
     lore:
       - '&7Nome: &cMine'
-      - '&7Apostas disponíveis: &cDinheiro e CASH'
-      - '&7Retorno: &cMultiplicador dos slots'
-      - '&7Tipo de jogo: &cIndividual'
-      - '&7Lançamento no servidor: &c20/09/2022'
+      - '&7Available bets: &cMoney and CASH'
+      - '&7Return: &cSlot multiplier'
+      - '&7Game type: &cSingle player'
+      - '&7Server release: &c20/09/2022'
       - ''
-      - '&7Clique com botão direito para ver'
-      - '&7um tutorial desse jogo ou clique'
-      - '&7o botão esquerdo para jogar'
+      - '&7Right-click to see'
+      - '&7a tutorial for this game or click'
+      - '&7the left button to play'
     help: '&7Tutorial -> &chttps://www.youtube.com/watch?v=gQlMMD8auMs'
     slot: 14
 
   jogo-do-bicho:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/f8222e684248aa8c5c23052592fbe4a57ba8b063aa4044f16bf0edc25b74130f'
     id: ''
     data: 0
     glow: false
-    name: '&bJogo do bicho'
+    name: '&bJogo do Bicho'
     lore:
-      - '&7Nome: &eJogo do bicho'
-      - '&7Apostas disponíveis: &eDinheiro e CASH'
-      - '&7Retorno: &eVariado conforme escolha apostar'
-      - '&7Tipo de jogo: &ePúblico'
-      - '&7Lançamento no servidor: &e20/09/2022'
+      - '&7Name: &eJogo do Bicho'
+      - '&7Available bets: &eMoney and CASH'
+      - '&7Return: &eVaries by chosen bet'
+      - '&7Game type: &ePublic'
+      - '&7Server release: &e20/09/2022'
       - ''
-      - '&7Clique com botão direito para ver'
-      - '&7um tutorial desse jogo ou clique'
-      - '&7o botão esquerdo para jogar'
+      - '&7Right-click to see'
+      - '&7a tutorial for this game or click'
+      - '&7the left button to play'
     help: '&7Tutorial -> &ehttps://www.youtube.com/watch?v=N7EKS2aW_oc'
     slot: 16
 
   coinflip:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
     id: ''
     data: 0
@@ -115,14 +115,14 @@ items:
     name: '&bCoinflip'
     lore:
       - '&7Nome: &cMine'
-      - '&7Apostas disponíveis: &cDinheiro e CASH'
+      - '&7Available bets: &cMoney and CASH'
       - '&7Retorno: &c2x'
-      - '&7Tipo de jogo: &cDuplas'
-      - '&7Lançamento no servidor: &c20/09/2022'
+      - '&7Game type: &cDuo'
+      - '&7Server release: &c20/09/2022'
       - ''
-      - '&7Clique com botão direito para ver'
-      - '&7um tutorial desse jogo ou clique'
-      - '&7o botão esquerdo para jogar'
+      - '&7Right-click to see'
+      - '&7a tutorial for this game or click'
+      - '&7the left button to play'
     help: '&7Tutorial -> &chttps://www.youtube.com/watch?v=qMEsx__88Gk&list=RDMM&index=3'
     slot: 22
 
@@ -134,7 +134,7 @@ items:
     id: 'STAINED_GLASS_PANE'
     data: 11
     glow: false
-    name: '' # Deixe '' para usar nome padrão
+    name: '' # Leave '' to use the default name
     slot: 0
 
   glass2:

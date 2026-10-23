@@ -122,10 +122,10 @@ public class InventoryClickMineCreate implements Listener {
             getMineManager().setTotalBetMoney();
             getMineManager().setTotalBetCash();
 
-            for (Map.Entry<String, Inventory> entry : getMineManager().getPrincipalInventories().entrySet()) {
+            for (Map.Entry<String, Inventory> entry : getMineManager().getMainInventories().entrySet()) {
                 Player player = Bukkit.getPlayer(entry.getKey());
 
-                entry.getValue().setItem(getMineManager().getPrincipalPlayersSlot(), getMineManager().getPrincipalPlayersItem());
+                entry.getValue().setItem(getMineManager().getMainPlayersSlot(), getMineManager().getMainPlayersItem());
 
                 if(player != null) player.updateInventory();
             }

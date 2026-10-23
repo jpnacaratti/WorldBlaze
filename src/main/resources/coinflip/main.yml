@@ -1,4 +1,4 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM coinflip
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON coinflip
 
 title: 'WorldBlaze - Coinflip'
 
@@ -7,39 +7,39 @@ rows: 3
 items:
 
   create-game:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
     id: ''
     data: 0
     glow: false
-    name: '&eCriar jogo'
+    name: '&eCreate game'
     lore-not-participating:
-      - '&7Clique para começar um jogo'
-      - '&7e apostar coinflip com seus amigos'
+      - '&7Click to start a game'
+      - '&7and bet on coinflip with your friends'
     lore-participating:
       - ''
-      - '&7Você já está na fila de espera'
-      - '&7para jogar coinflip.'
+      - '&7You are already in the waiting queue'
+      - '&7to play coinflip.'
       - ''
-      - '&7Clique caso deseje sair da fila'
+      - '&7Click if you want to leave the queue'
       - ''
     slot: 12
 
   games:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/146947e2cffd38047de703fd9878acfc9942eb712edc8f257b129cc10fad0667'
     id: ''
     data: 0
     glow: false
-    name: '&eJogos'
+    name: '&eGames'
     lore:
-      - '&7Partidas ocorrendo: &b{ongoing}'
-      - '&7Partidas em espera: &b{waiting}'
+      - '&7Matches in progress: &b{ongoing}'
+      - '&7Matches waiting: &b{waiting}'
       - ''
-      - '&7Partidas para você: &b{specific}'
+      - '&7Matches for you: &b{specific}'
       - ''
-      - '&7Clique para ver mais detalhes e'
-      - '&7entrar em algum jogo existente.'
+      - '&7Click to see more details and'
+      - '&7join an existing game.'
     slot: 14
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

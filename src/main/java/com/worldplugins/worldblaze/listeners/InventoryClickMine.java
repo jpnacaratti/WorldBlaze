@@ -78,11 +78,11 @@ public class InventoryClickMine implements Listener {
                 if(player != null) MinePlayersGui.create(player);
             }
 
-            for (Map.Entry<String, Inventory> entry : getMineManager().getPrincipalInventories().entrySet()) {
+            for (Map.Entry<String, Inventory> entry : getMineManager().getMainInventories().entrySet()) {
                 Player player = Bukkit.getPlayer(entry.getKey());
 
                 if(player != null){
-                    entry.getValue().setItem(getMineManager().getPrincipalPlayersSlot(), getMineManager().getPrincipalPlayersItem());
+                    entry.getValue().setItem(getMineManager().getMainPlayersSlot(), getMineManager().getMainPlayersItem());
                     player.updateInventory();
                 }
             }

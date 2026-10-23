@@ -8,14 +8,14 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
-import static com.worldplugins.worldblaze.WorldBlaze.getPrincipalGuiYml;
+import static com.worldplugins.worldblaze.WorldBlaze.getMainGuiYml;
 import static com.worldplugins.worldblaze.utils.Utils.c;
 
 public class MainGui {
 
     public static void create(Player p){
 
-        FileConfiguration getConfig = getPrincipalGuiYml().getConfig();
+        FileConfiguration getConfig = getMainGuiYml().getConfig();
 
         Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 

@@ -15,11 +15,11 @@ public class CoinFlipMainGui {
 
     public static void create(Player p){
 
-        FileConfiguration getConfig = getCoinFlipPrincipalGuiYml().getConfig();
+        FileConfiguration getConfig = getCoinFlipMainGuiYml().getConfig();
 
         Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
-        inv.setItem(getCoinFlipManager().getPrincipalGamesSlot(), getCoinFlipManager().getPrincipalGamesItem(p.getName()));
+        inv.setItem(getCoinFlipManager().getMainGamesSlot(), getCoinFlipManager().getMainGamesItem(p.getName()));
 
         for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 
@@ -42,7 +42,7 @@ public class CoinFlipMainGui {
             inv.setItem(slot, item.toItemStack());
         }
 
-        getCoinFlipManager().getPrincipalInventories().put(p.getName(), inv);
+        getCoinFlipManager().getMainInventories().put(p.getName(), inv);
 
         p.openInventory(inv);
     }

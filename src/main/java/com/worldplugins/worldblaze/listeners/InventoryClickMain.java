@@ -9,7 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 import static com.worldplugins.worldblaze.WorldBlaze.getInstance;
 import static com.worldplugins.worldblaze.WorldBlaze.getMessages;
-import static com.worldplugins.worldblaze.WorldBlaze.getPrincipalGuiYml;
+import static com.worldplugins.worldblaze.WorldBlaze.getMainGuiYml;
 import static com.worldplugins.worldblaze.utils.Utils.c;
 
 public class InventoryClickMain implements Listener {
@@ -17,13 +17,13 @@ public class InventoryClickMain implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(c(getPrincipalGuiYml().getConfig().getString("title"))))
+        if (!e.getInventory().getName().equalsIgnoreCase(c(getMainGuiYml().getConfig().getString("title"))))
             return;
         e.setCancelled(true);
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 
-        FileConfiguration getConfig = getPrincipalGuiYml().getConfig();
+        FileConfiguration getConfig = getMainGuiYml().getConfig();
 
         Player p = (Player) e.getWhoClicked();
 

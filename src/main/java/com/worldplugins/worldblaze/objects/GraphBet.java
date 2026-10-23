@@ -6,19 +6,19 @@ public class GraphBet {
 
     private final String owner, betId;
     private final double cashValue, moneyValue, graphValue, mid;
-    private final int graphPointId, numberAtts, whenReceive;
+    private final int graphPointId, numberUpdates, whenReceive;
     private final boolean positive;
 
-    public GraphBet(String owner, double cashValue, double moneyValue, double graphValue, int graphPointId, int numberAtts, boolean positive, int betID) {
+    public GraphBet(String owner, double cashValue, double moneyValue, double graphValue, int graphPointId, int numberUpdates, boolean positive, int betID) {
         this.owner = owner;
         this.cashValue = cashValue;
         this.moneyValue = moneyValue;
         this.graphValue = graphValue;
         this.graphPointId = graphPointId;
-        this.numberAtts = numberAtts;
+        this.numberUpdates = numberUpdates;
         this.positive = positive;
         this.betId = betID+"";
-        this.whenReceive = numberAtts + graphPointId;
+        this.whenReceive = numberUpdates + graphPointId;
         this.mid = (cashValue + moneyValue) / 2;
     }
 
@@ -50,8 +50,8 @@ public class GraphBet {
         return graphPointId;
     }
 
-    public int getNumberAtts() {
-        return numberAtts;
+    public int getNumberUpdates() {
+        return numberUpdates;
     }
 
     public boolean isPositive() {

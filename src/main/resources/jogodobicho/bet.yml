@@ -1,83 +1,83 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO jogo do bicho E EM apostar E DEPOIS no bicho
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON jogo do bicho AND ON bet AND THEN ON the animal
 
-title: 'Jogo do Bicho - Apostar'
+title: 'Jogo do Bicho - Bet'
 
 rows: 3
 
 items:
 
   money:
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'EMERALD'
     data: 0
     glow: false
     name: '&aMoney'
     lore:
-      - '&7Quantia que vai ser apostada: &a{money}'
+      - '&7Amount to be bet: &a{money}'
       - ''
-      - '&7* Clique para alterar'
+      - '&7* Click to change'
     slot: 11
 
   cash:
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'GOLD_INGOT'
     data: 0
     glow: false
     name: '&6Cash'
     lore:
-      - '&7Quantia que vai ser apostada: &6{cash}'
+      - '&7Amount to be bet: &6{cash}'
       - ''
-      - '&7* Clique para alterar'
+      - '&7* Click to change'
     slot: 12
 
   bet:
-    use-head-animal: true # caso true, ignora 'id' e 'data' abaixo
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head-animal: true # if true, ignores 'id' and 'data' below
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: ''
     data: 0
     glow: false
-    name: '&6Apostar'
+    name: '&6Bet'
     lore:
       - '&7Animal: &b{animal}'
       - ''
-      - '&7Quantia que vai ser apostada: &a{money}'
-      - '&7Quantia que vai ser apostada: &6{cash}'
+      - '&7Amount to be bet: &a{money}'
+      - '&7Amount to be bet: &6{cash}'
       - ''
-      - '&7Clique para apostar nesse animal'
+      - '&7Click to bet on this animal'
     slot: 14
 
   bettors:
-    use-head-last-player: true # caso true, usa a cabeça do último jogador como item
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head-last-player: true # if true, uses the head of the last player as the item
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: ''
     data: 0
     glow: false
-    name: '&eApostadores'
+    name: '&eBettors'
     lore:
-      - '&7Jogadores que apostaram nesse bicho: &b{players}'
-      - '&7Ultimo jogador que apostou: &b{last-player}'
+      - '&7Players who bet on this animal: &b{players}'
+      - '&7Last player to bet: &b{last-player}'
       - ''
-      - '&7Total money apostado: &a{total-money}'
-      - '&7Total cash apostado: &6{total-cash}'
+      - '&7Total money bet: &a{total-money}'
+      - '&7Total cash bet: &6{total-cash}'
       - ''
-      - '&7Clique para ver mais detalhes e'
-      - '&7todos os jogadores que apostaram'
-      - '&7neste animal.'
+      - '&7Click to see more details and'
+      - '&7all the players who bet'
+      - '&7on this animal.'
     slot: 15
 
   back:
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'REDSTONE'
     data: 0
     glow: false
-    name: '&cVoltar'
+    name: '&cBack'
     lore:
-      - '&7Clique para voltar ao menu anterior'
+      - '&7Click to go back to the previous menu'
     slot: 26
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
@@ -88,7 +88,7 @@ items:
     id: 'STAINED_GLASS_PANE'
     data: 4
     glow: false
-    name: '' # Deixe '' para usar nome padrão
+    name: '' # Leave '' to use the default name
     slot: 0
 
   glass2:

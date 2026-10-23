@@ -99,9 +99,9 @@ public class Utils {
 
     public static int getNewBetId(){
 
-        int toR = getDataYml().getConfig().getInt("aposta-id");
+        int toR = getDataYml().getConfig().getInt("bet-id");
 
-        getDataYml().getConfig().set("aposta-id", toR + 1);
+        getDataYml().getConfig().set("bet-id", toR + 1);
         getDataYml().saveFile();
 
         return toR;
@@ -120,10 +120,10 @@ public class Utils {
 
         System.out.println("----");
 
-        int colum = 7;
-        for (int i = 1; i <= 8 - colum; i++) {
+        int column = 7;
+        for (int i = 1; i <= 8 - column; i++) {
             for (int a = 0; a < 5; a++) {
-                System.out.println((colum + i) + (a * 9));
+                System.out.println((column + i) + (a * 9));
             }
         }
 
@@ -231,12 +231,12 @@ public class Utils {
             }
             getDoubleManager().getGamblersGuiOpen().clear();
 
-            for (Map.Entry<String, Inventory> entry : getMineManager().getPrincipalInventories().entrySet()) {
+            for (Map.Entry<String, Inventory> entry : getMineManager().getMainInventories().entrySet()) {
                 Player player = Bukkit.getPlayer(entry.getKey());
 
                 if(player != null) player.closeInventory();
             }
-            getMineManager().getPrincipalInventories().clear();
+            getMineManager().getMainInventories().clear();
 
             for (String s : getMineManager().getPlayersGuiOpen()) {
                 Player player = Bukkit.getPlayer(s);
@@ -245,12 +245,12 @@ public class Utils {
             }
             getMineManager().getPlayersGuiOpen().clear();
 
-            for (Map.Entry<String, Inventory> entry : getCoinFlipManager().getPrincipalInventories().entrySet()) {
+            for (Map.Entry<String, Inventory> entry : getCoinFlipManager().getMainInventories().entrySet()) {
                 Player player = Bukkit.getPlayer(entry.getKey());
 
                 if(player != null) player.closeInventory();
             }
-            getCoinFlipManager().getPrincipalInventories().clear();
+            getCoinFlipManager().getMainInventories().clear();
 
             for (String s : getCoinFlipManager().getCoinFlipGamblersGuiOpen()) {
                 Player player = Bukkit.getPlayer(s);

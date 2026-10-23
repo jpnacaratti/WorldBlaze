@@ -1,43 +1,43 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM jogo do bicho
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON jogo do bicho
 
-title: 'WorldBlaze - Jogo do bicho'
+title: 'WorldBlaze - Jogo do Bicho'
 
 rows: 3
 
 items:
 
   bichos:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/d6df378bee6980a784593a1ae989280a6e9621a919172da49d31815f3c49286e'
     id: ''
     data: 0
     glow: false
-    name: '&cJogar'
+    name: '&cPlay'
     lore:
-      - '&7Clique para escolher um bicho'
-      - '&7e apostar'
+      - '&7Click to choose an animal'
+      - '&7and bet'
       - ''
-      - '&7Os resultados de cada jogo'
-      - '&7saem todo dia às 14:00'
+      - '&7The results of each game'
+      - '&7come out every day at 14:00'
     slot: 12
 
   bettors:
-    use-head-last-player: true # caso true, o ícone vai ser a cabeça do último jogador que apostou
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head-last-player: true # if true, the icon will be the head of the last player who bet
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: ''
     data: 0
     glow: false
-    name: '&eApostadores'
+    name: '&eBettors'
     lore:
-      - '&7Jogadores apostando: &b{players}'
-      - '&7Ultimo jogador que apostou: &b{last-player}'
+      - '&7Players betting: &b{players}'
+      - '&7Last player to bet: &b{last-player}'
       - ''
-      - '&7Total money apostado: &a{total-money}'
-      - '&7Total cash apostado: &6{total-cash}'
+      - '&7Total money bet: &a{total-money}'
+      - '&7Total cash bet: &6{total-cash}'
       - ''
-      - '&7Clique para ver mais detalhes e'
-      - '&7todos os jogadores que apostaram.'
+      - '&7Click to see more details and'
+      - '&7all the players who bet.'
     slot: 14
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

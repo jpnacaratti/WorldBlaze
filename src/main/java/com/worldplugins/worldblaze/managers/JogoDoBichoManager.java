@@ -144,7 +144,7 @@ public class JogoDoBichoManager {
         return jogoDoBichoBets.stream().anyMatch(w -> w.getOwner().equalsIgnoreCase(name) && w.getAnimal() == bicho);
     }
 
-    public Set<Bicho> getBlackListDop(){
+    public Set<Bicho> getBlackListRigging(){
         Set<Bicho> blackList = new HashSet<>();
 
         if(!getInstance().getConfig().getBoolean("config.jogo-do-bicho.rigging.enabled")) return blackList;
@@ -166,7 +166,7 @@ public class JogoDoBichoManager {
     public Bicho getRandomBicho(){
         List<Bicho> cache = new ArrayList<>(Arrays.asList(Bicho.values()));
 
-        cache.removeAll(getBlackListDop());
+        cache.removeAll(getBlackListRigging());
 
         if(cache.isEmpty()) return Bicho.VEADO;
 

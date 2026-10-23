@@ -35,8 +35,8 @@ public class CoinFlipGui {
             item.setName(c(getConfig.getString("items." + s + ".name"))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
-                    replace("{opponent-choice}", bet.isCara() ? "Tails" : "Heads").
-                    replace("{owner-choice}", bet.isCara() ? "Heads" : "Tails"))));
+                    replace("{opponent-choice}", bet.isHeads() ? "Tails" : "Heads").
+                    replace("{owner-choice}", bet.isHeads() ? "Heads" : "Tails"))));
 
             int slot = getConfig.getInt("items." + s + ".slot");
 

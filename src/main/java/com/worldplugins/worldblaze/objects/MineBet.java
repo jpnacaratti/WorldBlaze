@@ -45,10 +45,10 @@ public class MineBet {
 
         this.chanceMultiplier = 1;
 
-        double dopChance = getMineManager().getDopChance(this);
-        if(dopChance > 0){
-            if (ThreadLocalRandom.current().nextDouble(0, 100) <= dopChance) {
-                this.chanceMultiplier = getMineManager().getDopChanceMultiplier();
+        double riggingChance = getMineManager().getRiggingChance(this);
+        if(riggingChance > 0){
+            if (ThreadLocalRandom.current().nextDouble(0, 100) <= riggingChance) {
+                this.chanceMultiplier = getMineManager().getRiggingChanceMultiplier();
                 sendDebugMessage("[Mine] Got caught by the rigging...");
             }
         }

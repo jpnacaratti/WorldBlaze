@@ -27,20 +27,20 @@ public class ItemBuilder {
 		this.is = is;
 	}
 
-	public ItemBuilder(Material m, int quantia) {
-		this.is = new ItemStack(m, quantia);
+	public ItemBuilder(Material m, int amount) {
+		this.is = new ItemStack(m, amount);
 	}
 
-	public ItemBuilder(Material m, int quantia, byte durabilidade) {
-		this.is = new ItemStack(m, quantia, (short) durabilidade);
+	public ItemBuilder(Material m, int amount, byte durability) {
+		this.is = new ItemStack(m, amount, (short) durability);
 	}
 
 	public ItemBuilder clone() {
 		return new ItemBuilder(this.is.clone());
 	}
 
-	public ItemBuilder setDurability(short durabilidade) {
-		this.is.setDurability(durabilidade);
+	public ItemBuilder setDurability(short durability) {
+		this.is.setDurability(durability);
 		return this;
 	}
 
@@ -49,17 +49,17 @@ public class ItemBuilder {
 		return this;
 	}
 
-	public ItemBuilder setDurability(int durabilidade) {
-		this.is.setDurability(Short.valueOf("" + durabilidade).shortValue());
+	public ItemBuilder setDurability(int durability) {
+		this.is.setDurability(Short.valueOf("" + durability).shortValue());
 		return this;
 	}
 
-	public ItemBuilder setName(String nome) {
-		if (nome.equalsIgnoreCase("nulo")) {
+	public ItemBuilder setName(String name) {
+		if (name.equalsIgnoreCase("null")) {
 			return this;
 		}
 		ItemMeta im = this.is.getItemMeta();
-		im.setDisplayName(nome);
+		im.setDisplayName(name);
 		this.is.setItemMeta(im);
 		return this;
 	}
@@ -70,7 +70,7 @@ public class ItemBuilder {
 	}
 
 	public ItemBuilder addEnchants(List<String> enchants) {
-		if (enchants.get(0).equalsIgnoreCase("nulo")) {
+		if (enchants.get(0).equalsIgnoreCase("null")) {
 			return this;
 		}
 		for (String s : enchants) {
@@ -102,10 +102,10 @@ public class ItemBuilder {
 		return this;
 	}
 
-	public ItemBuilder setSkullOwner(String dono) {
+	public ItemBuilder setSkullOwner(String owner) {
 		try {
 			SkullMeta im = (SkullMeta) this.is.getItemMeta();
-			im.setOwner(dono);
+			im.setOwner(owner);
 			this.is.setItemMeta((ItemMeta) im);
 		} catch (ClassCastException im) {
 		}
@@ -150,13 +150,13 @@ public class ItemBuilder {
 		return this;
 	}
 
-	public ItemBuilder removeLoreLine(String linha) {
+	public ItemBuilder removeLoreLine(String line) {
 		ItemMeta im = this.is.getItemMeta();
 		ArrayList<String> lore = new ArrayList<String>(im.getLore());
-		if (!lore.contains(linha)) {
+		if (!lore.contains(line)) {
 			return this;
 		}
-		lore.remove(linha);
+		lore.remove(line);
 		im.setLore(lore);
 		this.is.setItemMeta(im);
 		return this;
@@ -174,46 +174,46 @@ public class ItemBuilder {
 		return this;
 	}
 
-	public ItemBuilder addLoreLine(String linha) {
+	public ItemBuilder addLoreLine(String line) {
 		ItemMeta im = this.is.getItemMeta();
 		ArrayList<String> lore = new ArrayList<String>();
 		if (im.hasLore()) {
 			lore = new ArrayList<String>(im.getLore());
 		}
-		lore.add(linha);
+		lore.add(line);
 		im.setLore(lore);
 		this.is.setItemMeta(im);
 		return this;
 	}
 
-	public ItemBuilder addLoreLine(String linha, int pos) {
+	public ItemBuilder addLoreLine(String line, int pos) {
 		ItemMeta im = this.is.getItemMeta();
 		ArrayList<String> lore = new ArrayList<String>(im.getLore());
-		lore.set(pos, linha);
+		lore.set(pos, line);
 		im.setLore(lore);
 		this.is.setItemMeta(im);
 		return this;
 	}
 
 	@SuppressWarnings("deprecation")
-	public ItemBuilder setDyeColor(DyeColor cor) {
-		this.is.setDurability((short) cor.getData());
+	public ItemBuilder setDyeColor(DyeColor color) {
+		this.is.setDurability((short) color.getData());
 		return this;
 	}
 
 	@Deprecated
-	public ItemBuilder setWoolColor(DyeColor cor) {
+	public ItemBuilder setWoolColor(DyeColor color) {
 		if (!this.is.getType().equals((Object) Material.WOOL)) {
 			return this;
 		}
-		this.is.setDurability((short) cor.getData());
+		this.is.setDurability((short) color.getData());
 		return this;
 	}
 
-	public ItemBuilder setLeatherArmorColor(Color cor) {
+	public ItemBuilder setLeatherArmorColor(Color color) {
 		try {
 			LeatherArmorMeta im = (LeatherArmorMeta) this.is.getItemMeta();
-			im.setColor(cor);
+			im.setColor(color);
 			this.is.setItemMeta((ItemMeta) im);
 		} catch (ClassCastException im) {
 		}

@@ -15,11 +15,11 @@ public class DoubleAnimationSpot {
 
     private final String secId;
     private final double time;
-    private final Map<ItemStack, List<Integer>> itens;
+    private final Map<ItemStack, List<Integer>> items;
 
     public DoubleAnimationSpot(String secId) {
         this.secId = secId;
-        this.itens = new HashMap<>();
+        this.items = new HashMap<>();
 
         FileConfiguration getConfig = getDoubleGuiYml().getConfig();
 
@@ -29,7 +29,7 @@ public class DoubleAnimationSpot {
             ItemBuilder item = new ItemBuilder(Material.getMaterial(getConfig.getString("starting-animation." + secId + ".items." + s + ".id")), 1, (byte)
             getConfig.getInt("starting-animation." + secId + ".items." + s + ".data"));
 
-            itens.put(item.toItemStack(), getConfig.getIntegerList("starting-animation." + secId + ".items." + s + ".slot"));
+            items.put(item.toItemStack(), getConfig.getIntegerList("starting-animation." + secId + ".items." + s + ".slot"));
         }
     }
 
@@ -41,7 +41,7 @@ public class DoubleAnimationSpot {
         return time;
     }
 
-    public Map<ItemStack, List<Integer>> getItens() {
-        return itens;
+    public Map<ItemStack, List<Integer>> getItems() {
+        return items;
     }
 }

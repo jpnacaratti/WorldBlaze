@@ -1,41 +1,41 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO mine
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON mine
 
-title: 'WorldBlaze - Jogo Mine'
+title: 'WorldBlaze - Mine Game'
 
 rows: 3
 
 items:
 
   create:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
     id: ''
     data: 0
     glow: false
-    name: '&aCriar jogo'
+    name: '&aCreate game'
     lore:
       - ''
-      - '&bClique para iniciar um novo jogo'
+      - '&bClick to start a new game'
       - ''
     slot: 12
 
   players:
-    use-head-last-player: true # caso true, o ícone vai ser a cabeça do último jogador que iniciou
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head-last-player: true # if true, the icon will be the head of the last player who started
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: ''
     data: 0
     glow: false
-    name: '&eApostadores'
+    name: '&eBettors'
     lore:
-      - '&7Jogos acontecendo: &b{games}'
-      - '&7Ultimo jogador que iniciou: &b{last-player}'
+      - '&7Games in progress: &b{games}'
+      - '&7Last player who started: &b{last-player}'
       - ''
-      - '&7Total money apostado: &a{total-money}'
-      - '&7Total cash apostado: &6{total-cash}'
+      - '&7Total money bet: &a{total-money}'
+      - '&7Total cash bet: &6{total-cash}'
       - ''
-      - '&7Clique para ver mais detalhes e'
-      - '&7todos os jogadores jogando.'
+      - '&7Click to see more details and'
+      - '&7all the players playing.'
     slot: 14
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
@@ -46,7 +46,7 @@ items:
     id: 'STAINED_GLASS_PANE'
     data: 14
     glow: false
-    name: '' # Deixe '' para usar nome padrão
+    name: '' # Leave '' to use the default name
     slot: 0
 
   glass2:

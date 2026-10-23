@@ -10,13 +10,13 @@ public class BlazeUser {
     private double graphCashValue, graphMoneyValue, crashCashValue, crashMoneyValue, doubleCashValue, doubleMoneyValue, mineCashValue, mineMoneyValue, jogoDoBichoMoneyValue, jogoDoBichoCashValue, coinFlipCashValue, coinFlipMoneyValue;
     private int graphTime, mineBombs;
     private String coinFlipSpecific;
-    private boolean coinFlipCara;
+    private boolean coinFlipHeads;
 
     public BlazeUser(String owner) {
         this.owner = owner;
         this.graphTime = getInstance().getConfig().getInt("config.graph.default-time-update");
         this.mineBombs = getInstance().getConfig().getInt("config.mine.default-mines");
-        this.coinFlipCara = true;
+        this.coinFlipHeads = true;
     }
 
     public String getOwner() {
@@ -143,11 +143,11 @@ public class BlazeUser {
         this.coinFlipSpecific = coinFlipSpecific;
     }
 
-    public boolean isCoinFlipCara() {
-        return coinFlipCara;
+    public boolean isCoinFlipHeads() {
+        return coinFlipHeads;
     }
 
-    public void setCoinFlipCara(boolean coinFlipCara) {
-        this.coinFlipCara = coinFlipCara;
+    public void setCoinFlipHeads(boolean coinFlipHeads) {
+        this.coinFlipHeads = coinFlipHeads;
     }
 }

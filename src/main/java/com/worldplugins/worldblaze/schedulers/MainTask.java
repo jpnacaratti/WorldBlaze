@@ -35,13 +35,13 @@ public class MainTask implements Runnable {
             ticks = 0;
             graphInterval++;
 
-            Map<String, Integer> graphDelaysAtt = new HashMap<>();
+            Map<String, Integer> graphDelaysUpdated = new HashMap<>();
             for (Map.Entry<String, Integer> entry : graphDelays.entrySet()) {
                 if(entry.getValue() >= getGraphManager().getDelay()) continue;
 
-                graphDelaysAtt.put(entry.getKey(), entry.getValue() + 1);
+                graphDelaysUpdated.put(entry.getKey(), entry.getValue() + 1);
             }
-            graphDelays = graphDelaysAtt;
+            graphDelays = graphDelaysUpdated;
         }
 
         if(getInstance().isReloading() && isAvailableForLockOrReload()){
@@ -49,7 +49,7 @@ public class MainTask implements Runnable {
 
             getInstance().reloadConfig();
 
-            getPrincipalGuiYml().reloadFile();
+            getMainGuiYml().reloadFile();
 
             getGraphGuiYml().reloadFile();
             getGraphGamblersGuiYml().reloadFile();
@@ -63,14 +63,14 @@ public class MainTask implements Runnable {
             getMineGuiYml().reloadFile();
             getMinePlayersGuiYml().reloadFile();
             getCreateMineGuiYml().reloadFile();
-            getPrincipalMineGuiYml().reloadFile();
+            getMainMineGuiYml().reloadFile();
 
             getJogoDoBichoGuiYml().reloadFile();
             getJogoDoBichoGamblersGuiYml().reloadFile();
             getBichosGuiYml().reloadFile();
             getBichosBetGuiYml().reloadFile();
 
-            getCoinFlipPrincipalGuiYml().reloadFile();
+            getCoinFlipMainGuiYml().reloadFile();
             getCoinFlipCreateGameGuiYml().reloadFile();
             getCoinFlipGamesGuiYml().reloadFile();
             getCoinFlipGuiYml().reloadFile();
@@ -115,7 +115,7 @@ public class MainTask implements Runnable {
         }
 
         //
-        // GERENCIANDO COINFLIP
+        // MANAGING COINFLIP
         //
 
         List<CoinFlipBet> toRemove = new ArrayList<>();
@@ -127,7 +127,7 @@ public class MainTask implements Runnable {
 
                     coinFlipbet.setSubtract(0);
 
-                    coinFlipbet.getGameInventory().setItem(getCoinFlipManager().getChoiceSlot(), getCoinFlipManager().getRandomChoice() ? getCoinFlipManager().getCaraItem(coinFlipbet) : getCoinFlipManager().getCoroaItem(coinFlipbet));
+                    coinFlipbet.getGameInventory().setItem(getCoinFlipManager().getChoiceSlot(), getCoinFlipManager().getRandomChoice() ? getCoinFlipManager().getHeadsItem(coinFlipbet) : getCoinFlipManager().getTailsItem(coinFlipbet));
                 } else {
                     coinFlipbet.getGameInventory().setItem(getCoinFlipManager().getChoiceSlot(), getCoinFlipManager().getStartingItem(coinFlipbet));
 
@@ -142,7 +142,7 @@ public class MainTask implements Runnable {
                 if(coinFlipbet.getSubtract() >= getCoinFlipManager().getFlippingTime()){
                     coinFlipbet.setFinished(true);
 
-                    coinFlipbet.setChoiceCara(coinFlipbet.getFinalCoinFlip());
+                    coinFlipbet.setChoiceHeads(coinFlipbet.getFinalCoinFlip());
 
                     coinFlipbet.getGameInventory().setItem(getCoinFlipManager().getChoiceSlot(), getCoinFlipManager().getFinishItem(coinFlipbet));
 
@@ -204,9 +204,9 @@ public class MainTask implements Runnable {
                     if(getCoinFlipManager().getBreakTime() > 0){
                         if(getCoinFlipManager().getBreakTime() <= coinFlipbet.getTicks()){
 
-                            coinFlipbet.setChoiceCara(getCoinFlipManager().getRandomChoice());
+                            coinFlipbet.setChoiceHeads(getCoinFlipManager().getRandomChoice());
 
-                            coinFlipbet.getGameInventory().setItem(getCoinFlipManager().getChoiceSlot(), coinFlipbet.isChoiceCara() ? getCoinFlipManager().getCaraItem(coinFlipbet) : getCoinFlipManager().getCoroaItem(coinFlipbet));
+                            coinFlipbet.getGameInventory().setItem(getCoinFlipManager().getChoiceSlot(), coinFlipbet.isChoiceHeads() ? getCoinFlipManager().getHeadsItem(coinFlipbet) : getCoinFlipManager().getTailsItem(coinFlipbet));
 
                             coinFlipbet.updateInventories();
 
@@ -224,17 +224,17 @@ public class MainTask implements Runnable {
         if(!toRemove.isEmpty()){
             getCoinFlipManager().getCoinFlipBets().removeAll(toRemove);
 
-            getCoinFlipManager().updatePrincipalInventories();
+            getCoinFlipManager().updateMainInventories();
             getCoinFlipManager().updateGamblersInventories();
         }
 
         //
-        // GERENCIANDO DOUBLE
+        // MANAGING DOUBLE
         //
 
         if(getDoubleManager().isStarting()){
 
-            getDoubleManager().setAnimationItens();
+            getDoubleManager().setAnimationItems();
 
             if(getDoubleManager().getStartingRemainingTime() == 0){
 
@@ -334,20 +334,20 @@ public class MainTask implements Runnable {
         }
 
         //
-        // GERENCIANDO CRASH
+        // MANAGING CRASH
         //
 
-        // EXECUTA TUDO QUANDO O CRASH ESTIVER INICIANDO
+        // RUNS EVERYTHING WHEN THE CRASH IS STARTING
         if(getCrashManager().isStarting()){
             getCrashManager().setTimeToSubtract(getCrashManager().getTimeToSubtract() + 0.05);
 
-            // VERIFICA SE O TEMPO INICIANDO JA BATEU COM O TEMPO DA CONFIG, SENDO ASSIM ELE SETA O CRASH COMO INICIADO
+            // CHECKS IF THE STARTING TIME HAS REACHED THE CONFIG TIME, IF SO IT SETS THE CRASH AS STARTED
             if(getCrashManager().getTimeToSubtract() >= getCrashManager().getSecondsBeforeStart()){
                 getCrashManager().setStarting(false);
 
                 getCrashManager().setTimeToSubtract(0);
 
-                // MUDA TODOS OS VIDROS PARA QUEM ESTÁ COM O CRASH ABERTO
+                // CHANGES ALL THE GLASS PANES FOR WHOEVER HAS THE CRASH OPEN
                 for (Map.Entry<String, Inventory> entry : getCrashManager().getCrashInventories().entrySet()) {
                     for (Map.Entry<Integer, ItemStack> glass : getCrashManager().getStartedGlass().entrySet()) {
                         entry.getValue().setItem(glass.getKey(), glass.getValue());
@@ -375,11 +375,11 @@ public class MainTask implements Runnable {
             }
         }
 
-        // EXECUTA TUDO CASO O CRASH CRASHOU
+        // RUNS EVERYTHING IF THE CRASH HAS CRASHED
         if(getCrashManager().isCrashed()){
             getCrashManager().setTimeToSubtract(getCrashManager().getTimeToSubtract() + 0.05);
 
-            // VERIFICA SE O TEMPO CRASHADO JA BATEU COM O TEMPO DA CONFIG, SENDO ASSIM ELE ALTERA TODOS OS VALORES E RESETA O MANAGER
+            // CHECKS IF THE CRASHED TIME HAS REACHED THE CONFIG TIME, IF SO IT CHANGES ALL THE VALUES AND RESETS THE MANAGER
             if(getCrashManager().getTimeToSubtract() >= getCrashManager().getTimeToChangeCrashedState()){
                 getCrashManager().setCrashed(false);
                 getCrashManager().setStarting(true);
@@ -398,7 +398,7 @@ public class MainTask implements Runnable {
 
                 getCrashManager().setLastPlayer(null);
 
-                // SETA O VIDRO DO INVENTARIO PARA A COR DO STARTING
+                // SETS THE INVENTORY GLASS TO THE STARTING COLOR
                 for (Map.Entry<String, Inventory> entry : getCrashManager().getCrashInventories().entrySet()) {
                     for (Map.Entry<Integer, ItemStack> glass : getCrashManager().getStartingGlass().entrySet()) {
                         entry.getValue().setItem(glass.getKey(), glass.getValue());
@@ -417,19 +417,19 @@ public class MainTask implements Runnable {
                     }
                 }
 
-                // ATUALIZA O GUI DOS APOSTADORES PARA QUEM TEM ELE ABERTO
+                // UPDATES THE BETTORS GUI FOR WHOEVER HAS IT OPEN
                 createCrashGamblersGui();
             }
         }
 
-        // EXECUTA TUDO QUANDO O CRASH ESTIVER INICIADO
+        // RUNS EVERYTHING WHEN THE CRASH HAS STARTED
         if(!getCrashManager().isStarting() && !getCrashManager().isCrashed()){
 
-            // VERIFICA SE CRASHOU OU NÃO
+            // CHECKS WHETHER IT CRASHED OR NOT
             if(getCrashManager().crash()){
                 getCrashManager().setCrashed(true);
 
-                // PASSA UM FOR POR TODOS OS INVENTÁRIOS DE PESSOAS QUE AINDA ESTÃO JOGANDO
+                // LOOPS THROUGH ALL THE INVENTORIES OF PEOPLE WHO ARE STILL PLAYING
                 for (Map.Entry<String, Inventory> entry : getCrashManager().getCrashInventories().entrySet()) {
                     for (Map.Entry<Integer, ItemStack> glass : getCrashManager().getCrashedGlass().entrySet()) {
                         entry.getValue().setItem(glass.getKey(), glass.getValue());
@@ -443,11 +443,11 @@ public class MainTask implements Runnable {
 
                         target.updateInventory();
 
-                        // VERIFICA SE O JOGADOR APOSTOU
+                        // CHECKS IF THE PLAYER BET
                         if (getCrashManager().getCrashBets().containsKey(entry.getKey())) {
                             CrashBet crashBet = getCrashManager().getCrashBets().get(entry.getKey());
 
-                            // VERIFICA SE O JOGADOR JA SAIU DO CRASH
+                            // CHECKS IF THE PLAYER HAS ALREADY LEFT THE CRASH
                             if (!crashBet.isLeft()) getInstance().getConfig().getStringList("messages.lost-crash").forEach(w -> target.sendMessage(c(w.
                                     replace("{money}", letterFormatter(crashBet.getMoneyValue())).
                                     replace("{cash}", letterFormatter(crashBet.getCashValue())))));
@@ -468,7 +468,7 @@ public class MainTask implements Runnable {
                     }
                 }
 
-                // SOMA OS VALORES DE TEMPO
+                // ADDS UP THE TIME VALUES
                 getCrashManager().setDuration(getCrashManager().getDuration() + 0.05);
 
                 getCrashManager().setCrashValue(getCrashManager().getCrashValue() + getCrashManager().getSumRoundValue());
@@ -476,13 +476,13 @@ public class MainTask implements Runnable {
         }
 
         //
-        // GERENCIANDO O GRAPH
+        // MANAGING THE GRAPH
         //
 
         if(graphInterval >= 5) {
             graphInterval = 0;
 
-            // DEFININDO SE O GRÁFICO VAI SUBIR OU DESCER
+            // DEFINING WHETHER THE GRAPH WILL GO UP OR DOWN
             if (getGraphManager().getNewGraphPoint()) {
                 getGraphManager().setLastPointValue(getGraphManager().getLastPointValue() + ThreadLocalRandom.current().
                         nextDouble(getGraphManager().getMinRandomValue(), getGraphManager().getMaxRandomValue()));
@@ -497,7 +497,7 @@ public class MainTask implements Runnable {
                         getGraphManager().getNegativeItem(), false));
             }
 
-            // VENDO AS APOSTAS ATUAIS E QUAIS JOGADORES GANHARAM, EM SEGUIDA REMOVENDO AS APOSTAS JA GANHAS DA LISTA
+            // CHECKING THE CURRENT BETS AND WHICH PLAYERS WON, THEN REMOVING THE ALREADY WON BETS FROM THE LIST
             boolean change = false;
             List<GraphBet> remove = new ArrayList<>();
             for (GraphBet graphBet : getGraphManager().getGraphBets()) {
@@ -548,12 +548,12 @@ public class MainTask implements Runnable {
                 }
             }
 
-            // REMOVENDO AS APOSTAS GANHAS/PERDIDAS/EMPATADAS
+            // REMOVING THE WON/LOST/DRAWN BETS
             getGraphManager().getGraphBets().removeAll(remove);
 
             if(!remove.isEmpty()) createGraphGamblersGui();
 
-            // ATUALIZANDO O TOTAL DE CASH/MONEY APOSTADO DE ACORDO COM A REMOÇÃO DE APOSTAS ANTIGAS NO ITEM ANTERIOR
+            // UPDATING THE TOTAL CASH/MONEY BET ACCORDING TO THE REMOVAL OF OLD BETS IN THE PREVIOUS ITEM
             if (change) {
                 getGraphManager().updateTotalBetMoney();
                 getGraphManager().updateTotalBetCash();
@@ -561,25 +561,25 @@ public class MainTask implements Runnable {
                 getGraphManager().updateNegativeBetAverage();
                 getGraphManager().updatePositiveBetAverage();
 
-                // RECRIANDO O INVENTÁRIO DOS APOSTADORES NO GRAPH
+                // RECREATING THE BETTORS INVENTORY IN THE GRAPH
                 createGraphGamblersGui();
             }
 
-            // REVERTENDO A LISTA DE TRAS PRA FRENTE PARA QUE O ULTIMO GRAPHPOINT ADICIONADO SEJA O '0' DA LISTA
+            // REVERSING THE LIST SO THE LAST GRAPHPOINT ADDED IS THE '0' OF THE LIST
             List<GraphPoint> reversed = new ArrayList<>(getGraphManager().getGraphPoints());
             Collections.reverse(reversed);
 
             for (Map.Entry<String, Inventory> entry : getGraphManager().getGraphInventories().entrySet()) {
                 Inventory inv = entry.getValue();
 
-                // LIMPANDO GRÁFICO ANTIGO DE TODOS OS INVENTÁRIO
+                // CLEARING THE OLD GRAPH FROM ALL INVENTORIES
                 getGraphManager().clearGraphic(inv);
 
                 Inventory copy = Bukkit.createInventory(null, 6 * 9, getGraphManager().getMenuTitle());
 
                 copy.setContents(inv.getContents());
 
-                // CRIANDO O NOVO MODELO DE GRÁFICO BASEADO NO ULTIMO GRAPH POINT ADICIONADO A LISTA
+                // CREATING THE NEW GRAPH MODEL BASED ON THE LAST GRAPH POINT ADDED TO THE LIST
                 int lastSlotPlaced = 26;
                 boolean lastItemPlacedStats = false;
                 int num = 0;
@@ -627,16 +627,16 @@ public class MainTask implements Runnable {
                     copy.setItem(lastSlotPlaced, graphPoint.getGraphItem());
                 }
 
-                // LIMPANDO O INVENTÁRIO ANTIGO E SETANDO O NOVO
+                // CLEARING THE OLD INVENTORY AND SETTING THE NEW ONE
                 inv.clear();
                 inv.setContents(copy.getContents());
 
-                // LIMPANDO QUALQUER TIPO DE SLOT DUPLICADO QUE O GRÁFICO GEROU
+                // CLEARING ANY DUPLICATED SLOT THE GRAPH GENERATED
                 for (Integer duplicatedSlot : getGraphManager().getDuplicatedSlots(inv)) {
                     inv.setItem(duplicatedSlot, null);
                 }
 
-                // SETANDO O SLOT DO HISTORICO QUE É O QUE VARIA A CADA SEGUNDO
+                // SETTING THE HISTORY SLOT, WHICH IS THE ONE THAT CHANGES EVERY SECOND
                 inv.setItem(getGraphManager().getHistoricSlot(), getGraphManager().getHistoricItem());
                 if (change) {
                     BlazeUser user = getManager().getBlazeUser(entry.getKey());
@@ -645,12 +645,12 @@ public class MainTask implements Runnable {
                     entry.getValue().setItem(getGraphManager().getBetDecreaseSlot(), getGraphManager().getBetDecreaseItem(user));
                 }
 
-                // ATUALIZANDO INVENTÁRIO DOS PLAYERS
+                // UPDATING THE PLAYERS' INVENTORY
                 Player player = Bukkit.getPlayer(entry.getKey());
                 if (player != null) player.updateInventory();
             }
 
-            // DEIXANDO A LISTA COM 30 POINTS APENAS
+            // KEEPING ONLY 30 POINTS IN THE LIST
             if (getGraphManager().getGraphPoints().size() > 30) {
                 List<GraphPoint> aa = new ArrayList<>(getGraphManager().getGraphPoints());
                 Collections.reverse(aa);

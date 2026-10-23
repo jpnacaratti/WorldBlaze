@@ -18,7 +18,7 @@ import static com.worldplugins.worldblaze.utils.Utils.*;
 
 public class CrashManager {
 
-    // VARIÁVEIS QUE NÃO VÃO MUDAR EM HIPÓTESE ALGUMA
+    // VARIABLES THAT WILL NOT CHANGE UNDER ANY CIRCUMSTANCES
     private final Set<String> gamblersGuiOpen;
     private final LinkedHashMap<String, CrashBet> crashBets;
     private final Map<String, Inventory> crashInventories;
@@ -27,14 +27,14 @@ public class CrashManager {
     private final int maxHistoricValues;
     private final Random rand;
 
-    // VARIÁVEIS QUE VAO MUDAR CONFORME O CRASH VAI ROLANDO
+    // VARIABLES THAT WILL CHANGE AS THE CRASH PROGRESSES
     private boolean crashed, starting, high, crashInZero;
     private double totalBetCash, totalBetMoney, crashValue, timeToSubtract, duration, crashZeroChance, whenWillCrash;
     private int gamesInHigh, gamesInLow;
     private String lastPlayer;
     private List<Double> historic;
 
-    // CONFIGURAÇÃO DOS ITENS DO MENU
+    // MENU ITEMS SETTINGS
     private final ItemBuilder moneyItem, cashItem, crashStartingItem, crashStartedItem, crashCrashedItem, historicItem, gamblersItem;
     private final List<String> moneyLore, cashLore, crashStartingLore, crashStartedLore, crashCrashedLore, historicLore, gamblersLore;
     private final String moneyName, cashName, crashStartingName, crashStartedName, crashCrashedName, historicName, gamblersName;

@@ -24,14 +24,14 @@ public class WorldBlaze extends JavaPlugin {
 
     private static WorldBlaze instance;
 
-    private static FileCreator principalGuiYml;
+    private static FileCreator mainGuiYml;
     private static FileCreator graphGuiYml;
     private static FileCreator crashGuiYml;
     private static FileCreator doubleGuiYml;
     private static FileCreator mineGuiYml;
     private static FileCreator jogoDoBichoGuiYml;
     private static FileCreator coinFlipGuiYml;
-    private static FileCreator principalMineGuiYml;
+    private static FileCreator mainMineGuiYml;
     private static FileCreator graphGamblersGuiYml;
     private static FileCreator crashGamblersGuiYml;
     private static FileCreator doubleGamblersGuiYml;
@@ -41,7 +41,7 @@ public class WorldBlaze extends JavaPlugin {
     private static FileCreator createMineGuiYml;
     private static FileCreator bichosGuiYml;
     private static FileCreator bichosBetGuiYml;
-    private static FileCreator coinFlipPrincipalGuiYml;
+    private static FileCreator coinFlipMainGuiYml;
     private static FileCreator coinFlipCreateGameGuiYml;
     private static FileCreator dataYml;
 
@@ -115,14 +115,14 @@ public class WorldBlaze extends JavaPlugin {
         reloadingMessages = new HashSet<>();
         manager = new UserManager();
         dataYml = new FileCreator("data.yml", getDataFolder()+"/");
-        principalGuiYml = new FileCreator("main.yml", getDataFolder()+"/menus/");
+        mainGuiYml = new FileCreator("main.yml", getDataFolder()+"/menus/");
         graphGuiYml = new FileCreator("graph/graph.yml", getDataFolder()+"/");
         graphGamblersGuiYml = new FileCreator("graph/bettors.yml", getDataFolder()+"/");
         crashGuiYml = new FileCreator("crash/crash.yml", getDataFolder()+"/");
         crashGamblersGuiYml = new FileCreator("crash/bettors.yml", getDataFolder()+"/");
         doubleGuiYml = new FileCreator("double/double.yml", getDataFolder()+"/");
         doubleGamblersGuiYml = new FileCreator("double/bettors.yml", getDataFolder()+"/");
-        principalMineGuiYml = new FileCreator("mine/main.yml", getDataFolder()+"/");
+        mainMineGuiYml = new FileCreator("mine/main.yml", getDataFolder()+"/");
         createMineGuiYml = new FileCreator("mine/create-game.yml", getDataFolder()+"/");
         mineGuiYml = new FileCreator("mine/mine.yml", getDataFolder()+"/");
         minePlayersGuiYml = new FileCreator("mine/players.yml", getDataFolder()+"/");
@@ -130,7 +130,7 @@ public class WorldBlaze extends JavaPlugin {
         bichosGuiYml = new FileCreator("jogodobicho/bichos.yml", getDataFolder()+"/");
         jogoDoBichoGamblersGuiYml = new FileCreator("jogodobicho/bettors.yml", getDataFolder()+"/");
         bichosBetGuiYml = new FileCreator("jogodobicho/bet.yml", getDataFolder()+"/");
-        coinFlipPrincipalGuiYml = new FileCreator("coinflip/main.yml", getDataFolder()+"/");
+        coinFlipMainGuiYml = new FileCreator("coinflip/main.yml", getDataFolder()+"/");
         coinFlipCreateGameGuiYml = new FileCreator("coinflip/create-game.yml", getDataFolder()+"/");
         coinFlipGamesGuiYml = new FileCreator("coinflip/games.yml", getDataFolder()+"/");
         coinFlipGuiYml = new FileCreator("coinflip/coinflip.yml", getDataFolder()+"/");
@@ -227,8 +227,8 @@ public class WorldBlaze extends JavaPlugin {
         return instance;
     }
 
-    public static FileCreator getPrincipalGuiYml() {
-        return principalGuiYml;
+    public static FileCreator getMainGuiYml() {
+        return mainGuiYml;
     }
 
     public static FileCreator getGraphGuiYml() {
@@ -291,8 +291,8 @@ public class WorldBlaze extends JavaPlugin {
         return doubleGamblersGuiYml;
     }
 
-    public static FileCreator getPrincipalMineGuiYml() {
-        return principalMineGuiYml;
+    public static FileCreator getMainMineGuiYml() {
+        return mainMineGuiYml;
     }
 
     public static MineManager getMineManager() {
@@ -335,8 +335,8 @@ public class WorldBlaze extends JavaPlugin {
         return coinFlipManager;
     }
 
-    public static FileCreator getCoinFlipPrincipalGuiYml() {
-        return coinFlipPrincipalGuiYml;
+    public static FileCreator getCoinFlipMainGuiYml() {
+        return coinFlipMainGuiYml;
     }
 
     public static FileCreator getCoinFlipCreateGameGuiYml() {

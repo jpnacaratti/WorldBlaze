@@ -63,7 +63,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
 
         if(e.getSlot() == getConfig.getInt("items.choice.slot")){
 
-            user.setCoinFlipCara(!user.isCoinFlipCara());
+            user.setCoinFlipHeads(!user.isCoinFlipHeads());
 
             CoinFlipCreateGameGui.create(p);
         }
@@ -109,7 +109,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
             if(!checkValues(p, user.getCoinFlipCashValue(), user.getCoinFlipMoneyValue())) return;
 
             CoinFlipBet bet = new CoinFlipBet(p.getName(), getNewBetId() + "", user.getCoinFlipCashValue(), user.getCoinFlipMoneyValue(), user.getCoinFlipSpecific()
-            , user.isCoinFlipCara());
+            , user.isCoinFlipHeads());
 
             getCoinFlipManager().getCoinFlipBets().add(bet);
 
@@ -132,7 +132,7 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
 
             p.closeInventory();
 
-            getCoinFlipManager().updatePrincipalInventories();
+            getCoinFlipManager().updateMainInventories();
             getCoinFlipManager().updateGamblersInventories();
 
         }

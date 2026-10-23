@@ -17,12 +17,12 @@ public class InventoryClickCoinFlipMain implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(getCoinFlipManager().getPrincipalMenuTitle())) return;
+        if (!e.getInventory().getName().equalsIgnoreCase(getCoinFlipManager().getMainMenuTitle())) return;
         e.setCancelled(true);
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 
-        FileConfiguration getConfig = getCoinFlipPrincipalGuiYml().getConfig();
+        FileConfiguration getConfig = getCoinFlipMainGuiYml().getConfig();
 
         Player p = (Player) e.getWhoClicked();
 
@@ -38,7 +38,7 @@ public class InventoryClickCoinFlipMain implements Listener {
 
                 getCoinFlipManager().getCoinFlipBets().remove(coinFlipBet);
 
-                getCoinFlipManager().updatePrincipalInventories();
+                getCoinFlipManager().updateMainInventories();
                 getCoinFlipManager().updateGamblersInventories();
 
                 depositValues(p, coinFlipBet.getCashValue(), coinFlipBet.getMoneyValue());

@@ -19,7 +19,7 @@ public class InventoryClickMineMain implements Listener {
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 
-        FileConfiguration getConfig = getPrincipalMineGuiYml().getConfig();
+        FileConfiguration getConfig = getMainMineGuiYml().getConfig();
 
         Player p = (Player) e.getWhoClicked();
 

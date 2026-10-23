@@ -1,13 +1,13 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR EM jogo do bicho E DEPOIS EM bichos
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON jogo do bicho AND THEN ON bichos
 
-title: 'WorldBlaze - Bichos'
+title: 'WorldBlaze - Animals'
 
 rows: 6
 
 items:
 
   avestruz:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/8bb3f0c13346c96fe0987f5037f19f6727e2dfcdc8beddc4baff3f50412fac3e'
     id: ''
     data: 0
@@ -15,17 +15,17 @@ items:
     name: '&bAvestruz'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Avestruz'
+      - '&7Click to bet on Avestruz'
     slot: 10
 
   aguia:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/7c19bdf5ec16fd93825d738c689c1967548574ce7d62ffcd74b32e9bfd5ae9'
     id: ''
     data: 0
@@ -33,17 +33,17 @@ items:
     name: '&bÁguia'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar na Águia'
+      - '&7Click to bet on Águia'
     slot: 11
 
   burro:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/399bb50d1a214c394917e25bb3f2e20698bf98ca703e4cc08b42462df309d6e6'
     id: ''
     data: 0
@@ -51,17 +51,17 @@ items:
     name: '&bBurro'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Burro'
+      - '&7Click to bet on Burro'
     slot: 12
 
   borboleta:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/9fd806defdfdf59b1f2609c8ee364666de66127a623415b5430c9358c601ef7c'
     id: ''
     data: 0
@@ -69,17 +69,17 @@ items:
     name: '&bBorboleta'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar na Borboleta'
+      - '&7Click to bet on Borboleta'
     slot: 13
 
   cachorro:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/877364e0ce27f0239b7754706b93022d0cf945854015d6096f9cf43d24a38269'
     id: ''
     data: 0
@@ -87,17 +87,17 @@ items:
     name: '&bCachorro'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Cachorro'
+      - '&7Click to bet on Cachorro'
     slot: 14
 
   cabra:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/457a0d538fa08a7affe312903468861720f9fa34e86d44b89dcec5639265f03'
     id: ''
     data: 0
@@ -105,17 +105,17 @@ items:
     name: '&bCabra'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar na Cabra'
+      - '&7Click to bet on Cabra'
     slot: 15
 
   carneiro:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/34d0f548f08ef1514fa5525c63dad64971e2d1dca5f8c1722bc311f21a611438'
     id: ''
     data: 0
@@ -123,17 +123,17 @@ items:
     name: '&bCarneiro'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Carneiro'
+      - '&7Click to bet on Carneiro'
     slot: 16
 
   camelo:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/a1091ce6e559c26be77ee60456b62122990f9519f514b11df3564149c2729d05'
     id: ''
     data: 0
@@ -141,17 +141,17 @@ items:
     name: '&bCamelo'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Camelo'
+      - '&7Click to bet on Camelo'
     slot: 19
 
   cobra:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/11df6e73c0771b61d9a08f750f4ddee5bbe8370042c13a2b7bff37f948176708'
     id: ''
     data: 0
@@ -159,17 +159,17 @@ items:
     name: '&bCobra'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar na Cobra'
+      - '&7Click to bet on Cobra'
     slot: 20
 
   coelho:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/d27d5c0dd6ff514edb3aa392107702501d50bf90bc5e5822aecb1d86c2d4ba92'
     id: ''
     data: 0
@@ -177,17 +177,17 @@ items:
     name: '&bCoelho'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Coelho'
+      - '&7Click to bet on Coelho'
     slot: 21
 
   cavalo:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/2990821951fd9ab9301aebf5d76a9b60f15ebf619e1c9e8d668919d394d9a933'
     id: ''
     data: 0
@@ -195,17 +195,17 @@ items:
     name: '&bCavalo'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Cavalo'
+      - '&7Click to bet on Cavalo'
     slot: 22
 
   elefante:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/9884224cea88f2134bbd9d8099f828fc930b4f9d9adfe62dee69300f9c1612f'
     id: ''
     data: 0
@@ -213,17 +213,17 @@ items:
     name: '&bElefante'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Elefante'
+      - '&7Click to bet on Elefante'
     slot: 23
 
   galo:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/d4b3c4ac97e08279ca2f8ef428e443827ac975c72924b7149557a1c6b4ca0b9'
     id: ''
     data: 0
@@ -231,17 +231,17 @@ items:
     name: '&bGalo'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Galo'
+      - '&7Click to bet on Galo'
     slot: 24
 
   gato:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/5df72aa295f2d19c382bddd5a9a225d8e5f40f6ce6b7f66ebf22efa9733155ef'
     id: ''
     data: 0
@@ -249,17 +249,17 @@ items:
     name: '&bGato'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Gato'
+      - '&7Click to bet on Gato'
     slot: 25
 
   jacare:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/db65119c07a76564637bc0270e5a2febd927923aab6081a5c8a4829df2fb0259'
     id: ''
     data: 0
@@ -267,17 +267,17 @@ items:
     name: '&bJacaré'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Jacaré'
+      - '&7Click to bet on Jacaré'
     slot: 28
 
   leao:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/4cd9bdadfd35e90d0d2ca3215b26968dd103e83ea13b15d60aad633dae6f9208'
     id: ''
     data: 0
@@ -285,17 +285,17 @@ items:
     name: '&bLeão'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Leão'
+      - '&7Click to bet on Leão'
     slot: 29
 
   macaco:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/2cc707d866d34a6a7953d0c4b648f8678f064db95ebbe13ed2ccff5d23a06f2c'
     id: ''
     data: 0
@@ -303,17 +303,17 @@ items:
     name: '&bMacaco'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Macaco'
+      - '&7Click to bet on Macaco'
     slot: 30
 
   porco:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/bee8514892f3d78a32e8456fcbb8c6081e21b246d82f398bd969fec19d3c27b3'
     id: ''
     data: 0
@@ -321,17 +321,17 @@ items:
     name: '&bPorco'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Porco'
+      - '&7Click to bet on Porco'
     slot: 31
 
   pavao:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/7fd6ab3f0324190d8c8f73221791510c2fc406c4a7ddb7301d3e14b313a12de2'
     id: ''
     data: 0
@@ -339,35 +339,35 @@ items:
     name: '&bPavão'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Pavão'
+      - '&7Click to bet on Pavão'
     slot: 32
 
   peru:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/2e71f5690018be237512a69e83464a7ac7bd651dca65a2e82e68ce91bda53e87'
     id: ''
     data: 0
     glow: false
-    name: '&bPiru'
+    name: '&bPeru'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Peru'
+      - '&7Click to bet on Peru'
     slot: 33
 
   touro:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/9675acf9af653a2ddadad971d06130bbe8ebc2a896df17ed482bea7f2054bb68'
     id: ''
     data: 0
@@ -375,17 +375,17 @@ items:
     name: '&bTouro'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Touro'
+      - '&7Click to bet on Touro'
     slot: 34
 
   tigre:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/e08b6e2aaa729bd445ad04ca5f8ac32ca0a3687cb04262599ed64bc25450e802'
     id: ''
     data: 0
@@ -393,17 +393,17 @@ items:
     name: '&bTigre'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Tigre'
+      - '&7Click to bet on Tigre'
     slot: 38
 
   urso:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/f91bf3a9a0d5bcb56532a360b6eb3a10ce5453a1f1c0497cc0399bdd2665c721'
     id: ''
     data: 0
@@ -411,17 +411,17 @@ items:
     name: '&bUrso'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Urso'
+      - '&7Click to bet on Urso'
     slot: 39
 
   veado:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/bc603fe704a9d0498e9ebd9d2a77be601a7e85eba66f650db94199ebe7f75b55'
     id: ''
     data: 0
@@ -429,17 +429,17 @@ items:
     name: '&bVeado'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar no Veado'
+      - '&7Click to bet on Veado'
     slot: 41
 
   vaca:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/d6551840955f524367580f11b35228938b6786397a8f2e8c8cc6b0eb01b5db3d'
     id: ''
     data: 0
@@ -447,25 +447,25 @@ items:
     name: '&bVaca'
     lore:
       - ''
-      - '&7Ultimo jogador: &b{last-player}'
-      - '&7Apostas: &b{bets}'
+      - '&7Last player: &b{last-player}'
+      - '&7Bets: &b{bets}'
       - ''
-      - '&7Total apostado (money): &a{total-money}'
-      - '&7Total apostado (cash): &6{total-cash}'
+      - '&7Total bet (money): &a{total-money}'
+      - '&7Total bet (cash): &6{total-cash}'
       - ''
-      - '&7Clique para apostar na Vaca'
+      - '&7Click to bet on Vaca'
     slot: 42
 
   back:
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'REDSTONE'
     data: 0
     glow: false
-    name: '&cVoltar'
+    name: '&cBack'
     lore:
-      - '&7Clique para voltar para'
-      - '&7o menu anterior'
+      - '&7Click to go back to'
+      - '&7the previous menu'
     slot: 53
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

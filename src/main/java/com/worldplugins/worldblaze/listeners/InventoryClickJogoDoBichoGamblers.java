@@ -24,10 +24,10 @@ public class InventoryClickJogoDoBichoGamblers implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPag = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_bichosPag");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_bichosPag");
 
-        if(nbtPag != null){
-            p.openInventory(JogoDoBichoGamblersGui.invs.get(p).get(Integer.parseInt(nbtPag)));
+        if(nbtPage != null){
+            p.openInventory(JogoDoBichoGamblersGui.invs.get(p).get(Integer.parseInt(nbtPage)));
             return;
         }
 

@@ -1,4 +1,4 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO mine E DEPOIS EM criar E POR FIM CONFIRMAR
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON mine AND THEN ON create AND FINALLY CONFIRMS
 
 title: 'WorldBlaze - CoinFlip'
 
@@ -7,64 +7,64 @@ rows: 3
 coin-slot: 13
 
 starting:
-  use-head: true # caso true, ignora 'id' e 'data' abaixo
+  use-head: true # if true, ignores 'id' and 'data' below
   texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
   id: ''
   data: 0
   glow: false
-  name: '&eIniciando...'
+  name: '&eStarting...'
   lore:
     - ''
-    - '&7Vai começar em: {time}s'
+    - '&7Starts in: {time}s'
     - ''
-    - '&7Quantia apostada (money): &a{money}'
-    - '&7Quantia apostada (cash): &6{cash}'
+    - '&7Amount bet (money): &a{money}'
+    - '&7Amount bet (cash): &6{cash}'
     - ''
     - '&f{owner-player} &7- &e{owner-choice}'
     - '&f{opponent-player} &7- &e{opponent-choice}'
 
 finished:
-  name: '&cFINALIZADO'
+  name: '&cFINISHED'
   lore:
     - ''
-    - '&7Finalizado'
-    - '&7Lado escolhido: &b{final-choice}'
+    - '&7Finished'
+    - '&7Chosen side: &b{final-choice}'
     - ''
-    - '&7Jogador vencedor: &e{winner}'
+    - '&7Winning player: &e{winner}'
     - ''
-    - '&7Quantia ganha (money): &a{money}'
-    - '&7Quantia ganha (cash): &6{cash}'
+    - '&7Amount won (money): &a{money}'
+    - '&7Amount won (cash): &6{cash}'
 
 heads:
-  use-head: true # caso true, ignora 'id' e 'data' abaixo
+  use-head: true # if true, ignores 'id' and 'data' below
   texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
   id: ''
   data: 0
   glow: false
-  name: '&eCARA'
+  name: '&eHEADS'
   lore:
     - ''
-    - '&bEscolha: &bCARA'
+    - '&bChoice: &bHEADS'
     - ''
-    - '&7Quantia apostada (money): &a{money}'
-    - '&7Quantia apostada (cash): &6{cash}'
+    - '&7Amount bet (money): &a{money}'
+    - '&7Amount bet (cash): &6{cash}'
     - ''
     - '{color}-> &f{owner-player} &7- &e{owner-choice}'
     - '{color}-> &f{opponent-player} &7- &e{opponent-choice}'
 
 tails:
-  use-head: true # caso true, ignora 'id' e 'data' abaixo
+  use-head: true # if true, ignores 'id' and 'data' below
   texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
   id: ''
   data: 0
   glow: false
-  name: '&eCOROA'
+  name: '&eTAILS'
   lore:
     - ''
-    - '&bEscolha: &bCOROA'
+    - '&bChoice: &bTAILS'
     - ''
-    - '&7Quantia apostada (money): &a{money}'
-    - '&7Quantia apostada (cash): &6{cash}'
+    - '&7Amount bet (money): &a{money}'
+    - '&7Amount bet (cash): &6{cash}'
     - ''
     - '{color}-> &f{owner-player} &7- &e{owner-choice}'
     - '{color}-> &f{opponent-player} &7- &e{opponent-choice}'
@@ -75,8 +75,8 @@ not-chosen-color: "&f"
 items:
 
   owner:
-    use-head-player: true # Usa a cabeça do jogador como item
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head-player: true # Uses the player's head as the item
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'BARRIER'
     data: 0
@@ -84,13 +84,13 @@ items:
     name: '&e{nick}'
     lore:
       - ''
-      - '&7Apostou no: &b{owner-choice}'
+      - '&7Bet on: &b{owner-choice}'
       - ''
     slot: 9
 
   opponent:
-    use-head-player: true # Usa a cabeça do jogador como item
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head-player: true # Uses the player's head as the item
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'BARRIER'
     data: 0
@@ -98,7 +98,7 @@ items:
     name: '&e{nick}'
     lore:
       - ''
-      - '&7Apostou no: &b{opponent-choice}'
+      - '&7Bet on: &b{opponent-choice}'
       - ''
     slot: 17
 
@@ -110,7 +110,7 @@ items:
     id: 'STAINED_GLASS_PANE'
     data: 11
     glow: false
-    name: '' # Deixe '' para usar nome padrão
+    name: '' # Leave '' to use the default name
     slot: 0
 
   glass2:

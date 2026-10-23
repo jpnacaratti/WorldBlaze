@@ -21,19 +21,19 @@ import static com.worldplugins.worldblaze.utils.Utils.*;
 
 public class DoubleManager {
 
-    // VARIAVEIS QUE NÃO VÃO MUDAR EM HIPÓTESE ALGUMA
+    // VARIABLES THAT WILL NOT CHANGE UNDER ANY CIRCUMSTANCES
     private final Set<String> gamblersGuiOpen;
     private final List<DoubleBet> doubleBets;
     private List<DoubleAnimationSpot> doubleAnimationSpots;
     private final Map<String, Inventory> doubleInventories;
-    private final Map<ItemStack, List<Integer>> finalItens;
+    private final Map<ItemStack, List<Integer>> finalItems;
     private final String menuTitle;
-    private final double dopMoney, dopCash, dopChance, startingTime, stoppedTime, animationTotalTime, breakChangeTime, startRedChance, startWhiteChance, startBlackChance, moneyAlert, cashAlert;
+    private final double riggingMoney, riggingCash, riggingChance, startingTime, stoppedTime, animationTotalTime, breakChangeTime, startRedChance, startWhiteChance, startBlackChance, moneyAlert, cashAlert;
     private final int maxHistoricValues, startBreak, finalBreak;
-    private final boolean dop;
+    private final boolean rigging;
     private final Random rand;
 
-    // VARIAVEIS QUE VÃO MUDAR CONFORME O ANDAMENTO DO DOUBLE
+    // VARIABLES THAT WILL CHANGE AS THE DOUBLE PROGRESSES
     private boolean starting, stopped;
     private double totalBetCash, totalBetMoney, redAverage, whiteAverage, blackAverage, startingRemainingTime, stoppedRemainingTime, animationRemainingTime, animationSpeedRemainingTime, animationSpeedTime, whiteChance, redChance, blackChance;
     private int numOfItem;
@@ -42,7 +42,7 @@ public class DoubleManager {
     private List<DoubleColor> historic;
     private Map<Integer, DoubleColor> colorCache;
 
-    // VARIAVEIS QUE NÃO VÃO MUDAR EM HIPOTESE ALGUMA
+    // VARIABLES THAT WILL NOT CHANGE UNDER ANY CIRCUMSTANCES
     private final ItemBuilder redItem, whiteItem, blackItem, moneyItem, cashItem, betRedItem, betWhiteItem, betBlackItem, historicItem, gamblersItem;
     private final List<String> moneyLore, cashLore, betRedLore, betWhiteLore, betBlackLore, historicLore, gamblersLore;
     private final String redStatusBet, redStatusNoBet, redRoundStatusStarting, redRoundStatusStarted, whiteStatusBet, whiteStatusNoBet, whiteRoundStatusStarting, whiteRoundStatusStarted, blackStatusBet, blackStatusNoBet, blackRoundStatusStarting, blackRoundStatusStarted, moneyName, cashName, betRedName, betWhiteName, betBlackName, historicName, gamblersName, redDisplay, whiteDisplay, blackDisplay;
@@ -81,10 +81,10 @@ public class DoubleManager {
         this.startBreak = getInstance().getConfig().getInt("config.double.initial-interval");
         this.finalBreak = getInstance().getConfig().getInt("config.double.final-interval");
 
-        this.dop = getInstance().getConfig().getBoolean("config.double.rigging.enabled");
-        this.dopMoney = getInstance().getConfig().getDouble("config.double.rigging.money");
-        this.dopCash = getInstance().getConfig().getDouble("config.double.rigging.cash");
-        this.dopChance = getInstance().getConfig().getDouble("config.double.rigging.chance");
+        this.rigging = getInstance().getConfig().getBoolean("config.double.rigging.enabled");
+        this.riggingMoney = getInstance().getConfig().getDouble("config.double.rigging.money");
+        this.riggingCash = getInstance().getConfig().getDouble("config.double.rigging.cash");
+        this.riggingChance = getInstance().getConfig().getDouble("config.double.rigging.chance");
 
         this.animationSpeedTime = startBreak;
         this.animationSpeedRemainingTime = animationSpeedTime;
@@ -106,9 +106,9 @@ public class DoubleManager {
         for (String s : getConfig.getConfigurationSection("starting-animation").getKeys(false)) doubleAnimationSpots.add(new DoubleAnimationSpot(s));
         doubleAnimationSpots = doubleAnimationSpots.stream().sorted(Comparator.comparingDouble(DoubleAnimationSpot::getTime).reversed()).collect(Collectors.toList());
 
-        this.finalItens = new HashMap<>();
+        this.finalItems = new HashMap<>();
         for (String s : getConfig.getConfigurationSection("final-glass").getKeys(false)) {
-            finalItens.put(new ItemStack(Material.getMaterial(getConfig.getString("final-glass."+s+".id")),
+            finalItems.put(new ItemStack(Material.getMaterial(getConfig.getString("final-glass."+s+".id")),
                     1, (short) getConfig.getInt("final-glass."+s+".data")), getConfig.getIntegerList("final-glass."+s+".slot"));
         }
 
@@ -335,8 +335,8 @@ public class DoubleManager {
 
     public void setRoundChosenColor(){
 
-        if(dop && (totalBetCash >= dopCash || totalBetMoney >= dopMoney)){
-            if (rand.nextDouble() * 100 <= dopChance) {
+        if(rigging && (totalBetCash >= riggingCash || totalBetMoney >= riggingMoney)){
+            if (rand.nextDouble() * 100 <= riggingChance) {
 
                 double red;
                 double white;
@@ -679,14 +679,14 @@ public class DoubleManager {
         }
     }
 
-    public void updateInventories(boolean threeItens, boolean historic, boolean gamblers){
+    public void updateInventories(boolean threeItems, boolean historic, boolean gamblers){
         for (Map.Entry<String, Inventory> entry : doubleInventories.entrySet()) {
             Player target = Bukkit.getPlayer(entry.getKey());
 
             if(target != null) {
                 BlazeUser user = getManager().getBlazeUser(entry.getKey());
 
-                if(threeItens) {
+                if(threeItems) {
                     entry.getValue().setItem(getBetRedSlot(), getBetRedItem(user));
                     entry.getValue().setItem(getBetWhiteSlot(), getBetWhiteItem(user));
                     entry.getValue().setItem(getBetBlackSlot(), getBetBlackItem(user));
@@ -700,7 +700,7 @@ public class DoubleManager {
         }
     }
 
-    public void setAnimationItens(){
+    public void setAnimationItems(){
 
         DoubleAnimationSpot animationSpot = null;
         for (int i = 0; i < doubleAnimationSpots.size(); i++) {
@@ -726,7 +726,7 @@ public class DoubleManager {
         if(!setAnimationSpots.contains(animationSpot)) {
 
             for (Map.Entry<String, Inventory> entry : doubleInventories.entrySet()) {
-                for (Map.Entry<ItemStack, List<Integer>> itemEntry : animationSpot.getItens().entrySet()) {
+                for (Map.Entry<ItemStack, List<Integer>> itemEntry : animationSpot.getItems().entrySet()) {
                     itemEntry.getValue().forEach(w -> entry.getValue().setItem(w, itemEntry.getKey()));
                 }
 
@@ -748,7 +748,7 @@ public class DoubleManager {
         }else if(random <= startRedChance + startWhiteChance && random > startRedChance) { // 1 + 49.5 = 50.5   // 49.5
 
             return DoubleColor.WHITE;
-        }else{ // menor que 49.5
+        }else{ // less than 49.5
             return DoubleColor.RED;
         }
     }
@@ -762,7 +762,7 @@ public class DoubleManager {
         }else if(random <= redChance + whiteChance && random > redChance) { // 1 + 49.5 = 50.5   // 49.5
 
             return DoubleColor.WHITE;
-        }else{ // menor q 49.5
+        }else{ // less than 49.5
 
             return DoubleColor.RED;
         }
@@ -794,7 +794,7 @@ public class DoubleManager {
                 Player player = Bukkit.getPlayer(entry.getKey());
 
                 if(player != null){
-                    setColorItens(entry.getValue());
+                    setColorItems(entry.getValue());
 
                     player.updateInventory();
                 }
@@ -811,7 +811,7 @@ public class DoubleManager {
                 Player player = Bukkit.getPlayer(entry.getKey());
 
                 if(player != null) {
-                    for (Map.Entry<ItemStack, List<Integer>> listEntry : finalItens.entrySet()) {
+                    for (Map.Entry<ItemStack, List<Integer>> listEntry : finalItems.entrySet()) {
                         for (Integer i : listEntry.getValue()){
                             entry.getValue().setItem(i, listEntry.getKey());
                             player.updateInventory();
@@ -858,7 +858,7 @@ public class DoubleManager {
         return false;
     }
 
-    public void setColorItens(Inventory inv){
+    public void setColorItems(Inventory inv){
         for (Map.Entry<Integer, DoubleColor> entry : colorCache.entrySet()) {
             inv.setItem(entry.getKey(), getColorItem(entry.getValue()));
         }

@@ -18,7 +18,7 @@ import static com.worldplugins.worldblaze.utils.Utils.*;
 
 public class GraphManager {
 
-    // VARIAVEIS FINAIS DO GRÁFICO QUE EM HIPOTESE ALGUMA SERÃO ALTERADAS
+    // FINAL GRAPH VARIABLES THAT WILL NOT BE CHANGED UNDER ANY CIRCUMSTANCES
     private final Set<String> gamblersGuiOpen;
     private final List<GraphPoint> graphPoints;
     private final List<GraphBet> graphBets;
@@ -28,16 +28,16 @@ public class GraphManager {
     private final Random rand;
     private final int delay;
 
-    // VARIAVEIS QUE VÃO DEFINIR O ANDAMENTO DO GRÁFICO
+    // VARIABLES THAT WILL DEFINE THE GRAPH'S PROGRESS
     private boolean graphDirection;
     private int waveCounter;
 
-    // VARIAVEIS QUE VAO MUDAR CONFORME O GRÁFICO ANDA
+    // VARIABLES THAT WILL CHANGE AS THE GRAPH PROGRESSES
     private int pointsNum;
     private double lastPointValue, positiveBetAverage, negativeBetAverage, totalBetCash, totalBetMoney;
     private final List<Boolean> historic;
 
-    // CONFIGURAÇÃO DOS ITENS DO MENU
+    // MENU ITEMS SETTINGS
     private final ItemBuilder positiveItem, negativeItem, betDecreaseItem, betUpItem, historicItem, gamblersItem, timeItem, moneyItem, cashItem;
     private final List<String> positiveLore, negativeLore, betDecreaseLore, betUpLore, historicLore, gamblersLore, timeLore, moneyLore, cashLore;
     private final String positiveName, negativeName, betDecreaseName, betUpName, historicName, historicPositiveDisplay, historicNegativeDisplay, gamblersName, timeName, moneyName, cashName;

@@ -11,16 +11,16 @@ import static com.worldplugins.worldblaze.WorldBlaze.getInstance;
 public class CoinFlipBet {
 
     private final String owner, betId, specific;
-    private final boolean cara;
+    private final boolean heads;
     private String opponent;
     private Inventory gameInventory;
     private final double cashValue, moneyValue, mid;
-    private boolean starting, finished, choiceCara;
+    private boolean starting, finished, choiceHeads;
     private double subtract;
     private int ticks;
     private final Random rand;
 
-    public CoinFlipBet(String owner, String betId, double cashValue, double moneyValue, String specific, boolean cara) {
+    public CoinFlipBet(String owner, String betId, double cashValue, double moneyValue, String specific, boolean heads) {
         this.owner = owner;
         this.betId = betId;
         this.cashValue = cashValue;
@@ -30,7 +30,7 @@ public class CoinFlipBet {
         this.specific = specific;
         this.rand = new Random();
 
-        this.cara = cara;
+        this.heads = heads;
     }
 
     public String getOwner() {
@@ -69,8 +69,8 @@ public class CoinFlipBet {
         return specific;
     }
 
-    public boolean isCara() {
-        return cara;
+    public boolean isHeads() {
+        return heads;
     }
 
     public void setOpponent(String opponent) {
@@ -119,12 +119,12 @@ public class CoinFlipBet {
         this.ticks = ticks;
     }
 
-    public boolean isChoiceCara() {
-        return choiceCara;
+    public boolean isChoiceHeads() {
+        return choiceHeads;
     }
 
-    public void setChoiceCara(boolean choiceCara) {
-        this.choiceCara = choiceCara;
+    public void setChoiceHeads(boolean choiceHeads) {
+        this.choiceHeads = choiceHeads;
     }
 
     public boolean getFinalCoinFlip(){

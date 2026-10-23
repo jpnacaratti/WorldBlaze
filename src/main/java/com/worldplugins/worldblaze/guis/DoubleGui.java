@@ -60,12 +60,12 @@ public class DoubleGui {
         }
 
         for (DoubleAnimationSpot animationSpot : getDoubleManager().getSetAnimationSpots()) {
-            for (Map.Entry<ItemStack, List<Integer>> entry : animationSpot.getItens().entrySet()) {
+            for (Map.Entry<ItemStack, List<Integer>> entry : animationSpot.getItems().entrySet()) {
                 entry.getValue().forEach(w -> inv.setItem(w, entry.getKey()));
             }
         }
 
-        getDoubleManager().setColorItens(inv);
+        getDoubleManager().setColorItems(inv);
 
         getDoubleManager().getDoubleInventories().put(p.getName(), inv);
 

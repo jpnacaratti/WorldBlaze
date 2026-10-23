@@ -15,11 +15,11 @@ public class MineMainGui {
 
     public static void create(Player p){
 
-        FileConfiguration getConfig = getPrincipalMineGuiYml().getConfig();
+        FileConfiguration getConfig = getMainMineGuiYml().getConfig();
 
         Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
-        inv.setItem(getMineManager().getPrincipalPlayersSlot(), getMineManager().getPrincipalPlayersItem());
+        inv.setItem(getMineManager().getMainPlayersSlot(), getMineManager().getMainPlayersItem());
 
         for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 
@@ -37,7 +37,7 @@ public class MineMainGui {
             inv.setItem(slot, item.toItemStack());
         }
 
-        getMineManager().getPrincipalInventories().put(p.getName(), inv);
+        getMineManager().getMainInventories().put(p.getName(), inv);
 
         p.openInventory(inv);
     }

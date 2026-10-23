@@ -1,85 +1,85 @@
-# MENU GUI PRINCIPAL, APARECE QUANDO O JOGADOR UTILIZAR /apostar E CLICAR NO coinflip E EM criar partida
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON coinflip AND ON create game
 
-title: 'CoinFlip - Criando partida'
+title: 'CoinFlip - Creating Match'
 
 rows: 3
 
 items:
 
   money:
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'EMERALD'
     data: 0
     glow: false
     name: '&aMoney'
     lore:
-      - '&7Quantia que vai ser apostada: &a{money}'
+      - '&7Amount to be bet: &a{money}'
       - ''
-      - '&7* Clique para alterar'
+      - '&7* Click to change'
     slot: 11
 
   cash:
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: 'GOLD_INGOT'
     data: 0
     glow: false
     name: '&6Cash'
     lore:
-      - '&7Quantia que vai ser apostada: &6{cash}'
+      - '&7Amount to be bet: &6{cash}'
       - ''
-      - '&7* Clique para alterar'
+      - '&7* Click to change'
     slot: 12
 
   choice:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
     id: ''
     data: 0
     glow: false
-    name: '&7Apostar no: &b{choice}'
+    name: '&7Bet on: &b{choice}'
     lore:
-      - '&7Você escolheu: &b{choice}'
+      - '&7You chose: &b{choice}'
       - ''
-      - '&7Clique para alternar entre'
-      - '&7Cara ou Coroa'
+      - '&7Click to switch between'
+      - '&7Heads or Tails'
     slot: 13
 
   set-opponent:
-    use-head-player: true # Usa a cabeça do adversário como item
-    use-head: false # caso true, ignora 'id' e 'data' abaixo
+    use-head-player: true # Uses the opponent's head as the item
+    use-head: false # if true, ignores 'id' and 'data' below
     texture: ''
     id: ''
     data: 0
     glow: false
-    name: '&eDefinir um adversário'
+    name: '&eSet an opponent'
     lore:
       - ''
-      - '&7Adversário atual: &f{current-opponent}'
+      - '&7Current opponent: &f{current-opponent}'
       - ''
-      - '&7Clique para desafiar um jogador'
-      - '&7específico para o coinflip'
+      - '&7Click to challenge a specific'
+      - '&7player to the coinflip'
       - ''
-      - '&7Clique com botão &fDireito'
-      - '&7para remover o jogador.'
+      - '&7Click with the &fRight &7button'
+      - '&7to remove the player.'
     slot: 14
 
   start:
-    use-head: true # caso true, ignora 'id' e 'data' abaixo
+    use-head: true # if true, ignores 'id' and 'data' below
     texture: 'https://textures.minecraft.net/texture/6e8646bb76f0c6d03a637a9b4975b3a85276eb20d6f16bdb91866c8c3c8285c5'
     id: ''
     data: 0
     glow: false
-    name: '&aIniciar'
+    name: '&aStart'
     lore:
-      - '&7Adversário atual: &f{current-opponent}'
+      - '&7Current opponent: &f{current-opponent}'
       - ''
-      - '&7Quantia que vai ser apostada: &a{money}'
-      - '&7Quantia que vai ser apostada: &6{cash}'
+      - '&7Amount to be bet: &a{money}'
+      - '&7Amount to be bet: &6{cash}'
       - ''
-      - '&7Chega de enrolação e clique para'
-      - '&7iniciar seu jogo e começar o coinflip.'
+      - '&7Enough dawdling, click to'
+      - '&7start your game and begin the coinflip.'
     slot: 15
 
   # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
@@ -90,7 +90,7 @@ items:
     id: 'STAINED_GLASS_PANE'
     data: 11
     glow: false
-    name: '' # Deixe '' para usar nome padrão
+    name: '' # Leave '' to use the default name
     slot: 0
 
   glass2:

@@ -26,10 +26,10 @@ public class InventoryClickDoubleGamblers implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPag = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_doublePag");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_doublePag");
 
-        if(nbtPag != null){
-            p.openInventory(DoubleGamblersGui.invs.get(p).get(Integer.parseInt(nbtPag)));
+        if(nbtPage != null){
+            p.openInventory(DoubleGamblersGui.invs.get(p).get(Integer.parseInt(nbtPage)));
             return;
         }
 

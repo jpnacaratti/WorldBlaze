@@ -20,25 +20,25 @@ import static com.worldplugins.worldblaze.utils.Utils.letterFormatter;
 
 public class CoinFlipManager {
 
-    // VARIAVEIS QUE NAO VAO MUDAR EM HIPOTESE ALGUMA
+    // VARIABLES THAT WILL NOT CHANGE UNDER ANY CIRCUMSTANCES
     private final List<CoinFlipBet> coinFlipBets;
     private final Set<String> coinFlipGamblersGuiOpen;
-    private final Map<String, Inventory> principalInventories;
+    private final Map<String, Inventory> mainInventories;
     private final double startingTime, flippingTime, moneyAlert, cashAlert;
     private final int breakTime;
-    private final String principalMenuTitle, coinFlipMenuTitle;
+    private final String mainMenuTitle, coinFlipMenuTitle;
     private final Random rand;
 
-    // VARIAVEIS QUE NAO VAO MUDAR EM HIPOTESE ALGUMA, ITENS
-    private final ItemBuilder principalGamesItem, startingItem, caraItem, coroaItem;
-    private final String principalGamesName, startingName, caraName, coroaName, finishName, colorChoice, colorNoChoice;
-    private final List<String> principalGamesLore, startingLore, caraLore, coroaLore, finishLore;
-    private final int principalGamesSlot, choiceSlot;
+    // VARIABLES THAT WILL NOT CHANGE UNDER ANY CIRCUMSTANCES, ITEMS
+    private final ItemBuilder mainGamesItem, startingItem, headsItem, tailsItem;
+    private final String mainGamesName, startingName, headsName, tailsName, finishName, colorChoice, colorNoChoice;
+    private final List<String> mainGamesLore, startingLore, headsLore, tailsLore, finishLore;
+    private final int mainGamesSlot, choiceSlot;
 
     public CoinFlipManager(){
 
         this.coinFlipBets = new ArrayList<>();
-        this.principalInventories = new HashMap<>();
+        this.mainInventories = new HashMap<>();
         this.coinFlipGamblersGuiOpen = new HashSet<>();
 
         this.startingTime = getInstance().getConfig().getDouble("config.coinflip.starting-time");
@@ -61,19 +61,19 @@ public class CoinFlipManager {
         this.finishName = c(getConfig.getString("finished.name"));
         this.finishLore = getConfig.getStringList("finished.lore");
 
-        if (getConfig.getBoolean("tails.use-head")) coroaItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("tails.texture")));
-        else coroaItem = new ItemBuilder(Material.getMaterial(getConfig.getString("tails.id")), 1, (byte) getConfig.getInt("tails.data"));
-        coroaItem.setGlow(getConfig.getBoolean("tails.glow"));
+        if (getConfig.getBoolean("tails.use-head")) tailsItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("tails.texture")));
+        else tailsItem = new ItemBuilder(Material.getMaterial(getConfig.getString("tails.id")), 1, (byte) getConfig.getInt("tails.data"));
+        tailsItem.setGlow(getConfig.getBoolean("tails.glow"));
 
-        this.coroaLore = getConfig.getStringList("tails.lore");
-        this.coroaName = c(getConfig.getString("tails.name"));
+        this.tailsLore = getConfig.getStringList("tails.lore");
+        this.tailsName = c(getConfig.getString("tails.name"));
 
-        if (getConfig.getBoolean("heads.use-head")) caraItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("heads.texture")));
-        else caraItem = new ItemBuilder(Material.getMaterial(getConfig.getString("heads.id")), 1, (byte) getConfig.getInt("heads.data"));
-        caraItem.setGlow(getConfig.getBoolean("heads.glow"));
+        if (getConfig.getBoolean("heads.use-head")) headsItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("heads.texture")));
+        else headsItem = new ItemBuilder(Material.getMaterial(getConfig.getString("heads.id")), 1, (byte) getConfig.getInt("heads.data"));
+        headsItem.setGlow(getConfig.getBoolean("heads.glow"));
 
-        this.caraLore = getConfig.getStringList("heads.lore");
-        this.caraName = c(getConfig.getString("heads.name"));
+        this.headsLore = getConfig.getStringList("heads.lore");
+        this.headsName = c(getConfig.getString("heads.name"));
 
         if (getConfig.getBoolean("starting.use-head")) startingItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("starting.texture")));
         else startingItem = new ItemBuilder(Material.getMaterial(getConfig.getString("starting.id")), 1, (byte) getConfig.getInt("starting.data"));
@@ -84,18 +84,18 @@ public class CoinFlipManager {
 
         this.choiceSlot = getConfig.getInt("coin-slot");
 
-        FileConfiguration getPrincipalConfig = getCoinFlipPrincipalGuiYml().getConfig();
+        FileConfiguration getMainConfig = getCoinFlipMainGuiYml().getConfig();
 
-        this.principalMenuTitle = c(getPrincipalConfig.getString("title"));
+        this.mainMenuTitle = c(getMainConfig.getString("title"));
 
-        if (getPrincipalConfig.getBoolean("items.games.use-head")) principalGamesItem = new ItemBuilder(SkullCreator.itemFromUrl(getPrincipalConfig.getString("items.games.texture")));
-        else principalGamesItem = new ItemBuilder(Material.getMaterial(getPrincipalConfig.getString("items.games.id")), 1, (byte) getPrincipalConfig.getInt("items.games.data"));
-        principalGamesItem.setGlow(getPrincipalConfig.getBoolean("items.games.glow"));
+        if (getMainConfig.getBoolean("items.games.use-head")) mainGamesItem = new ItemBuilder(SkullCreator.itemFromUrl(getMainConfig.getString("items.games.texture")));
+        else mainGamesItem = new ItemBuilder(Material.getMaterial(getMainConfig.getString("items.games.id")), 1, (byte) getMainConfig.getInt("items.games.data"));
+        mainGamesItem.setGlow(getMainConfig.getBoolean("items.games.glow"));
 
-        this.principalGamesLore = getPrincipalConfig.getStringList("items.games.lore");
-        this.principalGamesName = c(getPrincipalConfig.getString("items.games.name"));
+        this.mainGamesLore = getMainConfig.getStringList("items.games.lore");
+        this.mainGamesName = c(getMainConfig.getString("items.games.name"));
 
-        this.principalGamesSlot = getPrincipalConfig.getInt("items.games.slot");
+        this.mainGamesSlot = getMainConfig.getInt("items.games.slot");
 
     }
 
@@ -103,16 +103,16 @@ public class CoinFlipManager {
         return coinFlipBets;
     }
 
-    public Map<String, Inventory> getPrincipalInventories() {
-        return principalInventories;
+    public Map<String, Inventory> getMainInventories() {
+        return mainInventories;
     }
 
     public Set<String> getCoinFlipGamblersGuiOpen() {
         return coinFlipGamblersGuiOpen;
     }
 
-    public String getPrincipalMenuTitle() {
-        return principalMenuTitle;
+    public String getMainMenuTitle() {
+        return mainMenuTitle;
     }
 
     public String getCoinFlipMenuTitle() {
@@ -131,12 +131,12 @@ public class CoinFlipManager {
         return cashAlert;
     }
 
-    public ItemStack getPrincipalGamesItem(String player){
-        ItemBuilder clone = principalGamesItem.clone();
+    public ItemStack getMainGamesItem(String player){
+        ItemBuilder clone = mainGamesItem.clone();
 
-        clone.setName(principalGamesName);
+        clone.setName(mainGamesName);
 
-        principalGamesLore.forEach(w -> clone.addLoreLine(c(w.
+        mainGamesLore.forEach(w -> clone.addLoreLine(c(w.
                 replace("{ongoing}", getNumClosedGames() + "").
                 replace("{waiting}", getNumOpenGames() + "").
                 replace("{specific}", getNumSpecificGames(player) + ""))));
@@ -155,30 +155,30 @@ public class CoinFlipManager {
                 replace("{cash}", letterFormatter(bet.getCashValue())).
                 replace("{owner-player}", bet.getOwner()).
                 replace("{opponent-player}", bet.getOpponent()).
-                replace("{owner-choice}",bet.isCara() ? "Heads" : "Tails").
-                replace("{opponent-choice}",bet.isCara() ? "Tails" : "Heads"))));
+                replace("{owner-choice}",bet.isHeads() ? "Heads" : "Tails").
+                replace("{opponent-choice}",bet.isHeads() ? "Tails" : "Heads"))));
 
         return clone.toItemStack();
     }
 
-    public ItemStack getCaraItem(CoinFlipBet bet) {
-        ItemBuilder clone = caraItem.clone();
+    public ItemStack getHeadsItem(CoinFlipBet bet) {
+        ItemBuilder clone = headsItem.clone();
 
-        clone.setName(caraName);
+        clone.setName(headsName);
 
-        for (String s : caraLore) {
+        for (String s : headsLore) {
             if(s.contains("{color}")){
 
                 boolean change = false;
                 if(s.contains("{owner-player}")){
 
-                    if(bet.isCara() && bet.isChoiceCara()) change = true;
-                    else if (!bet.isCara() && !bet.isChoiceCara()) change = true;
+                    if(bet.isHeads() && bet.isChoiceHeads()) change = true;
+                    else if (!bet.isHeads() && !bet.isChoiceHeads()) change = true;
 
                 }else if(s.contains("{opponent-player}")){
 
-                    if(bet.isCara() && !bet.isChoiceCara()) change = true;
-                    else if (!bet.isCara() && bet.isChoiceCara()) change = true;
+                    if(bet.isHeads() && !bet.isChoiceHeads()) change = true;
+                    else if (!bet.isHeads() && bet.isChoiceHeads()) change = true;
 
                 }
 
@@ -188,8 +188,8 @@ public class CoinFlipManager {
                         replace("{cash}", letterFormatter(bet.getCashValue())).
                         replace("{owner-player}", bet.getOwner()).
                         replace("{opponent-player}", bet.getOpponent()).
-                        replace("{owner-choice}",bet.isCara() ? "Heads" : "Tails").
-                        replace("{opponent-choice}",bet.isCara() ? "Tails" : "Heads")));
+                        replace("{owner-choice}",bet.isHeads() ? "Heads" : "Tails").
+                        replace("{opponent-choice}",bet.isHeads() ? "Tails" : "Heads")));
 
             }else{
                 clone.addLoreLine(c(s.
@@ -197,32 +197,32 @@ public class CoinFlipManager {
                         replace("{cash}", letterFormatter(bet.getCashValue())).
                         replace("{owner-player}", bet.getOwner()).
                         replace("{opponent-player}", bet.getOpponent()).
-                        replace("{owner-choice}",bet.isCara() ? "Heads" : "Tails").
-                        replace("{opponent-choice}",bet.isCara() ? "Tails" : "Heads")));
+                        replace("{owner-choice}",bet.isHeads() ? "Heads" : "Tails").
+                        replace("{opponent-choice}",bet.isHeads() ? "Tails" : "Heads")));
             }
         }
 
         return clone.toItemStack();
     }
 
-    public ItemStack getCoroaItem(CoinFlipBet bet) {
-        ItemBuilder clone = coroaItem.clone();
+    public ItemStack getTailsItem(CoinFlipBet bet) {
+        ItemBuilder clone = tailsItem.clone();
 
-        clone.setName(coroaName);
+        clone.setName(tailsName);
 
-        for (String s : coroaLore) {
+        for (String s : tailsLore) {
             if(s.contains("{color}")){
 
                 boolean change = false;
                 if(s.contains("{owner-player}")){
 
-                    if(bet.isCara() && bet.isChoiceCara()) change = true;
-                    else if (!bet.isCara() && !bet.isChoiceCara()) change = true;
+                    if(bet.isHeads() && bet.isChoiceHeads()) change = true;
+                    else if (!bet.isHeads() && !bet.isChoiceHeads()) change = true;
 
                 }else if(s.contains("{opponent-player}")){
 
-                    if(bet.isCara() && !bet.isChoiceCara()) change = true;
-                    else if (!bet.isCara() && bet.isChoiceCara()) change = true;
+                    if(bet.isHeads() && !bet.isChoiceHeads()) change = true;
+                    else if (!bet.isHeads() && bet.isChoiceHeads()) change = true;
 
                 }
 
@@ -232,8 +232,8 @@ public class CoinFlipManager {
                         replace("{cash}", letterFormatter(bet.getCashValue())).
                         replace("{owner-player}", bet.getOwner()).
                         replace("{opponent-player}", bet.getOpponent()).
-                        replace("{owner-choice}",bet.isCara() ? "Heads" : "Tails").
-                        replace("{opponent-choice}",bet.isCara() ? "Tails" : "Heads")));
+                        replace("{owner-choice}",bet.isHeads() ? "Heads" : "Tails").
+                        replace("{opponent-choice}",bet.isHeads() ? "Tails" : "Heads")));
 
             }else{
                 clone.addLoreLine(c(s.
@@ -241,8 +241,8 @@ public class CoinFlipManager {
                         replace("{cash}", letterFormatter(bet.getCashValue())).
                         replace("{owner-player}", bet.getOwner()).
                         replace("{opponent-player}", bet.getOpponent()).
-                        replace("{owner-choice}",bet.isCara() ? "Heads" : "Tails").
-                        replace("{opponent-choice}",bet.isCara() ? "Tails" : "Heads")));
+                        replace("{owner-choice}",bet.isHeads() ? "Heads" : "Tails").
+                        replace("{opponent-choice}",bet.isHeads() ? "Tails" : "Heads")));
             }
         }
 
@@ -252,19 +252,19 @@ public class CoinFlipManager {
     public ItemStack getFinishItem(CoinFlipBet bet){
 
         ItemBuilder item;
-        if (bet.isChoiceCara()) item = caraItem.clone();
-        else item = coroaItem.clone();
+        if (bet.isChoiceHeads()) item = headsItem.clone();
+        else item = tailsItem.clone();
 
         item.setName(finishName);
 
         String winner = "-/-";
-        if(bet.isCara() && bet.isChoiceCara()) winner = bet.getOwner();
-        else if(!bet.isCara() && !bet.isChoiceCara()) winner = bet.getOwner();
-        else if(bet.isCara() && !bet.isChoiceCara()) winner = bet.getOpponent();
-        else if(!bet.isCara() && bet.isChoiceCara()) winner = bet.getOpponent();
+        if(bet.isHeads() && bet.isChoiceHeads()) winner = bet.getOwner();
+        else if(!bet.isHeads() && !bet.isChoiceHeads()) winner = bet.getOwner();
+        else if(bet.isHeads() && !bet.isChoiceHeads()) winner = bet.getOpponent();
+        else if(!bet.isHeads() && bet.isChoiceHeads()) winner = bet.getOpponent();
 
         String finalWinner = winner;
-        finishLore.forEach(w -> item.addLoreLine(c(w.replace("{final-choice}", bet.isChoiceCara() ? "Heads" : "Tails").
+        finishLore.forEach(w -> item.addLoreLine(c(w.replace("{final-choice}", bet.isChoiceHeads() ? "Heads" : "Tails").
                 replace("{winner}", finalWinner).
                 replace("{money}", letterFormatter(bet.getMoneyValue() * 2)).
                 replace("{cash}", letterFormatter(bet.getCashValue() * 2))
@@ -273,8 +273,8 @@ public class CoinFlipManager {
         return item.toItemStack();
     }
 
-    public int getPrincipalGamesSlot() {
-        return principalGamesSlot;
+    public int getMainGamesSlot() {
+        return mainGamesSlot;
     }
 
     public int getChoiceSlot() {
@@ -331,10 +331,10 @@ public class CoinFlipManager {
         return coinFlipBets.stream().filter(w -> w.getOwner().equalsIgnoreCase(name) || (w.getOpponent() != null && w.getOpponent().equalsIgnoreCase(name))).findFirst().orElse(null);
     }
 
-    public void updatePrincipalInventories(){
+    public void updateMainInventories(){
         Bukkit.getScheduler().runTask(getInstance(), ()->{
-            for (Map.Entry<String, Inventory> entry : getCoinFlipManager().getPrincipalInventories().entrySet()) {
-                entry.getValue().setItem(getCoinFlipManager().getPrincipalGamesSlot(), getCoinFlipManager().getPrincipalGamesItem(entry.getKey()));
+            for (Map.Entry<String, Inventory> entry : getCoinFlipManager().getMainInventories().entrySet()) {
+                entry.getValue().setItem(getCoinFlipManager().getMainGamesSlot(), getCoinFlipManager().getMainGamesItem(entry.getKey()));
             }
         });
     }
@@ -359,10 +359,10 @@ public class CoinFlipManager {
 
     public boolean isOwnerWin(CoinFlipBet bet){
 
-        if(bet.isCara() && bet.isChoiceCara()) return true;
-        else if(!bet.isCara() && !bet.isChoiceCara()) return true;
-        else if(bet.isCara() && !bet.isChoiceCara()) return false;
-        else if(!bet.isCara() && bet.isChoiceCara()) return false;
+        if(bet.isHeads() && bet.isChoiceHeads()) return true;
+        else if(!bet.isHeads() && !bet.isChoiceHeads()) return true;
+        else if(bet.isHeads() && !bet.isChoiceHeads()) return false;
+        else if(!bet.isHeads() && bet.isChoiceHeads()) return false;
 
         return false;
     }
