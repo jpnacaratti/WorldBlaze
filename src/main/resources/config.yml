@@ -9,7 +9,7 @@
 # worldblaze.crash // grants access to the 'Crash' game
 # worldblaze.double // grants access to the 'Double' game
 # worldblaze.mine // grants access to the 'Mine' game
-# worldblaze.jogodobicho // grants access to the 'Animal Game (Jogo do Bicho)' game
+# worldblaze.animalgame // grants access to the 'Animal Game (Jogo do Bicho)' game
 # worldblaze.coinflip // grants access to the 'Coinflip' game
 
 config:
@@ -438,7 +438,7 @@ messages:
 
   # Animal Game (Jogo do Bicho) messages
 
-  # When the animal given to /jogodobicho sortear <animal> is invalid
+  # When the animal given to /animalgame draw <animal> is invalid
   invalid-animal: '&cInvalid animal, choose again!'
 
   # When an animal is drawn
@@ -463,7 +463,7 @@ messages:
     - '&e[Animal Game] &7You lost...'
     - ''
 
-  # When staff types /jogodobicho sortear
+  # When staff types /animalgame draw
   animal-drawn: '&aAnimal drawn'
 
   # When a player clicks to set the money amount to bet in Animal Game

@@ -7,28 +7,22 @@ softdepend:
   - GrandeCash
   - yPoints
 commands:
-  verx1coinflip:
+  viewcoinflip:
   coinflip:
     aliases:
       - cf
       - cflip
       - coinf
-  jogodobicho:
+  animalgame:
     aliases:
-      - bicho
-      - jogobicho
-      - jbicho
-      - bichos
+      - jogodobicho
   graph:
   crash:
   double:
   mine:
     aliases: mines
-  apostas:
+  blaze:
     aliases:
-      - apostar
-      - aposta
-      - blaze
       - worldblaze
-      - jogosdeazar
-      - jogos
+      - bets
+      - games

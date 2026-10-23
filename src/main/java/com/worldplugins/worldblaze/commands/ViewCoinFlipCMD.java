@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import static com.worldplugins.worldblaze.WorldBlaze.*;
 
-public class VerX1CoinFlipCMD implements CommandExecutor {
+public class ViewCoinFlipCMD implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -29,7 +29,7 @@ public class VerX1CoinFlipCMD implements CommandExecutor {
         }
 
         if(args.length != 0){
-            p.sendMessage("§cUse /verx1coinflip");
+            p.sendMessage("§cUse /viewcoinflip");
             return true;
         }
 

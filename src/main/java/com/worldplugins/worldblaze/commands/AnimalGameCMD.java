@@ -24,7 +24,7 @@ public class AnimalGameCMD implements CommandExecutor {
             }
             Player p = (Player) sender;
 
-            if(!p.hasPermission("worldblaze.jogodobicho")){
+            if(!p.hasPermission("worldblaze.animalgame")){
                 p.sendMessage(getMessages().NO_PERMISSION);
                 return true;
             }
@@ -37,14 +37,14 @@ public class AnimalGameCMD implements CommandExecutor {
 
             if(args[0].equalsIgnoreCase("help")){
 
-                sender.sendMessage("§cUse /jogodobicho");
-                if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§e/jogodobicho sortear");
-                if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§e/jogodobicho sortear <bicho>");
+                sender.sendMessage("§cUse /animalgame");
+                if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§e/animalgame draw");
+                if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§e/animalgame draw <animal>");
 
                 return true;
             }
 
-            if(args[0].equalsIgnoreCase("sortear")){
+            if(args[0].equalsIgnoreCase("draw")){
 
                 if(!sender.hasPermission("worldblaze.admin")){
                     sender.sendMessage(getMessages().NO_PERMISSION);
@@ -74,7 +74,7 @@ public class AnimalGameCMD implements CommandExecutor {
                                     replace("{cash}", letterFormatter(cashWon)))));
                         }
 
-                        if(player != null) getInstance().getConfig().getStringList("messages.won-animal-game").forEach(w -> Bukkit.broadcastMessage(c(w.
+                        if(player != null) getInstance().getConfig().getStringList("messages.won-animal-game").forEach(w -> player.sendMessage(c(w.
                                 replace("{money}", letterFormatter(moneyWon)).
                                 replace("{cash}", letterFormatter(cashWon)))));
 
@@ -90,7 +90,7 @@ public class AnimalGameCMD implements CommandExecutor {
 
         if(args.length == 2){
 
-            if(args[0].equalsIgnoreCase("sortear")){
+            if(args[0].equalsIgnoreCase("draw")){
 
                 if(!sender.hasPermission("worldblaze.admin")){
                     sender.sendMessage(getMessages().NO_PERMISSION);
@@ -99,7 +99,7 @@ public class AnimalGameCMD implements CommandExecutor {
 
                 Animal chose;
                 try {
-                    chose = Animal.valueOf(args[1]);
+                    chose = Animal.valueOf(args[1].toUpperCase());
                 }catch (IllegalArgumentException e){
                     sender.sendMessage(getMessages().INVALID_ANIMAL);
                     return true;
@@ -126,7 +126,7 @@ public class AnimalGameCMD implements CommandExecutor {
                                     replace("{cash}", letterFormatter(cashWon)))));
                         }
 
-                        if(player != null) getInstance().getConfig().getStringList("messages.won-animal-game").forEach(w -> Bukkit.broadcastMessage(c(w.
+                        if(player != null) getInstance().getConfig().getStringList("messages.won-animal-game").forEach(w -> player.sendMessage(c(w.
                                 replace("{money}", letterFormatter(moneyWon)).
                                 replace("{cash}", letterFormatter(cashWon)))));
 
@@ -141,7 +141,7 @@ public class AnimalGameCMD implements CommandExecutor {
 
         }
 
-        Bukkit.dispatchCommand(sender, "jogodobicho help");
+        Bukkit.dispatchCommand(sender, "animalgame help");
         return false;
     }
 }

@@ -175,14 +175,14 @@ public class WorldBlaze extends JavaPlugin {
     }
 
     private void registerCommands(){
-        getCommand("apostas").setExecutor(new MainCMD());
+        getCommand("blaze").setExecutor(new MainCMD());
         getCommand("graph").setExecutor(new GraphCMD());
         getCommand("crash").setExecutor(new CrashCMD());
         getCommand("double").setExecutor(new DoubleCMD());
         getCommand("mine").setExecutor(new MineCMD());
-        getCommand("jogodobicho").setExecutor(new AnimalGameCMD());
+        getCommand("animalgame").setExecutor(new AnimalGameCMD());
         getCommand("coinflip").setExecutor(new CoinFlipCMD());
-        getCommand("verx1coinflip").setExecutor(new VerX1CoinFlipCMD());
+        getCommand("viewcoinflip").setExecutor(new ViewCoinFlipCMD());
     }
 
     public void reloadManagers(){

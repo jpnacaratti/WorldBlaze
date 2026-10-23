@@ -103,7 +103,7 @@ public class InventoryClickMain implements Listener {
 
         if (e.getSlot() == getConfig.getInt("items.animal-game.slot")) {
 
-            if (!p.hasPermission("worldblaze.jogodobicho")) {
+            if (!p.hasPermission("worldblaze.animalgame")) {
                 p.sendMessage(getMessages().NO_PERMISSION);
                 return;
             }
