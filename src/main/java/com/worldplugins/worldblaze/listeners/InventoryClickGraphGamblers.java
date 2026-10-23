@@ -25,7 +25,7 @@ public class InventoryClickGraphGamblers implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_graphPag");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_graphPage");
 
         if(nbtPage != null){
             p.openInventory(GraphGamblersGui.invs.get(p).get(Integer.parseInt(nbtPage)));

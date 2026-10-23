@@ -74,7 +74,7 @@ public class MinePlayersGui {
                     nLore.replaceAll(Utils::c);
                     next.setName(c(getConfig.getString("items.next-page.name"))).
                             setLore(nLore).setGlow(getConfig.getBoolean("items.next-page.glow"));
-                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_minePag", ""+(numPage+1));
+                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_minePage", ""+(numPage+1));
                     int slot = getConfig.getInt("items.next-page.slot");
 
                     ItemBuilder prev;
@@ -86,7 +86,7 @@ public class MinePlayersGui {
                     prevLore.replaceAll(Utils::c);
                     prev.setName(c(getConfig.getString("items.previous-page.name"))).
                             setLore(prevLore).setGlow(getConfig.getBoolean("items.previous-page.glow"));
-                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_minePag", ""+numPage);
+                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_minePage", ""+numPage);
                     int prevSlot = getConfig.getInt("items.previous-page.slot");
 
                     newInv.setItem(prevSlot, prev.toItemStack());
@@ -125,7 +125,7 @@ public class MinePlayersGui {
                 item.setName(c(getConfig.getString("items.player.name").replace("{nick}", mineBet.getOwner()))).
                         setGlow(getConfig.getBoolean("items.player.glow"));
 
-                NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_mineJogador", mineBet.getOwner());
+                NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_minePlayer", mineBet.getOwner());
 
                 if(invSlot == 7) invSlot = 0;
 

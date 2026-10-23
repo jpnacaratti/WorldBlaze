@@ -27,7 +27,7 @@ public class InventoryClickCrashGamblers implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_crashPag");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_crashPage");
 
         if(nbtPage != null){
             p.openInventory(CrashGamblersGui.invs.get(p).get(Integer.parseInt(nbtPage)));

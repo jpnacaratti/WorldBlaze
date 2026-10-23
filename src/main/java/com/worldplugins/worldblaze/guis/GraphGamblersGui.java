@@ -73,7 +73,7 @@ public class GraphGamblersGui {
                     nLore.replaceAll(Utils::c);
                     next.setName(c(getConfig.getString("items.next-page.name"))).
                             setLore(nLore).setGlow(getConfig.getBoolean("items.next-page.glow"));
-                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_graphPag", ""+(numPage+1));
+                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_graphPage", ""+(numPage+1));
                     int slot = getConfig.getInt("items.next-page.slot");
 
                     ItemBuilder prev;
@@ -85,7 +85,7 @@ public class GraphGamblersGui {
                     prevLore.replaceAll(Utils::c);
                     prev.setName(c(getConfig.getString("items.previous-page.name"))).
                             setLore(prevLore).setGlow(getConfig.getBoolean("items.previous-page.glow"));
-                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_graphPag", ""+numPage);
+                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_graphPage", ""+numPage);
                     int prevSlot = getConfig.getInt("items.previous-page.slot");
 
                     newInv.setItem(prevSlot, prev.toItemStack());

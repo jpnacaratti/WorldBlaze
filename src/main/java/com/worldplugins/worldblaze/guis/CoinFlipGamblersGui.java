@@ -82,7 +82,7 @@ public class CoinFlipGamblersGui {
                     nLore.replaceAll(Utils::c);
                     next.setName(c(getConfig.getString("items.next-page.name"))).
                             setLore(nLore).setGlow(getConfig.getBoolean("items.next-page.glow"));
-                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_coinflipPag", ""+(numPage+1));
+                    NBTTag.setNBTString(next.toItemStack().getItemMeta(), "WBlaze_coinflipPage", ""+(numPage+1));
                     int slot = getConfig.getInt("items.next-page.slot");
 
                     ItemBuilder prev;
@@ -94,7 +94,7 @@ public class CoinFlipGamblersGui {
                     prevLore.replaceAll(Utils::c);
                     prev.setName(c(getConfig.getString("items.previous-page.name"))).
                             setLore(prevLore).setGlow(getConfig.getBoolean("items.previous-page.glow"));
-                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_coinflipPag", ""+numPage);
+                    NBTTag.setNBTString(prev.toItemStack().getItemMeta(), "WBlaze_coinflipPage", ""+numPage);
                     int prevSlot = getConfig.getInt("items.previous-page.slot");
 
                     newInv.setItem(prevSlot, prev.toItemStack());
@@ -140,7 +140,7 @@ public class CoinFlipGamblersGui {
                 item.setName(c(getConfig.getString("items.player.name").replace("{nick}", coinFlipBet.getOwner()))).
                         setGlow(getConfig.getBoolean("items.player.glow"));
 
-                NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_coinflipJogador", coinFlipBet.getOwner());
+                NBTTag.setNBTString(item.toItemStack().getItemMeta(), "WBlaze_coinflipPlayer", coinFlipBet.getOwner());
 
                 if(invSlot == 7) invSlot = 0;
 

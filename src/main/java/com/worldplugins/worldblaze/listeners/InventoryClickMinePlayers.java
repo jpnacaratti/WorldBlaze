@@ -27,8 +27,8 @@ public class InventoryClickMinePlayers implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_minePag");
-        String minePlayer = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_mineJogador");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_minePage");
+        String minePlayer = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_minePlayer");
 
         if(nbtPage != null){
             p.openInventory(MinePlayersGui.invs.get(p).get(Integer.parseInt(nbtPage)));

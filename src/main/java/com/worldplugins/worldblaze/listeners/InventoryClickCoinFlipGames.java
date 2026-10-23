@@ -25,8 +25,8 @@ public class InventoryClickCoinFlipGames implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_coinflipPag");
-        String coinflipPlayer = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_coinflipJogador");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_coinflipPage");
+        String coinflipPlayer = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_coinflipPlayer");
 
         if(nbtPage != null){
             p.openInventory(CoinFlipGamblersGui.invs.get(p).get(Integer.parseInt(nbtPage)));
