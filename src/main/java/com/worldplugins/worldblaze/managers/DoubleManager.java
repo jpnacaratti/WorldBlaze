@@ -846,9 +846,9 @@ public class DoubleManager {
 
             }
 
-            sendDebugMessage("[Double] Red: " + redChance);
-            sendDebugMessage("[Double] White: " + whiteChance);
-            sendDebugMessage("[Double] Black: " + blackChance);
+            sendDebugMessage("[Double] Red: " + String.format("%.2f", redChance));
+            sendDebugMessage("[Double] White: " + String.format("%.2f", whiteChance));
+            sendDebugMessage("[Double] Black: " + String.format("%.2f", blackChance));
 
             setNumOfItem(0);
             return true;
