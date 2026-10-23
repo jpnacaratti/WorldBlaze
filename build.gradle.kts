@@ -62,4 +62,11 @@ tasks {
     build {
         dependsOn(shadowJar)
     }
+
+    // ./gradlew deploy  (override with -PpluginsDir=...)
+    register<Copy>("deploy") {
+        dependsOn(shadowJar)
+        from(shadowJar.flatMap { it.archiveFile })
+        into(providers.gradleProperty("pluginsDir").orElse("C:/projetos/mine/SRV/plugins"))
+    }
 }
