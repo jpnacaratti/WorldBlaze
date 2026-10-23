@@ -168,7 +168,7 @@ public class JogoDoBichoManager {
 
         cache.removeAll(getBlackListRigging());
 
-        if(cache.isEmpty()) return Bicho.VEADO;
+        if(cache.isEmpty()) return Bicho.DEER;
 
         return cache.get(rand.nextInt(cache.size()));
     }

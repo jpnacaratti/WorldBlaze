@@ -5,31 +5,31 @@ import java.util.List;
 
 public enum Bicho {
 
-    AVESTRUZ("Avestruz"),
-    AGUIA("Águia"),
-    BURRO("Burro"),
-    BORBOLETA("Borboleta"),
-    CACHORRO("Cachorro"),
-    CABRA("Cabra"),
-    CARNEIRO("Carneiro"),
-    CAMELO("Camelo"),
-    COBRA("Cobra"),
-    COELHO("Coelho"),
-    CAVALO("Cavalo"),
-    ELEFANTE("Elefante"),
-    GALO("Galo"),
-    GATO("Gato"),
-    JACARE("Jacaré"),
-    LEAO("Leão"),
-    MACACO("Macaco"),
-    PORCO("Porco"),
-    PAVAO("Pavão"),
-    PERU("Peru"),
-    TOURO("Touro"),
-    TIGRE("Tigre"),
-    URSO("Urso"),
-    VEADO("Veado"),
-    VACA("Vaca");
+    OSTRICH("Ostrich"),
+    EAGLE("Eagle"),
+    DONKEY("Donkey"),
+    BUTTERFLY("Butterfly"),
+    DOG("Dog"),
+    GOAT("Goat"),
+    RAM("Ram"),
+    CAMEL("Camel"),
+    SNAKE("Snake"),
+    RABBIT("Rabbit"),
+    HORSE("Horse"),
+    ELEPHANT("Elephant"),
+    ROOSTER("Rooster"),
+    CAT("Cat"),
+    ALLIGATOR("Alligator"),
+    LION("Lion"),
+    MONKEY("Monkey"),
+    PIG("Pig"),
+    PEACOCK("Peacock"),
+    TURKEY("Turkey"),
+    BULL("Bull"),
+    TIGER("Tiger"),
+    BEAR("Bear"),
+    DEER("Deer"),
+    COW("Cow");
 
     private final String nameStr;
 
@@ -43,31 +43,31 @@ public enum Bicho {
 
     public static boolean isAnimal(String str){
         List<String> has = new ArrayList<>();
-        has.add("AVESTRUZ");
-        has.add("AGUIA");
-        has.add("BURRO");
-        has.add("BORBOLETA");
-        has.add("CACHORRO");
-        has.add("CABRA");
-        has.add("CARNEIRO");
-        has.add("CAMELO");
-        has.add("COBRA");
-        has.add("COELHO");
-        has.add("CAVALO");
-        has.add("ELEFANTE");
-        has.add("GALO");
-        has.add("GATO");
-        has.add("JACARE");
-        has.add("LEAO");
-        has.add("MACACO");
-        has.add("PORCO");
-        has.add("PAVAO");
-        has.add("PERU");
-        has.add("TOURO");
-        has.add("TIGRE");
-        has.add("URSO");
-        has.add("VEADO");
-        has.add("VACA");
+        has.add("OSTRICH");
+        has.add("EAGLE");
+        has.add("DONKEY");
+        has.add("BUTTERFLY");
+        has.add("DOG");
+        has.add("GOAT");
+        has.add("RAM");
+        has.add("CAMEL");
+        has.add("SNAKE");
+        has.add("RABBIT");
+        has.add("HORSE");
+        has.add("ELEPHANT");
+        has.add("ROOSTER");
+        has.add("CAT");
+        has.add("ALLIGATOR");
+        has.add("LION");
+        has.add("MONKEY");
+        has.add("PIG");
+        has.add("PEACOCK");
+        has.add("TURKEY");
+        has.add("BULL");
+        has.add("TIGER");
+        has.add("BEAR");
+        has.add("DEER");
+        has.add("COW");
 
         return has.contains(str.toUpperCase());
     }
