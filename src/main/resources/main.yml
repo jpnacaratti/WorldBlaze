@@ -92,9 +92,9 @@ items:
     id: ''
     data: 0
     glow: false
-    name: '&bJogo do Bicho'
+    name: '&bAnimal Game'
     lore:
-      - '&7Name: &eJogo do Bicho'
+      - '&7Name: &eAnimal Game (Jogo do Bicho)'
       - '&7Available bets: &eMoney and CASH'
       - '&7Return: &eVaries by chosen bet'
       - '&7Game type: &ePublic'

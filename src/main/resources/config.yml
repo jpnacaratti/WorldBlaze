@@ -9,7 +9,7 @@
 # worldblaze.crash // grants access to the 'Crash' game
 # worldblaze.double // grants access to the 'Double' game
 # worldblaze.mine // grants access to the 'Mine' game
-# worldblaze.jogodobicho // grants access to the 'Jogo do Bicho' game
+# worldblaze.jogodobicho // grants access to the 'Animal Game (Jogo do Bicho)' game
 # worldblaze.coinflip // grants access to the 'Coinflip' game
 
 config:
@@ -116,7 +116,7 @@ config:
         - '5000.0;50.0'
         - '7500.0;75.0'
 
-  # Jogo do Bicho settings
+  # Animal Game (Jogo do Bicho) settings
   jogo-do-bicho:
     max-cash-bet: 1500000.0 # Maximum amount of cash that can be bet
     min-cash-bet: 0.0 # Minimum amount of cash that can be bet
@@ -436,7 +436,7 @@ messages:
     - '&d[WorldBlaze] &7Your bet on the &dGraph &7failed and you lost a total of &d{money} &7money and &d{cash} &7cash!'
     - ''
 
-  # Jogo do Bicho messages
+  # Animal Game (Jogo do Bicho) messages
 
   # When the animal given to /jogodobicho sortear <animal> is invalid
   invalid-animal: '&cInvalid animal, choose again!'
@@ -444,36 +444,36 @@ messages:
   # When an animal is drawn
   animal-drawn-broadcast:
     - ''
-    - '&e[Jogo do Bicho] &7The animal drawn this time was: &e{animal}'
+    - '&e[Animal Game] &7The animal drawn this time was: &e{animal}'
     - ''
 
   # When a player wins and goes over the amount required to send an alert
   broadcast-animal-profit:
-    - '&e[Jogo do Bicho] &7The player &e{player} &7won &e{money} &7money and &e{cash} &7cash!'
+    - '&e[Animal Game] &7The player &e{player} &7won &e{money} &7money and &e{cash} &7cash!'
 
-  # When a player wins in jogo do bicho
+  # When a player wins in animal game
   won-jogo-do-bicho:
     - ''
-    - '&e[Jogo do Bicho] &7You won &e{money} &7money and &e{cash} &7cash!'
+    - '&e[Animal Game] &7You won &e{money} &7money and &e{cash} &7cash!'
     - ''
 
-  # When a player loses in jogo do bicho
+  # When a player loses in animal game
   lost-jogo-do-bicho:
     - ''
-    - '&e[Jogo do Bicho] &7You lost...'
+    - '&e[Animal Game] &7You lost...'
     - ''
 
   # When staff types /jogodobicho sortear
   animal-drawn: '&aAnimal drawn'
 
-  # When a player clicks to set the money amount to bet in Jogo do Bicho
+  # When a player clicks to set the money amount to bet in Animal Game
   jogo-do-bicho-typing-money:
     - ''
     - '&aType the amount of &7money &ayou want to bet'
     - '&aTo cancel type &7"cancel"'
     - ''
 
-  # When a player clicks to set the cash amount to bet in Jogo do Bicho
+  # When a player clicks to set the cash amount to bet in Animal Game
   jogo-do-bicho-typing-cash:
     - ''
     - '&aType the amount of &7cash &ayou want to bet'
@@ -486,7 +486,7 @@ messages:
   # When a player bets on an animal
   bet-placed-animal:
     - ''
-    - '&e[Jogo do Bicho] &7Successfully bet on &e{animal}'
+    - '&e[Animal Game] &7Successfully bet on &e{animal}'
     - ''
 
   insufficient-money: '&cYou do not have that amount of money!'

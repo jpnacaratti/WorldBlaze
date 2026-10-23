@@ -21,7 +21,7 @@ public class MainCMD implements CommandExecutor {
             sender.sendMessage("§7/crash §7- Opens the crash directly.");
             sender.sendMessage("§7/double §7- Opens the double directly.");
             sender.sendMessage("§7/mine §7- Opens the mine directly.");
-            sender.sendMessage("§7/jogodobicho §7- Opens the jogo do bicho directly.");
+            sender.sendMessage("§7/jogodobicho §7- Opens the Animal Game (Jogo do Bicho) directly.");
             sender.sendMessage("§7/coinflip §7- Opens the CoinFlip directly.");
             if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§7/blaze lock §7- Disables and blocks future games until you enable them again.");
             if(sender.hasPermission("worldblaze.admin")) sender.sendMessage("§7/blaze unlock §7- Enables the games again.");

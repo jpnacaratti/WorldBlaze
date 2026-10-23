@@ -1,6 +1,6 @@
-# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON jogo do bicho AND ON bet AND THEN ON the animal
+# MENU GUI, SHOWN WHEN THE PLAYER USES /apostar AND CLICKS ON animal game AND ON bet AND THEN ON the animal
 
-title: 'Jogo do Bicho - Bet'
+title: 'Animal Game - Bet'
 
 rows: 3
 

@@ -155,7 +155,7 @@ public class JogoDoBichoManager {
                     bet.getMoneyValue() >= getInstance().getConfig().getDouble("config.jogo-do-bicho.rigging.money")){
                 if(rand.nextDouble() <= getInstance().getConfig().getDouble("config.jogo-do-bicho.rigging.chance")){
                     blackList.add(bet.getAnimal());
-                    sendDebugMessage("[Jogo do Bicho] Hit by the rigging");
+                    sendDebugMessage("[Animal Game] Hit by the rigging");
                 }
             }
         }
