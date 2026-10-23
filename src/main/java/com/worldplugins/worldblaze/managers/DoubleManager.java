@@ -335,6 +335,8 @@ public class DoubleManager {
 
     public void setRoundChosenColor(){
 
+        this.roundChosenColor = getRandomDefinitiveColor();
+
         if(rigging && (totalBetCash >= riggingCash || totalBetMoney >= riggingMoney)){
             if (rand.nextDouble() * 100 <= riggingChance) {
 
@@ -374,7 +376,7 @@ public class DoubleManager {
                     else this.roundChosenColor = DoubleColor.WHITE;
                 }
             }
-        }else this.roundChosenColor = getRandomDefinitiveColor();
+        }
 
         sendDebugMessage("[Double] The next color will be: " + roundChosenColor);
 
