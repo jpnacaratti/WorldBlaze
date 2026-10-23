@@ -193,6 +193,9 @@ public class WorldBlaze extends JavaPlugin {
         jogoDoBichoManager = new JogoDoBichoManager();
         coinFlipManager = new CoinFlipManager();
 
+        messages = new Messages();
+        formats = getConfig().getStringList("formats").toArray(new String[0]);
+
         setupCashProvider();
     }
 
