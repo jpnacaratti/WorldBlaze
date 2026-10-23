@@ -27,7 +27,7 @@ public class InventoryClickAnimalGameGamblers implements Listener {
 
         Player p = (Player) e.getWhoClicked();
 
-        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_animalsPag");
+        String nbtPage = NBTTag.getNBTString(e.getCurrentItem().getItemMeta(), "WBlaze_animalPag");
 
         if(nbtPage != null){
             p.openInventory(AnimalGameGamblersGui.invs.get(p).get(Integer.parseInt(nbtPage)));
