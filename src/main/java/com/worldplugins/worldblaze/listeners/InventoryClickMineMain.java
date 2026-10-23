@@ -14,8 +14,9 @@ public class InventoryClickMineMain implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(getMineManager().getMenuTitle())) return;
+        if (!MenuHolder.is(e.getInventory(), MenuType.MINE_MAIN)) return;
         e.setCancelled(true);
+        if (e.getRawSlot() >= e.getInventory().getSize()) return;
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

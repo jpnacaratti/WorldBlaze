@@ -20,7 +20,7 @@ public class JogoDoBichoBichosGui {
 
         FileConfiguration getConfig = getBichosGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
+        Inventory inv = MenuHolder.create(MenuType.ANIMAL_GAME_ANIMALS, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
         for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 

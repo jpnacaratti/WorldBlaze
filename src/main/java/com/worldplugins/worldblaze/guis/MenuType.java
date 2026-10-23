@@ -1,0 +1,25 @@
+package com.worldplugins.worldblaze.guis;
+
+public enum MenuType {
+
+    MAIN,
+    GRAPH,
+    GRAPH_BETTORS,
+    CRASH,
+    CRASH_BETTORS,
+    DOUBLE,
+    DOUBLE_BETTORS,
+    MINE_MAIN,
+    MINE_CREATE,
+    MINE_GAME,
+    MINE_PLAYERS,
+    ANIMAL_GAME_MAIN,
+    ANIMAL_GAME_ANIMALS,
+    ANIMAL_GAME_BET,
+    ANIMAL_GAME_BETTORS,
+    COINFLIP_MAIN,
+    COINFLIP_CREATE,
+    COINFLIP_GAMES,
+    COINFLIP_GAME
+
+}

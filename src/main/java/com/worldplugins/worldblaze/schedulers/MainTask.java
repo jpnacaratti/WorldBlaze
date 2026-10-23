@@ -3,6 +3,8 @@ package com.worldplugins.worldblaze.schedulers;
 import com.worldplugins.worldblaze.enums.DoubleColor;
 import com.worldplugins.worldblaze.guis.CrashGamblersGui;
 import com.worldplugins.worldblaze.guis.GraphGamblersGui;
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.objects.*;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -575,7 +577,7 @@ public class MainTask implements Runnable {
                 // CLEARING THE OLD GRAPH FROM ALL INVENTORIES
                 getGraphManager().clearGraphic(inv);
 
-                Inventory copy = Bukkit.createInventory(null, 6 * 9, getGraphManager().getMenuTitle());
+                Inventory copy = MenuHolder.create(MenuType.GRAPH, 6 * 9, getGraphManager().getMenuTitle());
 
                 copy.setContents(inv.getContents());
 

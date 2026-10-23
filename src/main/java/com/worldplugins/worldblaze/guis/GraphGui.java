@@ -22,7 +22,7 @@ public class GraphGui {
 
         FileConfiguration getConfig = getGraphGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("title")));
+        Inventory inv = MenuHolder.create(MenuType.GRAPH, 9 * 6, c(getConfig.getString("title")));
 
         BlazeUser blazeUser = getManager().getBlazeUser(p.getName());
 

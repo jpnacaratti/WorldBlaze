@@ -1,5 +1,7 @@
 package com.worldplugins.worldblaze.listeners;
 
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.objects.CoinFlipBet;
 import com.worldplugins.worldblaze.objects.MineBet;
 import org.bukkit.Bukkit;
@@ -29,31 +31,31 @@ public class InventoryClose implements Listener {
 
         getJogoDoBichoManager().getSeeingMap().remove(e.getPlayer().getName());
 
-        if(e.getInventory().getName().equalsIgnoreCase(getGraphManager().getMenuTitle())){
+        if(MenuHolder.is(e.getInventory(), MenuType.GRAPH)){
 
             getGraphManager().getGraphInventories().remove(e.getPlayer().getName());
 
         }
 
-        if(e.getInventory().getName().equalsIgnoreCase(getCrashManager().getMenuTitle())){
+        if(MenuHolder.is(e.getInventory(), MenuType.CRASH)){
 
             getCrashManager().getCrashInventories().remove(e.getPlayer().getName());
 
         }
 
-        if(e.getInventory().getName().equalsIgnoreCase(getDoubleManager().getMenuTitle())){
+        if(MenuHolder.is(e.getInventory(), MenuType.DOUBLE)){
 
             getDoubleManager().getDoubleInventories().remove(e.getPlayer().getName());
 
         }
 
-        if(e.getInventory().getName().equalsIgnoreCase(getMineManager().getMenuTitle())){
+        if(MenuHolder.is(e.getInventory(), MenuType.MINE_MAIN)){
 
             getMineManager().getMainInventories().remove(e.getPlayer().getName());
 
         }
 
-        if(e.getInventory().getName().equalsIgnoreCase(getMineManager().getMineMenuTitle())){
+        if(MenuHolder.is(e.getInventory(), MenuType.MINE_GAME)){
             MineBet mineBet = getMineManager().getWhoPlayerIsSeen(e.getPlayer().getName());
 
             if(mineBet != null){
@@ -72,13 +74,13 @@ public class InventoryClose implements Listener {
             }
         }
 
-        if(e.getInventory().getName().equalsIgnoreCase(getCoinFlipManager().getMainMenuTitle())){
+        if(MenuHolder.is(e.getInventory(), MenuType.COINFLIP_MAIN)){
 
             getCoinFlipManager().getMainInventories().remove(e.getPlayer().getName());
 
         }
 
-        if(e.getInventory().getName().equalsIgnoreCase(getCoinFlipManager().getCoinFlipMenuTitle())) {
+        if(MenuHolder.is(e.getInventory(), MenuType.COINFLIP_GAME)) {
             CoinFlipBet bet = getCoinFlipManager().getCoinFlipBetClose(e.getPlayer().getName());
 
             if (bet != null) {

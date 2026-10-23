@@ -1,5 +1,7 @@
 package com.worldplugins.worldblaze.managers;
 
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.guis.MinePlayersGui;
 import com.worldplugins.worldblaze.objects.MineBet;
 import com.worldplugins.worldblaze.utils.ItemBuilder;
@@ -268,7 +270,7 @@ public class MineManager {
 
         FileConfiguration getConfig = getMineGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * mineLines, mineMenuTitle);
+        Inventory inv = MenuHolder.create(MenuType.MINE_GAME, 9 * mineLines, mineMenuTitle);
 
         for(String s : getConfig.getConfigurationSection("items").getKeys(false)){
 

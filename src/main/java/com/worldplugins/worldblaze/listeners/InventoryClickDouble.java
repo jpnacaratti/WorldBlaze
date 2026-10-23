@@ -2,6 +2,8 @@ package com.worldplugins.worldblaze.listeners;
 
 import com.worldplugins.worldblaze.enums.DoubleColor;
 import com.worldplugins.worldblaze.guis.DoubleGamblersGui;
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.objects.BlazeUser;
 import com.worldplugins.worldblaze.objects.DoubleBet;
 import org.bukkit.Bukkit;
@@ -21,8 +23,9 @@ public class InventoryClickDouble implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if(!e.getInventory().getName().equalsIgnoreCase(getDoubleManager().getMenuTitle())) return;
+        if (!MenuHolder.is(e.getInventory(), MenuType.DOUBLE)) return;
         e.setCancelled(true);
+        if (e.getRawSlot() >= e.getInventory().getSize()) return;
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

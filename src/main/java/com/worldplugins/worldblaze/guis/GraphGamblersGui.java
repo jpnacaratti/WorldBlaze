@@ -24,7 +24,7 @@ public class GraphGamblersGui {
     public static void create(Player p){
         FileConfiguration getConfig = getGraphGamblersGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("title")));
+        Inventory inv = MenuHolder.create(MenuType.GRAPH_BETTORS, 9 * 6, c(getConfig.getString("title")));
 
         List<GraphBet> sorted = new ArrayList<>(getGraphManager().getGraphBets());
 
@@ -62,7 +62,7 @@ public class GraphGamblersGui {
                 if(invs.get(p).get(numPage).getItem(34) != null) invLine = 37;
                 if(invs.get(p).get(numPage).getItem(43) != null) {
 
-                    Inventory newInv = Bukkit.createInventory(null, 9 * 6, c(getConfig.getString("title")));
+                    Inventory newInv = MenuHolder.create(MenuType.GRAPH_BETTORS, 9 * 6, c(getConfig.getString("title")));
 
                     ItemBuilder next;
                     if (getConfig.getBoolean("items.next-page.use-head"))

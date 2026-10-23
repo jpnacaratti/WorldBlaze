@@ -1,5 +1,7 @@
 package com.worldplugins.worldblaze.listeners;
 
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.guis.MinePlayersGui;
 import com.worldplugins.worldblaze.objects.MineBet;
 import org.bukkit.Bukkit;
@@ -22,8 +24,9 @@ public class InventoryClickMine implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(getMineManager().getMineMenuTitle())) return;
+        if (!MenuHolder.is(e.getInventory(), MenuType.MINE_GAME)) return;
         e.setCancelled(true);
+        if (e.getRawSlot() >= e.getInventory().getSize()) return;
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

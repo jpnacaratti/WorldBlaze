@@ -17,7 +17,7 @@ public class CoinFlipMainGui {
 
         FileConfiguration getConfig = getCoinFlipMainGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
+        Inventory inv = MenuHolder.create(MenuType.COINFLIP_MAIN, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
         inv.setItem(getCoinFlipManager().getMainGamesSlot(), getCoinFlipManager().getMainGamesItem(p.getName()));
 

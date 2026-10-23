@@ -4,6 +4,8 @@ import com.worldplugins.worldblaze.guis.CrashGamblersGui;
 import com.worldplugins.worldblaze.guis.CrashGui;
 import com.worldplugins.worldblaze.guis.DoubleGamblersGui;
 import com.worldplugins.worldblaze.guis.DoubleGui;
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.utils.NBTTag;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -19,8 +21,9 @@ public class InventoryClickDoubleGamblers implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if(!e.getInventory().getName().equalsIgnoreCase(c(getDoubleGamblersGuiYml().getConfig().getString("title")))) return;
+        if (!MenuHolder.is(e.getInventory(), MenuType.DOUBLE_BETTORS)) return;
         e.setCancelled(true);
+        if (e.getRawSlot() >= e.getInventory().getSize()) return;
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

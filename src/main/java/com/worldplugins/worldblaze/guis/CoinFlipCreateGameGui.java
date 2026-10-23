@@ -19,7 +19,7 @@ public class CoinFlipCreateGameGui {
 
         FileConfiguration getConfig = getCoinFlipCreateGameGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
+        Inventory inv = MenuHolder.create(MenuType.COINFLIP_CREATE, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 

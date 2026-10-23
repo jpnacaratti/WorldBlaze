@@ -24,7 +24,7 @@ public class CrashGui {
 
         FileConfiguration getConfig = getCrashGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), getCrashManager().getMenuTitle());
+        Inventory inv = MenuHolder.create(MenuType.CRASH, 9 * getConfig.getInt("rows"), getCrashManager().getMenuTitle());
 
         BlazeUser blazeUser = getManager().getBlazeUser(p.getName());
 

@@ -19,7 +19,7 @@ public class MineCreateGui {
 
         FileConfiguration getConfig = getCreateMineGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
+        Inventory inv = MenuHolder.create(MenuType.MINE_CREATE, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
         BlazeUser blazeUser = getManager().getBlazeUser(p.getName());
 

@@ -1,6 +1,8 @@
 package com.worldplugins.worldblaze.listeners;
 
 import com.worldplugins.worldblaze.guis.CoinFlipCreateGameGui;
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.objects.BlazeUser;
 import com.worldplugins.worldblaze.objects.CoinFlipBet;
 import org.bukkit.Bukkit;
@@ -18,8 +20,9 @@ public class InventoryClickCoinFlipCreateGame implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        if (!e.getInventory().getName().equalsIgnoreCase(c(getCoinFlipCreateGameGuiYml().getConfig().getString("title")))) return;
+        if (!MenuHolder.is(e.getInventory(), MenuType.COINFLIP_CREATE)) return;
         e.setCancelled(true);
+        if (e.getRawSlot() >= e.getInventory().getSize()) return;
 
         if (e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

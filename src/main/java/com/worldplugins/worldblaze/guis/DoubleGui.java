@@ -26,7 +26,7 @@ public class DoubleGui {
 
         FileConfiguration getConfig = getDoubleGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * 4, getDoubleManager().getMenuTitle());
+        Inventory inv = MenuHolder.create(MenuType.DOUBLE, 9 * 4, getDoubleManager().getMenuTitle());
 
         BlazeUser blazeUser = getManager().getBlazeUser(p.getName());
 

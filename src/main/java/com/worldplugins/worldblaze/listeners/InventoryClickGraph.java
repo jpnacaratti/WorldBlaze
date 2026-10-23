@@ -1,6 +1,8 @@
 package com.worldplugins.worldblaze.listeners;
 
 import com.worldplugins.worldblaze.guis.GraphGamblersGui;
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.objects.BlazeUser;
 import com.worldplugins.worldblaze.objects.GraphBet;
 import com.worldplugins.worldblaze.schedulers.MainTask;
@@ -22,8 +24,9 @@ public class  InventoryClickGraph implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if(!e.getInventory().getName().equalsIgnoreCase(getGraphManager().getMenuTitle())) return;
+        if (!MenuHolder.is(e.getInventory(), MenuType.GRAPH)) return;
         e.setCancelled(true);
+        if (e.getRawSlot() >= e.getInventory().getSize()) return;
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 

@@ -25,7 +25,7 @@ public class JogoDoBichoBetGui {
 
         FileConfiguration getConfig = getBichosBetGuiYml().getConfig();
 
-        Inventory inv = Bukkit.createInventory(null, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
+        Inventory inv = MenuHolder.create(MenuType.ANIMAL_GAME_BET, 9 * getConfig.getInt("rows"), c(getConfig.getString("title")));
 
         BlazeUser user = getManager().getBlazeUser(p.getName());
 

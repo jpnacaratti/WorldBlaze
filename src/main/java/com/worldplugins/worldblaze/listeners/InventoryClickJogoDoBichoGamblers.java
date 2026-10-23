@@ -2,6 +2,8 @@ package com.worldplugins.worldblaze.listeners;
 
 import com.worldplugins.worldblaze.guis.JogoDoBichoGamblersGui;
 import com.worldplugins.worldblaze.guis.JogoDoBichoMainGui;
+import com.worldplugins.worldblaze.guis.MenuHolder;
+import com.worldplugins.worldblaze.guis.MenuType;
 import com.worldplugins.worldblaze.utils.NBTTag;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -17,8 +19,9 @@ public class InventoryClickJogoDoBichoGamblers implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
 
-        if(!e.getInventory().getName().equalsIgnoreCase(c(getJogoDoBichoGamblersGuiYml().getConfig().getString("title")))) return;
+        if (!MenuHolder.is(e.getInventory(), MenuType.ANIMAL_GAME_BETTORS)) return;
         e.setCancelled(true);
+        if (e.getRawSlot() >= e.getInventory().getSize()) return;
 
         if(e.getCurrentItem() == null || e.getCurrentItem().getItemMeta() == null) return;
 
