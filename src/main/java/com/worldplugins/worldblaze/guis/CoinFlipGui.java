@@ -32,9 +32,12 @@ public class CoinFlipGui {
 
             } else if (getConfig.getBoolean("items." + s + ".use-head")) item = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items." + s + ".texture")));
             else item = new ItemBuilder(Material.getMaterial(getConfig.getString("items." + s + ".id")), 1, (byte) getConfig.getInt("items." + s + ".data"));
-            item.setName(c(getConfig.getString("items." + s + ".name"))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
+            String nick = s.equalsIgnoreCase("owner") ? bet.getOwner() : bet.getOpponent();
+
+            item.setName(c(getConfig.getString("items." + s + ".name").replace("{nick}", nick))).setGlow(getConfig.getBoolean("items." + s + ".glow"));
 
             getConfig.getStringList("items." + s + ".lore").forEach(w -> item.addLoreLine(c(w.
+                    replace("{nick}", nick).
                     replace("{opponent-choice}", bet.isHeads() ? "Tails" : "Heads").
                     replace("{owner-choice}", bet.isHeads() ? "Heads" : "Tails"))));
 
