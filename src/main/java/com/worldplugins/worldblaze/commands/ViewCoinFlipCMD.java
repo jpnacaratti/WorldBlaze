@@ -1,0 +1,41 @@
+package com.worldplugins.worldblaze.commands;
+
+import com.worldplugins.worldblaze.objects.CoinFlipBet;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import static com.worldplugins.worldblaze.WorldBlaze.*;
+
+public class ViewCoinFlipCMD implements CommandExecutor {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        if(!(sender instanceof Player)){
+            sender.sendMessage(getMessages().ONLY_INGAME);
+            return true;
+        }
+        Player p = (Player) sender;
+
+        if(!p.hasPermission("worldblaze.coinflip")){
+            p.sendMessage(getMessages().NO_PERMISSION);
+            return true;
+        }
+
+        if(getInstance().isReloading()){
+            p.sendMessage(getMessages().RELOADING);
+            return true;
+        }
+
+        if(args.length != 0){
+            p.sendMessage("§cUse /viewcoinflip");
+            return true;
+        }
+
+        CoinFlipBet coinFlipBet = getCoinFlipManager().getCoinFlipBet(p.getName());
+
+        if(coinFlipBet != null && coinFlipBet.getOpponent() != null && coinFlipBet.getGameInventory() != null) p.openInventory(coinFlipBet.getGameInventory());
+        return false;
+    }
+}

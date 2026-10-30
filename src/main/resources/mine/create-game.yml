@@ -1,0 +1,158 @@
+# MENU GUI, SHOWN WHEN THE PLAYER USES /blaze AND CLICKS ON mine AND ON create game
+
+title: 'Mine - Creating Match'
+
+rows: 3
+
+items:
+
+  money:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'EMERALD'
+    data: 0
+    glow: false
+    name: '&aMoney'
+    lore:
+      - '&7Amount to be bet: &a{money}'
+      - ''
+      - '&7* Click to change'
+    slot: 11
+
+  cash:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'GOLD_INGOT'
+    data: 0
+    glow: false
+    name: '&6Cash'
+    lore:
+      - '&7Amount to be bet: &6{cash}'
+      - ''
+      - '&7* Click to change'
+    slot: 12
+
+  start:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/6e8646bb76f0c6d03a637a9b4975b3a85276eb20d6f16bdb91866c8c3c8285c5'
+    id: ''
+    data: 0
+    glow: false
+    name: '&aStart'
+    lore:
+      - '&7Selected mines: &4{mines}'
+      - ''
+      - '&7Amount to be bet: &a{money}'
+      - '&7Amount to be bet: &6{cash}'
+      - ''
+      - '&7Enough dawdling, click to'
+      - '&7start your game and begin the mine.'
+    slot: 15
+
+  increase-mines:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
+    id: ''
+    data: 0
+    glow: false
+    name: '&cIncrease MINES'
+    lore:
+      - '&7Selected mines: &4{mines}'
+      - ''
+      - '&7Win chance: &3{chance}%'
+      - ''
+      - '&7Left click: &fIncrease mines'
+      - '&7Right click: &fDecrease mines'
+    slot: 14
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: '' # Leave '' to use the default name
+    slot: 0
+
+  glass2:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 1
+
+  glass3:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 7
+
+  glass4:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 8
+
+  glass5:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 9
+
+  glass6:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 17
+
+  glass7:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 18
+
+  glass8:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 19
+
+  glass9:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 25
+
+  glass10:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 26

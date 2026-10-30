@@ -1,0 +1,28 @@
+name: WorldBlaze
+version: ${version}
+main: com.worldplugins.worldblaze.WorldBlaze
+softdepend:
+  - Vault
+  - PlayerPoints
+  - GrandeCash
+  - yPoints
+commands:
+  viewcoinflip:
+  coinflip:
+    aliases:
+      - cf
+      - cflip
+      - coinf
+  animalgame:
+    aliases:
+      - jogodobicho
+  graph:
+  crash:
+  double:
+  mine:
+    aliases: mines
+  blaze:
+    aliases:
+      - worldblaze
+      - bets
+      - games

@@ -1,0 +1,248 @@
+# MENU GUI, SHOWN WHEN THE PLAYER USES /blaze AND CLICKS ON double
+
+title: 'WorldBlaze - Double'
+
+choice-slot: 13
+
+red:
+  use-head: true # if true, ignores 'id' and 'data' below
+  texture: 'https://textures.minecraft.net/texture/f9a51f27d2d938897bc42a3fe2c3135da2671686f57824115f8f8da78a'
+  id: ''
+  data: 0
+  glow: false
+  name: '&c2x'
+  lore: {}
+
+black:
+  use-head: true # if true, ignores 'id' and 'data' below
+  texture: 'https://textures.minecraft.net/texture/2342b9bf9f1f6295842b0efb591697b14451f803a165ae58d0dcebd98eacc'
+  id: ''
+  data: 0
+  glow: false
+  name: '&c2x'
+  lore: {}
+
+white:
+  use-head: true # if true, ignores 'id' and 'data' below
+  texture: 'https://textures.minecraft.net/texture/af3eaf4c15ad67c51dff9097bd7abd4a82bab7bed83ab77a6177f2e57b'
+  id: ''
+  data: 0
+  glow: false
+  name: '&b14x'
+  lore: {}
+
+starting-animation: # Match start animation settings
+
+  update-reset:
+    time: 10.0
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 0
+        slot: [0, 1, 2, 3, 4, 5, 6, 7, 8, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+
+  update-1:
+    time: 8.0 # seconds. With exactly 8 seconds left the items below will be forcibly placed in the menu
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 15
+        slot: [0, 18, 8, 26]
+
+  update-2:
+    time: 6.0
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 15
+        slot: [1, 19, 7, 25]
+
+  update-3:
+    time: 4.0
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 15
+        slot: [2, 20, 6, 24]
+
+  update-4:
+    time: 2.0
+    items:
+      glass1:
+        id: 'STAINED_GLASS_PANE'
+        data: 15
+        slot: [3, 21, 5, 23]
+
+final-glass:
+  item-1:
+    id: 'STAINED_GLASS_PANE'
+    data: 4
+    slot: [4, 22]
+
+items:
+
+  money:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'EMERALD'
+    data: 0
+    glow: false
+    name: '&aMoney'
+    lore:
+      - '&7Amount to be bet: &a{money}'
+      - ''
+      - '&7* Click to change'
+    slot: 27
+
+  cash:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'GOLD_INGOT'
+    data: 0
+    glow: false
+    name: '&6Cash'
+    lore:
+      - '&7Amount to be bet: &6{cash}'
+      - ''
+      - '&7* Click to change'
+    slot: 28
+
+  bet-red:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/f9a51f27d2d938897bc42a3fe2c3135da2671686f57824115f8f8da78a'
+    id: ''
+    data: 0
+    glow: false
+    name: '&7Bet on &cRED'
+    lore:
+      - '&7Click to bet that the next'
+      - '&7color to come up will be RED'
+      - ''
+      - '&7Status: {round-status}'
+      - ''
+      - '&7Public opinion: &f{red-average}%'
+      - ''
+      - '&7Reward: &c2x'
+      - ''
+      - '&7Amount to be bet: &a{money}'
+      - '&7Amount to be bet: &6{cash}'
+      - ''
+      - '{status}'
+    status-bet: '&bYou already bet on this color, good luck!' # Setting of the {status} variable when the player has already bet
+    status-not-bet: '&7* Click to bet!' # Setting of the {status} variable when the player has not bet yet
+    round-status-started: '&aRound started!' # Setting of the {round-status} variable when the round has already started
+    round-status-not-started: '&eStarting in - {time}s' # Setting of the {round-status} variable when the round is starting
+    slot: 30
+
+  bet-white:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/af3eaf4c15ad67c51dff9097bd7abd4a82bab7bed83ab77a6177f2e57b'
+    id: ''
+    data: 0
+    glow: false
+    name: '&7Bet on &fWHITE'
+    lore:
+      - '&7Click to bet that the next'
+      - '&7color to come up will be WHITE'
+      - ''
+      - '&7Status: {round-status}'
+      - ''
+      - '&7Public opinion: &f{white-average}%'
+      - ''
+      - '&7Reward: &b14x'
+      - ''
+      - '&7Amount to be bet: &a{money}'
+      - '&7Amount to be bet: &6{cash}'
+      - ''
+      - '{status}'
+    status-bet: '&bYou already bet on this color, good luck!'
+    status-not-bet: '&7* Click to bet!'
+    round-status-started: '&aRound started!'
+    round-status-not-started: '&eStarting in - {time}s'
+    slot: 31
+
+  bet-black:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/2342b9bf9f1f6295842b0efb591697b14451f803a165ae58d0dcebd98eacc'
+    id: ''
+    data: 0
+    glow: false
+    name: '&7Bet on &8BLACK'
+    lore:
+      - '&7Click to bet that the next'
+      - '&7color to come up will be BLACK'
+      - ''
+      - '&7Status: {round-status}'
+      - ''
+      - '&7Public opinion: &f{black-average}%'
+      - ''
+      - '&7Reward: &c2x'
+      - ''
+      - '&7Amount to be bet: &a{money}'
+      - '&7Amount to be bet: &6{cash}'
+      - ''
+      - '{status}'
+    status-bet: '&bYou already bet on this color, good luck!'
+    status-not-bet: '&7* Click to bet!'
+    round-status-started: '&aRound started!'
+    round-status-not-started: '&eStarting in - {time}s'
+    slot: 32
+
+  history:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/ed6b8584e938c805da55b24ba2f027f3bcbd1b5434ef649b8583934fa1b64b44'
+    id: ''
+    data: 0
+    glow: false
+    name: '&6History'
+    lore:
+      - '&7Recent double history'
+      - '&7for you to base what to bet on:'
+      - '&7- {history}' # Will be repeated for all the booleans
+    display-red: '&cRed'
+    display-white: '&fWhite'
+    display-black: '&8Black'
+    slot: 34
+
+  bettors:
+    use-head-last-player: true # if true, the icon will be the head of the last player who bet
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&eBettors'
+    lore:
+      - '&7Players betting: &b{players}'
+      - '&7Last player to bet: &b{last-player}'
+      - ''
+      - '&7Total money bet: &a{total-money}'
+      - '&7Total cash bet: &6{total-cash}'
+      - ''
+      - '&7Amount bet (&c-&7): &e{red-average}%'
+      - '&7Amount bet (&f-&7): &e{white-average}%'
+      - '&7Amount bet (&8-&7): &e{black-average}%'
+      - ''
+      - '&7Click to see more details and'
+      - '&7all the players who bet.'
+    slot: 35
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 15
+    glow: false
+    name: '' # Leave '' to use the default name
+    slot: 29
+
+  glass2:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 15
+    glow: false
+    name: ''
+    slot: 33

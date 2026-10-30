@@ -1,0 +1,594 @@
+package com.worldplugins.worldblaze.managers;
+
+import com.worldplugins.worldblaze.objects.BlazeUser;
+import com.worldplugins.worldblaze.objects.GraphBet;
+import com.worldplugins.worldblaze.objects.GraphPoint;
+import com.worldplugins.worldblaze.utils.ItemBuilder;
+import com.worldplugins.worldblaze.utils.NBTTag;
+import com.worldplugins.worldblaze.utils.SkullCreator;
+import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.*;
+
+import static com.worldplugins.worldblaze.WorldBlaze.*;
+import static com.worldplugins.worldblaze.utils.Utils.*;
+
+public class GraphManager {
+
+    // FINAL GRAPH VARIABLES THAT WILL NOT BE CHANGED UNDER ANY CIRCUMSTANCES
+    private final Set<String> gamblersGuiOpen;
+    private final List<GraphPoint> graphPoints;
+    private final List<GraphBet> graphBets;
+    private final Map<String, Inventory> graphInventories;
+    private final String menuTitle;
+    private final double receiveValue, maxRandomValue, minRandomValue;
+    private final Random rand;
+    private final int delay;
+
+    // VARIABLES THAT WILL DEFINE THE GRAPH'S PROGRESS
+    private boolean graphDirection;
+    private int waveCounter;
+
+    // VARIABLES THAT WILL CHANGE AS THE GRAPH PROGRESSES
+    private int pointsNum;
+    private double lastPointValue, positiveBetAverage, negativeBetAverage, totalBetCash, totalBetMoney;
+    private final List<Boolean> history;
+
+    // MENU ITEMS SETTINGS
+    private final ItemBuilder positiveItem, negativeItem, betDecreaseItem, betUpItem, historyItem, gamblersItem, timeItem, moneyItem, cashItem;
+    private final List<String> positiveLore, negativeLore, betDecreaseLore, betUpLore, historyLore, gamblersLore, timeLore, moneyLore, cashLore;
+    private final String positiveName, negativeName, betDecreaseName, betUpName, historyName, historyPositiveDisplay, historyNegativeDisplay, gamblersName, timeName, moneyName, cashName;
+    private final boolean gamblersUsePlayersHead;
+    private final int betDecreaseSlot, betUpSlot, historySlot, gamblersSlot, timeSlot, moneySlot, cashSlot;
+
+    public GraphManager(){
+
+        FileConfiguration getConfig = getGraphGuiYml().getConfig();
+
+        rand = new Random();
+
+        this.gamblersGuiOpen = new HashSet<>();
+        this.graphInventories = new HashMap<>();
+        this.graphBets = new ArrayList<>();
+        this.history = new ArrayList<>();
+        this.graphPoints = new ArrayList<>();
+
+        if (getConfig.getBoolean("positive.use-head")) positiveItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("positive.texture")));
+        else positiveItem = new ItemBuilder(Material.getMaterial(getConfig.getString("positive.id")), 1, (byte) getConfig.getInt("positive.data"));
+        positiveItem.setGlow(getConfig.getBoolean("positive.glow"));
+
+        this.positiveLore = getConfig.getStringList("positive.lore");
+        this.positiveName = c(getConfig.getString("positive.name"));
+
+        if (getConfig.getBoolean("negative.use-head")) negativeItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("negative.texture")));
+        else negativeItem = new ItemBuilder(Material.getMaterial(getConfig.getString("negative.id")), 1, (byte) getConfig.getInt("negative.data"));
+        negativeItem.setGlow(getConfig.getBoolean("negative.glow"));
+
+        this.negativeLore = getConfig.getStringList("negative.lore");
+        this.negativeName = c(getConfig.getString("negative.name"));
+
+        if (getConfig.getBoolean("items.bet-decrease.use-head")) betDecreaseItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.bet-decrease.texture")));
+        else betDecreaseItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.bet-decrease.id")), 1, (byte) getConfig.getInt("items.bet-decrease.data"));
+        betDecreaseItem.setGlow(getConfig.getBoolean("items.bet-decrease.glow"));
+
+        this.betDecreaseLore = getConfig.getStringList("items.bet-decrease.lore");
+        this.betDecreaseName = c(getConfig.getString("items.bet-decrease.name"));
+
+        if (getConfig.getBoolean("items.bet-increase.use-head")) betUpItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.bet-increase.texture")));
+        else betUpItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.bet-increase.id")), 1, (byte) getConfig.getInt("items.bet-increase.data"));
+        betUpItem.setGlow(getConfig.getBoolean("items.bet-increase.glow"));
+
+        this.betUpLore = getConfig.getStringList("items.bet-increase.lore");
+        this.betUpName = c(getConfig.getString("items.bet-increase.name"));
+
+        if (getConfig.getBoolean("items.history.use-head")) historyItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.history.texture")));
+        else historyItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.history.id")), 1, (byte) getConfig.getInt("items.history.data"));
+        historyItem.setGlow(getConfig.getBoolean("items.history.glow"));
+
+        this.historyLore = getConfig.getStringList("items.history.lore");
+        this.historyName = c(getConfig.getString("items.history.name"));
+
+        this.historyPositiveDisplay = c(getConfig.getString("items.history.display-positive"));
+        this.historyNegativeDisplay = c(getConfig.getString("items.history.display-negative"));
+
+        if (getConfig.getBoolean("items.bettors.use-head-last-player")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl("https://textures.minecraft.net/texture/afd2400002ad9fbbbd0066941eb5b1a384ab9b0e48a178ee96e4d129a5208654"));
+        else if (getConfig.getBoolean("items.bettors.use-head")) gamblersItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.bettors.texture")));
+        else gamblersItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.bettors.id")), 1, (byte) getConfig.getInt("items.bettors.data"));
+        gamblersItem.setGlow(getConfig.getBoolean("items.bettors.glow"));
+
+        this.gamblersLore = getConfig.getStringList("items.bettors.lore");
+        this.gamblersName = c(getConfig.getString("items.bettors.name"));
+
+        this.gamblersUsePlayersHead = getConfig.getBoolean("items.bettors.use-head-last-player");
+
+        if (getConfig.getBoolean("items.time.use-head")) timeItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.time.texture")));
+        else timeItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.time.id")), 1, (byte) getConfig.getInt("items.time.data"));
+        timeItem.setGlow(getConfig.getBoolean("items.time.glow"));
+
+        this.timeLore = getConfig.getStringList("items.time.lore");
+        this.timeName = c(getConfig.getString("items.time.name"));
+
+        if (getConfig.getBoolean("items.money.use-head")) moneyItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.money.texture")));
+        else moneyItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.money.id")), 1, (byte) getConfig.getInt("items.money.data"));
+        moneyItem.setGlow(getConfig.getBoolean("items.money.glow"));
+
+        this.moneyLore = getConfig.getStringList("items.money.lore");
+        this.moneyName = c(getConfig.getString("items.money.name"));
+
+        if (getConfig.getBoolean("items.cash.use-head")) cashItem = new ItemBuilder(SkullCreator.itemFromUrl(getConfig.getString("items.cash.texture")));
+        else cashItem = new ItemBuilder(Material.getMaterial(getConfig.getString("items.cash.id")), 1, (byte) getConfig.getInt("items.cash.data"));
+        cashItem.setGlow(getConfig.getBoolean("items.cash.glow"));
+
+        this.cashLore = getConfig.getStringList("items.cash.lore");
+        this.cashName = c(getConfig.getString("items.cash.name"));
+
+        this.betDecreaseSlot = getConfig.getInt("items.bet-decrease.slot");
+        this.betUpSlot = getConfig.getInt("items.bet-increase.slot");
+        this.timeSlot = getConfig.getInt("items.time.slot");
+        this.moneySlot = getConfig.getInt("items.money.slot");
+        this.cashSlot = getConfig.getInt("items.cash.slot");
+        this.historySlot = getConfig.getInt("items.history.slot");
+        this.gamblersSlot = getConfig.getInt("items.bettors.slot");
+
+        lastPointValue = getInstance().getConfig().getDouble("config.graph.initial-value");
+
+        this.menuTitle = c(getConfig.getString("title"));
+
+        this.receiveValue = getInstance().getConfig().getDouble("config.graph.win-return");
+        this.maxRandomValue = getInstance().getConfig().getDouble("config.graph.max-random");
+        this.minRandomValue = getInstance().getConfig().getDouble("config.graph.min-random");
+
+        this.graphDirection = rand.nextBoolean();
+
+        this.pointsNum = 1;
+
+        this.delay = getInstance().getConfig().getInt("config.graph.bet-delay");
+    }
+
+    public Set<String> getGamblersGuiOpen() {
+        return gamblersGuiOpen;
+    }
+
+    public int getDelay() {
+        return delay;
+    }
+
+    public List<GraphPoint> getGraphPoints() {
+        return graphPoints;
+    }
+
+    public List<GraphBet> getGraphBets() {
+        return graphBets;
+    }
+
+    public int getBetDecreaseSlot() {
+        return betDecreaseSlot;
+    }
+
+    public int getBetUpSlot() {
+        return betUpSlot;
+    }
+
+    public int getHistorySlot() {
+        return historySlot;
+    }
+
+    public int getGamblersSlot() {
+        return gamblersSlot;
+    }
+
+    public int getTimeSlot() {
+        return timeSlot;
+    }
+
+    public int getMoneySlot() {
+        return moneySlot;
+    }
+
+    public int getCashSlot() {
+        return cashSlot;
+    }
+
+    public double getTotalBetMoney(){
+        return totalBetMoney;
+    }
+
+    public void updateTotalBetMoney(){
+
+        if(graphBets.size() == 0){
+            this.totalBetMoney = 0;
+            return;
+        }
+
+        final double[] toR = {0};
+
+        graphBets.forEach(w -> toR[0] += w.getMoneyValue());
+
+        this.totalBetMoney = toR[0];
+    }
+
+    public double getTotalBetCash(){
+        return totalBetCash;
+    }
+
+    public void updateTotalBetCash(){
+
+        if(graphBets.size() == 0){
+            this.totalBetCash = 0;
+            return;
+        }
+
+        final double[] toR = {0};
+
+        graphBets.forEach(w -> toR[0] += w.getCashValue());
+
+        this.totalBetCash = toR[0];
+    }
+
+    public String getLastPlayer(){
+
+        if(graphBets.size() == 0) return "-/-";
+
+        return graphBets.get(graphBets.size() - 1).getOwner();
+    }
+
+    public double getPositiveBetAverage(){
+        return positiveBetAverage;
+    }
+
+    public void updatePositiveBetAverage(){
+
+        if(graphBets.size() == 0){
+            this.positiveBetAverage = 0;
+            return;
+        }
+
+        double cache = 0;
+        double total = graphBets.size();
+
+        for (GraphBet graphBet : graphBets) {
+            if(graphBet.isPositive()) cache++;
+        }
+
+        this.positiveBetAverage = (cache / total) * 100.0;
+    }
+
+    public double getNegativeBetAverage(){
+        return negativeBetAverage;
+    }
+
+    public void updateNegativeBetAverage(){
+
+        if(graphBets.size() == 0){
+            this.negativeBetAverage = 0;
+            return;
+        }
+
+        double cache = 0;
+        double total = graphBets.size();
+
+        for (GraphBet graphBet : graphBets) {
+            if(!graphBet.isPositive()) cache++;
+        }
+
+        this.negativeBetAverage = (cache / total) * 100.0;
+    }
+
+    public int getPointsNum() {
+        return pointsNum;
+    }
+
+    public void setPointsNum(int pointsNum) {
+        this.pointsNum = pointsNum;
+    }
+
+    public double getLastPointValue() {
+        return lastPointValue;
+    }
+
+    public void setLastPointValue(double lastPointValue) {
+        this.lastPointValue = lastPointValue;
+    }
+
+    public ItemStack getPositiveItem(){
+
+        ItemBuilder clone = positiveItem.clone();
+
+        clone.setName(positiveName.replace("{update}", pointsNum+""));
+
+        positiveLore.forEach(w -> clone.addLoreLine(c(w.replace("{point-value}", String.format("%.2f", lastPointValue)))));
+
+        NBTTag.setNBTString(clone.toItemStack().getItemMeta(), "WBlaze_graphPoint", pointsNum + "");
+
+        return clone.toItemStack();
+    }
+
+    public ItemStack getNegativeItem(){
+
+        ItemBuilder clone = negativeItem.clone();
+
+        clone.setName(negativeName.replace("{update}", pointsNum+""));
+
+        negativeLore.forEach(w -> clone.addLoreLine(c(w.replace("{point-value}", String.format("%.2f", lastPointValue)))));
+
+        NBTTag.setNBTString(clone.toItemStack().getItemMeta(), "WBlaze_graphPoint", pointsNum + "");
+
+        return clone.toItemStack();
+    }
+
+    public Map<String, Inventory> getGraphInventories() {
+        return graphInventories;
+    }
+
+    public Integer getEmptyColumn(Inventory inv) {
+
+        for (int a = 7; a >= 0; a--) {
+            boolean empty = true;
+            for (int i = 0; i < 5; i++) {
+                if (inv.getItem(a + (9 * i)) != null) {
+                    empty = false;
+                    break;
+                }
+            }
+            if (empty) return a;
+        }
+
+        return null;
+    }
+
+    public List<Integer> getDuplicatedSlots(Inventory inv){
+        List<Integer> toR = new ArrayList<>();
+
+        for (int a = 8; a >= 0; a--) {
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < 5; i++) {
+                ItemStack item = inv.getItem(a + (9 * i));
+                if (item != null) {
+                    String nbt = NBTTag.getNBTString(item.getItemMeta(), "WBlaze_graphPoint");
+                    if(nbt != null) map.put(a + (9 * i), Integer.parseInt(nbt));
+                }
+            }
+            if(!map.isEmpty()){
+                List<Map.Entry<Integer, Integer>> sorted = new ArrayList<>(map.entrySet());
+                sorted.sort(Map.Entry.comparingByValue());
+                for(int i = 0; i < sorted.size() - 1; i++){
+                    toR.add(sorted.get(i).getKey());
+                }
+            }
+        }
+
+        return toR;
+    }
+
+    public boolean hasAnotherItemInLine(Inventory inv, int slot){
+
+        int lastValue = slot;
+        for (int i = 0; i < 5; i++) {
+            int cache = lastValue - 9;
+            if(cache < 0) break;
+            lastValue = cache;
+        }
+
+        boolean empty = false;
+        for (int i = 0; i < 5; i++) {
+            if (inv.getItem(lastValue + (9 * i)) != null) {
+                empty = true;
+                break;
+            }
+        }
+
+        return empty;
+    }
+
+    public boolean isFirstLine(int slot){
+        int lastValue = slot;
+        for (int i = 0; i < 5; i++) {
+            int cache = lastValue - 9;
+            if(cache < 0) break;
+            lastValue = cache;
+        }
+
+        return lastValue == 0;
+    }
+
+    public int getPrimaryColumn(int slot){
+        int lastValue = slot;
+        for (int i = 0; i < 5; i++) {
+            int cache = lastValue - 9;
+            if(cache < 0) break;
+            lastValue = cache;
+        }
+
+        return lastValue;
+    }
+
+    public void clearGraphic(Inventory inv){
+        for (int a = 8; a >= 0; a--) {
+            for (int i = 0; i < 5; i++) {
+                inv.setItem(a + (9 * i), null);
+            }
+        }
+    }
+
+    public List<Boolean> getHistory(){
+        return history;
+    }
+
+    public String getMenuTitle() {
+        return menuTitle;
+    }
+
+    public void updateHistory(){
+        List<Boolean> toR = new ArrayList<>();
+
+        for (int i = 0; i < 15; i++) {
+            try{
+                toR.add(graphPoints.get(graphPoints.size() - 1 - i).isPositive());
+            }catch (IndexOutOfBoundsException ex){
+                break;
+            }
+        }
+
+        history.clear();
+        history.addAll(toR);
+    }
+
+    public ItemStack getBetUpItem(BlazeUser user){
+        ItemBuilder clone = betUpItem.clone();
+
+        clone.setName(betUpName);
+
+        betUpLore.forEach(w -> clone.addLoreLine(c(w.replace("{positive-average}", String.format("%.2f", positiveBetAverage)).
+                replace("{time}", user.getGraphTime()+"").
+                replace("{money}", letterFormatter(user.getGraphMoneyValue())).
+                replace("{cash}", letterFormatter(user.getGraphCashValue())))));
+
+        return clone.toItemStack();
+    }
+
+    public ItemStack getBetDecreaseItem(BlazeUser user){
+        ItemBuilder clone = betDecreaseItem.clone();
+
+        clone.setName(betDecreaseName);
+
+        betDecreaseLore.forEach(w -> clone.addLoreLine(c(w.replace("{negative-average}", String.format("%.2f", negativeBetAverage)).
+                replace("{time}", user.getGraphTime()+"").
+                replace("{money}", letterFormatter(user.getGraphMoneyValue())).
+                replace("{cash}", letterFormatter(user.getGraphCashValue())))));
+
+        return clone.toItemStack();
+    }
+
+    public ItemStack getHistoryItem(){
+        ItemBuilder clone = historyItem.clone();
+
+        clone.setName(historyName);
+
+        for (String s : historyLore) {
+            if(s.contains("{history}")){
+                for (Boolean b : getGraphManager().getHistory()) if(b) clone.addLoreLine(c(s.replace("{history}", historyPositiveDisplay)));
+                else clone.addLoreLine(c(s.replace("{history}", historyNegativeDisplay)));
+            }else clone.addLoreLine(c(s));
+        }
+
+        return clone.toItemStack();
+    }
+
+    public ItemStack getGamblersItem(){
+        ItemBuilder clone;
+        if(!gamblersUsePlayersHead || graphBets.size() == 0) clone = gamblersItem.clone();
+        else clone = new ItemBuilder(SkullCreator.itemFromName(getLastPlayer()));
+
+        clone.setName(gamblersName);
+
+        gamblersLore.forEach(w -> clone.addLoreLine(c(w.replace("{players}", graphBets.size()+"").
+                replace("{negative-average}", String.format("%.2f", negativeBetAverage)).
+                replace("{positive-average}", String.format("%.2f", positiveBetAverage)).
+                replace("{last-player}", getLastPlayer()).
+                replace("{total-money}", letterFormatter(totalBetMoney)).
+                replace("{total-cash}", letterFormatter(totalBetCash)))));
+
+        return clone.toItemStack();
+    }
+
+    public ItemStack getTimeItem(BlazeUser user){
+        ItemBuilder clone = timeItem.clone();
+
+        clone.setName(timeName);
+
+        timeLore.forEach(w -> clone.addLoreLine(c(w.replace("{time}", user.getGraphTime()+""))));
+
+        return clone.toItemStack();
+    }
+
+    public ItemStack getMoneyItem(BlazeUser user){
+        ItemBuilder clone = moneyItem.clone();
+
+        clone.setName(moneyName);
+
+        moneyLore.forEach(w -> clone.addLoreLine(c(w.replace("{money}", letterFormatter(user.getGraphMoneyValue())))));
+
+        return clone.toItemStack();
+    }
+
+    public ItemStack getCashItem(BlazeUser user){
+        ItemBuilder clone = cashItem.clone();
+
+        clone.setName(cashName);
+
+        cashLore.forEach(w -> clone.addLoreLine(c(w.replace("{cash}", letterFormatter(user.getGraphCashValue())))));
+
+        return clone.toItemStack();
+    }
+
+    public double getReceiveValue() {
+        return receiveValue;
+    }
+
+    public double getMaxRandomValue() {
+        return maxRandomValue;
+    }
+
+    public double getMinRandomValue() {
+        return minRandomValue;
+    }
+
+    public boolean getNewGraphPoint(){
+
+        waveCounter++;
+
+        if(waveCounter == 33){
+            waveCounter = 0;
+
+            if(negativeBetAverage == positiveBetAverage){
+                graphDirection = rand.nextBoolean();
+            }else{
+                graphDirection = !(positiveBetAverage > negativeBetAverage);
+            }
+
+            sendDebugMessage("[Graph] Next trend is: "+graphDirection);
+
+            return !graphDirection;
+        }else{
+
+            int minus = 33 - waveCounter;
+            double positivePercent;
+            if(minus <= 5){
+                sendDebugMessage("[Graph] Went back up " + waveCounter);
+
+                if(minus == 2 || minus == 1) return graphDirection;
+
+                if(graphDirection) positivePercent = 50.0 + (10 * (6.0 - minus));
+                else positivePercent = 50.0 - (10 * (6.0 - minus));
+
+                return rand.nextInt(100) <= positivePercent;
+            }else if(minus <= 8){
+
+                sendDebugMessage("[Graph] Started to fall " + waveCounter);
+
+                if(graphDirection) positivePercent = 50.0 - (5 * (9.0 - minus));
+                else positivePercent = 50.0 + (5 * (9.0 - minus));
+
+                return rand.nextInt(100) <= positivePercent;
+            }
+
+            if(rand.nextInt(100) < 15){
+                sendDebugMessage("[Graph] Hurt the players");
+                if(positiveBetAverage > negativeBetAverage) return false;
+                if(positiveBetAverage < negativeBetAverage) return true;
+            }
+
+            if(rand.nextInt(100) < 10){
+                sendDebugMessage("[Graph] Helped the players");
+                if(positiveBetAverage > negativeBetAverage) return true;
+                if(positiveBetAverage < negativeBetAverage) return false;
+            }
+
+        }
+
+        return rand.nextBoolean();
+    }
+}

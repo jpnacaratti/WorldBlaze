@@ -1,0 +1,503 @@
+##############################
+#         WorldBlaze         #
+#         By Miinero         #
+##############################
+
+# Permissions:
+# worldblaze.admin // grants access to the plugin's admin commands
+# worldblaze.graph // grants access to the 'Graph' game
+# worldblaze.crash // grants access to the 'Crash' game
+# worldblaze.double // grants access to the 'Double' game
+# worldblaze.mine // grants access to the 'Mine' game
+# worldblaze.animalgame // grants access to the 'Animal Game (Jogo do Bicho)' game
+# worldblaze.coinflip // grants access to the 'Coinflip' game
+
+config:
+
+  # Enable to see the bet results in advance and check how the odds are going
+  debug: true
+
+  # Plugin that provides the cash used in the cash bets: auto, grandecash, playerpoints, ypoints or none
+  # auto uses the first supported plugin found on the server (GrandeCash, then PlayerPoints, then yPoints)
+  # If no provider is found (or none is set), cash bets are disabled
+  cash-provider: auto
+
+  # Graph settings
+  graph:
+    bet-delay: 5 # seconds
+    default-time-update: 3 # Default value assigned to a player when they log in
+    max-time-update: 8 # Maximum time a player can bet on for the graph change
+    min-time-update: 3 # Minimum time a player can bet on for the graph change
+    max-cash-bet: 1500000.0 # Maximum amount of cash that can be bet
+    min-cash-bet: 0.0 # Minimum amount of cash that can be bet
+    max-money-bet: 100000000000.0 # Maximum amount of money that can be bet
+    min-money-bet: 15000.0 # Minimum amount of money that can be bet
+    initial-value: 1250.0 # Value the graph starts at before it begins to be randomized
+    max-random: 25.0 # Maximum value that can be randomized
+    min-random: 12.5 # Minimum value that can be randomized
+    win-return: 82.0 # % percentage that winning players will receive
+
+  # Crash settings
+  crash:
+    crashed-time: 5.0 # seconds. How long the crash screen stays up after the round ends
+    starting-time: 10.0 # seconds. How long the starting screen stays up while players decide whether to join
+    crash-start-time: 10.0 # seconds. How long the beginning of the crash lasts, adding the value below, before moving on to the final value sum
+    crash-tick-sum-initial: 0.01 # Value added to the crash multiplier every tick
+    crash-tick-sum-final: 0.05 # Value added to the crash multiplier every tick after the round's start time
+    max-history-values: 5 # How many numbers the history will store
+    max-cash-bet: 1500000.0 # Maximum amount of cash that can be bet
+    min-cash-bet: 0.0 # Minimum amount of cash that can be bet
+    max-money-bet: 100000000000.0 # Maximum amount of money that can be bet
+    min-money-bet: 15000.0 # Minimum amount of money that can be bet
+    alert: 2.0 # Sends an alert when someone cashes out of the crash
+    values: # {initial-crash-value};{final-crash-value};{chance}
+      - '1.00;1.00;10.0'
+      - '1.07;1.65;8.0'
+      - '1.15;2.13;6.0'
+
+  # Double settings
+  double:
+    end-time: 5.0 # seconds. How long the end screen stays up after the round ends
+    starting-time: 10.0 # seconds. How long the starting screen stays up while players decide whether to join
+    finished-time: 5.0 # seconds. How long the finished screen stays up before switching back to the starting one
+    max-history-values: 10 # How many numbers the history will store
+    max-cash-bet: 1500000.0 # Maximum amount of cash that can be bet
+    min-cash-bet: 0.0 # Minimum amount of cash that can be bet
+    max-money-bet: 100000000000.0 # Maximum amount of money that can be bet
+    min-money-bet: 15000.0 # Minimum amount of money that can be bet
+    animation-time: 8.0 # seconds. How long the color animation in the menu lasts. After this time, the color in the defined slot becomes the chosen color
+    initial-interval: 1 # ticks. Interval between colors appearing at the start of the animation (every 5 ticks a new color will appear in the menu during the animation)
+    final-interval: 20 # ticks. Interval between colors appearing at the end of the animation (every 20 ticks a new color will appear in the menu during the animation)
+    interval-change-time: 4.0 # seconds. During this time the intervals go from 1 to 20 ticks
+    initial-red-chance: 49.5 # Starting chance of the red color coming up
+    initial-black-chance: 49.5 # Starting chance of the black color coming up
+    initial-white-chance: 1.0 # Starting chance of the white color coming up
+    money-alert: 200000.0 # When the money won goes above this value, a broadcast is sent
+    cash-alert: 0.0 # When the cash won goes above this value, a broadcast is sent
+    rigging: # Works against the side that bet the most
+      enabled: true # Enable or disable the rigging
+      money: 500000.0 # If it goes over 500k money, the rigging applies
+      cash: 5000.0 # If it goes over 5k cash, the rigging applies
+      chance: 60.0 # 60% chance of applying the rigging against the side that bet the most
+
+  # Mine settings
+  mine:
+    default-mines: 3 # Default number of mines, used every time the server starts
+    min-mines: 3 # Minimum number of mines required to start a match
+    max-mines: 52 # Maximum number of mines allowed to start a match
+    # Slots the player is allowed to click and play on
+    game-slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 50, 51, 52, 53]
+    menu-rows: 6 # Number of rows in the main game menu
+    multipliers: # {number of mines};{maximum multiplier}. Multiplier the player can reach if they click every slot without hitting a mine
+      - '3;1.5'
+      - '4;2.0'
+      - '5;2.5'
+      - '6;3.0'
+      - '7;3.5'
+      - '8;4.0'
+      - '9;4.5'
+      - '10;5.0'
+      - '11;5.5'
+      - '12;6.0'
+    min-slots-to-exit: 1 # The player must click at least one slot before being able to cash out
+    max-cash-bet: 1500000.0 # Maximum amount of cash that can be bet
+    min-cash-bet: 0.0 # Minimum amount of cash that can be bet
+    max-money-bet: 100000000000.0 # Maximum amount of money that can be bet
+    min-money-bet: 15000.0 # Minimum amount of money that can be bet
+    money-alert: 200000.0 # When the money won goes above this value, a broadcast is sent
+    cash-alert: 0.0 # When the cash won goes above this value, a broadcast is sent
+    rigging:
+      enabled: true
+      chance-multiplier: 10 # Multiplies the chance of failing by 10x
+      money: # {money value};{chance}
+        - '500000.0;50.0'
+        - '750000.0;75.0'
+      cash: # {cash value};{chance}
+        - '5000.0;50.0'
+        - '7500.0;75.0'
+
+  # Animal Game (Jogo do Bicho) settings
+  animal-game:
+    max-cash-bet: 1500000.0 # Maximum amount of cash that can be bet
+    min-cash-bet: 0.0 # Minimum amount of cash that can be bet
+    max-money-bet: 100000000000.0 # Maximum amount of money that can be bet
+    min-money-bet: 15000.0 # Minimum amount of money that can be bet
+    money-alert: 200000.0 # When the money won goes above this value, a broadcast is sent
+    cash-alert: 0.0 # When the cash won goes above this value, a broadcast is sent
+    rigging:
+      enabled: true
+      money: 5000000.0
+      cash: 5000.0
+      chance: 60.0
+
+  # CoinFlip settings
+  coinflip:
+    starting-time: 10.0 # seconds. How long the starting screen stays up
+    flipping-time: 5.0 # seconds. How long the coin keeps spinning
+    swap-interval: 10 # ticks. Every 10 ticks the coin in the middle of the inventory changes. Set '0' to disable. Do not set higher than 20
+    max-cash-bet: 1500000.0 # Maximum amount of cash that can be bet
+    min-cash-bet: 0.0 # Minimum amount of cash that can be bet
+    max-money-bet: 100000000000.0 # Maximum amount of money that can be bet
+    min-money-bet: 15000.0 # Minimum amount of money that can be bet
+    money-alert: 200000.0 # When the money won goes above this value, a broadcast is sent
+    cash-alert: 0.0 # When the cash won goes above this value, a broadcast is sent
+    payout-rate: 90.0 # Percentage of the pot the winning player receives
+
+messages:
+
+  only-ingame: '&cOnly players can use this command!'
+
+  no-permission: '&cYou do not have permission to do that!'
+
+  # When staff types /blaze reload and a player tries to play in the meantime
+  reloading: '&cThe plugin is being updated, so playing is not possible right now! Please wait a few seconds...'
+
+  # /blaze lock and /blaze unlock
+  games-already-locked: '&cThe games are already locked, unlock them using /blaze unlock'
+  games-locked: '&cAll future games are now locked!'
+  games-already-unlocked: '&cThe games are already active, lock them using /blaze lock'
+  games-unlocked: '&aAll future games will be active again in 5 seconds!'
+  games-unavailable: '&cAll games are temporarily disabled!' # When a player clicks to bet in any game while they are locked
+
+  # /blaze reload
+  already-reloading: '&aThe plugin is already reloading and will be updated shortly!'
+  waiting-reload: '&aConfiguration files will be reloaded as soon as all existing bets finish!'
+  config-reloaded: '&aAll configuration files were reloaded successfully!'
+
+  # Chat interactions, when a player enters an amount for a game or sets an opponent
+  chat-cancelled: '&cCancelled successfully!'
+  invalid-chat-number: '&cEnter a valid number!'
+  challenged-self: '&cYou cannot challenge yourself!' # When a player types their own name as the opponent in coinflip
+  nonexistent-chat-player: '&cThat player does not exist, try again.' # When a player types a player that does not exist as the opponent in coinflip
+
+  # When the player bets and the amount is below the minimum or above the maximum in any of the games
+  minimum-money: '&cThe amount of money bet is below the required minimum!'
+  minimum-cash: '&cThe amount of cash bet is below the required minimum!'
+  maximum-money: '&cThe amount of money bet is above the allowed limit!'
+  maximum-cash: '&cThe amount of cash bet is above the allowed limit!'
+
+  # When the player closes the menu while in coinflip or mine
+  cannot-close-game-menu: '&cFinish the match before closing the menu!'
+
+  # CoinFlip messages
+
+  # When a player clicks to cancel their current bet in coinflip
+  bet-cancelled: '&cYour bet was cancelled successfully! You left the queue.'
+
+  # When a player clicks to set the money amount to bet in CoinFlip
+  coinflip-typing-money:
+    - ''
+    - '&aType the amount of &7money &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to set the cash amount to bet in CoinFlip
+  coinflip-typing-cash:
+    - ''
+    - '&aType the amount of &7cash &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to set the opponent in CoinFlip
+  coinflip-typing-opponent:
+    - ''
+    - '&aType the nickname of the player you want to challenge'
+    - ''
+
+  # When a player starts a coinflip match against a specific player (to the challenger)
+  challenged-player-coinflip:
+    - ''
+    - '&9[CoinFlip] &7Your CoinFlip match was registered and will start as soon as the player accepts!'
+    - ''
+
+  # When a player starts a coinflip match against a specific player (to the challenged player)
+  player-challenged-coinflip:
+    - ''
+    - '&9[CoinFlip] &7The player &9{player} &7is challenging you to a CoinFlip, type /coinflip and accept.'
+    - '&7Entry value (money): &9{money}'
+    - '&7Entry value (cash): &9{cash}'
+    - ''
+
+  # When a player starts a coinflip match open to all players
+  challenged-coinflip:
+    - ''
+    - '&9[CoinFlip] &7Your CoinFlip match was registered and will start as soon as a player accepts!'
+    - ''
+
+  # When a player clicks to accept a bet made specifically for them in coinflip
+  challenged-accepted-bet: '&9[CoinFlip] &7You accepted the bet from &9{player}&7, starting match...'
+  challenger-bet-accepted: '&9[CoinFlip] {player} &7accepted your bet, starting match... click here to open the menu!'
+
+  # Player tried to create a game while a 1v1 is in progress
+  already-in-game: '&cYou are already in a game!'
+
+  # When a player clicks to accept a coinflip 1v1 but the clicked game has already started
+  game-already-started: '&cThat game has already started...'
+
+  # Player tried to join a coinflip 1v1 that is meant for someone else
+  invalid-game: '&cThat game was not made for you!'
+
+  # When a player tries to accept a match but its owner is offline, coinflip
+  owner-offline: '&cThe owner of this bet is offline, try again later'
+
+  # When a player accepts their own coinflip 1v1
+  joined-own-game: '&cYou cannot join your own bet'
+
+  broadcast-won-coinflip:
+    - ''
+    - '&9[CoinFlip] &7The player &9{player} &7won the CoinFlip against &9{opponent} &7and received &9{money} &7money and &9{cash} &7cash!'
+    - ''
+
+  won-coinflip:
+    - ''
+    - '&9[CoinFlip] &7You won the CoinFlip, congratulations!'
+    - '&7Prize (money): &9{money}'
+    - '&7Prize (cash): &9{cash}'
+    - ''
+
+  lost-coinflip:
+    - ''
+    - '&cNot this time... You lost the CoinFlip!'
+    - ''
+
+  # Mine messages
+
+  # When a player clicks to set the money amount to bet in Mine
+  mine-typing-money:
+    - ''
+    - '&aType the amount of &7money &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to set the cash amount to bet in Mine
+  mine-typing-cash:
+    - ''
+    - '&aType the amount of &7cash &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to decrease the mines but went past the allowed limit
+  cannot-decrease-mines: '&cYou cannot decrease the mines any further!'
+
+  # When a player clicks to increase the mines but went past the allowed limit
+  cannot-increase-mines: '&cYou cannot increase the mines any further!'
+
+  # When a player tries to cash out in Mine without having mined the required minimum
+  minimum-slots: '&cYou need to click at least 1 slot to be able to cash out!'
+
+  broadcast-won-mine:
+    - ''
+    - '&c[Mine] &7The player &c{player} &7left the mine with a multiplier of &c&l{multiplier}x &7and won &c{money} &7money and &c{cash} &7cash!'
+    - ''
+
+  won-mine:
+    - ''
+    - '&c[Mine] &7You left the mine with a multiplier of &c&l{multiplier}x &7and won &c{money} &7money and &c{cash} &7cash!'
+    - ''
+
+  spectators-game-ended:
+    - '&cThe player who was playing this match has finished, this menu will no longer be updated!'
+    - '&cYou can close it now!'
+
+  # Double messages
+
+  # When a player clicks to set the money amount to bet in Double
+  double-typing-money:
+    - ''
+    - '&aType the amount of &7money &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to set the cash amount to bet in Double
+  double-typing-cash:
+    - ''
+    - '&aType the amount of &7cash &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player tries to bet while the round is ending
+  round-ending: '&cWait for the round to fully end before you can bet!'
+
+  # When a player tries to bet but has already bet on the selected color
+  already-bet-on-color: '&cYou have already bet on this color!'
+
+  bet-placed-double:
+    - ''
+    - '&6[WorldBlaze] &7You are now taking part in the double and bet on the color: {color}'
+    - ''
+
+  broadcast-won-double:
+    - ''
+    - '&b[Double] &7The player &b{player} &7won &b{money} &7money and &b{cash}&7 cash in the double! (/blaze)'
+    - ''
+
+  won-double:
+    - ''
+    - '&b[Double] &7Your bet in the double paid off and you won &b{money} &7money and &b{cash} &7cash!'
+    - ''
+
+  lost-double:
+    - ''
+    - '&b[Double] &7One of your bets in the double failed and you lost &b{money} &7money and &b{cash} &7cash!'
+    - ''
+
+  # Crash messages
+
+  # When a player clicks to set the money amount to bet in Crash
+  crash-typing-money:
+    - ''
+    - '&aType the amount of &7money &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to set the cash amount to bet in Crash
+  crash-typing-cash:
+    - ''
+    - '&aType the amount of &7cash &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When the crash has already started or ended and the player tries to bet
+  crash-started: '&cWait for the round to fully end before you can bet!'
+  crash-ended: '&cWait a moment for the next round to start!'
+
+  # When a player tries to join the crash but is already taking part
+  already-in-crash: '&cYou are already taking part in this round!'
+
+  # When a player took part in the previous round and wants to join again but the match has just ended
+  crash-recently-ended: '&cWait a moment before you can play again!'
+
+  # When a player clicks to leave the crash but had already left earlier
+  already-exited: '&cDon''t worry, you have already left the crash'
+
+  broadcast-cashed-out-crash:
+    - ''
+    - '&a[Crash] &7The player &a{player} &7cashed out at &a&l{crash}x &7and won &a{money} &7money and &a{cash} &7cash!'
+    - ''
+
+  won-crash:
+    - ''
+    - '&a[Crash] &7You left before the crash and won &a{money} &7money and &a{cash} &7cash!'
+    - ''
+
+  lost-crash:
+    - ''
+    - '&a[Crash] &7You did not leave before the crash and lost &a{money} &7money and &a{cash} &7cash!'
+    - ''
+
+  joined-crash:
+    - ''
+    - '&6[WorldBlaze] &7You are now taking part in the crash!'
+    - ''
+
+  # Graph messages
+
+  # When a player clicks to decrease the update time but went past the allowed limit
+  cannot-decrease-update: '&cYou cannot decrease the time any further!'
+
+  # When a player clicks to increase the update time but went past the allowed limit
+  cannot-increase-update: '&cYou cannot increase the time any further!'
+
+  # When a player clicks to set the money amount to bet in Graph
+  graph-typing-money:
+    - ''
+    - '&aType the amount of &7money &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to set the cash amount to bet in Graph
+  graph-typing-cash:
+    - ''
+    - '&aType the amount of &7cash &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player tries to bet but has to wait for the Graph bet delay
+  wait-before-betting: '&cYou have to wait {time} seconds before betting again!'
+
+  # The server just started and someone tried to bet before any update came out
+  graph-starting: '&cWait a moment before betting!'
+
+  # When a player bets on the Graph
+  graph-bet-placed: '&6[WorldBlaze] &7You bet on point &6{point}'
+
+  graph-draw:
+    - ''
+    - '&d[WorldBlaze] &7Your bet on the &dGraph &7ended in a draw, your money was refunded!'
+    - ''
+
+  graph-won:
+    - ''
+    - '&d[WorldBlaze] &7Your bet on the &dGraph &7paid off and earned a total of &d{money} &7money and &d{cash} &7cash!'
+    - ''
+
+  graph-lost:
+    - ''
+    - '&d[WorldBlaze] &7Your bet on the &dGraph &7failed and you lost a total of &d{money} &7money and &d{cash} &7cash!'
+    - ''
+
+  # Animal Game (Jogo do Bicho) messages
+
+  # When the animal given to /animalgame draw <animal> is invalid
+  invalid-animal: '&cInvalid animal, choose again!'
+
+  # When an animal is drawn
+  animal-drawn-broadcast:
+    - ''
+    - '&e[Animal Game] &7The animal drawn this time was: &e{animal}'
+    - ''
+
+  # When a player wins and goes over the amount required to send an alert
+  broadcast-animal-profit:
+    - '&e[Animal Game] &7The player &e{player} &7won &e{money} &7money and &e{cash} &7cash!'
+
+  # When a player wins in animal game
+  won-animal-game:
+    - ''
+    - '&e[Animal Game] &7You won &e{money} &7money and &e{cash} &7cash!'
+    - ''
+
+  # When a player loses in animal game
+  lost-animal-game:
+    - ''
+    - '&e[Animal Game] &7You lost...'
+    - ''
+
+  # When staff types /animalgame draw
+  animal-drawn: '&aAnimal drawn'
+
+  # When a player clicks to set the money amount to bet in Animal Game
+  animal-game-typing-money:
+    - ''
+    - '&aType the amount of &7money &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to set the cash amount to bet in Animal Game
+  animal-game-typing-cash:
+    - ''
+    - '&aType the amount of &7cash &ayou want to bet'
+    - '&aTo cancel type &7"cancel"'
+    - ''
+
+  # When a player clicks to bet on a specific animal but has already bet on it
+  already-bet-on-animal: '&cYou have already bet on this animal!'
+
+  # When a player bets on an animal
+  bet-placed-animal:
+    - ''
+    - '&e[Animal Game] &7Successfully bet on &e{animal}'
+    - ''
+
+  insufficient-money: '&cYou do not have that amount of money!'
+  insufficient-cash: '&cYou do not have that amount of cash!'
+  cash-unavailable: '&cCash bets are not available on this server!'
+
+formats: # To disable formatting leave only ''
+  - ''
+  - ''
+  - 'K'
+  - 'M'
+  - 'B'
+  - 'T'
+  - 'Q'

@@ -1,0 +1,60 @@
+# MENU GUI, SHOWN WHEN THE PLAYER USES /blaze AND CLICKS ON mine AND THEN ON create AND FINALLY CONFIRMS
+
+title: 'WorldBlaze - Mine' # Set the number of rows in config.yml
+
+hidden: # Slot not mined yet
+  use-head: false # if true, ignores 'id' and 'data' below
+  texture: ''
+  id: 'WOOL'
+  data: 5
+  glow: false
+  name: '&5&kessej'
+  lore:
+    - '&7Click to mine this SLOT'
+
+revealed: # Slot mined successfully
+  use-head: false # if true, ignores 'id' and 'data' below
+  texture: ''
+  id: 'DIAMOND'
+  data: 0
+  glow: false
+  name: '&bSafe'
+  lore:
+    - '&7Slot mined (phew)'
+
+bomb: # Exploded, lost the mine
+  use-head: true # if true, ignores 'id' and 'data' below
+  texture: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
+  id: ''
+  data: 0
+  glow: false
+  name: '&cBOOOOOOM...'
+  lore:
+    - '&7Nooooo, I was rooting so hard'
+    - '&7for you...'
+    - ''
+    - '&7Better luck next time.'
+
+items:
+
+  exit:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'BARRIER'
+    data: 0
+    glow: false
+    name: '&cExit'
+    lore:
+      - '&7Revealed slots: &f{slots}'
+      - ''
+      - '&7Current multiplier: &b{multiplier}'
+      - ''
+      - '&7Spectators:'
+      - '&7- &f{spectators}'
+      - ''
+      - '&7 * If you are already satisfied'
+      - '&7click to &lEXIT'
+    multiplier-format: 4 # Will display up to 4 decimal places of the multiplier
+    slot: 49
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

@@ -1,0 +1,143 @@
+# MENU GUI, SHOWN WHEN THE PLAYER USES /blaze AND CLICKS ON crash
+
+title: 'WorldBlaze - Crash'
+
+rows: 1
+
+starting-color: 4 # Data of the glass pane that stays in the menu while it is starting
+started-color: 5 # Data of the glass pane that stays in the menu once it has already started
+crash-color: 14 # Data of the glass pane that stays in the menu when the crash ends/crashes
+
+# Slots where the glass panes will be
+glass-slots: [2, 3, 5, 6]
+
+items:
+
+  money:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'EMERALD'
+    data: 0
+    glow: false
+    name: '&aMoney'
+    lore:
+      - '&7Amount to be bet: &a{money}'
+      - ''
+      - '&7* Click to change'
+    slot: 0
+
+  cash:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'GOLD_INGOT'
+    data: 0
+    glow: false
+    name: '&6Cash'
+    lore:
+      - '&7Amount to be bet: &6{cash}'
+      - ''
+      - '&7* Click to change'
+    slot: 1
+
+  # Item in the middle of the menu that shows the crash information before it starts
+  crash-starting:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/cd15b5d79bedadc145fa17cc36a2e0c9b088b4ee74f86ea588bd1ad8cdbd22'
+    id: ''
+    data: 0
+    glow: false
+    name: '&eStarting...'
+    lore:
+      - '&7The Crash will start in: &e{time}s'
+      - ''
+      - '&7Status: {status-starting}'
+      - ''
+      - '&7Amount to be bet: &a{money}'
+      - '&7Amount to be bet: &6{cash}'
+      - ''
+      - '&7If you are not taking part,'
+      - '&7click to join and bet.'
+    status-participating: '&aYou are already taking part.' # Settings of the {status} variable
+    status-participate: '&cYou are not taking part.'
+    slot: 4
+
+  # Item in the middle of the menu that shows the crash information while it is running
+  crash-started:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/bf6b85f626444dbd5bddf7a521fe52748fe43564e03fbd35b6b5e797de942d'
+    id: ''
+    data: 0
+    glow: false
+    name: '&aStarted: &e{value}&7x'
+    lore:
+      - '&7Current multiplier: &e{value}&7x'
+      - ''
+      - '&7Status: {status-started}'
+      - ''
+      - '&7You bet (money): &f{bet-money}'
+      - '&7You bet (cash): &f{bet-cash}'
+      - ''
+      - '&7If you are taking part'
+      - '&7click to cash out'
+    status-did-not-participate: '&cYou are not taking part' # Settings of the {status} variable
+    status-participating: '&aClick to cash out'
+    status-exited: '&cCashed out at {exit-value}x'
+    slot: 4
+
+  # Item in the middle of the menu that shows the crash information when it crashes
+  crash-crashed:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/bf6b85f626444dbd5bddf7a521fe52748fe43564e03fbd35b6b5e797de942d'
+    id: ''
+    data: 0
+    glow: false
+    name: '&cCrashed: &e{value}&7x'
+    lore:
+      - '&7Crashed at: &e{value}&7x'
+      - ''
+      - '&7Status: {status-crashed}'
+      - ''
+      - '&7Winnings (money): &a{won-money}'
+      - '&7Winnings (cash): &6{won-cash}'
+      - ''
+      - '&7You bet (money): &f{bet-money}'
+      - '&7You bet (cash): &f{bet-cash}'
+      - ''
+      - '&7Wait, another crash will'
+      - '&7start soon'
+    status-did-not-participate: '&cYou did not take part' # Settings of the {status} variable
+    status-lost: '&cYou took too long to cash out...'
+    status-won: '&aCashed out at &l{exit-value}&ax'
+    slot: 4
+
+  history:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/ed6b8584e938c805da55b24ba2f027f3bcbd1b5434ef649b8583934fa1b64b44'
+    id: ''
+    data: 0
+    glow: false
+    name: '&6History'
+    lore:
+      - '&7Recent crash history'
+      - '&7for you to base your bets on:'
+      - '&7- &e{history}&7x' # Will be repeated for all the last 15 values
+    slot: 7
+
+  bettors:
+    use-head-last-player: true # if true, the icon will be the head of the last player who bet
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&eBettors'
+    lore:
+      - '&7Players betting: &b{players}'
+      - '&7Last player to bet: &b{last-player}'
+      - ''
+      - '&7Total money bet: &a{total-money}'
+      - '&7Total cash bet: &6{total-cash}'
+      - ''
+      - '&7Click to see more details and'
+      - '&7all the players who bet.'
+    slot: 8

@@ -1,0 +1,194 @@
+# MENU GUI, SHOWN WHEN THE PLAYER USES /blaze AND CLICKS ON graph AND THEN ON bettors
+
+title: 'Graph - Bettors'
+
+items:
+
+  empty:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'BARRIER'
+    data: 0
+    glow: false
+    name: '&cEmpty'
+    lore:
+      - '&7Nobody is betting right now...'
+    slot: 22
+
+  player:
+    use-head-player: true # Uses the head of whoever bet as the item
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&b{nick}'
+    lore:
+      - '&7Player: &e{nick}'
+      - ''
+      - '&7Amount (money): &a{money}'
+      - '&7Amount (cash): &6{cash}'
+      - ''
+      - '&7Bet: {bet}'
+      - ''
+      - '&7Bet on update: &f#{update-num}'
+      - '&7Updates from now: &f{updates} updates'
+      - '&7Result on update number: &f#{result}'
+      - ''
+      - '&7Bet ID: &f#{id}'
+    bet-rose: '&aWill go up!' # Setting of the {bet} variable in the following cases
+    bet-fell: '&cWill go down!'
+
+  back:
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'REDSTONE'
+    data: 0
+    glow: false
+    name: '&cBack'
+    lore:
+      - '&7Click to go back to the previous menu'
+    slot: 49
+
+  next-page:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'http://textures.minecraft.net/texture/f2f3a2dfce0c3dab7ee10db385e5229f1a39534a8ba2646178e37c4fa93b'
+    id: ''
+    data: 0
+    glow: false
+    name: '&aNext page'
+    lore:
+      - '&7Click to go forward to'
+      - '&7the next page.'
+    slot: 50 # Slot where the item will appear if there is more than one page
+
+  previous-page:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'http://textures.minecraft.net/texture/bb0f6e8af46ac6faf88914191ab66f261d6726a7999c637cf2e4159fe1fc477'
+    id: ''
+    data: 0
+    glow: false
+    name: '&cPrevious page'
+    lore:
+      - '&7Click to go back to'
+      - '&7the previous page.'
+    slot: 48 # Slot where the item will appear if there is more than one page
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: '' # Leave '' to use the default name
+    slot: 0
+
+  glass2:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 1
+
+  glass3:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 4
+
+  glass4:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 7
+
+  glass5:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 8
+
+  glass6:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 9
+
+  glass7:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 17
+
+  glass8:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 36
+
+  glass9:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 44
+
+  glass10:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 45
+
+  glass11:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 46
+
+  glass12:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 52
+
+  glass13:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 53

@@ -1,0 +1,131 @@
+# MENU GUI, SHOWN WHEN THE PLAYER USES /blaze AND CLICKS ON mine
+
+title: 'WorldBlaze - Mine Game'
+
+rows: 3
+
+items:
+
+  create:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/9e4352680d0bb29b9138af783301a391b34090cb4941d52c087ca73c8036cb51'
+    id: ''
+    data: 0
+    glow: false
+    name: '&aCreate game'
+    lore:
+      - ''
+      - '&bClick to start a new game'
+      - ''
+    slot: 12
+
+  players:
+    use-head-last-player: true # if true, the icon will be the head of the last player who started
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: ''
+    data: 0
+    glow: false
+    name: '&eBettors'
+    lore:
+      - '&7Games in progress: &b{games}'
+      - '&7Last player who started: &b{last-player}'
+      - ''
+      - '&7Total money bet: &a{total-money}'
+      - '&7Total cash bet: &6{total-cash}'
+      - ''
+      - '&7Click to see more details and'
+      - '&7all the players playing.'
+    slot: 14
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: '' # Leave '' to use the default name
+    slot: 0
+
+  glass2:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 1
+
+  glass3:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 7
+
+  glass4:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 8
+
+  glass5:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 9
+
+  glass6:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 17
+
+  glass7:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 18
+
+  glass8:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 19
+
+  glass9:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 25
+
+  glass10:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 14
+    glow: false
+    name: ''
+    slot: 26

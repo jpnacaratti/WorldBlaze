@@ -1,0 +1,45 @@
+# MENU GUI, SHOWN WHEN THE PLAYER USES /blaze AND CLICKS ON coinflip
+
+title: 'WorldBlaze - Coinflip'
+
+rows: 3
+
+items:
+
+  create-game:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+    id: ''
+    data: 0
+    glow: false
+    name: '&eCreate game'
+    lore-not-participating:
+      - '&7Click to start a game'
+      - '&7and bet on coinflip with your friends'
+    lore-participating:
+      - ''
+      - '&7You are already in the waiting queue'
+      - '&7to play coinflip.'
+      - ''
+      - '&7Click if you want to leave the queue'
+      - ''
+    slot: 12
+
+  games:
+    use-head: true # if true, ignores 'id' and 'data' below
+    texture: 'https://textures.minecraft.net/texture/146947e2cffd38047de703fd9878acfc9942eb712edc8f257b129cc10fad0667'
+    id: ''
+    data: 0
+    glow: false
+    name: '&eGames'
+    lore:
+      - '&7Matches in progress: &b{ongoing}'
+      - '&7Matches waiting: &b{waiting}'
+      - ''
+      - '&7Matches for you: &b{specific}'
+      - ''
+      - '&7Click to see more details and'
+      - '&7join an existing game.'
+    slot: 14
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO

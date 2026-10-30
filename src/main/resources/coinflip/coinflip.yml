@@ -1,0 +1,267 @@
+# MENU GUI, SHOWN WHEN THE PLAYER USES /blaze AND CLICKS ON mine AND THEN ON create AND FINALLY CONFIRMS
+
+title: 'WorldBlaze - CoinFlip'
+
+rows: 3
+
+coin-slot: 13
+
+starting:
+  use-head: true # if true, ignores 'id' and 'data' below
+  texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+  id: ''
+  data: 0
+  glow: false
+  name: '&eStarting...'
+  lore:
+    - ''
+    - '&7Starts in: {time}s'
+    - ''
+    - '&7Amount bet (money): &a{money}'
+    - '&7Amount bet (cash): &6{cash}'
+    - ''
+    - '&f{owner-player} &7- &e{owner-choice}'
+    - '&f{opponent-player} &7- &e{opponent-choice}'
+
+finished:
+  name: '&cFINISHED'
+  lore:
+    - ''
+    - '&7Finished'
+    - '&7Chosen side: &b{final-choice}'
+    - ''
+    - '&7Winning player: &e{winner}'
+    - ''
+    - '&7Amount won (money): &a{money}'
+    - '&7Amount won (cash): &6{cash}'
+
+heads:
+  use-head: true # if true, ignores 'id' and 'data' below
+  texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+  id: ''
+  data: 0
+  glow: false
+  name: '&eHEADS'
+  lore:
+    - ''
+    - '&bChoice: &bHEADS'
+    - ''
+    - '&7Amount bet (money): &a{money}'
+    - '&7Amount bet (cash): &6{cash}'
+    - ''
+    - '{color}-> &f{owner-player} &7- &e{owner-choice}'
+    - '{color}-> &f{opponent-player} &7- &e{opponent-choice}'
+
+tails:
+  use-head: true # if true, ignores 'id' and 'data' below
+  texture: 'https://textures.minecraft.net/texture/a34b27bfcc8f9b964594b618b1146af69de278ce5e2e3012cb471a9a3cf3871'
+  id: ''
+  data: 0
+  glow: false
+  name: '&eTAILS'
+  lore:
+    - ''
+    - '&bChoice: &bTAILS'
+    - ''
+    - '&7Amount bet (money): &a{money}'
+    - '&7Amount bet (cash): &6{cash}'
+    - ''
+    - '{color}-> &f{owner-player} &7- &e{owner-choice}'
+    - '{color}-> &f{opponent-player} &7- &e{opponent-choice}'
+
+chosen-color: "&b"
+not-chosen-color: "&f"
+
+items:
+
+  owner:
+    use-head-player: true # Uses the player's head as the item
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'BARRIER'
+    data: 0
+    glow: false
+    name: '&e{nick}'
+    lore:
+      - ''
+      - '&7Bet on: &b{owner-choice}'
+      - ''
+    slot: 9
+
+  opponent:
+    use-head-player: true # Uses the player's head as the item
+    use-head: false # if true, ignores 'id' and 'data' below
+    texture: ''
+    id: 'BARRIER'
+    data: 0
+    glow: false
+    name: '&e{nick}'
+    lore:
+      - ''
+      - '&7Bet on: &b{opponent-choice}'
+      - ''
+    slot: 17
+
+  # CRIE QUANTOS ITENS QUISER DAQUI PRA BAIXO
+
+  glass1:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: '' # Leave '' to use the default name
+    slot: 0
+
+  glass2:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 1
+
+  glass3:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 2
+
+  glass4:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 3
+
+  glass5:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 4
+
+  glass6:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 5
+
+  glass7:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 6
+
+  glass8:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 7
+
+  glass9:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 8
+
+  glass10:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 18
+
+  glass11:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 19
+
+  glass12:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 20
+
+  glass13:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 21
+
+  glass14:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 22
+
+  glass15:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 23
+
+  glass16:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 24
+
+  glass17:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 25
+
+  glass18:
+    use-head: false
+    texture: ''
+    id: 'STAINED_GLASS_PANE'
+    data: 11
+    glow: false
+    name: ''
+    slot: 26
