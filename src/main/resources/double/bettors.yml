@@ -39,7 +39,7 @@ items:
       - '&7Bet ID: &f#{id}'
     bet-red: '&cRED' # Setting of the {color} variable in the following cases
     bet-white: '&fWHITE'
-    bet-black: '&8PRETO'
+    bet-black: '&8BLACK'
     status-won: '&bWon ({multiplier}x)' # Setting of the {status} variable in the following cases
     status-lost: '&cLost...'
     status-waiting: '&eWaiting for result...'
