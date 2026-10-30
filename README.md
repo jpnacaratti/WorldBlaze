@@ -17,7 +17,7 @@ The games themselves are **the same as they were in 2022**: no big rewrites and 
 
 ![Hovering over every game in the main menu](assets/overview/menu-hover.gif)
 
-> Hover over each game in `/blaze` to see its name, accepted bets, return, game type and release date. Right-click a game for a tutorial, left-click to play.
+> Hover over each game in `/blaze` to see its name, accepted bets, return, game type and release date (each game has its own, set in the lore of `main.yml`, so you can announce games one at a time). Right-click a game for a tutorial, left-click to play.
 
 ### Games at a glance
 
@@ -57,6 +57,21 @@ The chart is not pure noise. Each new point is a yes/no decision (up or down) th
 
 Since bets are resolved 3 to 8 points after they are placed, the trend ends up deciding many of the results. Turn on `config.debug` to watch the next trend and the special phases in the console.
 
+### Configuration
+
+Everything below lives under `config.graph` in `config.yml`.
+
+| Key | Default | What it does |
+|---|---|---|
+| `bet-delay` | `5` | Seconds a player has to wait between two bets. |
+| `min-time-update` / `max-time-update` | `3` / `8` | Range of updates ahead a player can bet on. |
+| `default-time-update` | `3` | Update time every player starts with when they log in. |
+| `initial-value` | `1250.0` | Value the chart starts at. |
+| `min-random` / `max-random` | `12.5` / `25.0` | Smallest and largest step a point can move. |
+| `win-return` | `82.0` | % of the bet paid to winners. |
+| `min-money-bet` / `max-money-bet` | `15000.0` / `100000000000.0` | Smallest and largest money bet allowed. |
+| `min-cash-bet` / `max-cash-bet` | `0.0` / `1500000.0` | Smallest and largest cash bet allowed. |
+
 ---
 
 ## Crash
@@ -78,6 +93,23 @@ The crash point is rolled **before** the round starts, from a weighted list in `
 To roll it, the list is shuffled and the first entry gets a chance to be accepted (its `chance`); if it fails, the list is shuffled again, until one is accepted. The crash point is then a random value between `from` and `to` of that entry. In practice an entry with a higher chance is picked more often, and the odds of the entries are relative to each other, not absolute percentages. An entry with `from` equal to `to` crashes at exactly that value, so `1.00;1.00` is an instant crash.
 
 The multiplier climbs by `crash-tick-sum-initial` per tick (0.01, so about 0.2x per second) during the first `crash-start-time` seconds, then by `crash-tick-sum-final` (0.05, about 1x per second), which is why the number speeds up as the round goes on. With the default values every round crashes before 2.13x, so raise the ranges if you want bigger multipliers.
+
+### Configuration
+
+Everything below lives under `config.crash` in `config.yml`.
+
+| Key | Default | What it does |
+|---|---|---|
+| `starting-time` | `10.0` | Seconds the starting screen stays up while players decide to join. |
+| `crashed-time` | `5.0` | Seconds the crashed screen stays up after the round. |
+| `crash-start-time` | `10.0` | Seconds the multiplier climbs at the initial speed. |
+| `crash-tick-sum-initial` | `0.01` | Added to the multiplier every tick during that first stretch. |
+| `crash-tick-sum-final` | `0.05` | Added to the multiplier every tick afterwards. |
+| `max-history-values` | `5` | How many past crash points the history shows. |
+| `alert` | `2.0` | Cash outs at or above this multiplier are announced. |
+| `values` | 3 entries | Weighted crash points as `from;to;chance` (see above). |
+| `min-money-bet` / `max-money-bet` | `15000.0` / `100000000000.0` | Smallest and largest money bet allowed. |
+| `min-cash-bet` / `max-cash-bet` | `0.0` / `1500000.0` | Smallest and largest cash bet allowed. |
 
 ---
 
@@ -105,6 +137,26 @@ So the longer a color keeps winning, the less likely it gets to repeat, and whit
 
 **Rigged rounds.** If `config.double.rigging` is enabled and the round's total bet reaches the configured money or cash value, there is a chance (60% by default) that the round is rigged. The house then looks at how much was bet on each color (in cash if anyone bet cash, otherwise in money) and makes the color with the **second most** bet win, with a 1% chance of white instead. In practice this makes the side that bet the most lose. It can be disabled with `rigging.enabled: false`.
 
+### Configuration
+
+Everything below lives under `config.double` in `config.yml`.
+
+| Key | Default | What it does |
+|---|---|---|
+| `starting-time` | `10.0` | Seconds of the betting phase. |
+| `finished-time` | `5.0` | Seconds the result stays up before the next round. |
+| `animation-time` | `8.0` | Seconds the color animation lasts. |
+| `initial-interval` / `final-interval` | `1` / `20` | Ticks between colors at the start and at the end of the animation. |
+| `interval-change-time` | `4.0` | Seconds it takes to slow down from the initial to the final interval. |
+| `initial-red-chance` / `initial-black-chance` / `initial-white-chance` | `49.5` / `49.5` / `1.0` | Starting odds of each color. |
+| `max-history-values` | `10` | How many past colors the history shows. |
+| `money-alert` / `cash-alert` | `200000.0` / `0.0` | Winnings above these values are broadcast to the server. |
+| `rigging.enabled` | `true` | Turns the rigging on or off. |
+| `rigging.money` / `rigging.cash` | `500000.0` / `5000.0` | Round total that makes the rigging eligible. |
+| `rigging.chance` | `60.0` | % chance the rigging applies once eligible. |
+| `min-money-bet` / `max-money-bet` | `15000.0` / `100000000000.0` | Smallest and largest money bet allowed. |
+| `min-cash-bet` / `max-cash-bet` | `0.0` / `1500000.0` | Smallest and largest cash bet allowed. |
+
 ---
 
 ## Mine
@@ -126,6 +178,25 @@ Mines are not all placed the same way. When the match starts, all the mines **ex
 
 The house can rig big bets by making that roll harsher. When a match starts, the bet is checked against the thresholds in `config.mine.rigging` (separate lists for money and cash, each with its own chance, and the highest threshold reached wins). The higher the bet, the higher the chance that the match is "caught". If it is, the chance of that roll is multiplied (10x by default, `chance-multiplier`) on every click. The fixed mines are never moved. Small bets are never affected, and it can be disabled with `rigging.enabled: false`.
 
+### Configuration
+
+Everything below lives under `config.mine` in `config.yml`.
+
+| Key | Default | What it does |
+|---|---|---|
+| `default-mines` | `3` | Number of mines a player starts with. |
+| `min-mines` / `max-mines` | `3` / `52` | Range of mines allowed. |
+| `multipliers` | `3` to `12` mines | Maximum multiplier per number of mines, as `mines;multiplier`. |
+| `menu-rows` | `6` | Rows of the game menu. |
+| `game-slots` | 53 slots | Slots that can hold a tile. |
+| `min-slots-to-exit` | `1` | Tiles a player must open before cashing out. |
+| `money-alert` / `cash-alert` | `200000.0` / `0.0` | Winnings above these values are broadcast to the server. |
+| `rigging.enabled` | `true` | Turns the rigging on or off. |
+| `rigging.chance-multiplier` | `10` | How much harsher the last mine's chance becomes when rigged. |
+| `rigging.money` / `rigging.cash` | `500000;50`, `750000;75` / `5000;50`, `7500;75` | Bet thresholds as `value;chance`. |
+| `min-money-bet` / `max-money-bet` | `15000.0` / `100000000000.0` | Smallest and largest money bet allowed. |
+| `min-cash-bet` / `max-cash-bet` | `0.0` / `1500000.0` | Smallest and largest cash bet allowed. |
+
 ---
 
 ## Animal Game
@@ -145,6 +216,19 @@ The plugin's version of the **Jogo do Bicho**, a very Brazilian lottery where ea
 
 The house can rig the draw. When a bet goes over a threshold of money or cash (`config.animal-game.rigging`), there is a configurable chance (60% by default) that the animal it was placed on is removed from the draw, so big bets are less likely to win. It can be disabled with `rigging.enabled: false`.
 
+### Configuration
+
+Everything below lives under `config.animal-game` in `config.yml`.
+
+| Key | Default | What it does |
+|---|---|---|
+| `money-alert` / `cash-alert` | `200000.0` / `0.0` | Winnings above these values are broadcast to the server. |
+| `rigging.enabled` | `true` | Turns the rigging on or off. |
+| `rigging.money` / `rigging.cash` | `5000000.0` / `5000.0` | A bet at or above these values can be rigged. |
+| `rigging.chance` | `60.0` | % chance the animal of a big bet gets removed from the draw. |
+| `min-money-bet` / `max-money-bet` | `15000.0` / `100000000000.0` | Smallest and largest money bet allowed. |
+| `min-cash-bet` / `max-cash-bet` | `0.0` / `1500000.0` | Smallest and largest cash bet allowed. |
+
 ---
 
 ## CoinFlip
@@ -162,6 +246,20 @@ A head-to-head duel. One player creates a game picking heads or tails and the am
 ### Behind the scenes
 
 This is the only game without any house influence: the result is a plain 50/50 coin, rolled when the flip ends. The coin swapping on the menu while it spins is just the animation and has no effect on the result. Since it is player versus player, the house only earns from the cut: with `payout-rate: 90.0`, the winner receives 90% of the total pot and the other 10% is removed from the economy.
+
+### Configuration
+
+Everything below lives under `config.coinflip` in `config.yml`.
+
+| Key | Default | What it does |
+|---|---|---|
+| `starting-time` | `10.0` | Seconds of the starting screen. |
+| `flipping-time` | `5.0` | Seconds the coin keeps spinning. |
+| `swap-interval` | `10` | Ticks between coin swaps (`0` disables, max `20`). |
+| `payout-rate` | `90.0` | % of the pot the winner receives. |
+| `money-alert` / `cash-alert` | `200000.0` / `0.0` | Winnings above these values are broadcast to the server. |
+| `min-money-bet` / `max-money-bet` | `15000.0` / `100000000000.0` | Smallest and largest money bet allowed. |
+| `min-cash-bet` / `max-cash-bet` | `0.0` / `1500000.0` | Smallest and largest cash bet allowed. |
 
 ---
 
